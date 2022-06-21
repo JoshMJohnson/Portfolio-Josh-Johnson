@@ -13,7 +13,7 @@ int main() {
     char c;
 
     /* tries to open file */
-    if ((file = fopen("../text_files/basic_text.txt", "r")) == NULL) {
+    if ((file = fopen("../Test_Files/Basic_Text.txt", "r")) == NULL) {
         printf("Could not open the file");
 
         exit(EXIT_FAILURE); /* same as exit(1) */
