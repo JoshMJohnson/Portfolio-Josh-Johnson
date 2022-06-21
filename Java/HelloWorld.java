@@ -1,6 +1,6 @@
 /*
  * This Java program simply prints a text to stdout. 
- * Primarily used to ensure Java is working properly
+ * Primarily used to ensure Java is working properly on a system
  *
  * Created By: Josh Johnson
  */
