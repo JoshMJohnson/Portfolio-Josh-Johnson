@@ -1,5 +1,0 @@
-This is the first line in the text file
-This is the second line of the text file
-This is another line within the text file
-This is the second to last line in the text file
-This is the last line in the text file
