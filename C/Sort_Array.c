@@ -1,8 +1,13 @@
 /*
  * This C program sorts an unsorted array of integers
- * - Does this in two different ways
- *  - Gets list of integers from a file in one way
- *  - Already has a list of integers in the second way
+ * using multiple different methods 
+ *
+ * Sorting methods implemented
+ * - Selection Sort
+ * - TODO Bubble Sort
+ * - TODO Merge Sort
+ * - TODO Quick Sort
+ * - TODO Insertion Sort
  * 
  * Created By: Josh Johnson
  */
@@ -13,7 +18,7 @@
 /* reads a file of integers and creates an unsorted array */
 int create_array_from_file();
 
-/* sorts an array in increasing order using selection sort method */
+/* selection sort method */
 void array_selection_sort(int*, int);
 
 /* swaps two integers in memory */
@@ -38,6 +43,19 @@ int main() {
         }
     }
 
+    /*
+    printf("Array two before ordering: ");
+
+    for (i = 0; i < (sizeof arr_one / sizeof arr_one[0]); i++) {
+        if (i == (sizeof arr_one / sizeof arr_one[0]) - 1) {
+            printf("%d\n", *(arr_one_pointer + i));
+        }
+        else {
+            printf("%d ", *(arr_one_pointer + i));
+        }
+    }
+    */
+
     /* sorts array */
     array_selection_sort(arr_one_pointer, sizeof arr_one / sizeof arr_one[0]);
 
@@ -51,6 +69,19 @@ int main() {
             printf("%d ", arr_one[i]);
         }
     }
+
+    /*
+    printf("Array two after ordering: ");
+
+    for (i = 0; i < (sizeof arr_one / sizeof arr_one[0]); i++) {
+        if (i == (sizeof arr_one / sizeof arr_one[0]) - 1) {
+            printf("%d\n", arr_one[i]);
+        }
+        else {
+            printf("%d ", arr_one[i]);
+        }
+    }
+    */
     
     return EXIT_SUCCESS; /* Same as return 0 */
 }
@@ -80,7 +111,7 @@ int create_array_from_file() {
     return EXIT_SUCCESS;
 }
 
-/* sorts an array in increasing order using selection sort method */
+/* selection sort method */
 void array_selection_sort(int* arr, int n) {
     int i, j, min_idx;
  
