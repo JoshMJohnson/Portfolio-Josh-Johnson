@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class SimpleReadFromFile {
 	public static void main(String args[]) {
 		try {			
-			File file = new File("../text_files/poem.txt");
+			File file = new File("../Test_Files/Poem.txt");
 			Scanner reader = new Scanner(file);
 			
 			while (reader.hasNextLine()) {
