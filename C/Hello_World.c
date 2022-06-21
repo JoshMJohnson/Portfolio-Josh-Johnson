@@ -1,6 +1,6 @@
 /*
  * This C program simply prints a text to stdout. 
- * Primarily used to ensure C is working properly
+ * Primarily used to ensure C is working properly on a system
  *
  * Created By: Josh Johnson
  */
