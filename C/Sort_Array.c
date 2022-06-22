@@ -173,10 +173,11 @@ node_t* create_linked_list_from_file() {
 void array_selection_sort(int* arr, int n) {
     int i, j, min_idx;
  
-    /* one by one move boundary of unsorted subarray */
+    /* one by one move boundary of unsorted sub-array */
     for (i = 0; i < n - 1; i++) {
-        /* find the minimum element in unsorted array */
         min_idx = i;
+
+        /* find the minimum element in unsorted array */
         for (j = i + 1; j < n; j++) {
             if (*(arr + j) < *(arr + min_idx)) {
                 min_idx = j;
@@ -189,8 +190,7 @@ void array_selection_sort(int* arr, int n) {
 }
 
 /* swaps two integers in memory */
-void swap(int* p1, int* p2)
-{
+void swap(int* p1, int* p2) {
     int temp = *p1;
     *p1 = *p2;
     *p2 = temp;
