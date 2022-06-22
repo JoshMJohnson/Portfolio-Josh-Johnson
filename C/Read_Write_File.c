@@ -36,8 +36,8 @@ int main() {
     } while (!feof(file_in));
 
     printf("Successfully wrote to the output file");
-
     fclose(file_in);
     fclose(file_out);
+    
     return EXIT_SUCCESS; /* Same as return 0 */
 }
