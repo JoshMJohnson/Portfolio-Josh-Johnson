@@ -19,20 +19,20 @@ public class ReadWriteFile {
 			FileWriter writer = new FileWriter("../Test_Files/Output_Files/Basic_Dup_From_Read_Write_File_Java.txt");
 			BufferedWriter buff = new BufferedWriter(writer);
 
-            Scanner reader = new Scanner(file_in);
+			Scanner reader = new Scanner(file_in);
 			
 			while (reader.hasNextLine()) {
 				String line = reader.nextLine();
 				buff.write(line);
 
-                if (reader.hasNextLine()) {
-                    buff.newLine();
-                }
+				if (reader.hasNextLine()) {
+					buff.newLine();
+				}
 			}
 
 			System.out.print("Successfully wrote to output file");
 						
-            buff.close();
+			buff.close();
 			writer.close();
 			reader.close();
 		} catch (Exception e) {
