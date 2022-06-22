@@ -15,16 +15,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* singly linked list of nodes */
+/* singly linked list of nodes struct */
 typedef struct node {
     int value;
     struct node* next;
 } node_t;
 
-/* reads a file of integers and creates an unsorted singly linked list of nodes */
+/* reads from a file of integers and creates an unsorted singly linked list of nodes */
 node_t* create_linked_list_from_file();
 
-/* selection sort method */
+/* returns the number of nodes within the linked list that has no sentinal nodes */
+int size_of_list(node_t*);
+
+/* creates an array from a singly linked list of nodes */
+void create_array_from_list(node_t*, int*, int);
+
+/* performs a selection sort algorithm */
 void array_selection_sort(int*, int);
 
 /* swaps two integers in memory */
@@ -34,33 +40,17 @@ int main() {
     int i;
     int arr_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6};
     int* arr_one_pointer = arr_one;
-    node_t* head = NULL;
-    node_t* current = NULL;
     int* arr_two;
-    int arr_two_size = 0;
-
-    /* gets list of integers from a file */
+    int arr_two_size;
+    node_t* head = NULL;
+    
     head = create_linked_list_from_file();
-
-    /* get number of elements in list */
-    current = head;
-
-    while (current != NULL) {
-        arr_two_size++;
-        current = current->next;
-    }
-
-    // create an array with those elements from the list
+    arr_two_size = size_of_list(head);
     arr_two = (int*) malloc(arr_two_size*sizeof(int));
-    current = head;
+    create_array_from_list(head, arr_two, arr_two_size);
 
-    for (i = 0; i < arr_two_size; i++) {
-        *(arr_two + i) = current->value;
-        current = current->next;
-    }
-
-    printf("Array one before ordering: ");
-
+    /* prints the first array before any sorting algorithm is applied */
+    printf("Array one before any sorting algorithm has been applied: ");
     for (i = 0; i < (sizeof arr_one / sizeof arr_one[0]); i++) {
         if (i == (sizeof arr_one / sizeof arr_one[0]) - 1) {
             printf("%d\n", *(arr_one_pointer + i));
@@ -70,8 +60,8 @@ int main() {
         }
     }
     
-    printf("Array two before ordering: ");
-
+    /* prints the second array before any sorting algorithm is applied */
+    printf("Array two before any sorting algorithm has been applied: ");
     for (i = 0; i < arr_two_size; i++) {
         if (i == arr_two_size - 1) {
             printf("%d\n", *(arr_two + i));
@@ -81,12 +71,13 @@ int main() {
         }
     }
 
-    /* sorts array */
+    /* applies sorting algorithms */
+    /* selection sort */
     array_selection_sort(arr_one_pointer, sizeof arr_one / sizeof arr_one[0]);
     array_selection_sort(arr_two, arr_two_size);
 
-    printf("Array one after ordering: ");
-
+    /* prints the first array after the selection sorting algorithm is applied */
+    printf("Array one after selection sort: ");
     for (i = 0; i < (sizeof arr_one / sizeof arr_one[0]); i++) {
         if (i == (sizeof arr_one / sizeof arr_one[0]) - 1) {
             printf("%d\n", arr_one[i]);
@@ -96,8 +87,8 @@ int main() {
         }
     }
 
-    printf("Array two after ordering: ");
-
+    /* prints the second array after the selection sorting algorithm is applied */
+    printf("Array two after selection sort: ");
     for (i = 0; i < arr_two_size; i++) {
         if (i == arr_two_size - 1) {
             printf("%d\n", arr_two[i]);
@@ -106,14 +97,38 @@ int main() {
             printf("%d ", arr_two[i]);
         }
     }
+
+    /* frees the allocated memory */
+    free(arr_two);
         
     return EXIT_SUCCESS; /* Same as return 0 */
 }
 
-/* TODO: creates an array from a singly linked list of nodes */
+/* returns the number of nodes within the linked list that has no sentinal nodes */
+int size_of_list(node_t* head){
+    node_t* current = head;
+    int arr_two_size = 0;
 
+    while (current != NULL) {
+        arr_two_size++;
+        current = current->next;
+    }
 
-/* reads a file of integers and creates an unsorted array */
+    return arr_two_size;
+}
+
+/* creates an array from a singly linked list of nodes */
+void create_array_from_list(node_t* head, int* arr_two, int arr_two_size) {
+    node_t* current = head;
+    int i;
+
+    for (i = 0; i < arr_two_size; i++) {
+        *(arr_two + i) = current->value;
+        current = current->next;
+    }
+}
+
+/* reads from a file of integers and creates an unsorted singly linked list of nodes */
 node_t* create_linked_list_from_file() {
     FILE* file;
     node_t* head = NULL;
@@ -122,7 +137,6 @@ node_t* create_linked_list_from_file() {
     /* tries to open file */
     if ((file = fopen("../Test_Files/Random_Integers_No_Duplicates.txt", "r")) == NULL) {
         printf("Could not open the file");
-
         exit(EXIT_FAILURE); /* same as exit(1) */
     }
 
@@ -132,7 +146,6 @@ node_t* create_linked_list_from_file() {
 
         fscanf(file, "%d", &num);
 
-        // save num into array
         if (head == NULL) {
             head = (node_t*) malloc(sizeof(node_t));
             head->value = num;
@@ -153,11 +166,10 @@ node_t* create_linked_list_from_file() {
     } while (!feof(file));
 
     fclose(file);
-
     return head;
 }
 
-/* selection sort method */
+/* performs a selection sort algorithm */
 void array_selection_sort(int* arr, int n) {
     int i, j, min_idx;
  
