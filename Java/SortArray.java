@@ -50,7 +50,6 @@ import java.lang.Math;
                 list.add(value);
             }
 
-            System.out.println("Successfully read from file");
             reader.close();
         } catch (FileNotFoundException e) {
             System.err.println("Could not find file");

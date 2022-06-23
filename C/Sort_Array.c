@@ -4,10 +4,10 @@
  *
  * Sorting algorithms implemented
  * - Selection Sort
- * - TODO Bubble Sort
- * - TODO Merge Sort
- * - TODO Quick Sort
- * - TODO Insertion Sort
+ * - TO DO: Bubble Sort
+ * - TO DO: Merge Sort
+ * - TO DO: Quick Sort
+ * - TO DO: Insertion Sort
  * 
  * Created By: Josh Johnson
  */
