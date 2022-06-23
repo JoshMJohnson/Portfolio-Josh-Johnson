@@ -38,9 +38,9 @@ void swap(int*, int*);
 
 int main() {
     int i;
-    int arr_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6};
+    int arr_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; // array size and values are given by program
     int* arr_one_pointer = arr_one;
-    int* arr_two;
+    int* arr_two; // array size and values are discovered by reading a file
     int arr_two_size;
     node_t* head = NULL;
     
