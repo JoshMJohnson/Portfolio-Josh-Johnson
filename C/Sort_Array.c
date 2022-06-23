@@ -1,6 +1,6 @@
 /*
  * This C program sorts an unsorted array of integers
- * using multiple different methods 
+ * using multiple different sorting algorithms 
  *
  * Sorting algorithms implemented
  * - Selection Sort
