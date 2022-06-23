@@ -1,9 +1,9 @@
 # Simple-Coding-Examples
-Holds basic coding examples across multiple coding languages along with some test cases.
+Holds coding examples which demonstrate basic concepts across multiple coding languages.
 
 Contains code in multiple languages that perform simple tasks. 
 
-These simple tasks include basic concepts related to files, arrays, and other simple ideas across multiple different coding languages.
+These simple tasks include concepts related to files, arrays, and other simple ideas across multiple different coding languages.
 
 Test files are also included within this repo.
 
