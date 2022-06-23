@@ -18,13 +18,17 @@
  public class SortArray {
     public static void main (String [] args) {
         SortArray sa = new SortArray();
-        int[] array_one = new int[20]; // array size and values are given by program
-        int[] array_two; // array size and values are discovered by reading a file
-        
+
+        /* array one - size and values are given by program */
+        int[] array_one = new int[20];
         array_one = sa.create_array(array_one);
         sa.print_array(array_one, 1, false, "Selection Sort");
         sa.array_selection_sort(array_one);
         sa.print_array(array_one, 1, true, "Selection Sort");
+        
+        /* array two - array size and values are discovered by reading a file */
+        int[] array_two; 
+
     }
 
     /* fills in an initialized array with random values */
