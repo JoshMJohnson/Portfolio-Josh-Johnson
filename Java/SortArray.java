@@ -28,7 +28,6 @@
         
         /* array two - array size and values are discovered by reading a file */
         int[] array_two; 
-
     }
 
     /* fills in an initialized array with random values */
