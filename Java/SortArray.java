@@ -26,25 +26,31 @@ import java.lang.Math;
         /* selection sort - size and values are given by program */
         int[] array_one = new int[20];
         array_one = sa.fill_array(array_one);
-        sa.print_array(array_one, 1, false, "Selection Sort");
+        sa.print_array(array_one, 1, false, "Selection");
         sa.array_selection_sort(array_one);
-        sa.print_array(array_one, 1, true, "Selection Sort");
+        sa.print_array(array_one, 1, true, "Selection");
 
         /* bubble sort - size and values are given by program */
-        int[] array_three = {2, 5, 3, 9, 21, 56, 1, 2, 7, 3, 99, 65, 21, 8};
-        sa.print_array(array_three, 2, false, "Bubble Sort");
-        sa.array_bubble_sort(array_three);
-        sa.print_array(array_three, 2, true, "Bubble Sort");
+        int[] array_two = {2, 5, 3, 9, 21, 56, 1, 2, 7, 3, 99, 65, 21, 8};
+        sa.print_array(array_two, 2, false, "Bubble");
+        sa.array_bubble_sort(array_two);
+        sa.print_array(array_two, 2, true, "Bubble");
 
         /* insertion sort - array size and values are discovered by reading a file */
-        ArrayList<Integer> array_four_list = sa.create_array_from_file("../Test_Files/Random_Integers_No_Duplicates.txt");
-        int[] array_four = sa.create_array_from_list(array_four_list);
-        sa.print_array(array_four, 3, false, "Insertion Sort");
-        sa.array_insertion_sort(array_four);
-        sa.print_array(array_four, 3, true, "Insertion Sort");
+        ArrayList<Integer> array_three_list = sa.create_array_from_file("../Test_Files/Random_Integers_No_Duplicates.txt");
+        int[] array_three = sa.create_array_from_list(array_three_list);
+        sa.print_array(array_three, 3, false, "Insertion");
+        sa.array_insertion_sort(array_three);
+        sa.print_array(array_three, 3, true, "Insertion");
 
-        /* TO DO: Insertion sort - array size and values are discovered by reading a file */
-        /* TO DO: Merge sort - array size and values are discovered by reading a file */
+        /* quick sort - array size and values are discovered by reading a file */
+        ArrayList<Integer> array_four_list = sa.create_array_from_file("../Test_Files/Random_Integers_With_Duplicates.txt");
+        int[] array_four = sa.create_array_from_list(array_four_list);
+        sa.print_array(array_four, 4, false, "Quick");
+        sa.array_quick_sort(array_four);
+        sa.print_array(array_four, 4, true, "Quick");
+
+        /* TO DO: merge sort - array size and values are discovered by reading a file */
     }
 
     /* reads from a file of integers and adds elements to an arraylist */
@@ -150,15 +156,22 @@ import java.lang.Math;
         return arr;
     }
 
+    /* TO DO: performs a quick sort algorithm */
+    private int[] array_quick_sort(int[] arr) {
+
+
+        return arr;
+    }
+    
     /* prints the contents of the given integer array to stdout */
     private void print_array(int[] arr, int arr_id, boolean ordered, String sorting_type) {
         if (ordered){
             System.out.print("Array with ID " + arr_id 
-            + " after " + sorting_type + " algorithm: ");
+            + " after " + sorting_type + " Sort algorithm applied: ");
         }
         else {
             System.out.print("Array with ID " + arr_id 
-            + " before " + sorting_type + " algorithm: ");
+            + " before " + sorting_type + " Sort algorithm applied: ");
         }
 
         for (int i = 0; i < arr.length; i++) {
