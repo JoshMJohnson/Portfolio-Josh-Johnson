@@ -6,7 +6,7 @@
  * - Selection Sort
  * - Bubble Sort
  * - Insertion Sort
- * - TO DO: Quick Sort
+ * - Quick Sort
  * - TO DO: Merge Sort
  * 
  * Created By: Josh Johnson
@@ -47,7 +47,7 @@ import java.lang.Math;
         ArrayList<Integer> array_four_list = sa.create_array_from_file("../Test_Files/Random_Integers_With_Duplicates.txt");
         int[] array_four = sa.create_array_from_list(array_four_list);
         sa.print_array(array_four, 4, false, "Quick");
-        sa.array_quick_sort(array_four);
+        sa.array_quick_sort(array_four, 0, array_four.length - 1);
         sa.print_array(array_four, 4, true, "Quick");
 
         /* TO DO: merge sort - array size and values are discovered by reading a file */
@@ -103,7 +103,7 @@ import java.lang.Math;
     private int[] array_selection_sort(int[] arr) { 
         /* one by one move boundary of unsorted subarray */
         for (int i = 0; i < (arr.length - 1); i++) {
-            /* find the minimum element in unsorted array */
+            /* find the minimum element in unsorted portion array */
             int min_idx = i;
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[min_idx])
@@ -111,9 +111,11 @@ import java.lang.Math;
             }
  
             /* swap the found minimum element with the first element */
-            int temp = arr[min_idx];
-            arr[min_idx] = arr[i];
-            arr[i] = temp;
+            if (min_idx != i) {
+                int temp = arr[min_idx];
+                arr[min_idx] = arr[i];
+                arr[i] = temp;
+            }
         }
 
         return arr;
@@ -142,7 +144,7 @@ import java.lang.Math;
             int j = i - 1;
  
             /* 
-             * Move elements of arr[0..i-1], that are greater than key, 
+             * move elements of arr[0..i-1], that are greater than key, 
              * to one position ahead of their current position 
              */
             while (j >= 0 && arr[j] > key) {
@@ -156,11 +158,46 @@ import java.lang.Math;
         return arr;
     }
 
-    /* TO DO: performs a quick sort algorithm */
-    private int[] array_quick_sort(int[] arr) {
-
+    /* performs a quick sort algorithm */
+    private int[] array_quick_sort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+    
+            /* separately sort elements before and after partition */
+            array_quick_sort(arr, low, pi - 1);
+            array_quick_sort(arr, pi + 1, high);
+        }
 
         return arr;
+    }
+
+    /* 
+     * takes the last element as pivot, places the pivot element at 
+     * correct position in sorted array, and places all smaller elements
+     * to the left of the pivot and all greater elements to right of pivot 
+     */
+    private int partition(int[] arr, int low, int high) {
+        int temp;
+        int pivot = arr[high];
+        int i = (low - 1);
+    
+        for(int j = low; j <= high - 1; j++) {
+            if (arr[j] < pivot) {
+                i++;
+
+                /* swap two elements */
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        /* swap two elements */
+        temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return (i + 1);
     }
     
     /* prints the contents of the given integer array to stdout */
