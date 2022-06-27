@@ -1,4 +1,4 @@
-# Simple-Coding-Examples
+# Simple_Coding_Examples
 Holds coding examples which demonstrate basic concepts across multiple coding languages.
 
 Contains code in multiple languages that perform simple tasks. 
