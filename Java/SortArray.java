@@ -161,11 +161,11 @@ import java.lang.Math;
     /* performs a quick sort algorithm */
     private int[] array_quick_sort(int[] arr, int low, int high) {
         if (low < high) {
-            int pi = partition(arr, low, high);
+            int index = partition(arr, low, high);
     
             /* separately sort elements before and after partition */
-            array_quick_sort(arr, low, pi - 1);
-            array_quick_sort(arr, pi + 1, high);
+            array_quick_sort(arr, low, index - 1);
+            array_quick_sort(arr, index + 1, high);
         }
 
         return arr;
