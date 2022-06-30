@@ -5,17 +5,17 @@
  *
  * Sorting algorithms implemented
  * - Selection Sort
+ * - Insertion Sort
  * - Bubble Sort
- * - TO DO: Merge Sort
  * - TO DO: Quick Sort
- * - TO DO: Insertion Sort
- * 
+ * - TO DO: Merge Sort
  * Created By: Josh Johnson
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 
 /* singly linked list of nodes struct */
 typedef struct node {
@@ -35,6 +35,9 @@ void create_array_from_list(node_t*, int*, int);
 /* performs a selection sort algorithm */
 void array_selection_sort(int*, int);
 
+/* performs an insertion sort algorithm */
+void array_insertion_sort(int*, int);
+
 /* performs a bubble sort algorithm */
 void array_bubble_sort(int*, int);
 
@@ -44,38 +47,53 @@ void print_array(int*, int, int, char*, bool);
 /* swaps two integers in memory */
 void swap(int*, int*);
 
+/* fills in an initialized array with random values */
+void fill_array(int*, int);
+
 int main() {
     node_t *head = NULL;
     int i, id = 0;
-    int arr_one_size, arr_two_size; 
-    int *arr_one_pointer, *arr_two_pointer;
-    int arr_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
+    int array_one_size, array_two_size, array_three_size; 
+    int *array_one_pointer, *array_two_pointer, *array_three_pointer;
+    int array_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
     char *file_name;
 
     /* applies sorting algorithms */
     /* selection sort - array size and values are given by program */
-    arr_one_size = sizeof arr_one / sizeof arr_one[0];
-    arr_one_pointer = arr_one;
+    array_one_size = sizeof array_one / sizeof array_one[0];
+    array_one_pointer = array_one;
 
     id++;
-    print_array(arr_one_pointer, arr_one_size, id, "Selection", false);
-    array_selection_sort(arr_one_pointer, arr_one_size);
-    print_array(arr_one_pointer, arr_one_size, id, "Selection", true);
+    print_array(array_one_pointer, array_one_size, id, "Selection", false);
+    array_selection_sort(array_one_pointer, array_one_size);
+    print_array(array_one_pointer, array_one_size, id, "Selection", true);
+
+    /* insertion sort - array size and values are given by program */
+    array_two_size = 20;
+    array_two_pointer = (int*) malloc(array_two_size * sizeof(int));
+    fill_array(array_two_pointer, array_two_size);
+    
+    id++;
+    print_array(array_two_pointer, array_two_size, id, "Insertion", false);
+    array_insertion_sort(array_two_pointer, array_two_size);
+    print_array(array_two_pointer, array_two_size, id, "Insertion", true);
 
     /* bubble sort - array size and values are discovered by reading a file */
     file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
     head = create_linked_list_from_file(file_name);
-    arr_two_size = size_of_list(head);
-    arr_two_pointer = (int*) malloc(arr_two_size * sizeof(int));
-    create_array_from_list(head, arr_two_pointer, arr_two_size);
+    array_three_size = size_of_list(head);
+    array_three_pointer = (int*) malloc(array_three_size * sizeof(int));
+    create_array_from_list(head, array_three_pointer, array_three_size);
     
     id++;
-    print_array(arr_two_pointer, arr_two_size, id, "Bubble", false);
-    array_bubble_sort(arr_two_pointer, arr_two_size);
-    print_array(arr_two_pointer, arr_two_size, id, "Bubble", true);   
+    print_array(array_three_pointer, array_three_size, id, "Bubble", false);
+    array_bubble_sort(array_three_pointer, array_three_size);
+    print_array(array_three_pointer, array_three_size, id, "Bubble", true);   
+
     
     /* frees allocated memory */
-    free(arr_two_pointer);
+    free(array_two_pointer);
+    free(array_three_pointer);
         
     return EXIT_SUCCESS; /* Same as return 0 */
 }
@@ -164,6 +182,23 @@ void array_selection_sort(int *arr, int arr_size) {
     }
 }
 
+/* performs an insertion sort algorithm */
+void array_insertion_sort(int *arr, int arr_size) {
+    int i, j, key;
+    
+    for (i = 1; i < arr_size; i++) {
+        key = arr[i];
+        j = i - 1;
+ 
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+
+        arr[j + 1] = key;
+    }
+}
+
 /* performs a bubble sort algorithm */
 void array_bubble_sort(int *arr, int arr_size) {
     int i, j;
@@ -203,4 +238,16 @@ void swap(int *p1, int *p2) {
     int temp = *p1;
     *p1 = *p2;
     *p2 = temp;
+}
+
+/* fills in an initialized array with random values */
+void fill_array(int* array_pointer, int array_size) {
+    int i, random_value;
+
+    srand(time(NULL)); // seeding: prevents same random values every test case
+
+    for (i = 0; i < array_size; i++) {
+        random_value = rand() % 100 + 1; // random value between 1-100
+        *(array_pointer + i) = random_value;
+    }
 }
