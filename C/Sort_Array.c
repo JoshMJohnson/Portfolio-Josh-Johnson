@@ -46,7 +46,7 @@ void swap(int*, int*);
 
 int main() {
     node_t *head = NULL;
-    int i;
+    int i, id = 0;
     int arr_one_size, arr_two_size; 
     int *arr_one_pointer, *arr_two_pointer;
     int arr_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
@@ -57,9 +57,10 @@ int main() {
     arr_one_size = sizeof arr_one / sizeof arr_one[0];
     arr_one_pointer = arr_one;
 
-    print_array(arr_one_pointer, arr_one_size, 1, "Selection", false);
+    id++;
+    print_array(arr_one_pointer, arr_one_size, id, "Selection", false);
     array_selection_sort(arr_one_pointer, arr_one_size);
-    print_array(arr_one_pointer, arr_one_size, 1, "Selection", true);
+    print_array(arr_one_pointer, arr_one_size, id, "Selection", true);
 
     /* bubble sort - array size and values are discovered by reading a file */
     file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
@@ -68,9 +69,10 @@ int main() {
     arr_two_pointer = (int*) malloc(arr_two_size * sizeof(int));
     create_array_from_list(head, arr_two_pointer, arr_two_size);
     
-    print_array(arr_two_pointer, arr_two_size, 2, "Bubble", false);
+    id++;
+    print_array(arr_two_pointer, arr_two_size, id, "Bubble", false);
     array_bubble_sort(arr_two_pointer, arr_two_size);
-    print_array(arr_two_pointer, arr_two_size, 2, "Bubble", true);   
+    print_array(arr_two_pointer, arr_two_size, id, "Bubble", true);   
     
     /* frees allocated memory */
     free(arr_two_pointer);
