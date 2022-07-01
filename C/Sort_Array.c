@@ -247,7 +247,7 @@ void fill_array(int* array_pointer, int array_size) {
     srand(time(NULL)); // seeding: prevents same random values every test case
 
     for (i = 0; i < array_size; i++) {
-        random_value = rand() % 100 + 1; // random value between 1-100
+        random_value = (rand() % 100) + 1; // random value between 1-100
         *(array_pointer + i) = random_value;
     }
 }

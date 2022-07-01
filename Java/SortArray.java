@@ -93,7 +93,7 @@ import java.lang.Math;
         int value;
 
         for (int i = 0; i < arr.length; i++) {
-            value = (int) (Math.random()*100) + 1; // random integer 1-100
+            value = (int) (Math.random() * 100) + 1; // random integer 1-100
             arr[i] = value;
         }
 
@@ -102,7 +102,6 @@ import java.lang.Math;
 
     /* performs a selection sort algorithm */
     private int[] array_selection_sort(int[] arr) { 
-        /* one by one move boundary of unsorted subarray */
         for (int i = 0; i < (arr.length - 1); i++) {
             /* find the minimum element in unsorted portion array */
             int min_idx = i;
@@ -205,11 +204,11 @@ import java.lang.Math;
     private void print_array(int[] arr, int arr_id, boolean ordered, String sorting_type) {
         if (ordered){
             System.out.print("Array with ID " + arr_id 
-            + " after " + sorting_type + " Sort algorithm applied: ");
+                + " after " + sorting_type + " Sort algorithm applied: ");
         }
         else {
             System.out.print("Array with ID " + arr_id 
-            + " before " + sorting_type + " Sort algorithm applied: ");
+                + " before " + sorting_type + " Sort algorithm applied: ");
         }
 
         for (int i = 0; i < arr.length; i++) {
