@@ -89,7 +89,6 @@ int main() {
     print_array(array_three_pointer, array_three_size, id, "Bubble", false);
     array_bubble_sort(array_three_pointer, array_three_size);
     print_array(array_three_pointer, array_three_size, id, "Bubble", true);   
-
     
     /* frees allocated memory */
     free(array_two_pointer);

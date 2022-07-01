@@ -26,9 +26,9 @@ print_array(array_one, true, "Selection");
 
 /* bubble sort - size and values are given by program */
 var array_two = new Array(20);
+fill_array(array_two);
 array_id++;
 
-fill_array(array_two);
 print_array(array_two, false, "Bubble");
 array_bubble_sort(array_two);
 print_array(array_two, true, "Bubble");
