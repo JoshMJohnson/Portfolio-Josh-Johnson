@@ -6,13 +6,14 @@
  * Sorting algorithms implemented
  * - Selection Sort
  * - Bubble Sort
- * - TO DO: Insertion Sort
+ * - Insertion Sort
  * - TO DO: Quick Sort
  * - TO DO: Merge Sort
  * 
  * Created By: Josh Johnson
  */
 
+/* driver code */
 /* running variables */
 var array_id = 0;
 
@@ -32,6 +33,30 @@ array_id++;
 print_array(array_two, false, "Bubble");
 array_bubble_sort(array_two);
 print_array(array_two, true, "Bubble");
+
+/* insertion sort - array size and values are discovered by reading a file*/
+var array_three = new Array();
+read_from_file(array_three, "../Test_Files/Random_Integers_No_Duplicates.txt");
+array_id++;
+
+print_array(array_three, false, "Insertion");
+array_insertion_sort(array_three);
+print_array(array_three, true, "Insertion");
+
+/* reads from a file and fills array with intergers given in the file */
+function read_from_file(arr, file_name) {
+    let i, file_data;
+    let temp_array = [];
+    const fs = require('fs');
+
+    file_data = fs.readFileSync(file_name).toString();
+    temp_array = file_data.split(" ");
+
+    /* moves data from local array to global array passed as a parameter */
+    for (i = 0; i < temp_array.length; i++) {
+        arr.push(parseInt(temp_array[i]));
+    }
+}
 
 /* fills in an initialized array with random values */
 function fill_array(arr) {
@@ -78,6 +103,23 @@ function array_bubble_sort(arr) {
             }
         }
     }
+}
+
+/* performs an insertion sort algorithm */
+function array_insertion_sort(arr) {
+    let i, j, key; 
+
+    for (i = 1; i < arr.length; i++) { 
+        key = arr[i]; 
+        j = i - 1; 
+   
+        while (j >= 0 && arr[j] > key) { 
+            arr[j + 1] = arr[j]; 
+            j--; 
+        } 
+
+        arr[j + 1] = key; 
+    } 
 }
 
 /* prints the contents of the given integer array to stdout */
