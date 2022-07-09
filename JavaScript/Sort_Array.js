@@ -1,7 +1,7 @@
 /*
- * This JavaScript program sorts an unsorted array of integers given by
+ * This JavaScript program sorts unsorted arrays of integers given by
  * the program itself, as well as given through text files
- * using multiple different sorting algorithms 
+ * using multiple different sorting algorithms. 
  *
  * Sorting algorithms implemented
  * - Selection Sort

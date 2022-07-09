@@ -1,14 +1,15 @@
 /*
- * This C program sorts an unsorted array of integers given by
+ * This C program sorts unsorted arrays of integers given by
  * the program itself, as well as given through text files
- * using multiple different sorting algorithms 
+ * using multiple different sorting algorithms. 
  *
  * Sorting algorithms implemented
  * - Selection Sort
  * - Insertion Sort
+ * - Quick Sort
  * - Bubble Sort
- * - TO DO: Quick Sort
  * - TO DO: Merge Sort
+ *
  * Created By: Josh Johnson
  */
 
@@ -38,6 +39,16 @@ void array_selection_sort(int*, int);
 /* performs an insertion sort algorithm */
 void array_insertion_sort(int*, int);
 
+/* performs a quick sort algorithm */
+void array_quick_sort(int*, int, int);
+
+/* 
+ * takes the last element as pivot, places the pivot element at 
+ * correct position in sorted array, and places all smaller elements
+ * to the left of the pivot and all greater elements to right of pivot 
+ */
+int partition(int*, int, int);
+
 /* performs a bubble sort algorithm */
 void array_bubble_sort(int*, int);
 
@@ -53,13 +64,13 @@ void fill_array(int*, int);
 int main() {
     node_t *head = NULL;
     int i, id = 0;
-    int array_one_size, array_two_size, array_three_size; 
-    int *array_one_pointer, *array_two_pointer, *array_three_pointer;
-    int array_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
+    int array_one_size, array_two_size, array_three_size, array_four_size; 
+    int *array_one_pointer, *array_two_pointer, *array_three_pointer, *array_four_pointer;
     char *file_name;
 
     /* applies sorting algorithms */
     /* selection sort - array size and values are given by program */
+    int array_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
     array_one_size = sizeof array_one / sizeof array_one[0];
     array_one_pointer = array_one;
 
@@ -78,21 +89,32 @@ int main() {
     array_insertion_sort(array_two_pointer, array_two_size);
     print_array(array_two_pointer, array_two_size, id, "Insertion", true);
 
+    /* quick sort - array size and values are given by program */
+    array_three_size = 16;
+    int array_three[array_three_size];
+    array_three_pointer = array_three;
+    fill_array(array_three_pointer, array_three_size);
+
+    id++;
+    print_array(array_three_pointer, array_three_size, id, "Quick", false);
+    array_quick_sort(array_three_pointer, 0, array_three_size - 1);
+    print_array(array_three_pointer, array_three_size, id, "Quick", true);
+
     /* bubble sort - array size and values are discovered by reading a file */
     file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
     head = create_linked_list_from_file(file_name);
-    array_three_size = size_of_list(head);
-    array_three_pointer = (int*) malloc(array_three_size * sizeof(int));
-    create_array_from_list(head, array_three_pointer, array_three_size);
+    array_four_size = size_of_list(head);
+    array_four_pointer = (int*) malloc(array_four_size * sizeof(int));
+    create_array_from_list(head, array_four_pointer, array_four_size);
     
     id++;
-    print_array(array_three_pointer, array_three_size, id, "Bubble", false);
-    array_bubble_sort(array_three_pointer, array_three_size);
-    print_array(array_three_pointer, array_three_size, id, "Bubble", true);   
+    print_array(array_four_pointer, array_four_size, id, "Bubble", false);
+    array_bubble_sort(array_four_pointer, array_four_size);
+    print_array(array_four_pointer, array_four_size, id, "Bubble", true);   
     
     /* frees allocated memory */
     free(array_two_pointer);
-    free(array_three_pointer);
+    free(array_four_pointer);
         
     return EXIT_SUCCESS; /* Same as return 0 */
 }
@@ -196,6 +218,39 @@ void array_insertion_sort(int *arr, int arr_size) {
 
         arr[j + 1] = key;
     }
+}
+
+/* performs a quick sort algorithm */
+void array_quick_sort(int *arr, int low, int high) {
+    if (low < high) {
+        int index = partition(arr, low, high);
+
+        /* separately sort elements before and after partition */
+        array_quick_sort(arr, low, index - 1);
+        array_quick_sort(arr, index + 1, high);
+    }
+}
+
+/* 
+ * takes the last element as pivot, places the pivot element at 
+ * correct position in sorted array, and places all smaller elements
+ * to the left of the pivot and all greater elements to right of pivot 
+ */
+int partition(int *arr, int low, int high) {
+    int temp, j;
+    int pivot = arr[high];
+    int i = low - 1;
+
+    for (j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap((arr + i), (arr + j));
+        }
+    }
+
+    swap((arr + i + 1), (arr + high));
+
+    return i + 1;
 }
 
 /* performs a bubble sort algorithm */
