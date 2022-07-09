@@ -354,6 +354,7 @@ void merge(int *arr, int left_index, int middle_index, int right_index) {
         k++;
     }
 
+    /* frees allocated memory */
     free(temp_arr_one);
     free(temp_arr_two);
 }
@@ -381,7 +382,9 @@ void print_array(int *array_pointer, int array_size, int array_id, char *algorit
 
 /* swaps two integers in memory */
 void swap(int *p1, int *p2) {
-    int temp = *p1;
+    int temp;
+
+    temp = *p1;
     *p1 = *p2;
     *p2 = temp;
 }
