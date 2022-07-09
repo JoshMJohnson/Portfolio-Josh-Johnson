@@ -43,6 +43,8 @@ void array_insertion_sort(int*, int);
 void array_quick_sort(int*, int, int);
 
 /* 
+ * quick sort helper function
+ *
  * takes the last element as pivot, places the pivot element at 
  * correct position in sorted array, and places all smaller elements
  * to the left of the pivot and all greater elements to right of pivot 
@@ -232,6 +234,8 @@ void array_quick_sort(int *arr, int low, int high) {
 }
 
 /* 
+ * quick sort helper function
+ *
  * takes the last element as pivot, places the pivot element at 
  * correct position in sorted array, and places all smaller elements
  * to the left of the pivot and all greater elements to right of pivot 
