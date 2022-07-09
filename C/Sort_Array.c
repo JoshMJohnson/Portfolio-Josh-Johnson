@@ -8,7 +8,7 @@
  * - Insertion Sort
  * - Quick Sort
  * - Bubble Sort
- * - TO DO: Merge Sort
+ * - Merge Sort
  *
  * Created By: Josh Johnson
  */
@@ -54,6 +54,12 @@ int partition(int*, int, int);
 /* performs a bubble sort algorithm */
 void array_bubble_sort(int*, int);
 
+/* performs a merge sort algorithm */
+void array_merge_sort(int*, int, int);
+
+/* takes an array, splits it in half, and merges into one sorted array */
+void merge(int*, int, int, int);
+
 /* prints an array of integers to stdout */
 void print_array(int*, int, int, char*, bool);
 
@@ -66,8 +72,8 @@ void fill_array(int*, int);
 int main() {
     node_t *head = NULL;
     int i, id = 0;
-    int array_one_size, array_two_size, array_three_size, array_four_size; 
-    int *array_one_pointer, *array_two_pointer, *array_three_pointer, *array_four_pointer;
+    int array_one_size, array_two_size, array_three_size, array_four_size, array_five_size; 
+    int *array_one_pointer, *array_two_pointer, *array_three_pointer, *array_four_pointer, *array_five_pointer;
     char *file_name;
 
     /* applies sorting algorithms */
@@ -113,10 +119,23 @@ int main() {
     print_array(array_four_pointer, array_four_size, id, "Bubble", false);
     array_bubble_sort(array_four_pointer, array_four_size);
     print_array(array_four_pointer, array_four_size, id, "Bubble", true);   
-    
+
+    /* merge sort - array size and values are discovered by reading a file */
+    file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
+    head = create_linked_list_from_file(file_name);
+    array_five_size = size_of_list(head);
+    array_five_pointer = (int*) malloc(array_five_size * sizeof(int));
+    create_array_from_list(head, array_five_pointer, array_five_size);
+
+    id++;
+    print_array(array_five_pointer, array_five_size, id, "Merge", false);
+    array_merge_sort(array_five_pointer, 0, array_five_size - 1);
+    print_array(array_five_pointer, array_five_size, id, "Merge", true);
+
     /* frees allocated memory */
     free(array_two_pointer);
     free(array_four_pointer);
+    free(array_five_pointer);
         
     return EXIT_SUCCESS; /* Same as return 0 */
 }
@@ -268,6 +287,75 @@ void array_bubble_sort(int *arr, int arr_size) {
             }
         }
     }
+}
+
+/* performs a merge sort algorithm */
+void array_merge_sort(int *arr, int left_index, int right_index) {
+    /* recursively calls itself to divide the array until array size becomes one */
+    if (left_index < right_index) {
+        int middle_index = left_index + (right_index - left_index) / 2;
+
+        /* sort first and second halves of array */
+        array_merge_sort(arr, left_index, middle_index);
+        array_merge_sort(arr, middle_index + 1, right_index);
+
+        /* merge the sorted sub-arrays */
+        merge(arr, left_index, middle_index, right_index);
+    }
+}
+
+/* takes an array, splits it in half, and merges into one sorted array */
+void merge(int *arr, int left_index, int middle_index, int right_index) {
+    int i, j, k;
+    int sub_arr_one_size, sub_arr_two_size;
+    int *temp_arr_one, *temp_arr_two;
+
+    sub_arr_one_size = middle_index - left_index + 1;
+    sub_arr_two_size = right_index - middle_index;
+
+    temp_arr_one = (int*) malloc(sub_arr_one_size * sizeof(int));
+    temp_arr_two = (int*) malloc(sub_arr_two_size * sizeof(int)); 
+ 
+    /* copy data to temp arrays*/
+    for (i = 0; i < sub_arr_one_size; i++) {
+        *(temp_arr_one + i) = *(arr + left_index + i);
+    }
+    for (j = 0; j < sub_arr_two_size; j++) {
+        *(temp_arr_two + j) = *(arr + middle_index + j + 1);
+    }
+  
+    i = 0, j = 0, k = left_index;
+ 
+    /* merge two sorted sub-arrays into one sorted array */
+    while (i < sub_arr_one_size && j < sub_arr_two_size) {
+        if (*(temp_arr_one + i) <= *(temp_arr_two + j)) {
+            *(arr + k) = *(temp_arr_one + i);
+            i++;
+        }
+        else {
+            *(arr + k) = *(temp_arr_two + j);
+            j++;
+        }
+
+        k++;
+    }
+ 
+    /* copy remaining elements of temp_arr_one if any */
+    while (i < sub_arr_one_size) {
+        *(arr + k) = *(temp_arr_one + i);
+        i++;
+        k++;
+    }
+ 
+    /* copy remaining elements of temp_arr_two if any */
+    while (j < sub_arr_two_size) {
+        *(arr + k) = *(temp_arr_two + j);
+        j++;
+        k++;
+    }
+
+    free(temp_arr_one);
+    free(temp_arr_two);
 }
 
 /* prints an array of integers to stdout */

@@ -154,16 +154,16 @@ import java.lang.Math;
         if (left_index < right_index) {
             int middle_index = left_index + (right_index - left_index) / 2;
  
-            /* sort first and second halves */
+            /* sort first and second halves of array */
             array_merge_sort(arr, left_index, middle_index);
             array_merge_sort(arr, middle_index + 1, right_index);
  
-            /* merge the sorted halves */
+            /* merge the sorted sub-arrays */
             merge(arr, left_index, middle_index, right_index);
         }
     }
 
-    /* merges two halves */
+    /* takes an array, splits it in half, and merges into one sorted array */
     private void merge(int[] arr, int left_index, int middle_index, int right_index) {
         int sub_arr_one_size = middle_index - left_index + 1;
         int sub_arr_two_size = right_index - middle_index;
