@@ -1,14 +1,14 @@
 /*
- * This Java program sorts an unsorted array of integers given by
+ * This Java program sorts unsorted arrays of integers given by
  * the program itself, as well as given through text files
- * using multiple different sorting algorithms 
+ * using multiple different sorting algorithms. 
  *
  * Sorting algorithms implemented
- * - Selection Sort
  * - Bubble Sort
+ * - Selection Sort
+ * - Merge Sort
  * - Insertion Sort
  * - Quick Sort
- * - TO DO: Merge Sort
  * 
  * Created By: Josh Johnson
  */
@@ -20,45 +20,55 @@ import java.io.File;
 import java.lang.Math;
 
  public class SortArray {
-    public static void main (String [] args) {
+    public static void main (String[] args) {
         SortArray sa = new SortArray();
         int array_id = 0;
         
         /* applying sorting algorithms */
-        /* selection sort - size and values are given by program */
-        int[] array_one = new int[20];
-        array_one = sa.fill_array(array_one);
-        array_id++;
-
-        sa.print_array(array_one, array_id, false, "Selection");
-        sa.array_selection_sort(array_one);
-        sa.print_array(array_one, array_id, true, "Selection");
-
         /* bubble sort - size and values are given by program */
-        int[] array_two = {2, 5, 3, 9, 21, 56, 1, 2, 7, 3, 99, 65, 21, 8};
+        int[] array_one = {2, 5, 3, 9, 21, 56, 1, 2, 7, 3, 99, 65, 21, 8};
         array_id++;
 
-        sa.print_array(array_two, array_id, false, "Bubble");
-        sa.array_bubble_sort(array_two);
-        sa.print_array(array_two, array_id, true, "Bubble");
+        sa.print_array(array_one, array_id, false, "Bubble");
+        sa.array_bubble_sort(array_one);
+        sa.print_array(array_one, array_id, true, "Bubble");
+
+        /* selection sort - size and values are given by program */
+        int[] array_two = new int[20];
+        sa.fill_array(array_two);
+        array_id++;
+
+        sa.print_array(array_two, array_id, false, "Selection");
+        sa.array_selection_sort(array_two);
+        sa.print_array(array_two, array_id, true, "Selection");
+
+        /* merge sort - size and values are given by program */
+        int[] array_three;
+        array_three = new int[15];
+        sa.fill_array(array_three);
+        array_id++;
+
+        sa.print_array(array_three, array_id, false, "Merge");
+        sa.array_merge_sort(array_three, 0, array_three.length - 1);
+        sa.print_array(array_three, array_id, true, "Merge");
 
         /* insertion sort - array size and values are discovered by reading a file */
-        ArrayList<Integer> array_three_list = sa.create_array_from_file("../Test_Files/Random_Integers_No_Duplicates.txt");
-        int[] array_three = sa.create_array_from_list(array_three_list);
-        array_id++;
-
-        sa.print_array(array_three, array_id, false, "Insertion");
-        sa.array_insertion_sort(array_three);
-        sa.print_array(array_three, array_id, true, "Insertion");
-
-        /* quick sort - array size and values are discovered by reading a file */
-        ArrayList<Integer> array_four_list = sa.create_array_from_file("../Test_Files/Random_Integers_With_Duplicates.txt");
+        ArrayList<Integer> array_four_list = sa.create_array_from_file("../Test_Files/Random_Integers_No_Duplicates.txt");
         int[] array_four = sa.create_array_from_list(array_four_list);
         array_id++;
 
-        sa.print_array(array_four, array_id, false, "Quick");
-        sa.array_quick_sort(array_four, 0, array_four.length - 1);
-        sa.print_array(array_four, array_id, true, "Quick");
+        sa.print_array(array_four, array_id, false, "Insertion");
+        sa.array_insertion_sort(array_four);
+        sa.print_array(array_four, array_id, true, "Insertion");
+
+        /* quick sort - array size and values are discovered by reading a file */
+        ArrayList<Integer> array_five_list = sa.create_array_from_file("../Test_Files/Random_Integers_With_Duplicates.txt");
+        int[] array_five = sa.create_array_from_list(array_five_list);
+        array_id++;
+
+        sa.print_array(array_five, array_id, false, "Quick");
+        sa.array_quick_sort(array_five, 0, array_five.length - 1);
+        sa.print_array(array_five, array_id, true, "Quick");
     }
 
     /* reads from a file of integers and adds elements to an arraylist */
@@ -96,19 +106,17 @@ import java.lang.Math;
     }
 
     /* fills in an initialized array with random values */
-    private int[] fill_array(int[] arr) {
+    private void fill_array(int[] arr) {
         int value;
 
         for (int i = 0; i < arr.length; i++) {
             value = (int) (Math.random() * 100) + 1; // random integer 1-100
             arr[i] = value;
         }
-
-        return arr;
     }
 
     /* performs a selection sort algorithm */
-    private int[] array_selection_sort(int[] arr) { 
+    private void array_selection_sort(int[] arr) { 
         for (int i = 0; i < (arr.length - 1); i++) {
             /* find the minimum element in unsorted portion array */
             int min_idx = i;
@@ -124,12 +132,10 @@ import java.lang.Math;
                 arr[i] = temp;
             }
         }
-
-        return arr;
     }
 
     /* performs a bubble sort algorithm */
-    private int[] array_bubble_sort(int[] arr) {
+    private void array_bubble_sort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
                 /* swap arr[j+1] and arr[j] */
@@ -140,12 +146,72 @@ import java.lang.Math;
                 }
             }
         }
+    }
 
-        return arr;
+    /* performs a merge sort algorithm */
+    private void array_merge_sort(int[] arr, int left_index, int right_index) {
+        /* recursively calls itself to divide the array until array size becomes one */
+        if (left_index < right_index) {
+            int middle_index = left_index + (right_index - left_index) / 2;
+ 
+            /* sort first and second halves */
+            array_merge_sort(arr, left_index, middle_index);
+            array_merge_sort(arr, middle_index + 1, right_index);
+ 
+            /* merge the sorted halves */
+            merge(arr, left_index, middle_index, right_index);
+        }
+    }
+
+    /* merges two halves */
+    private void merge(int[] arr, int left_index, int middle_index, int right_index) {
+        int sub_arr_one_size = middle_index - left_index + 1;
+        int sub_arr_two_size = right_index - middle_index;
+
+        int[] temp_arr_one = new int[sub_arr_one_size];
+        int[] temp_arr_two = new int[sub_arr_two_size];
+ 
+        /* copy data to temp arrays*/
+        for (int i = 0; i < sub_arr_one_size; i++) {
+            temp_arr_one[i] = arr[left_index + i];
+        }
+        for (int j = 0; j < sub_arr_two_size; j++) {
+            temp_arr_two[j] = arr[middle_index + j + 1];
+        }
+  
+        int i = 0, j = 0, k = left_index;
+ 
+        /* merge two sorted sub-arrays into one sorted array */
+        while (i < sub_arr_one_size && j < sub_arr_two_size) {
+            if (temp_arr_one[i] <= temp_arr_two[j]) {
+                arr[k] = temp_arr_one[i];
+                i++;
+            }
+            else {
+                arr[k] = temp_arr_two[j];
+                j++;
+            }
+
+            k++;
+        }
+ 
+        /* copy remaining elements of temp_arr_one if any */
+        while (i < sub_arr_one_size) {
+            arr[k] = temp_arr_one[i];
+            i++;
+            k++;
+        }
+ 
+        /* copy remaining elements of temp_arr_two if any */
+        while (j < sub_arr_two_size) {
+            arr[k] = temp_arr_two[j];
+            j++;
+            k++;
+        }
     }
 
     /* performs an insertion sort algorithm */
-    private int[] array_insertion_sort(int[] arr) {
+    private void array_insertion_sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int key = arr[i];
             int j = i - 1;
@@ -157,12 +223,10 @@ import java.lang.Math;
 
             arr[j + 1] = key;
         }
-
-        return arr;
     }
 
     /* performs a quick sort algorithm */
-    private int[] array_quick_sort(int[] arr, int low, int high) {
+    private void array_quick_sort(int[] arr, int low, int high) {
         if (low < high) {
             int index = partition(arr, low, high);
     
@@ -170,8 +234,6 @@ import java.lang.Math;
             array_quick_sort(arr, low, index - 1);
             array_quick_sort(arr, index + 1, high);
         }
-
-        return arr;
     }
 
     /* 
