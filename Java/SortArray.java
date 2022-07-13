@@ -23,52 +23,54 @@ import java.lang.Math;
     public static void main (String[] args) {
         SortArray sa = new SortArray();
         int array_id = 0;
+        int[][] arrays = new int[5][]; // size of array is equal to number of algorithms implemented
         
         /* applying sorting algorithms */
         /* bubble sort - size and values are given by program */
-        int[] array_one = {2, 5, 3, 9, 21, 56, 1, 2, 7, 3, 99, 65, 21, 8};
         array_id++;
+        arrays[array_id - 1] = new int[] {2, 6, 5, 8, 1, 9, 3, 4, 7};
 
-        sa.print_array(array_one, array_id, false, "Bubble");
-        sa.array_bubble_sort(array_one);
-        sa.print_array(array_one, array_id, true, "Bubble");
+        sa.print_array(arrays[array_id - 1], array_id, false, "Bubble");
+        sa.array_bubble_sort(arrays[array_id - 1]);
+        sa.print_array(arrays[array_id - 1], array_id, true, "Bubble");
 
         /* selection sort - size and values are given by program */
-        int[] array_two = new int[20];
-        sa.fill_array(array_two);
         array_id++;
+        arrays[array_id - 1] = new int[20];
+        sa.fill_array(arrays[array_id - 1]);
 
-        sa.print_array(array_two, array_id, false, "Selection");
-        sa.array_selection_sort(array_two);
-        sa.print_array(array_two, array_id, true, "Selection");
+        sa.print_array(arrays[array_id - 1], array_id, false, "Selection");
+        sa.array_selection_sort(arrays[array_id - 1]);
+        sa.print_array(arrays[array_id - 1], array_id, true, "Selection");
 
         /* merge sort - size and values are given by program */
-        int[] array_three;
-        array_three = new int[15];
-        sa.fill_array(array_three);
         array_id++;
+        arrays[array_id - 1] = new int[15];
+        sa.fill_array(arrays[array_id - 1]);
 
-        sa.print_array(array_three, array_id, false, "Merge");
-        sa.array_merge_sort(array_three, 0, array_three.length - 1);
-        sa.print_array(array_three, array_id, true, "Merge");
+        sa.print_array(arrays[array_id - 1], array_id, false, "Merge");
+        sa.array_merge_sort(arrays[array_id - 1], 0, arrays[array_id - 1].length - 1);
+        sa.print_array(arrays[array_id - 1], array_id, true, "Merge");
 
         /* insertion sort - array size and values are discovered by reading a file */
-        ArrayList<Integer> array_four_list = sa.create_array_from_file("../Test_Files/Random_Integers_No_Duplicates.txt");
-        int[] array_four = sa.create_array_from_list(array_four_list);
         array_id++;
+        String file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
+        ArrayList<Integer> array_list = sa.create_array_from_file(file_name);
+        arrays[array_id - 1] = sa.create_array_from_list(array_list);
 
-        sa.print_array(array_four, array_id, false, "Insertion");
-        sa.array_insertion_sort(array_four);
-        sa.print_array(array_four, array_id, true, "Insertion");
+        sa.print_array(arrays[array_id - 1], array_id, false, "Insertion");
+        sa.array_insertion_sort(arrays[array_id - 1]);
+        sa.print_array(arrays[array_id - 1], array_id, true, "Insertion");
 
         /* quick sort - array size and values are discovered by reading a file */
-        ArrayList<Integer> array_five_list = sa.create_array_from_file("../Test_Files/Random_Integers_With_Duplicates.txt");
-        int[] array_five = sa.create_array_from_list(array_five_list);
         array_id++;
+        file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
+        array_list = sa.create_array_from_file(file_name);
+        arrays[array_id - 1] = sa.create_array_from_list(array_list);
 
-        sa.print_array(array_five, array_id, false, "Quick");
-        sa.array_quick_sort(array_five, 0, array_five.length - 1);
-        sa.print_array(array_five, array_id, true, "Quick");
+        sa.print_array(arrays[array_id - 1], array_id, false, "Quick");
+        sa.array_quick_sort(arrays[array_id - 1], 0, arrays[array_id - 1].length - 1);
+        sa.print_array(arrays[array_id - 1], array_id, true, "Quick");
     }
 
     /* reads from a file of integers and adds elements to an arraylist */
