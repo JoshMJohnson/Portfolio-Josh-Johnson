@@ -6,8 +6,8 @@
  * Sorting algorithms implemented
  * - Selection Sort
  * - Bubble Sort
- * - Insertion Sort
  * - TO DO: Quick Sort
+ * - Insertion Sort
  * - TO DO: Merge Sort
  * 
  * Created By: Josh Johnson
@@ -16,32 +16,43 @@
 /* driver code */
 /* running variables */
 var array_id = 0;
+var arrays = new Array(4); // size of array is equal to number of algorithms implemented
 
 /* selection sort - size and values are given by program */
-var array_one = [2, 5, 6, 1, 4, 8, 7, 9, 3];
 array_id++;
+arrays[array_id - 1] = [2, 5, 6, 1, 4, 8, 7, 9, 3];
 
-print_array(array_one, false, "Selection");
-array_selection_sort(array_one);
-print_array(array_one, true, "Selection");
+print_array(arrays[array_id - 1], false, "Selection");
+array_selection_sort(arrays[array_id - 1]);
+print_array(arrays[array_id - 1], true, "Selection");
 
 /* bubble sort - size and values are given by program */
-var array_two = new Array(20);
-fill_array(array_two);
 array_id++;
+arrays[array_id - 1] = new Array(20);
+fill_array_fixed_size(arrays[array_id - 1]);
 
-print_array(array_two, false, "Bubble");
-array_bubble_sort(array_two);
-print_array(array_two, true, "Bubble");
+print_array(arrays[array_id - 1], false, "Bubble");
+array_bubble_sort(arrays[array_id - 1]);
+print_array(arrays[array_id - 1], true, "Bubble");
 
-/* insertion sort - array size and values are discovered by reading a file*/
-var array_three = new Array();
-read_from_file(array_three, "../Test_Files/Random_Integers_No_Duplicates.txt");
+/* quick sort - size and values are given by program */
 array_id++;
+arrays[array_id - 1] = new Array();
+var array_three_size = 15;
+fill_array_unfixed_size(arrays[array_id - 1], array_three_size);
 
-print_array(array_three, false, "Insertion");
-array_insertion_sort(array_three);
-print_array(array_three, true, "Insertion");
+print_array(arrays[array_id - 1], false, "Quick");
+array_quick_sort(arrays[array_id - 1], 0, arrays[array_id - 1].length - 1);
+print_array(arrays[array_id - 1], true, "Quick");
+
+/* insertion sort - array size and values are discovered by reading a file */
+array_id++;
+arrays[array_id - 1] = new Array();
+read_from_file(arrays[array_id - 1], "../Test_Files/Random_Integers_No_Duplicates.txt");
+
+print_array(arrays[array_id - 1], false, "Insertion");
+array_insertion_sort(arrays[array_id - 1]);
+print_array(arrays[array_id - 1], true, "Insertion");
 
 /* reads from a file and fills array with intergers given in the file */
 function read_from_file(arr, file_name) {
@@ -59,12 +70,21 @@ function read_from_file(arr, file_name) {
 }
 
 /* fills in an initialized array with random values */
-function fill_array(arr) {
+function fill_array_fixed_size(arr) {
     let i, random_value;
 
     for (i = 0; i < arr.length; i++) {
-        random_value = Math.floor(Math.random() * 100) + 1; // random integer from 1-100
+        random_value = Math.floor(Math.random() * 100) + 1; // random integer from 1-100 inclusive
         arr[i] = random_value;
+    }
+}
+
+function fill_array_unfixed_size(arr, arr_size) {
+    let i, random_value;
+
+    for  (i = 0; i < arr_size; i++) {
+        random_value = Math.floor(Math.random() * 50) + 1; // random integer from 1-50 inclusive
+        arr.push(random_value);
     }
 }
 
@@ -103,6 +123,44 @@ function array_bubble_sort(arr) {
             }
         }
     }
+}
+
+/* performs a quick sort algorithm */
+function array_quick_sort(arr, low, high) {
+    if (low < high) {
+        let index = partition(arr, low, high);
+
+        /* separately sort elements before and after partition */
+        array_quick_sort(arr, low, index - 1);
+        array_quick_sort(arr, index + 1, high);
+    }
+}
+
+/* 
+ * takes the last element as pivot, places the pivot element at 
+ * correct position in sorted array, and places all smaller elements
+ * to the left of the pivot and all greater elements to right of pivot 
+ */
+function partition(arr, low, high) {
+    let pivot = arr[high];
+    let i = low - 1;
+
+    for (let j = low; j <= high - 1; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            swap(arr, i, j);
+        }
+    }
+
+    swap(arr, i + 1, high);
+    return i + 1;
+}
+
+/* swaps two elements within array arr */
+function swap(arr, i, j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
 }
 
 /* performs an insertion sort algorithm */
