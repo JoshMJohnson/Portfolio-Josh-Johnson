@@ -165,29 +165,29 @@ import java.lang.Math;
 
     /* takes an array, splits it in half, and merges into one sorted array */
     private void merge(int[] arr, int left_index, int middle_index, int right_index) {
+        int i, j, k;
         int sub_arr_one_size = middle_index - left_index + 1;
         int sub_arr_two_size = right_index - middle_index;
 
         int[] temp_arr_one = new int[sub_arr_one_size];
         int[] temp_arr_two = new int[sub_arr_two_size];
  
-        /* copy data to temp arrays*/
-        for (int i = 0; i < sub_arr_one_size; i++) {
+        /* copy data to temp arrays */
+        for (i = 0; i < sub_arr_one_size; i++) {
             temp_arr_one[i] = arr[left_index + i];
         }
-        for (int j = 0; j < sub_arr_two_size; j++) {
-            temp_arr_two[j] = arr[middle_index + j + 1];
+        for (i = 0; i < sub_arr_two_size; i++) {
+            temp_arr_two[i] = arr[middle_index + i + 1];
         }
   
-        int i = 0, j = 0, k = left_index;
+        i = 0; j = 0; k = left_index;
  
         /* merge two sorted sub-arrays into one sorted array */
         while (i < sub_arr_one_size && j < sub_arr_two_size) {
             if (temp_arr_one[i] <= temp_arr_two[j]) {
                 arr[k] = temp_arr_one[i];
                 i++;
-            }
-            else {
+            } else {
                 arr[k] = temp_arr_two[j];
                 j++;
             }

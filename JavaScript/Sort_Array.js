@@ -6,9 +6,9 @@
  * Sorting algorithms implemented
  * - Selection Sort
  * - Bubble Sort
- * - TO DO: Quick Sort
+ * - Quick Sort
  * - Insertion Sort
- * - TO DO: Merge Sort
+ * - Merge Sort
  * 
  * Created By: Josh Johnson
  */
@@ -16,7 +16,8 @@
 /* driver code */
 /* running variables */
 var array_id = 0;
-var arrays = new Array(4); // size of array is equal to number of algorithms implemented
+var arrays = new Array(5); // size of array is equal to number of algorithms implemented
+var array_size, file_name;
 
 /* selection sort - size and values are given by program */
 array_id++;
@@ -28,7 +29,8 @@ print_array(arrays[array_id - 1], true, "Selection");
 
 /* bubble sort - size and values are given by program */
 array_id++;
-arrays[array_id - 1] = new Array(20);
+array_size = 20;
+arrays[array_id - 1] = new Array(array_size);
 fill_array_fixed_size(arrays[array_id - 1]);
 
 print_array(arrays[array_id - 1], false, "Bubble");
@@ -38,8 +40,8 @@ print_array(arrays[array_id - 1], true, "Bubble");
 /* quick sort - size and values are given by program */
 array_id++;
 arrays[array_id - 1] = new Array();
-var array_three_size = 15;
-fill_array_unfixed_size(arrays[array_id - 1], array_three_size);
+array_size = 15;
+fill_array_unfixed_size(arrays[array_id - 1], array_size);
 
 print_array(arrays[array_id - 1], false, "Quick");
 array_quick_sort(arrays[array_id - 1], 0, arrays[array_id - 1].length - 1);
@@ -48,11 +50,22 @@ print_array(arrays[array_id - 1], true, "Quick");
 /* insertion sort - array size and values are discovered by reading a file */
 array_id++;
 arrays[array_id - 1] = new Array();
-read_from_file(arrays[array_id - 1], "../Test_Files/Random_Integers_No_Duplicates.txt");
+file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
+read_from_file(arrays[array_id - 1], file_name);
 
 print_array(arrays[array_id - 1], false, "Insertion");
 array_insertion_sort(arrays[array_id - 1]);
 print_array(arrays[array_id - 1], true, "Insertion");
+
+/* merge sort - array size and values are discovered by reading a file */
+array_id++;
+arrays[array_id - 1] = new Array();
+file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
+read_from_file(arrays[array_id - 1], file_name);
+
+print_array(arrays[array_id - 1], false, "Merge");
+array_merge_sort(arrays[array_id - 1], 0, arrays[array_id - 1].length - 1);
+print_array(arrays[array_id - 1], true, "Merge");
 
 /* reads from a file and fills array with intergers given in the file */
 function read_from_file(arr, file_name) {
@@ -178,6 +191,68 @@ function array_insertion_sort(arr) {
 
         arr[j + 1] = key; 
     } 
+}
+
+/* performs a merge sort algorithm */
+function array_merge_sort(arr, left_index, right_index) {
+    /* recursively calls itself to divide the array until array size becomes one */
+    if (left_index < right_index) {
+        let middle_index = left_index + parseInt((right_index - left_index) / 2);
+
+        /* sort first and second halves of array */
+        array_merge_sort(arr, left_index, middle_index);
+        array_merge_sort(arr, middle_index + 1, right_index);
+
+        /* merge the sorted sub-arrays */
+        merge(arr, left_index, middle_index, right_index);
+    }
+}
+
+/* takes an array, splits it in half, and merges into one sorted array */
+function merge(arr, left_index, middle_index, right_index) {
+    let i, j, k;    
+    let sub_arr_one_size = middle_index - left_index + 1;
+    let sub_arr_two_size = right_index - middle_index;
+
+    let temp_arr_one = new Array(sub_arr_one_size);
+    let temp_arr_two = new Array(sub_arr_two_size);
+
+    /* copy data to temp arrays */
+    for (i = 0; i < sub_arr_one_size; i++) {
+        temp_arr_one[i] = arr[left_index + i];
+    }
+    for (i = 0; i < sub_arr_two_size; i++) {
+        temp_arr_two[i] = arr[middle_index + i + 1];
+    }
+
+    i = 0; j = 0; k = left_index;
+
+    /* merge two sorted sub-arrays into one sorted array */
+    while (i < sub_arr_one_size && j < sub_arr_two_size) {
+        if (temp_arr_one[i] <= temp_arr_two[j]) {
+            arr[k] = temp_arr_one[i];
+            i++;
+        } else {
+            arr[k] = temp_arr_two[j];
+            j++;
+        }
+
+        k++;
+    }
+
+    /* copy remaining elements of temp_arr_one if any */
+    while (i < sub_arr_one_size) {
+        arr[k] = temp_arr_one[i];
+        i++;
+        k++;
+    }
+
+    /* copy remaining elements of temp_arr_two if any */
+    while (j < sub_arr_two_size) {
+        arr[k] = temp_arr_two[j];
+        j++;
+        k++;
+    }
 }
 
 /* prints the contents of the given integer array to stdout */

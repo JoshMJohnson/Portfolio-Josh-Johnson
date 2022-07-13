@@ -320,8 +320,8 @@ void merge(int *arr, int left_index, int middle_index, int right_index) {
     for (i = 0; i < sub_arr_one_size; i++) {
         *(temp_arr_one + i) = *(arr + left_index + i);
     }
-    for (j = 0; j < sub_arr_two_size; j++) {
-        *(temp_arr_two + j) = *(arr + middle_index + j + 1);
+    for (i = 0; i < sub_arr_two_size; i++) {
+        *(temp_arr_two + i) = *(arr + middle_index + i + 1);
     }
   
     i = 0, j = 0, k = left_index;
@@ -331,8 +331,7 @@ void merge(int *arr, int left_index, int middle_index, int right_index) {
         if (*(temp_arr_one + i) <= *(temp_arr_two + j)) {
             *(arr + k) = *(temp_arr_one + i);
             i++;
-        }
-        else {
+        } else {
             *(arr + k) = *(temp_arr_two + j);
             j++;
         }
