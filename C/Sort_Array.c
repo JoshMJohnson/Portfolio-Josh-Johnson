@@ -76,6 +76,8 @@ int main() {
     int *array_one_pointer, *array_two_pointer, *array_three_pointer, *array_four_pointer, *array_five_pointer;
     char *file_name;
 
+    srand(time(NULL)); // seeding: prevents same random values
+
     /* applies sorting algorithms */
     /* selection sort - array size and values are given by program */
     int array_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
@@ -88,7 +90,6 @@ int main() {
     print_array(array_one_pointer, array_one_size, id, "Selection", true);
 
     /* insertion sort - array size and values are given by program */
-    srand(time(NULL)); // seeding: prevents same random values
     array_two_size = 20;
     array_two_pointer = (int*) malloc(array_two_size * sizeof(int));
     fill_array(array_two_pointer, array_two_size);
