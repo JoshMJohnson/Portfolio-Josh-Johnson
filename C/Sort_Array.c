@@ -88,6 +88,7 @@ int main() {
     print_array(array_one_pointer, array_one_size, id, "Selection", true);
 
     /* insertion sort - array size and values are given by program */
+    srand(time(NULL)); // seeding: prevents same random values
     array_two_size = 20;
     array_two_pointer = (int*) malloc(array_two_size * sizeof(int));
     fill_array(array_two_pointer, array_two_size);
@@ -391,8 +392,6 @@ void swap(int *p1, int *p2) {
 /* fills in an initialized array with random values */
 void fill_array(int* array_pointer, int array_size) {
     int i, random_value;
-
-    srand(time(NULL)); // seeding: prevents same random values every test case
 
     for (i = 0; i < array_size; i++) {
         random_value = (rand() % 100) + 1; // random value between 1-100
