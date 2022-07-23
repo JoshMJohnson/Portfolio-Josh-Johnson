@@ -18,6 +18,8 @@
 #include <stdbool.h>
 #include <time.h>
 
+#define NUM_ALGORITHMS 5 /* number of algorithms implemented */
+
 /* singly linked list of nodes struct */
 typedef struct node {
     int value;
@@ -72,72 +74,72 @@ void fill_array(int*, int);
 int main() {
     node_t *head = NULL;
     int i, id = 0;
-    int array_one_size, array_two_size, array_three_size, array_four_size, array_five_size; 
-    int *array_one_pointer, *array_two_pointer, *array_three_pointer, *array_four_pointer, *array_five_pointer;
     char *file_name;
+    int array_sizes[NUM_ALGORITHMS];
+    int *array_pointers[NUM_ALGORITHMS];
 
     srand(time(NULL)); // seeding: prevents same random values
 
     /* applies sorting algorithms */
     /* selection sort - array size and values are given by program */
-    int array_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
-    array_one_size = sizeof array_one / sizeof array_one[0];
-    array_one_pointer = array_one;
-
     id++;
-    print_array(array_one_pointer, array_one_size, id, "Selection", false);
-    array_selection_sort(array_one_pointer, array_one_size);
-    print_array(array_one_pointer, array_one_size, id, "Selection", true);
+    int array_one[9] = {4, 3, 2, 7, 1, 9, 8, 5, 6}; 
+    array_sizes[id - 1] = sizeof array_one / sizeof array_one[0];
+    array_pointers[id - 1] = array_one;
+
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Selection", false);
+    array_selection_sort(array_pointers[id - 1], array_sizes[id - 1]);
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Selection", true);
 
     /* insertion sort - array size and values are given by program */
-    array_two_size = 20;
-    array_two_pointer = (int*) malloc(array_two_size * sizeof(int));
-    fill_array(array_two_pointer, array_two_size);
-    
     id++;
-    print_array(array_two_pointer, array_two_size, id, "Insertion", false);
-    array_insertion_sort(array_two_pointer, array_two_size);
-    print_array(array_two_pointer, array_two_size, id, "Insertion", true);
+    array_sizes[id - 1] = 20;
+    array_pointers[id - 1] = (int*) malloc(array_sizes[id - 1] * sizeof(int));
+    fill_array(array_pointers[id - 1], array_sizes[id - 1]);
+    
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Insertion", false);
+    array_insertion_sort(array_pointers[id - 1], array_sizes[id - 1]);
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Insertion", true);
 
     /* quick sort - array size and values are given by program */
-    array_three_size = 16;
-    int array_three[array_three_size];
-    array_three_pointer = array_three;
-    fill_array(array_three_pointer, array_three_size);
-
     id++;
-    print_array(array_three_pointer, array_three_size, id, "Quick", false);
-    array_quick_sort(array_three_pointer, 0, array_three_size - 1);
-    print_array(array_three_pointer, array_three_size, id, "Quick", true);
+    array_sizes[id - 1] = 16;
+    int array_three[array_sizes[id - 1]];
+    array_pointers[id - 1] = array_three;
+    fill_array(array_pointers[id - 1], array_sizes[id - 1]);
+
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Quick", false);
+    array_quick_sort(array_pointers[id - 1], 0, array_sizes[id - 1] - 1);
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Quick", true);
 
     /* bubble sort - array size and values are discovered by reading a file */
+    id++;
     file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
     head = create_linked_list_from_file(file_name);
-    array_four_size = size_of_list(head);
-    array_four_pointer = (int*) malloc(array_four_size * sizeof(int));
-    create_array_from_list(head, array_four_pointer, array_four_size);
+    array_sizes[id - 1] = size_of_list(head);
+    array_pointers[id - 1] = (int*) malloc(array_sizes[id - 1] * sizeof(int));
+    create_array_from_list(head, array_pointers[id - 1], array_sizes[id - 1]);
     
-    id++;
-    print_array(array_four_pointer, array_four_size, id, "Bubble", false);
-    array_bubble_sort(array_four_pointer, array_four_size);
-    print_array(array_four_pointer, array_four_size, id, "Bubble", true);   
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Bubble", false);
+    array_bubble_sort(array_pointers[id - 1], array_sizes[id - 1]);
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Bubble", true);   
 
     /* merge sort - array size and values are discovered by reading a file */
+    id++;
     file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
     head = create_linked_list_from_file(file_name);
-    array_five_size = size_of_list(head);
-    array_five_pointer = (int*) malloc(array_five_size * sizeof(int));
-    create_array_from_list(head, array_five_pointer, array_five_size);
+    array_sizes[id - 1] = size_of_list(head);
+    array_pointers[id - 1] = (int*) malloc(array_sizes[id - 1] * sizeof(int));
+    create_array_from_list(head, array_pointers[id - 1], array_sizes[id - 1]);
 
-    id++;
-    print_array(array_five_pointer, array_five_size, id, "Merge", false);
-    array_merge_sort(array_five_pointer, 0, array_five_size - 1);
-    print_array(array_five_pointer, array_five_size, id, "Merge", true);
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Merge", false);
+    array_merge_sort(array_pointers[id - 1], 0, array_sizes[id - 1] - 1);
+    print_array(array_pointers[id - 1], array_sizes[id - 1], id, "Merge", true);
 
     /* frees allocated memory */
-    free(array_two_pointer);
-    free(array_four_pointer);
-    free(array_five_pointer);
+    free(array_pointers[1]);
+    free(array_pointers[3]);
+    free(array_pointers[4]);
         
     return EXIT_SUCCESS; /* Same as return 0 */
 }
