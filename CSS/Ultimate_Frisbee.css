@@ -15,13 +15,33 @@
     height: 15%;
 }
 
+figure, figcaption {
+    border-style: solid;
+    border-color: lightgrey;
+}
+
+#rules>figure {
+    float: right;
+}
+
 /* text */
 blockquote>span {
     display: block;
     padding: 20px;
 }
 
-p, blockquote {
+p, blockquote, li {
     font-size: .9em;
 }
 
+.header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2, h3 {
+    font-weight: normal;
+}
+
+h1 {
+    text-align: center;
+}
