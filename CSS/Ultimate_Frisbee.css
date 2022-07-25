@@ -1,0 +1,25 @@
+#usa_logo {
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    width: 20%;   
+}
+
+#ultimate_cleats {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    width: 30%;
+    height: 15%;
+}
+
+blockquote>span {
+    display: block;
+    padding: 20px;
+}
+
+p, blockquote {
+    font-size: .9em;
+}
+
