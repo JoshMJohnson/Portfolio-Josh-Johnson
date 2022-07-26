@@ -24,6 +24,11 @@ figure, figcaption {
     float: right;
 }
 
+figcaption {
+    font-size: .7em;
+    text-align: center;
+}
+
 /* text */
 blockquote>span {
     display: block;
@@ -38,10 +43,72 @@ p, blockquote, li {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-h2, h3 {
+h2, h3, h4 {
     font-weight: normal;
 }
 
 h1 {
     text-align: center;
+}
+
+/* links */
+a:link {
+    color: rgb(97, 186, 216);
+}
+
+a:visited {
+    color: darkblue;
+}
+
+a:hover {
+    color: rgb(53, 53, 223);
+}
+
+/* table of contents */
+#contents ol {
+    counter-reset: item;
+}
+
+#contents li {
+    counter-increment: item;
+    display: block;
+}
+
+#contents li:before {
+    content: counters(item, ".") " ";
+    color: red;
+    font-family: cursive;
+}
+
+#contents {
+    border: solid;
+    border-color: crimson;
+    width: 450px;
+}
+
+#contents>h3 {
+    padding-left: 50px;
+    font-weight: bold;
+    color: red;
+}
+
+#contents a:visited {
+    color: rgb(105, 1, 1);
+}
+
+#contents a:link {
+    color: rgb(255, 0, 0);
+}
+
+#contents a:hover {
+    color: rgb(175, 27, 27);
+}
+
+#contents a {
+    text-decoration: none;
+}
+
+/* bullet points */
+ul {
+    list-style-type: square;
 }
