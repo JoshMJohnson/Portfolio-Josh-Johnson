@@ -15,18 +15,25 @@
     height: 15%;
 }
 
-figure, figcaption {
+figure {
     border-style: solid;
     border-color: crimson;
 }
 
-#rules>figure {
+figcaption {
+    font-size: .8em;
+    text-align: center;
+    padding-bottom: 3px;
+    font-family: monospace;
+}
+
+#playing_field, #pie_tin, #plaque  {
     float: right; 
 }
 
-figcaption {
-    font-size: .7em;
-    text-align: center;
+#plaque>figcaption, #pie_tin>figcaption  {
+    width: 210px;
+    padding-left: 5px;
 }
 
 /* text */
