@@ -17,11 +17,11 @@
 
 figure, figcaption {
     border-style: solid;
-    border-color: lightgrey;
+    border-color: crimson;
 }
 
 #rules>figure {
-    float: right;
+    float: right; 
 }
 
 figcaption {
@@ -110,5 +110,20 @@ a:hover {
 
 /* bullet points */
 ul {
-    list-style-type: square;
+    list-style: none;
+}
+
+ul li::before {
+    content: "\25AA";
+    color: red;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* headers */
+hr {
+    background-color: rgb(1, 1, 122);
+    height: 5px;
 }
