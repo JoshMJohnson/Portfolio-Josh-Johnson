@@ -92,46 +92,46 @@ a:hover {
 }
 
 /* table of contents */
-#contents ol {
+#contents_section ol {
     counter-reset: item;
 }
 
-#contents li {
+#contents_section li {
     counter-increment: item;
     display: block;
 }
 
-#contents li:before {
+#contents_section li:before {
     content: counters(item, ".") " ";
     color: red;
     font-family: cursive;
 }
 
-#contents {
+#contents_section {
     border: solid;
     border-color: crimson;
     width: 450px;
 }
 
-#contents>h3 {
+#contents {
     padding-left: 50px;
     font-weight: bold;
     color: red;
 }
 
-#contents a:visited {
+#contents_section a:visited {
     color: rgb(105, 1, 1);
 }
 
-#contents a:link {
+#contents_section a:link {
     color: rgb(255, 0, 0);
 }
 
-#contents a:hover {
+#contents_section a:hover {
     color: rgb(175, 27, 27);
 }
 
-#contents a {
+#contents_section a {
     text-decoration: none;
 }
 
