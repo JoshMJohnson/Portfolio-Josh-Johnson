@@ -27,8 +27,18 @@ figcaption {
     font-family: monospace;
 }
 
-#playing_field, #pie_tin, #plaque  {
+#playing_field, #pie_tin, #plaque, #player_scoring, #mark, #forcing, #breaking_cup  {
     float: right; 
+}
+
+#vertical_stack_display {
+    float: left;
+    margin: 5px 10px;
+}
+
+#vertical_stack_display>img {
+    width: 13em;
+    height: 17em;
 }
 
 #plaque>img, #pie_tin>img {
@@ -36,8 +46,13 @@ figcaption {
     height: 14em;
 }
 
-#plaque>figcaption, #pie_tin>figcaption  {
+#plaque>figcaption, #pie_tin>figcaption, #vertical_stack_display>figcaption, #mark>figcaption  {
     width: 210px;
+    padding-left: 5px;
+}
+
+#breaking_cup>figcaption {
+    width: 290px;
     padding-left: 5px;
 }
 
@@ -120,7 +135,7 @@ a:hover {
     text-decoration: none;
 }
 
-/* bullet points */
+/* lists */
 ul {
     list-style: none;
 }
@@ -132,6 +147,20 @@ ul li::before {
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+}
+
+ol {
+    counter-reset: i;
+}
+
+ol li {
+    display: block;
+}
+
+ol li:before {
+    content: counter(i) ". ";
+    counter-increment: i;
+    color: red;
 }
 
 /* headers */
