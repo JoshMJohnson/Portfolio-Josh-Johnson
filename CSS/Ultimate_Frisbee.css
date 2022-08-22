@@ -27,7 +27,7 @@ figcaption {
     font-family: monospace;
 }
 
-#playing_field, #pie_tin, #plaque, #player_scoring, #mark, #forcing, #breaking_cup  {
+#playing_field, #pie_tin, #plaque, #player_scoring, #mark, #forcing, #breaking_cup, #foul {
     float: right; 
 }
 
@@ -46,8 +46,13 @@ figcaption {
     height: 14em;
 }
 
-#plaque>figcaption, #pie_tin>figcaption, #vertical_stack_display>figcaption, #mark>figcaption  {
+#plaque>figcaption, #pie_tin>figcaption, #vertical_stack_display>figcaption, #mark>figcaption {
     width: 210px;
+    padding-left: 5px;
+}
+
+#foul>figcaption {
+    width: 285px;
     padding-left: 5px;
 }
 
