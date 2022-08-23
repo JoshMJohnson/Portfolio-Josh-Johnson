@@ -168,6 +168,19 @@ ol li:before {
     color: red;
 }
 
+#terms>li {
+    font-weight: bold;
+}
+
+.terms>li {
+    font-weight: normal;
+    padding-bottom: 20px;
+}
+
+#terms li::before {
+    content: none;
+}
+
 /* headers */
 hr {
     background-color: rgb(1, 1, 122);
