@@ -27,7 +27,7 @@ figcaption {
     font-family: monospace;
 }
 
-#playing_field, #pie_tin, #plaque, #player_scoring, #mark, #forcing, #breaking_cup, #foul {
+#playing_field, #pie_tin, #plaque, #player_scoring, #mark, #forcing, #breaking_cup, #foul, #australia_canada {
     float: right; 
 }
 
@@ -46,7 +46,7 @@ figcaption {
     height: 14em;
 }
 
-#plaque>figcaption, #pie_tin>figcaption, #vertical_stack_display>figcaption, #mark>figcaption {
+#plaque>figcaption, #pie_tin>figcaption, #vertical_stack_display>figcaption, #mark>figcaption, #australia_canada>figcaption {
     width: 210px;
     padding-left: 5px;
 }
