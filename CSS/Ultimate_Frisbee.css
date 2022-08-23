@@ -73,6 +73,7 @@ p, blockquote, li {
 
 .header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: darkred;
 }
 
 h2, h3, h4 {
@@ -181,7 +182,7 @@ ol li:before {
     content: none;
 }
 
-/* headers */
+/* horizonal lines */
 hr {
     background-color: rgb(1, 1, 122);
     height: 5px;
