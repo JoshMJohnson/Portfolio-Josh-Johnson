@@ -98,22 +98,22 @@ a:hover {
 }
 
 /* table of contents */
-#contents_section ol {
+#table_of_contents ol {
     counter-reset: item;
 }
 
-#contents_section li {
+#table_of_contents li {
     counter-increment: item;
     display: block;
 }
 
-#contents_section li:before {
+#table_of_contents li:before {
     content: counters(item, ".") " ";
     color: red;
     font-family: cursive;
 }
 
-#contents_section {
+#table_of_contents {
     border: solid;
     border-color: crimson;
     width: 450px;
@@ -125,19 +125,19 @@ a:hover {
     color: red;
 }
 
-#contents_section a:visited {
+#table_of_contents a:visited {
     color: rgb(105, 1, 1);
 }
 
-#contents_section a:link {
+#table_of_contents a:link {
     color: rgb(255, 0, 0);
 }
 
-#contents_section a:hover {
+#table_of_contents a:hover {
     color: rgb(175, 27, 27);
 }
 
-#contents_section a {
+#table_of_contents a {
     text-decoration: none;
 }
 
