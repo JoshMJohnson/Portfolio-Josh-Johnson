@@ -1,0 +1,49 @@
+/* header */
+h1 {
+    text-align: center;
+    line-height: 75px;
+    font-family: cursive;
+    color: grey;
+}
+
+div:first-of-type {
+    background-color: rgb(107, 252, 107);
+    height: 75px;
+}
+
+/* sectioning */
+div:not(div:first-of-type) {
+    border: 2px solid darkgreen; /* width/style/color */
+    margin-top: 10px;
+}
+
+#hear_joke, #add_joke {
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* body */
+p, label, h2 {
+    font-family: sans-serif;
+}
+
+/* buttons */
+button:hover {
+    cursor: pointer;
+}
+
+/* form information */
+#first_name {
+    margin-left: 14px;
+}
+
+#last_name {
+    margin-left: 16px;
+}
+
+#first_name, #last_name, #yes, #friendly_adult, #joke {
+    margin-bottom: 10px;
+}

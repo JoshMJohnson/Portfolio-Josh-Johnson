@@ -1,0 +1,30 @@
+/* header */
+h1 {
+    text-align: center;
+    line-height: 75px;
+    font-family: cursive;
+    color: grey;
+}
+
+div:first-of-type {
+    background-color: rgb(107, 252, 107);
+    height: 75px;
+}
+
+/* sectioning */
+div:not(div:first-of-type) {
+    border: 2px solid darkgreen; /* width/style/color */
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* body */
+p {
+    font-family: sans-serif;
+}
+
+/* buttons */
+button:hover {
+    cursor: pointer;
+}
+

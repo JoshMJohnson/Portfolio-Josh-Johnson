@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="author" content="Josh Johnson">
+        <meta name="description" content="Tells a joke from the database">
+        <meta name="keywords" content="HTML, CSS">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../CSS/Jokes/Hear_Joke.css">
+        <title>Jokes</title>
+    </head>
+    <body>
+        <div>
+            <h1>Funny Jokes R Us</h1>
+        </div>
+        <div id="hear_joke">
+            <h2>Get ready to laugh your socks off!</h2>
+            <p>What kind of joke do you want to hear?</p>
+            <form method="get">
+                <label for="original">Do you want to hear original jokes?</label>
+                <select id="original" name="original">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                    <option value="either">Either</option>
+                </select><br>
+                <label for="restrictions">Do you need restricted jokes based on age group?</label>
+                <select id="restrictions" name="restrictions">
+                    <option value="no">No</option>
+                    <option value="yes">Yes</option>
+                </select><br>
+                <input type="button" value="I'm ready to laugh!">
+            </form>
+        </div>
+        <div id="add_joke">
+            <p>Did you think of a funny joke that you'd like to share?</p>
+            <a href="Add_Joke.html"><button type="button">Tell Joke!</button></a>
+        </div>
+
+        <!-- add a script to display age groups when restrictions are turned on -->
+
+
+    </body>
+</html>
