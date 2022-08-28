@@ -6,19 +6,23 @@ h1 {
     color: grey;
 }
 
-div:first-of-type {
+#heading{
     background-color: rgb(107, 252, 107);
     height: 75px;
 }
 
 /* sectioning */
-div:not(div:first-of-type) {
+#add_joke, #hear_joke {
     border: 2px solid darkgreen; /* width/style/color */
     margin-top: 10px;
 }
 
 #add_joke, #hear_joke {
     padding: 10px;
+}
+
+#age_restricted {
+    padding-bottom: 10px;
 }
 
 h2 {
@@ -43,3 +47,4 @@ button:hover {
 #original, #restrictions {
     margin-left: 10px;
 }
+

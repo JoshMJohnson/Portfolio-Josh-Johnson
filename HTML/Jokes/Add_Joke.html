@@ -10,7 +10,7 @@
         <title>Jokes</title>
     </head>
     <body>
-        <div>
+        <div id="heading">
             <h1>Funny Jokes R Us</h1>
         </div>
         <div id="add_joke">
@@ -20,18 +20,22 @@
                 <input type="text" id="first_name" name="first_name" required><br>
                 <label for="last_name">Contributers Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required><br>
-                <label for="original">Did you think of this joke yourself?</label>
-                <input type="radio" id="yes" name="original" value="Yes">
-                <label for="yes">Yes</label>
-                <input type="radio" id="no" name="original" value="No">
-                <label for="no">No</label><br>
-                <label for="appropriate">This joke is acceptable for the following ages:</label><br>
-                <input type="checkbox" id="friendly_child" name="friendly_child" value="Child">
-                <label for="friendly_child">Ages 10 and younger</label><br>
-                <input type="checkbox" id="friendly_young" name="friendly_young" value="Young">
-                <label for="friendly_young">Ages 11-17</label><br>
-                <input type="checkbox" id="friendly_adult" name="friendly_adult" value="Adult">
-                <label for="friendly_adult">Ages 18+</label><br>
+                <div id="original">
+                    <label for="original">Did you think of this joke yourself?</label>
+                    <input type="radio" id="yes" name="original" value="Yes" required>
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="original" value="No">
+                    <label for="no">No</label><br>
+                </div>
+                <div id="age_restricted">
+                    <label for="appropriate">This joke is acceptable for the following ages:</label><br>
+                    <input type="checkbox" id="friendly_child" name="friendly_child" value="Child">
+                    <label for="friendly_child">10 and younger</label><br>
+                    <input type="checkbox" id="friendly_young" name="friendly_young" value="Young">
+                    <label for="friendly_young">11-17</label><br>
+                    <input type="checkbox" id="friendly_adult" name="friendly_adult" value="Adult">
+                    <label for="friendly_adult">18+</label><br>
+                </div>
                 <label for="joke">Joke:</label><br>
                 <textarea id="joke" name="joke" rows="6" cols="50" placeholder="Lets hear a funny!" required></textarea><br>
                 <input type="reset" value="Clear">
@@ -43,8 +47,38 @@
             <a href="Hear_Joke.html"><button type="button">Hear Joke!</button></a>
         </div>
 
-        <!-- add a script to ensure at least one checkbox is checked for appropriate age groups -->
+        <script>
+            /* ensure at least one checkbox is checked for appropriate age groups */
+            (function() {
+                const div = document.querySelector('#age_restricted');
+                const checkboxes = div.querySelectorAll('input[type=checkbox]');
+                const firstCheckbox = checkboxes.length > 0 ? checkboxes[0] : null;
 
+                function init() {
+                    if (firstCheckbox) {
+                        for (let i = 0; i < checkboxes.length; i++) {
+                            checkboxes[i].addEventListener('change', checkValidity);
+                        }
 
+                        checkValidity();
+                    }
+                }
+
+                function isChecked() {
+                    for (let i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) return true;
+                    }
+
+                    return false;
+                }
+
+                function checkValidity() {
+                    const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+                    firstCheckbox.setCustomValidity(errorMessage);
+                }
+
+                init();
+            })();
+        </script>
     </body>
 </html>

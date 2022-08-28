@@ -10,7 +10,7 @@
         <title>Jokes</title>
     </head>
     <body>
-        <div>
+        <div id="heading">
             <h1>Funny Jokes R Us</h1>
         </div>
         <div id="hear_joke">
@@ -28,6 +28,15 @@
                     <option value="no">No</option>
                     <option value="yes">Yes</option>
                 </select><br>
+                <div id="age_restricted">
+                    <label for="ages">Which age ranges are appropiate for viewing?</label><br>
+                    <input type="checkbox" id="friendly_child" name="friendly_child" value="Child">
+                    <label for="friendly_child">Ages 10 and younger</label><br>
+                    <input type="checkbox" id="friendly_young" name="friendly_young" value="Young">
+                    <label for="friendly_young">Ages 11-17</label><br>
+                    <input type="checkbox" id="friendly_adult" name="friendly_adult" value="Adult">
+                    <label for="friendly_adult">Ages 18+</label><br>
+                </div>
                 <input type="button" value="I'm ready to laugh!">
             </form>
         </div>
@@ -36,8 +45,11 @@
             <a href="Add_Joke.html"><button type="button">Tell Joke!</button></a>
         </div>
 
-        <!-- add a script to display age groups when restrictions are turned on -->
+        <script>
+            /* display age groups when restrictions are turned on; otherwise hide - TODO */
+            
 
-
+            /* ensure at least one checkbox is checked for appropriate age groups */
+        </script>
     </body>
 </html>
