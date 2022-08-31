@@ -22,7 +22,7 @@
                 <select id="original" name="original">
                     <option value="no" selected>No</option>
                     <option value="yes">Yes</option>
-                    <option value="either">Either</option>
+                    <option value="either">Both</option>
                 </select><br>
                 <label for="restrictions">Do you need restricted jokes based on age group?</label>
                 <select id="restrictions" name="restrictions" onchange="showHide(this)">
@@ -48,8 +48,9 @@
 
         <script>
             var restrictedShowing = false;
+            var keywordsField = document.getElementById("related_jokes").value;
 
-            /* display or hide the age restricted options */
+            /* display or hide the age restricted checkboxs */
             function showHide() {
                 let restricted = document.getElementById("restrictions");
 
@@ -95,9 +96,9 @@
                 init();
             };
 
-            /* allows the user to continue without requiring at least one box checked on invisible content */
+            /* allows the user to submit the form without requiring at least one box checked on invisible content */
             function followThrough() {
-                if (restrictedShowing == false) {
+                if (restrictedShowing == false && keywordsField != "") {
                     document.getElementById('hear_joke_form').submit();
                 }
             }
