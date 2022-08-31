@@ -48,7 +48,6 @@
 
         <script>
             var restrictedShowing = false;
-            var keywordsField = document.getElementById("related_jokes").value;
 
             /* display or hide the age restricted checkboxs */
             function showHide() {
@@ -98,6 +97,8 @@
 
             /* allows the user to submit the form without requiring at least one box checked on invisible content */
             function followThrough() {
+                let keywordsField = document.getElementById("related_jokes").value;
+
                 if (restrictedShowing == false && keywordsField != "") {
                     document.getElementById('hear_joke_form').submit();
                 }
