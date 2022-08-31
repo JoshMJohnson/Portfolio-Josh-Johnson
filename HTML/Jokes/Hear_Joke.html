@@ -15,29 +15,30 @@
         </div>
         <div id="hear_joke">
             <h2>Get ready to laugh your socks off!</h2>
-            <p>What kind of joke do you want to hear?</p>
             <form method="get">
+                <label for="related_jokes">You want to hear jokes related to:</label>
+                <input type="text" id="related_jokes" name="related_jokes" required><br>
                 <label for="original">Do you want to hear original jokes?</label>
                 <select id="original" name="original">
-                    <option value="no">No</option>
+                    <option value="no" selected>No</option>
                     <option value="yes">Yes</option>
                     <option value="either">Either</option>
                 </select><br>
                 <label for="restrictions">Do you need restricted jokes based on age group?</label>
-                <select id="restrictions" name="restrictions">
-                    <option value="no">No</option>
+                <select id="restrictions" name="restrictions" onchange="showHide(this)">
+                    <option value="no" selected>No</option>
                     <option value="yes">Yes</option>
                 </select><br>
                 <div id="age_restricted">
                     <label for="ages">Which age ranges are appropiate for viewing?</label><br>
                     <input type="checkbox" id="friendly_child" name="friendly_child" value="Child">
-                    <label for="friendly_child">Ages 10 and younger</label><br>
+                    <label for="friendly_child">10 and younger</label><br>
                     <input type="checkbox" id="friendly_young" name="friendly_young" value="Young">
-                    <label for="friendly_young">Ages 11-17</label><br>
+                    <label for="friendly_young">11-17</label><br>
                     <input type="checkbox" id="friendly_adult" name="friendly_adult" value="Adult">
-                    <label for="friendly_adult">Ages 18+</label><br>
+                    <label for="friendly_adult">18+</label><br>
                 </div>
-                <input type="button" value="I'm ready to laugh!">
+                <input type="submit" value="I'm ready to laugh!">
             </form>
         </div>
         <div id="add_joke">
@@ -46,10 +47,48 @@
         </div>
 
         <script>
-            /* display age groups when restrictions are turned on; otherwise hide - TODO */
-            
+            function showHide() {
+                var restricted = document.getElementById("restrictions");
 
+                if (restricted.value == "yes") {
+                    document.getElementById("age_restricted").style.display = "block";
+                    ensureChecked();
+                } else {
+                    document.getElementById("age_restricted").style.display = "none"; 
+                }  
+            }      
+            
             /* ensure at least one checkbox is checked for appropriate age groups */
+            function ensureChecked() {
+                const div = document.querySelector('#age_restricted');
+                const checkboxes = div.querySelectorAll('input[type=checkbox]');
+                const firstCheckbox = checkboxes.length > 0 ? checkboxes[0] : null;
+                
+                function init() {
+                    if (firstCheckbox) {
+                        for (let i = 0; i < checkboxes.length; i++) {
+                            checkboxes[i].addEventListener('change', checkValidity);
+                        }
+
+                        checkValidity();
+                    }
+                }
+
+                function isChecked() {
+                    for (let i = 0; i < checkboxes.length; i++) {
+                        if (checkboxes[i].checked) return true;
+                    }
+
+                    return false;
+                }
+
+                function checkValidity() {
+                    const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+                    firstCheckbox.setCustomValidity(errorMessage);
+                }
+                
+                init();
+            };
         </script>
     </body>
 </html>

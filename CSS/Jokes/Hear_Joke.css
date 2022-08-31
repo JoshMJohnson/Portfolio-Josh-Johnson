@@ -29,6 +29,10 @@ h2 {
     text-align: center;
 }
 
+#age_restricted {
+    display: none;
+}
+
 /* body */
 p, label, h2 {
     font-family: sans-serif;
@@ -40,11 +44,7 @@ button:hover {
 }
 
 /* form information */
-#original, #restrictions {
+#original, #restrictions, #related_jokes {
     margin-bottom: 10px;
-}
-
-#original, #restrictions {
     margin-left: 10px;
 }
-
