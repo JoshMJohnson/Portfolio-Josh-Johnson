@@ -15,7 +15,7 @@
         </div>
         <div id="hear_joke">
             <h2>Get ready to laugh your socks off!</h2>
-            <form method="get">
+            <form id="hear_joke_form" method="get">
                 <label for="related_jokes">You want to hear jokes related to:</label>
                 <input type="text" id="related_jokes" name="related_jokes" required><br>
                 <label for="original">Do you want to hear original jokes?</label>
@@ -38,7 +38,7 @@
                     <input type="checkbox" id="friendly_adult" name="friendly_adult" value="Adult">
                     <label for="friendly_adult">18+</label><br>
                 </div>
-                <input type="submit" value="I'm ready to laugh!">
+                <input type="submit" value="I'm ready to laugh!" onclick="followThrough()">
             </form>
         </div>
         <div id="add_joke">
@@ -47,14 +47,19 @@
         </div>
 
         <script>
+            var restrictedShowing = false;
+
+            /* display or hide the age restricted options */
             function showHide() {
-                var restricted = document.getElementById("restrictions");
+                let restricted = document.getElementById("restrictions");
 
                 if (restricted.value == "yes") {
                     document.getElementById("age_restricted").style.display = "block";
+                    restrictedShowing = true;
                     ensureChecked();
                 } else {
                     document.getElementById("age_restricted").style.display = "none"; 
+                    restrictedShowing = false;
                 }  
             }      
             
@@ -89,6 +94,13 @@
                 
                 init();
             };
+
+            /* allows the user to continue without requiring at least one box checked on invisible content */
+            function followThrough() {
+                if (restrictedShowing == false) {
+                    document.getElementById('hear_joke_form').submit();
+                }
+            }
         </script>
     </body>
 </html>
