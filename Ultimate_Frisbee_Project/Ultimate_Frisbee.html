@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="author" content="Josh Johnson">
+        <meta name="description" content="Better looking wiki page for Ultimate Frisbee">
+        <meta name="keywords" content="HTML, CSS">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Ultimate_Frisbee.css">
+        <title>Ultimate Frisbee</title>
+    </head>
+    <body>
+        <h1 class="header">Ultimate Frisbee</h1>
+        <img id="ultimate_cleats" src="Images/Ultimate_Cleats.jpg" alt="Ultimate Cleats">
+        <img id="usa_logo" src="Images/USA_Ultimate_Logo.png" alt="USA Ultimate Logo">
+        <!-- overview section of the document -->
+        <section id="overview_section">
+            <h2 class="header" id="overview">Overview</h2>
+            <hr>
+            <p>
+                <strong>Ultimate</strong>, originally known as <strong>Ultimate Frisbee</strong>, 
+                is a <mark>non&ndash;contact team game</mark> played by players with a flying disc.
+                Ultimate was developed in 1968 by a group of students at Columbia High School in Maplewood, New Jersey. 
+                Although ultimate resembles many traditional sports in its athletic requirements, it is unlike most sports due to its 
+                focus on self&ndash;officiating, even at the highest levels of competition. 
+                The term Frisbee, often used to generically describe all flying discs, is a registered trademark of the Wham&ndash;O toy company, 
+                and thus the sport is not formally called &ldquo;ultimate Frisbee&rdquo;, though this name is still in common casual use. Points are scored 
+                by passing the disc to a teammate in the opposing <a href="https://en.wikipedia.org/wiki/End_zone" target="_blank">end zone</a>. Other basic rules are 
+                that players must not take steps while holding the disc, and interceptions, incomplete passes, and passes out of bounds are turnovers. 
+                Rain, wind, or occasionally other adversities can make for a testing match with rapid turnovers, heightening the pressure of play.
+            </p>
+            <p>
+                From its beginnings in the American counterculture of the late 1960s, ultimate has resisted empowering any referee with rule enforcement. 
+                Instead, it relies on the sportsmanship of players and invokes the &ldquo;spirit of the game&rdquo; to maintain fair play. Players call 
+                their own fouls, and dispute a foul only when they genuinely believe it did not occur. Playing without referees is the norm for league play 
+                but has been supplanted in club competition by the use of &ldquo;observers&rdquo; or &ldquo;game advisors&rdquo; to help in disputes, 
+                and the professional league employs empowered referees.
+            </p>
+            <p>
+                In 2012, there were 5.1 million ultimate players in the United States. Ultimate is played across the world in pickup games and by 
+                recreational, school, club, professional, and national teams at various age levels and with open, women&apos;s, and mixed divisions.
+            </p>
+            <p>
+                The United States has historically won most of the world titles, though not all. US teams won all three divisions &lpar;women&apos;s, 
+                men&apos;s, and mixed gender&rpar; at the U&ndash;24 world championship in 2019, and all divisions in 2016 competitions between national teams
+            </p>
+            <div id="table_of_contents">
+                <h3 id="contents">Contents</h3>
+                <ol>
+                    <li><a href="#history">Invention and History</a></li>
+                    <li><a href="#player_associations">Player Associations</a></li>
+                    <li><a href="#rules">Rules</a>
+                        <ol>
+                            <li><a href="#rulebooks">Rulebooks&colon; USAU, WFDF, AUDL</a>
+                                <ol>
+                                    <li><a href="#rule_changes">AUDL rule changes</a></li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><a href="#throwing_and_catching">Throwing and catching techniques</a></li>
+                    <li><a href="#strategy">Strategy and tactics</a>
+                        <ol>
+                            <li><a href="#offense">Offense</a>
+                                <ol>
+                                    <li><a href="#handlers_cutters">Handlers and cutters</a></li>
+                                    <li><a href="#vertical_stack">Vertical stack</a></li>
+                                    <li><a href="#horizontal_stack">Horizontal stack</a></li>
+                                    <li><a href="#fgi">Feature, German, or isolation</a></li>
+                                    <li><a href="#hexagon_mexican">Hexagon or Mexican</a></li>
+                                </ol>
+                            </li>
+                            <li><a href="#defense">Defense</a>
+                                <ol>
+                                    <li><a href="#pull">Pull</a></li>
+                                    <li><a href="#force">Force</a></li>
+                                    <li><a href="#match">Match&ndash;to&ndash;match</a></li>
+                                    <li><a href="#poaching">Poaching</a></li>
+                                    <li><a href="#zone">Zone</a>
+                                        <ol>
+                                            <li><a href="#cup">Cup</a></li>
+                                            <li><a href="#wall">Wall</a></li>
+                                        </ol>
+                                    </li>
+                                    <li><a href="#junk_clam">Junk and clam</a></li>
+                                    <li><a href="#bracket">Bracket</a></li>
+                                    <li><a href="#hasami">Hasami</a></li>
+                                    <li><a href="#hexagon_flexagon">Hexagon or flexagon</a></li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><a href="#spirit_of_the_game">Spirit of the game</a></li>
+                    <li><a href="#competitions">Competitions</a>
+                        <ol>
+                            <li><a href="#professional_leagues">Professional Leagues &lpar;AUDL and PUL in North America&rpar;</a></li>
+                            <li><a href="#nal">North American leagues</a></li>
+                            <li><a href="#college_teams">College teams</a></li>
+                            <li><a href="#national_teams">National teams</a></li>
+                            <li><a href="#hat_tournaments">Hat tournaments</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#common_concepts">Common concepts and terms</a></li>
+                </ol>
+            </div>
+        </section>
+        <!-- history section of the document -->
+        <section id="history_section">
+            <h2 class="header" id="history">Invention and History</h2>
+            <hr>
+            <blockquote cite="https://en.wikipedia.org/wiki/Ultimate_(sport)">
+                I just remember one time running for a pass and leaping up in the air and just feeling the Frisbee making it into my hand and feeling 
+                the perfect synchrony and the joy of the moment, and as I landed I said to myself, &lsquo;This is the ultimate game. This is the ultimate game.&rsquo;
+                <span>&mdash;Jared Kass, one of the inventors of ultimate, interviewed in 2003, speaking of the summer of 1968</span>
+            </blockquote>
+            <figure id="pie_tin">
+                <img src="Images/Frisbie_Pie_Tin.jpg" alt="Frisbie pie tin">
+                <figcaption>Frisbie pie tin by the Frisbie Pie Comapny</figcaption>
+            </figure>
+            <p>
+                Team flying disc games using pie tins and cake pan lids were part of Amherst College student culture for decades before plastic discs 
+                were available. A similar two&ndash;hand, touch&ndash;football&ndash;based game was played at Kenyon College in Ohio starting in 1942.
+            </p>
+            <p>
+                From 1965 or 1966 Jared Kass and fellow Amherst students Bob Fein, Richard Jacobson, Robert Marblestone, Steve Ward, Fred Hoxie, 
+                Gordon Murray, and others evolved a team frisbee game based on concepts from American football, basketball, and soccer. 
+                This game had some of the basics of modern ultimate including scoring by passing over a goal line, advancing the disc by passing, 
+                no travelling with the disc, and turnovers on interceptions or incomplete passes. Kass, an instructor and dorm advisor, taught 
+                this game to high school student <a href="https://en.wikipedia.org/wiki/Joel_Silver" target="_blank">Joel Silver</a> during the summer of 1967 
+                or 1968 at Northfield Mount Hermon School summer camp.
+            </p>
+            <p>
+                Joel Silver, along with fellow students Jonny Hines, <a href="https://en.wikipedia.org/wiki/Bernard_Hellring" target="_blank">Buzzy Hellring</a>, 
+                and others, further developed ultimate beginning in 1968 
+                at Columbia High School, Maplewood, New Jersey, USA &lpar;CHS&rpar;. The first sanctioned game was played at CHS in 1968 between the 
+                student council and the student newspaper staff. Beginning the following year, evening games were played in the glow of 
+                mercury&ndash;vapor lights on the school&apos;s student&ndash;designated parking lot. Initially players of ultimate Frisbee 
+                &lpar;as it was known at the time&rpar; used a &ldquo;Master&rdquo; disc marketed by Wham&ndash;O, based on 
+                <a href="https://en.wikipedia.org/wiki/Walter_Frederick_Morrison" target="_blank">Fred Morrison&apos;s</a> inspired &ldquo;Pluto Platter&rdquo; design. 
+                Hellring, Silver, and Hines developed the first and second edition of &ldquo;Rules of Ultimate Frisbee&rdquo;. In 1970 CHS defeated Millburn 
+                High 43&ndash;10 in the first interscholastic ultimate game, which was played in the evening in the CHS&apos;s faculty parking lot. 
+                Millburn, and three other New Jersey high schools made up the first conference of ultimate teams beginning in 1971.
+            </p>
+            <p>
+                Alumni of that first league took the game to their colleges and universities. Rutgers defeated Princeton 29&ndash;27 in 1972 in the first 
+                intercollegiate game. This game was played exactly 103 years after the first intercollegiate American football game by the same teams 
+                at precisely the same site, which had been paved as a parking lot in the interim. Rutgers won both games by an identical margin.
+            </p>
+            <p>
+                Rutgers also won the first ultimate Frisbee tournament in 1975, hosted by Yale, with 8 college teams participating. That summer 
+                ultimate was introduced at the Second World Frisbee Championships at the Rose Bowl. This event introduced ultimate on the west coast of the US.
+            </p>
+            <p>
+                In 1975, ultimate was introduced at the Canadian Open Frisbee Championships in Toronto as a showcase event. Ultimate league play 
+                in Canada began in Toronto in 1979.The Toronto Ultimate Club is one of ultimate&apos;s oldest leagues.
+            </p>
+            <figure id="plaque">
+                <img src="Images/Plaque.jpg" alt="Plaque commemorating invention">
+                <figcaption>Plaque commemorating the invention of Ultimate at Columbia High School</figcaption>
+            </figure>
+            <p>
+                In January 1977 Wham&ndash;O introduced the World Class &ldquo;80 Mold&rdquo; 165 gram frisbee. This disc quickly replaced the relatively light and 
+                flimsy Master frisbee with much improved stability and consistency of throws even in windy conditions. Throws like the flick and 
+                hammer were possible with greater control and accuracy with this sturdier disc. The 80 Mold was used in ultimate tournaments even 
+                after it was discontinued in 1983.
+            </p>
+            <p>
+                Discraft, founded in the late 1970s by Jim Kenner in London, Ontario, 
+                later moved the company from Canada to its present location 
+                in Wixom, Michigan. Discraft introduced the Ultrastar 175 gram disc in 1981, with an updated mold in 1983. This disc was adopted 
+                as the standard for ultimate during the 1980s, with Wham&ndash;O holdouts frustrated by the discontinuation of the 80 mold and plastic 
+                quality problems with discs made on the replacement 80e mold. Wham&ndash;O soon introduced a contending 175 gram disc, the U&ndash;Max, 
+                that also suffered from quality problems and was never widely popular for ultimate. In 1991 the Ultrastar was specified as the official 
+                disc for UPA tournament play and remains in wide use.
+            </p>
+            <p>
+                The popularity of the sport spread quickly, taking hold as a free&ndash;spirited alternative to traditional organized sports. In recent 
+                years college ultimate has attracted a greater number of traditional athletes, raising the level of competition and athleticism and 
+                providing a challenge to its laid back, free&ndash;spirited roots.
+            </p>
+            <p>
+                In 2010, <a href="https://en.wikipedia.org/wiki/Anne_Watson" target="_blank">Anne Watson</a>, a Vermont teacher and ultimate coach, launched a 
+                seven&ndash;year effort to have ultimate recognized as full varsity sport in the state&apos;s high schools. Watson&apos;s effort culminated on 
+                November 3, 2017, when the Vermont Principals Association, which oversees the state&apos;s high school sports programs, 
+                unanimously approved ultimate as a varsity sport beginning in the Spring 2019 season. The approval made Vermont the first U.S. 
+                state to recognize ultimate as a varsity sport.
+            </p>
+        </section>
+        <!-- player association section of the document -->
+        <section id="player_associations_section">
+            <h2 class="header" id="player_associations">Player Associations</h2>
+            <hr>
+            <P>
+                In late December 1979, the first national player&ndash;run ultimate organization was founded in the United States as the Ultimate Players Association 
+                &lpar;UPA&rpar;. Tom Kennedy was elected its first director. Before the UPA, events had been sponsored by the International Frisbee Association 
+                &lpar;IFA&rpar;, a promotional arm of Wham&ndash;O. 
+            </P>
+            <p>
+                The UPA organized regional tournaments and has crowned a national champion every year since 1979. Glassboro State College defeated the 
+                Santa Barbara Condors 19&ndash;18 at the first UPA Nationals in 1979.
+            </p>
+            <p>
+                In 2010, the UPA rebranded itself as <a href="https://en.wikipedia.org/wiki/USA_Ultimate" target="_blank">USA Ultimate</a>
+            </p>
+            <p>
+                The first European Championship tournament for national teams was held in 1980 in Paris. Finland won, with England and Sweden finishing 
+                second and third. In 1981 the European Flying Disc Federation &lpar;EFDF&rpar; was formed. In 1984 the 
+                <a href="https://en.wikipedia.org/wiki/World_Flying_Disc_Federation" target="_blank">World Flying Disc Federation &lpar;WFDF&rpar;</a> was formed by the 
+                EFDF to be the international governing body for disc sports. The first World Championships tournament was held in 1983 in Gothenburg, Sweden.
+            </p>
+            <p>
+                The <a href="https://en.wikipedia.org/wiki/European_Ultimate_Federation" target="_blank">European Ultimate Federation</a> is the governing body for the sport 
+                of ultimate in Europe. Funded in 2009, it is part of the European Flying Disc Federation &lpar;EFDF&rpar; and of the World Flying Disc Federation.
+            </p>
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Ultimate_Canada" target="_blank">Ultimate Canada</a>, the national governing body in Canada, was formed in 1993. 
+                The first Canadian National Ultimate Championships were held in Ottawa 1987.
+            </p>
+            <p>
+                In 2006, ultimate became a <a href="https://en.wikipedia.org/wiki/British_Universities_and_Colleges_Sport" target="_blank">BUCS</a> accredited sport at 
+                Australian and UK universities for both indoor and outdoor open division events.
+            </p>
+            <p>
+                The WFDF was granted full IOC recognition on 2 Aug 2015. This allows the possibility for the organization to receive IOC funding and become an Olympic Game.
+            </p>
+        </section>
+        <!-- rules section of this document -->
+        <section id="rules_section">
+            <h2 class="header" id="rules">Rules</h2>
+            <hr>
+            <figure id="playing_field">
+                <img src="Images/Ultimate_field_WFDF_rules.jpg" alt="WFDF Ultimate Playing field">
+                <figcaption>WFDF Ultimate playing field</figcaption>
+            </figure>
+            <p>
+                A point is scored when one team catches the disc in the opposing team&apos;s end zone.
+            </p>
+            <p>
+                Each point begins with both teams lining up on the front of their respective end zone line. Standing beyond the end zone line before the disc is 
+                thrown by the defense &lpar;a &ldquo;pull&rdquo;&rpar; to the offense is known as an &ldquo;offsides&rdquo; violation. A regulation grass outdoor 
+                game has seven players per team. In mixed ultimate, the teams usually play with a &ldquo;4&ndash;3&rdquo; ratio, meaning either 4 men and 3 women or 4 women and 3 
+                men will be playing. The offensive end zone dictates whether there are more men or women. This end zone is called the &lsquo;gen&ndash;zone&rsquo;, short for gender zone.
+            </p>
+            <p>
+                Each point begins with the two teams starting in opposite end zones. The team who scored the previous point are now on defense. The teams indicate 
+                their readiness by raising a hand, and the team on defense will throw the disc to the other team. This throw is called a &ldquo;pull&rdquo;. When the pull is released, 
+                all players are free to leave their end zones and occupy any area on the field. Both teams should not leave the end&ndash;zone before the pull is released. 
+                Thus, the defending team must run most of the field length at speed to defend immediately, and a good pull is designed to hang in the air as long as 
+                possible to give the defending team time to make the run. To score goals, the players of each team try to get the possession of the flying disc 
+                &lpar;without making physical contact with players&rpar;, pass it from one teammate to the other, and keep it away from the opponents till it is carried all the way 
+                towards their &lpar;opponents&apos;&rpar; end zone or goal area. Each end&ndash;zone lies at each end of the court.
+            </p>
+            <p>
+                The player holding the disc must establish a pivot point &lpar;i.e. they cannot run with the disc, just step out from a single point&rpar;. They must establish a 
+                pivot at &ldquo;the appropriate spot&rdquo; on the field &lpar;where they caught the disc, or as soon as possible after slowing down&rpar;. The player can also catch and throw 
+                the disc within three steps without establishing a pivot. A violation of these rules is called a &ldquo;travel&rdquo;. The disc is advanced by throwing it to teammates. 
+                If a pass is incomplete, it is a &ldquo;turnover&rdquo; and the opposing team immediately gains possession, playing to score in the opposite direction. Passes are 
+                incomplete if they are caught by a defender, touch the ground &lpar;meaning defenders need only knock the disc out of the air to gain possession&rpar;, or touch an 
+                out&ndash;of&ndash;bounds object before being caught. The first body part to touch the ground is the one considered for bounds, which means a player may catch the 
+                disc and &lsquo;toe the line&rsquo;, or put a foot down, before falling out of bounds. Once possession of the disc is obtained, however, it cannot be forced out of the 
+                throwers possession before it leaves their hand. A common infraction of this nature is called a &ldquo;strip&rdquo;, in which one player feels that they had enough 
+                possession of the disc to stop its rotation before it was taken out of their hand. However, if a player jumps from in bounds, catches, and then throws the 
+                disc while in the air and technically out of bounds, the disc is still in play and can be caught or defended by players on the field. This feat of athleticism 
+                and precision is highly praised, and dubbed &ldquo;Greatest.&rdquo;
+            </p>
+            <p>
+                Ultimate is non&ndash;contact. Non&ndash;incidental, play&ndash;affecting, or dangerous physical contact is not allowed. Non&ndash;incidental contact is a foul, 
+                regardless of intent, with various consequences depending on the situation and the league rules. Incidental contact, like minor collisions while jumping 
+                for the disc or running for it can be acceptable, depending on the circumstances. Parameters like who has the &ldquo;right&rdquo; for the relevant space, 
+                who caught the disc etc. will determine whether a foul has been committed or not. Attitudes can vary between leagues and countries, even if 
+                the letter of the rule remains the same. 
+            </p>
+            <p>
+                Contact is disallowed for both defence and offence, including the defender marking the offense player with the disc, and there are further restrictions on 
+                positions this defender can take in order to minimize incidental contact.
+            </p>
+            <p>
+                Defending against the person who has the disc is a central part of the defensive strategy &lpar;colloquially &ldquo;marking&rdquo;&rpar;. The defensive &ldquo;marker&rdquo; 
+                counts aloud to 10 seconds, which is referred to as &ldquo;stalling&rdquo;. If the disc has not been thrown when the defending player reaches 10, it is turned over to 
+                the other team. &ldquo;Stall&rdquo; can only be called after the defender has actually counted the 10 seconds. In order for the &ldquo;mark&rdquo; to be considered 
+                as counting all the way to ten, the thrower must throw the disc before the mark is able to say the &ldquo;T&rdquo; in the word ten. If the mark is accused of counting 
+                too fast &lpar;called a &ldquo;fast&ndash;count&rdquo;&rpar;, then the thrower can call a violation, in which the mark then has to subtract two seconds from their previous stall 
+                count and slow their counting. There can only be one player defending in a 3 meters &lpar;9.8 ft&rpar; radius around the person who has the disc unless that player 
+                is defending against another offensive player. The marker must stay one disc&apos;s diameter away from the thrower and must not wrap their hands around the 
+                thrower, or the person with the disc can call a foul &lpar;&ldquo;wrapping&rdquo;&rpar;.
+            </p>
+            <p>
+                In ultimate, there is no concept of intentional vs. unintentional fouls&colon; infractions are called by the players themselves and resolved in such a way as to 
+                minimize the impact of such calls on the outcome of the play &lpar;sometimes resulting in &ldquo;do&ndash;overs&rdquo; where the disc is returned to the last uncontested 
+                possession&rpar;, rather than emphasizing penalties or &ldquo;win&ndash;at&ndash;all&ndash;costs&rdquo; behavior. If a player disagrees with a foul that 
+                was called on them, they can choose to &ldquo;contest&rdquo; the infraction. In many instances, a conversation ensues between both parties involved in 
+                the foul, and a verdict is determined as to whether the disc will be returned and a &ldquo;do&ndash;over&rdquo; will commence, or if the person guilty of 
+                the foul has no objections to the call. A common infraction, intentional or not, is a &ldquo;pick&rdquo; where the offense &lpar;or your own team member even&rpar; 
+                is somehow in the way of your pursuit of your &ldquo;check&rdquo; in man&ndash;to&ndash;man defense. This only applies when you started within 10 feet of your 
+                &ldquo;check&rdquo; and the game play is stopped so that the players involved go back to where the &ldquo;pick&rdquo; occurred. The integrity of 
+                ultimate depends on each player&apos;s responsibility to uphold the spirit of the game. Ultimate is predominantly self&ndash;refereed, relying on the on&ndash;field 
+                players to call their own infractions and to try their best to play within the rules of the game. It is assumed that players will not intentionally violate the rules and 
+                will be honest when discussing foul calls with opponents. This is called Spirit of the Game, or simply Spirit. After a call is made, the players should agree 
+                on an outcome, based on what they think happened and how the rules apply to that situation. If players cannot come to agreement on the call&apos;s validity, 
+                the disc can be given back to the last uncontested thrower, with play restarting as if before the disputed throw. Coaches and other players on the sidelines 
+                cannot make calls, however they may inform players of specific rules in the case of a contested call. Players on the sideline may also be asked for their view, 
+                as they often have &ldquo;best perspective&rdquo; to see what happened.
+            </p>
+            <p>
+                A regulation outdoor game is played 7 vs. 7, with substitutions allowed between points and for injuries. Games are typically played to a points limit of 13&sol;15&sol;17 
+                or more, and&sol;or a time limit of 75&sol;90&sol;100 minutes. There is usually a halftime break and an allowance of a 2 timeouts per team each half.
+            </p>
+            <p>
+                A regulation field is 100 meters &lpar;330 ft&rpar; by 37 meters &lpar;121 ft&rpar;, including end zones each 18 meters &lpar;59 ft&rpar; deep.
+            </p>
+            <p>
+                Competitive ultimate is played in gender divisions using gender determination rules based on those of the IOC. Different competitions may have a 
+                &ldquo;men&apos;s&rdquo; or an &ldquo;open&rdquo; division &lpar;the latter usually being extremely male&ndash;dominated at competitive levels, 
+                but technically unrestricted&rpar;. Mixed is officially played with 4 of one gender and 3 of the other, but variants exist for different numbers. 
+                Men&apos;s, women&apos;s, and mixed ultimate are played by the same rules besides those explicitly dealing with gender restrictions.
+            </p>
+            <h3 id="rulebooks" class="header">Rulebooks&colon; USAU, WFDF, AUDL</h3>
+            <p>
+                Some rules vary between North America and the rest of the world. More significant rule changes were made in the AUDL pro league games. 
+            </p>
+            <p>
+                Most differences are minor and they can be found online. USAU rules have been slowly shifting toward WFDF compatibility.
+            </p>
+            <h4 id="rule_changes" class="header">AUDL rule changes</h4>
+            <p>
+                American Ultimate Disc League &lpar;AUDL&rpar;, the semi&ndash;professional ultimate league with teams in the U.S. and Canada, has its own variant of 
+                the rules, and has made multiple rule changes in recent years. Some of the more important include&colon;
+            </p>
+            <ul>
+                <li>Slightly larger field dimensions</li>
+                <li>Shorter, 20&ndash;yard end zones</li>
+                <li>In WFDF, games are played to X points with two halves and global time caps. In the AUDL, the game is played in four quarters of 12&colon;00 minutes each. 
+                    The counted times is only when the disc is in actual play, resulting in games lasting over two hours at times. The game stops on the timed second, 
+                    rather than at the end of the point. At this point the disc is still allowed to be caught, which can result in &ldquo;buzzer beater&rdquo; or 
+                    &ldquo;in&ndash;bound Greatest&rdquo; attempts, where players attempt to throw the disc right before the time ends
+                </li>
+                <li>Referees making calls instead of players. Players may invoke the &ldquo;integrity rule&rdquo; and overrule the referees&apos; 
+                    call when the players call is against their own team
+                </li>
+                <li>Most fouls are penalized with a 10&ndash;yard or 20&ndash;yard move of position against the fouling team</li>
+                <li>Double&ndash;teaming is allowed, but not triple&ndash;teaming</li>
+                <li>Stall count is 7 seconds instead of 10 seconds</li>
+                <li>Stall count is counted by the referees rather than the marking player</li>
+            </ul>
+        </section>
+        <!-- throwing and catching techniques section of the document -->
+        <section id="throwing_and_catching_section">
+            <h2 class="header" id="throwing_and_catching">Throwing and Catching Techniques</h2>
+            <hr>
+            <p>
+                A player may catch the disc with one or two hands. A catch can grab the rim with one or two hands, or simultaneously grab the top and bottom of the 
+                frisbee &mdash; in a clap&ndash;catch &sol; &ldquo;pancake catch&rdquo;. Care is needed with the hand placement when catching with one hand on 
+                the disc rim, making sure to catch on the proper side of the disc, according to which way the disc is spinning. When a frisbee is thrown at 
+                high speeds, as is frequently the case in a competitive game of ultimate, one side of the disc can spin out of the player&apos;s hand, and 
+                the other side can spin into their hand, which can make a catch far more secure. For this reason, along with the desire to secure the frisbee 
+                strongly and &ldquo;cleanly&rdquo;, the general advice is to strongly prefer to catch with two hands if possible. 
+            </p>
+            <p>
+                The most popular throws are <i>backhand</i>, and <i>forehand&sol;flick</i> and less frequently, <i>hammer</i> and <i>scoober</i>, <i>push&ndash;passes</i>, 
+                and <i>weak&ndash;handed throws</i> &lpar;typically lefties&rpar;. Part of the area of ultimate where skill and strategy meet is a player&apos;s 
+                capacity to plot and execute on throwing and passing to outrun another team, which is colloquially known as &ldquo;being a deep threat&rdquo;. For 
+                example, multiple throwing techniques and the ability to pass the disc before the defense has had a chance to reset helps increase a player or 
+                team&apos;s threat level, and merging that with speed and coordinated plays can form a phalanx that is hard for competitors to overcome.
+            </p>
+            <p>
+                When referencing the curve of a throw, the terms outside&ndash;in &lpar;OI&rpar; and inside&ndash;out &lpar;IO&rpar; are used. An OI throw is 
+                one that curves in towards the opposite side of the throwers body from which it is thrown. An IO throw is one that curves toward the same 
+                side of the throwers body from which it is thrown. With the rotation of the disc in mind, an IO throw has the side of the disc rotating 
+                toward the direction of the throw angled to the ground, whereas an OI throw has the side of the disc rotating toward the thrower angled 
+                to the ground. IO throws are generally the more difficult throw, and are very useful for breaking the mark.
+            </p>
+            <p>
+                Apart from these formal strategies, there is also a freestyle practice, where players throw and catch with fewer limitations, 
+                in order to advance their ultimate handling skills.
+            </p>
+        </section>
+        <!-- strategy and tactics section of the document -->
+        <section id="strategy_section">
+            <h2 class="header" id="strategy">Strategy and Tactics</h2>
+            <hr>
+            <h3 class="header" id="offense">Offense</h3>
+            <figure id="player_scoring">
+                <img src="Images/Player_Trying_To_Score.jpg" alt="player trying to score">
+                <figcaption>Player trying to score</figcaption>
+            </figure>
+            <p>
+                Teams can employ many different offensive strategies, each with distinct goals. Most basic strategies are an attempt to create open space 
+                &lpar;e.g. lanes&rpar; on the field in which the thrower and receiver can complete a pass. Organized teams assign positions to the players based on 
+                their specific strengths. Designated throwers are called handlers and designated receivers are called cutters. The amount of autonomy or 
+                overlap between these positions depends on the make&ndash;up of the team.
+            </p>
+            <p>
+                Many advanced teams develop variations on the basic offenses to take advantage of the strengths of specific players. Frequently, these 
+                offenses are meant to isolate a few key players in one&ndash;on&ndash;one situations, allowing them to take advantage of mismatches, while the others 
+                play a supporting role.
+            </p>
+            <h4 class="header" id="handlers_cutters">Handlers And Cutters</h4>
+            <p>
+                In most settings, there are a few &ldquo;handlers&rdquo; which are the players positioned around the disc. Their task is to distribute the disc forward and 
+                provide easy receiving options to whoever has the disc. Cutters, are the players positioned downfield, whose job is usually to catch the disc 
+                farther afield and progress the disc through the field or score goals by catching the disc in the end zone.
+            </p>
+            <p>
+                Typically, when the offense is playing against a zone defense the cutters will be assigned positions based on their location on the field, 
+                oftentimes referred to as &ldquo;poppers and rails &lpar;or deep deeps&rpar;.&rdquo; Poppers will typically make cuts within 15 yards of the handler positions 
+                while rails alternate between longer movements downfield. Additionally, against a zone there are typically three or four instead of the usual 
+                two or three, depending on the team.
+            </p>
+            <h4 class="header" id="vertical_stack">Vertical Stack</h4>
+            <figure id="vertical_stack_display">
+                <img src="Images/Vertical_Stack.png" alt="vertical stack visual">
+                <figcaption>The standard configuartion for a vertical stack &lpar;offence and force&frasl;one&ndash;to&ndash;defense&rpar;</figcaption>
+            </figure>
+            <p>
+                One of the most common offensive strategies is the vertical stack. In this strategy, a number of offensive players line up between the disc 
+                and the end zone they are attacking. From this position, players in the stack make cuts &lpar;sudden sprints, usually after throwing off the 
+                defender by a &ldquo;fake&rdquo; move the other way&rpar; into the space available, attempting to get open and receive the disc. 
+                The stack generally lines up in the middle of the field, thereby opening up two lanes along the sidelines for cuts, although a captain may 
+                occasionally call for the stack to line up closer to one sideline, leaving open just one larger cutting lane on the other side. 
+                Variations of the vertical stack include the Side Stack, where the stack is moved to a sideline and one player is isolated 
+                in the open space, and the Split Stack, where players are split between two stacks, one on either sideline. The Side Stack 
+                is most helpful in an end zone play where your players line up on one side of the end zone and the handler calls an &lpar;ISO&rpar; 
+                &lpar;isolation&rpar; using one of the player&apos;s names. This then signals for 
+                the rest of the players on your team to clear away from that one person in order for them to receive a pass. Another variation is 
+                called Cascades, which starts by setting a side stack. Then, the player at the top or bottom of the stack cuts, using the large amount 
+                of available space. Once the initial cutter has finished &lpar;whether they caught the disc or if they were waved away by the handler&rpar;, 
+                then the next cutter in line continues. In vertical stack offenses, one player usually plays the role of &lsquo;dump&rsquo;, offering a reset 
+                option which sets up behind the player with the disc.
+            </p>
+            <h4 class="header" id="horizontal_stack">Horizontal Stack</h4>
+            <p>
+                Another popular offensive strategy is the horizontal stack, also called &ldquo;ho&ndash;stack&rdquo;. In the most popular form of this offense, three 
+                &ldquo;handlers&rdquo; line up across the width of the field with four &ldquo;cutters&rdquo; downfield, spaced evenly across the field. This formation 
+                encourages cutters to attack any of the space either towards or away from the disc, granting each cutter access to the full width 
+                of the field and thereby allowing a degree more creativity than is possible with a vertical stack. If cutters cannot get open, the 
+                handlers swing the disc side to side to reset the stall count and in an attempt to get the defense out of position. Usually players 
+                will cut towards the disc at an angle and away from the disc straight, creating a &lsquo;diamond&rsquo; or &lsquo;peppermill&rsquo; pattern.
+            </p>
+            <h4 class="header" id="fgi">Feature, German, or Isolation</h4>
+            <p>
+                A variation on the horizontal stack offense is called a feature, German, or isolation &lpar;or &ldquo;iso&rdquo; for short&rpar;. In this offensive 
+                strategy three of the cutters line up deeper than usual &lpar;this can vary from 5 yards farther downfield to at the endzone&rpar; while 
+                the remaining cutter lines up closer to the handlers. This closest cutter is known as the &ldquo;feature&rdquo;, or &ldquo;German&rdquo;. The idea 
+                behind this strategy is that it opens up space for the feature to cut, and at the same time it allows handlers to focus all 
+                of their attention on only one cutter. This maximizes the ability for give&ndash;and&ndash;go strategies between the feature and the 
+                handlers. It is also an excellent strategy if one cutter is superior to other cutters, or if they are guarded by someone 
+                slower than them. While the main focus is on the handlers and the feature, the remaining three cutters can be used if the 
+                feature cannot get open, if there is an open deep look, or for a continuation throw from the feature itself. Typically, 
+                however, these three remaining cutters do all they can to get out of the feature&apos;s way. It is usually used near the endzone.
+            </p>
+            <h4 class="header" id="hexagon_mexican">Hexagon or Mexican</h4>
+            <p>
+                A newer strategy, credited to Felix Shardlow from the Brighton Ultimate team, is called Hexagon Offence. Players spread out 
+                in equilateral triangles, creating a hexagon shape with one player &lpar;usually not the thrower&rpar; in the middle. They create space 
+                for each other dynamically, aiming to keep the disc moving by taking the open pass in any direction. This changes the angles 
+                of attack rapidly, and hopes to create and exploit holes in the defense. Hex aims to generate and maintain flow to lead to scoring opportunities.
+            </p>        
+            <h3 class="header" id="defense">Defense</h3>
+            <h4 class="header" id="pull">Pull</h4>
+            <figure id="mark">
+                <img src="Images/Marking.jpg" alt="showing a mark">
+                <figcaption>The marker blocking the handler&apos;s access to half of the field</figcaption>
+            </figure>
+            <p>
+                The pull is the first throw of the game and also begins each period of play. A good, accurate pull is an important part of a 
+                defensive strategy. The optimal pull has two features&colon;
+            </p>
+            <ol>
+                <li>To start the offense as deep into their own end&ndash;zone as possible, giving the offense more distance to cover</li>
+                <li>To stay in the air as long as possible, giving the defense more time to get set up before 
+                    the first offensive pass, or in the case of a deep end&ndash;zone pull, chooses to run up to the front of their end&ndash;zone line and begin 
+                    their offense at yard zero
+                </li>
+            </ol>
+            <p>A pull is not limited to any certain throw. However, most players use the inside out backhand throw to achieve maximum hang time.</p>
+            <p>
+                There is no pivot required for a pull. The offensive team must have at least one foot on the goal line and must not change 
+                their position until the disc has left the thrower&apos;s hand. The defensive team must stay behind the &lsquo;puller&rsquo; until the disc 
+                is released, or it is considered &lsquo;offside&rsquo;. The defensive team is not allowed to touch the disc until it has been touched 
+                by the opposing team or has touched the ground. A pull that is touched midair by the offense, but is not caught, results in a turnover.
+            </p>
+            <h4 class="header" id="force">Force</h4>
+            <p>
+                One of the most basic defensive principles is the &ldquo;force&rdquo; or &ldquo;mark&rdquo;. The defender marking the thrower essentially tries to force 
+                them to throw in a particular direction &lpar;to the &ldquo;force side&rdquo; or &ldquo;open side&rdquo;&rpar;, whilst making it difficult for them to throw in 
+                the opposite direction &lpar;the &ldquo;break side&rdquo;&rpar;. Downfield defenders make it hard for the receiving players to get free on the open&sol;force 
+                side, knowing throws to the break side are less likely to be accurate. The space is divided in this way because it is very hard for 
+                the player marking the disc to stop every throw, and very hard for the downfield defenders to cover every space.
+            </p>
+            <p>
+                The force can be decided by the defence before the point or during play. The most common force is a one&ndash;way force, either towards 
+                the &ldquo;home&rdquo; side &lpar;where the team has their bags&sol;kit&rpar;, or &ldquo;away&rdquo;. Other forces are &ldquo;sideline&rdquo; 
+                &lpar;force towards the closest sideline&rpar;, &ldquo;middle&rdquo; &lpar;force towards the center of the field&rpar;, &ldquo;straight 
+                up&rdquo; &lpar;the force stands directly in front of the thrower &mdash; useful against long throwers&rpar;, or &ldquo;sidearm&sol;backhand&rdquo; 
+                if one wishes their opponents to throw a particular throw. Another, more advanced marking technique is called the &ldquo;triangle mark&rdquo;. 
+                This involves shuffling and drop stepping to take away throwing angles in an order that usually goes&colon; 
+            </p>
+            <ol>
+                <li>Take away shown throw &ldquo;inside&rdquo;</li>
+                <li>Shuffle to take away 1st pivot &ldquo;around&rdquo;</li>
+                <li>Drop step and shuffle to take away 2nd pivot</li>
+                <li>Recover</li>
+            </ol>
+            <p>However, this marking technique is typically used to block long throws as well as force a certain side.</p>
+            <h4 class="header" id="match">Match&ndash;to&ndash;Match</h4>
+            <figure id="forcing">
+                <img src="Images/Forcing.png" alt="marking with a force">
+                <figcaption>Marking with a force</figcaption>
+            </figure>
+            <p>
+                The simplest defensive strategy is the <strong>match&ndash;to&ndash;match</strong> defense &lpar;also known as &ldquo;one&ndash;to&ndash;one&rdquo;, 
+                &ldquo;person&ndash;to&ndash;person&rdquo;, or &ldquo;man defense&rdquo;&rpar;, where each defender guards a specific offensive player, 
+                called their &ldquo;mark&rdquo;. This defense creates one&ndash;to&ndash;one matchups all over the field &mdash; if each defender shuts 
+                out their mark, the team will likely earn a turn over. The defensive players will usually choose their mark at the beginning of the point 
+                before the pull. Often players will mark the same person throughout the game, giving them an opportunity to pick up on their 
+                opponent&apos;s strengths and weaknesses as they play.
+            </p>
+            <h4 class="header" id="poaching">Poaching</h4>
+            <p>
+                Poaching is a term used to describe one or more players temporarily leaving their match up to strategically cover space in an 
+                otherwise person&ndash;to&ndash;person defensive scheme. Typical areas covered might be deep space &lpar;to defend long throws aimed at scoring 
+                quickly&rpar;, near handlers &lpar;to narrow throwing lanes, making throws more difficult&rpar;, or leaving players who are less likely to 
+                get the disc to help cover other areas of the field that are more likely to be directly attacked &lpar;such as moving closer to 
+                the disc when the disc is trapped on one side of the field&rpar;.
+            </p>
+            <p>
+                A common occurrence of poaching is when a player is accidentally open in a dangerous position. In this situation, it is 
+                common for another player to temporarily cover him defensively to avoid a fast score. This is common when the deepest 
+                person of the defense sees someone running past him, without a defender catching up to him, and it might be considered 
+                obligatory to run and cover the player open deep.
+            </p>
+            <p>Players may also leave their match to cover throwing lanes, particularly if they are marking a reset or alternative handler.</p>
+            <h4 class="header" id="zone">Zone</h4>
+            <p>
+                With a zone defensive strategy, the defenders cover an area rather than a specific person. The area they cover varies 
+                depending on the particular zone they are playing, and the position of the disc. Zone defense is frequently used in poor 
+                weather conditions, as it can pressure the offense into completing more passes, or the thrower into making bigger or 
+                harder throws. Zone defence is also effective at neutralising the deep throw threat from the offense. A zone defense 
+                usually has two components&colon;
+            </p>
+            <ul>
+                <li>Number of players who stay close to the disc and attempt to contain the offenses&apos; ability to pass and move 
+                    forward &lpar;a &ldquo;cup&rdquo; or &ldquo;wall&rdquo;&rpar;
+                </li>
+                <li>Number of players spaced out further from the disc, ready to bid on overhead or longer throws.</li>
+            </ul>
+            <h4 class="header" id="cup">Cup</h4>
+            <figure id="breaking_cup">
+                <img src="Images/Cup.jpeg" alt="player breaking a cup">
+                <figcaption>An offensive player tries to play through a three&ndash;person cup defense during an informal game</figcaption>
+            </figure>
+            <p>
+                The cup involves three players, arranged in a semi&ndash;circular cup&ndash;shaped formation, one in the middle and back, 
+                the other two on the sides and forward. One of the side players marks the handler with a force, while the 
+                other two guard the open side. Therefore, the handler will normally have to throw into the cup, allowing 
+                the defenders to more easily make blocks. With a cup, usually the center cup blocks the up&ndash;field lane to 
+                cutters, while the side cup blocks the cross&ndash;field swing pass to other handlers. The center cup usually 
+                also has the responsibility to call out which of the two sides should mark the thrower, usually the defender 
+                closest to the sideline of the field. The idea of the cup is to force the offense to attempt risky throws 
+                through and around the cup that have low rates of completion. The cup &lpar;except the marker&rpar; must also remember 
+                to stay 3 meters or more away from the offensive player with the disc. The only time a player in the cups 
+                can come within 3 meters of the player with the disc is when another offensive player comes within 3 meters 
+                of the person with the disc, also known as &ldquo;crashing the cup&rdquo;. When the second offensive player moves 
+                further than 3 meters away, the members of the cup &lpar;except the marker&rpar; must go back to being 3 meters or 
+                more away from the player with the disc.
+            </p>
+            <h4 class="header" id="wall">Wall</h4>
+            <p>
+                The &ldquo;wall&rdquo; sometimes referred to as the &ldquo;1&ndash;3&ndash;3&rdquo; involves four players in the close defense. One player is 
+                the marker, also called the &ldquo;rabbit&rdquo;, &ldquo;chaser&rdquo; or &ldquo;puke&rdquo; because they often have to run quickly between 
+                multiple handlers spread out across the field. The other three defenders form a horizontal &ldquo;wall&rdquo; or line 
+                across the field in front of the handler to stop throws to short in&ndash;cuts and prevent forward progress. 
+                The players in the second group of a zone defense, called &ldquo;mids&rdquo; and &ldquo;deeps&rdquo;, position themselves further 
+                out to stop throws that escape the cup and fly upfield. A variation of the 1&ndash;3&ndash;3 is to have two markers&colon; 
+                The &ldquo;rabbit&rdquo; marks in the middle third and strike side third of the field. The goal is for the &ldquo;rabbit&rdquo; 
+                to trap the thrower and collapse a cup around her or him. If the rabbit is broken for large horizontal 
+                yardage, or if the disc reaches the break side third of the field, the break side defender of the front 
+                wall marks the throw. In this variation the force is directed one way. This variation plays to the 
+                strength of a superior marking &ldquo;rabbit&rdquo;.
+            </p>
+            <h4 class="header" id="junk_clam">Junk and Clam</h4>
+            <p>
+                A junk defense is a defense using elements of both zone and match defenses&semi; the most well&ndash;known is the &ldquo;clam&rdquo; or 
+                &ldquo;chrome wall&rdquo;. In clam defenses, defenders cover cutting lanes rather than zones of the field or individual 
+                players. It is so named because, when played against a vertical stack, it is often disguised by lining up in 
+                a traditional person defense and right before play starts, defenders spread out to their zonal positions, forming 
+                the shape of an opening clam. The clam can be used by several players on a team while the rest are running a 
+                match defense. Typically, a few defenders play match on the throwers while the cutter defenders play as &ldquo;flats&rdquo;, 
+                taking away in cuts by guarding their respective areas, or as the &ldquo;deep&rdquo; or &ldquo;monster&rdquo;, taking away any deep throws.
+            </p>
+            <p>
+                This defensive strategy is often referred to as &ldquo;bait and switch&rdquo;. In this case, when the two players the defenders 
+                are covering are standing close to each other in the stack, one defender will move over to cover them deep, and 
+                the other will move slightly more towards the thrower. When one of the receivers makes a deep cut, the first 
+                defender picks them up, and if one makes an in&ndash;cut, the second defender covers them. The defenders communicate 
+                and switch their marks if their respective charges change their cuts from in to deep, or vice versa. The clam 
+                can also be used by the entire team, with different defenders covering in cuts, deep cuts, break side cuts, and dump cuts.
+            </p>
+            <p>
+                The term &ldquo;junk defense&rdquo; is also often used to refer to zone defenses in general &lpar;or to zone defense applied by the 
+                defending team momentarily, before switching to a match defense&rpar;, especially by members of the attacking team 
+                before they have determined which exact type of zone defense they are facing.
+            </p>
+            <h4 class="header" id="bracket">Bracket</h4>
+            <p>
+                Bracket defenses are almost exclusively used on vertical stack offences, and incorporate elements of both zone and match 
+                defence. In bracket defense, the handlers are covered by match defence, and the only changes are when marking the 
+                cutters. Once the stack has set up, one player &lpar;the &ldquo;deep&rdquo; or &ldquo;monster&rdquo;&rpar; will set up a defence on the back of the 
+                stack. Simultaneously, a defensive player &lpar;known as the &ldquo;under&rdquo;&rpar; will set up between the front of the stack and 
+                the handler with the disc. The rest of the defence will set up a match defence on the players in the stack. When 
+                play begins, any cutters who try to go for a long throw will be covered by the &ldquo;deep&rdquo;, and any cutters who try 
+                to go towards the handler will be covered by the &ldquo;under&rdquo;. This defence attempts to force the offence into 1&ndash;on&ndash;1 
+                situations with the strongest defensive players.
+            </p>
+            <h4 class="header" id="hasami">Hasami</h4>
+            <p>
+                Hasami, the Japanese word for &ldquo;scissors&rdquo;, is a popular hybrid person/zone defence used by the Japanese women&apos;s team 
+                who won gold at WUGC 2012. The name refers to the method of using two pairs of defenders to cut the area downfield 
+                into sections, with defenders responsible for space &ldquo;under&rdquo; &lpar;nearer the disc&rpar; and &ldquo;away&rdquo; &lpar;towards 
+                the end zone&rpar;, and also the left and right areas of the field. Defenders rely on visual and verbal communication to switch and 
+                cover the offensive threats between them. Hasami forms the basis of most Japanese style zone defences.
+            </p>
+            <h4 class="header" id="hexagon_flexagon">Hexagon or Flexagon</h4>
+            <p>
+                A separate type of defense is hexagon or &ldquo;flexagon&rdquo;, which incorporates elements of both match&ndash;to&ndash;match and zonal 
+                defense. All defenders are encouraged to communicate, to sandwich their opponents and switch marks wherever 
+                appropriate, and to ensure no opposing player is left unmarked.
+            </p>
+        </section>
+        <!-- spirit of the game section of the document -->
+        <section id="spirit_of_the_game_section">
+            <h2 class="header" id="spirit_of_the_game">Spirit of the Game</h2>
+            <hr>
+            <figure id="foul">
+                <img src="Images/Disputed_Foul.jpg" alt="disputed foul">
+                <figcaption>
+                    A disputed foul was called by the Swedish player &lpar;in blue&rpar; after this attempted block in the 2007
+                    European Championship final between Great Britain and Sweden in Southamption, UK.
+                </figcaption>
+            </figure>
+            <p>
+                All youth and most club ultimate games are self&ndash;officiated through the &ldquo;spirit of the game&rdquo;, often 
+                abbreviated SOTG. Spirit of the game is described by WFDF as an expectation that each player will 
+                be a good sport and play fair, as well as having high values of integrity&semi; including &ldquo;following 
+                and enforcing the rules&rdquo;. Another example is the practice of the players &ldquo;taking a knee,&rdquo; i.e., 
+                kneeling on one knee, during the timeout when a player suffers an injury&semi; as a sign of respect 
+                to the injured. SOTG is further contextualized and described in the rules established by 
+                USA Ultimate&semi; according to The Official Rules of Ultimate, 11<sup>th</sup> Edition&colon;
+            </p>
+            <blockquote cite="https://archive.usaultimate.org/mobile/rules_.aspx">
+                Ultimate has traditionally relied upon a spirit of sportsmanship which places the responsibility 
+                for fair play on the player. Highly competitive play is encouraged, but never at the expense of 
+                the bond of mutual respect between players, adherence to the agreed upon rules of the game, or 
+                the basic joy of play. Protection of these vital elements serves to eliminate adverse conduct 
+                from the ultimate field. Such actions as taunting of opposing players, dangerous aggression, 
+                intentional fouling, or other &lsquo;win&ndash;at&ndash;all&ndash;costs&rsquo; behavior are contrary to the spirit of the 
+                game and must be avoided by all players.
+            </blockquote>
+            <p>
+                Many tournaments give awards for the most spirited teams and&sol;or players, often based on 
+                ratings provided by opposing teams. The largest youth ultimate tournament in the world, Spring 
+                Reign, uses spirit scores to award a spirit prize within each pool and to determine eligibility 
+                of teams the following year. In many non&ndash;professional games, it is common for teams to meet 
+                after the game in a &ldquo;spirit circle&rdquo; to discuss the game, and in some cases grant individual spirit awards.
+            </p>
+            <p>
+                While &ldquo;spirit of the game&rdquo; is a general attitude, ultimate has an agreed upon procedure to deal 
+                with unclear or disputed situations.</p>
+            <p>
+                In Europe and other continents, even top&ndash;level play does not have referees. Most world 
+                championship games have had no referees, and disputes were decided by the players themselves.
+            </p>
+            <p>
+                Observers are used in some high&ndash;level tournaments outside the US, as well as in some 
+                tournaments sanctioned by USA Ultimate. Calls and disputes are initially handled by the 
+                players, but observers step in if no agreement is reached. In some settings, officials use 
+                a stopwatch to track the stall count and the defending players are not counting the stall.
+            </p>
+            <p>
+                Other forms of refereeing exist in ultimate. Professional ultimate in North America uses 
+                referees, in part to increase the pace of the game. Game Advisors are used in some 
+                international competitions, though calls and final decisions remain in control of the on&ndash;field players.
+            </p>
+        </section>
+        <!-- competitions section of the document -->
+        <section id="competitions_section">
+            <h2 class="header" id="competitions">Competitions</h2>
+            <hr>
+            <p>The common types of competitions are&colon;</p>
+            <ul>
+                <li>Hat tournaments&colon; random player allocations, mixed levels, and amateur</li>
+                <li>Club leagues&colon; usually considered <a href="https://en.wikipedia.org/wiki/Semi-professional_sports" target="_blank">semi&ndash;professional</a></li>
+                <li>Professional ultimate&colon; American Ultimate Disc League &lpar;AUDL&rpar; and Premier Ultimate League &lpar;PUL&rpar;</li>
+                <li>College teams</li>
+                <li>National teams competing in international tournaments</li>
+            </ul>
+            <h3 class="header" id="professional_leagues">Professional Leagues &lpar;AUDL and PUL in North America&rpar;</h3>
+            <p>
+                North America has the <a href="https://en.wikipedia.org/wiki/American_Ultimate_Disc_League" target="_blank">American Ultimate Disc League &lpar;AUDL&rpar;</a>, 
+                a men&apos;s professional&ndash;level ultimate league that involve teams from the United States and Canada and the 
+                <a href="https://en.wikipedia.org/wiki/Premier_Ultimate_League" target="_blank">Premier Ultimate League &lpar;PUL&rpar;</a>, a women&apos;s 
+                professional&ndash;league that involves teams from the United States and South America.
+            </p>
+            <p>
+                The AUDL was founded by Josh Moore and its inaugural season began in April 2012. In 2013 the league was 
+                bought by Ultimate Xperience Ventures LLC, a company founded by Rob Lloyd who was serving as 
+                VP of <a href="https://en.wikipedia.org/wiki/Cisco" target="_blank">Cisco</a> 
+                but has since become the CEO of <a href="https://en.wikipedia.org/wiki/Hyperloop" target="_blank">Hyperloop</a>. In 2012 
+                the league began with eight teams, but currently 
+                consists of 22 teams in four divisions &lpar;East, South, Midwest, and West&rpar;. Since the league&apos;s inaugural 
+                season, they have added 24 new teams and had 10 teams fold. Only two of the original eight teams 
+                remain in the league &lpar;<a href="https://en.wikipedia.org/wiki/Detroit_Mechanix" target="_blank">Detroit Mechanix</a> and 
+                <a href="https://en.wikipedia.org/wiki/Indianapolis_AlleyCats" target="_blank">Indianapolis AlleyCats</a>&rpar;. Each team plays a total of 14 
+                regular season games on Friday, Saturday, or Sunday during the months of April through July. 
+                In late July there are playoffs in each division followed by a championship weekend held the 
+                first weekend in August. The AUDL uses the <a href="https://en.wikipedia.org/wiki/Discraft" target="_blank">Discraft</a> Ultrastar as the official game disc. The 
+                team funding comes from sources similar to those of other professional sports&colon; sales of tickets, 
+                merchandise, concessions and sponsorship. In 2014, the league entered an agreement with ESPN 
+                to broadcast 18 games per season for a two&ndash;year period &lpar;with a third year option&rpar; on the 
+                online streaming service ESPN3. That contract was executed by Fulcrum Media Group.
+            </p>
+            <p>
+                There used to be a rival league named <a href="https://en.wikipedia.org/wiki/Major_League_Ultimate" target="_blank">Major League Ultimate &lpar;MLU&rpar;</a>. 
+                Active between 2013 and 2016, it had eight teams, and was considered the main alternative to the AUDL, until it closed down. 
+                It used the <a href="https://en.wikipedia.org/wiki/Innova_Champion_Discs" target="_blank">Innova</a> Pulsar as the official game disc.
+            </p>
+            <p>
+                In 2018, there was a planned mixed league called the United Ultimate League &lpar;UUL&rpar;, but it 
+                did not come to fruition due to a lack of funding. The plan was to present an alternative to the 
+                AUDL, which at the time was dealing with a boycott related to gender equality. The UUL was supposed 
+                to be supported by crowd sourced funding, but the initial Kickstarter failed, raising only &#36;23,517 of the &#36;50,000 goal.
+            </p>
+            <p>
+                The <a href="https://en.wikipedia.org/wiki/Premier_Ultimate_League" target="_blank">Premier Ultimate League &lpar;PUL&rpar;</a> was 
+                established in 2019. The league includes women and nonbinary players and hosts teams from the United States 
+                and <a href="https://en.wikipedia.org/wiki/Colombia" target="_blank">Colombia</a>. The PUL is a 501&lpar;c&rpar;6 nonprofit that 
+                is operated by a board of directors that includes representatives from each of the participating 
+                teams. The mission of PUL is &ldquo;to achieve equity in the sport of ultimate by increasing accessibility 
+                to and visibility of women&ast; players through high&ndash;quality competition, leadership experiences, and 
+                community partnerships. Our league strives for gender, racial, and economic diversity in the 
+                sport of ultimate frisbee.&rdquo;
+            </p>
+            <h3 class="header" id="nal">North American leagues</h3>
+            <figure id="australia_canada">
+                <img src="Images/Australia_Canada.jpg" alt="australia vs. canada players skying for a disc">
+                <figcaption>
+                    Australia vs. Canada ultimate players at WUGC 2012 in Japan. 
+                    <a href="https://en.wikipedia.org/wiki/Ultimate_Canada" target="_blank">Ultimate Canada</a>
+                </figcaption>
+            </figure>
+            <p>
+                Regulation play, sanctioned in the United States by the <a href="https://en.wikipedia.org/wiki/USA_Ultimate" target="_blank">USA Ultimate</a>, 
+                occurs at the college &lpar;open and women&apos;s divisions&rpar;, club &lpar;open, women&apos;s, 
+                mixed &lbrack;male &plus; female on each team&rbrack;, masters, and grandmasters divisions&rpar; and youth levels 
+                &lpar;in boys and girls divisions&rpar;, with annual 
+                championships in all divisions. Top teams from the championship series compete in semi&ndash;annual world 
+                championships regulated by the WFDF &lpar;alternating between Club Championships and National Championships&rpar;, 
+                made up of national flying disc organizations and federations from about 50 countries.
+            </p>
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Ultimate_Canada" target="_blank">Ultimate Canada &lpar;UC&rpar;</a> is the governing body 
+                for the sport of ultimate in Canada. Beginning in 1993, the goals of UC include representing the 
+                interests of the sport and all ultimate players, as well as promoting its growth and development 
+                throughout Canada. UC also facilitates open and continuous communication within the ultimate 
+                community and within the sports community and to organize ongoing activities for the sport 
+                including national competitions and educational programs.
+            </p>
+            <p>
+                Founded in 1986, incorporated in 1993, the 
+                <a href="https://en.wikipedia.org/wiki/Ottawa-Carleton_Ultimate_Association" target="_blank">Ottawa&ndash;Carleton Ultimate Association</a> 
+                based in <a href="https://en.wikipedia.org/wiki/Ottawa" target="_blank">Ottawa</a>, <a href="https://en.wikipedia.org/wiki/Ontario" target="_blank">Ontario</a>, 
+                Canada, claims to have the largest summer league in the world with 354 teams and over 5000 players as of 2004.
+            </p>
+            <p>
+                The Vancouver Ultimate League, based in Vancouver, British Columbia, Canada, formed in 1986, claims to have 
+                5300 active members as of 2017.
+            </p>
+            <p>
+                The Toronto Ultimate Club, founded in 1979 by <a href="https://en.wikipedia.org/wiki/Ken_Westerfield" target="_blank">Ken Westerfield</a> 
+                and Chris Lowcock, based in <a href="https://en.wikipedia.org/wiki/Toronto" target="_blank">Toronto</a> 
+                <a href="https://en.wikipedia.org/wiki/Canada" target="_blank">Canada</a>, has 3300 members and 250 teams, playing the year round.
+            </p>
+            <p>
+                The <a href="https://en.wikipedia.org/wiki/Los_Angeles_Organization_of_Ultimate_Teams" target="_blank">Los Angeles Organization of Ultimate Teams</a> 
+                puts on annual tournaments with thousands of players.
+            </p>
+            <p>
+                There have been a small number of children&apos;s leagues. The largest and first known pre&ndash;high school 
+                league was started in 1993 by Mary Lowry, Joe Bisignano, and Jeff Jorgenson in 
+                <a href="https://en.wikipedia.org/wiki/Seattle" target="_blank">Seattle, Washington</a>. In 2005, the 
+                <a href="https://en.wikipedia.org/wiki/Disc_Northwest" target="_blank">DiscNW</a> Middle School Spring League 
+                had over 450 players on 30 mixed teams. Large high school leagues are also becoming common. 
+                The largest one is the DiscNW High School Spring League. It has both mixed and single gender 
+                divisions with over 30 teams total. The largest adult league is the San Francisco Ultimate 
+                League, with 350 teams and over 4000 active members in 2005, located in San Francisco, California. 
+                The largest per capita is the Madison Ultimate Frisbee association, with an estimated 1.8&percnt; of 
+                the population of Madison, WI playing in active leagues. Dating back to 1977, the Mercer County 
+                &lpar;New Jersey&rpar; Ultimate Disc League is the world&apos;s oldest recreational league. There are even large 
+                leagues with children as young as third grade, an example being the junior division of the SULA 
+                ultimate league in <a href="https://en.wikipedia.org/wiki/Amherst,_Massachusetts" target="_blank">Amherst, Massachusetts</a>.
+            </p>
+            <p>Many other countries have their own regional and country wide competitions, which are not listed here.</p>
+            <h3 class="header" id="college_teams">College Teams</h3>
+            <p>
+                There are over 12,000 student athletes playing on over 700 college ultimate teams in North 
+                America, and the number of teams is steadily growing.
+            </p>
+            <p>
+                <a href="https://en.wikipedia.org/wiki/Ultimate_Canada" target="_blank">Ultimate Canada</a> operates one main competition 
+                for university ultimate teams in Canada&colon; Canadian University Ultimate Championships &lpar;CUUC&rpar; 
+                with six qualifying regional events, one of which is the Canadian Eastern University Ultimate Championships 
+                &lpar;CEUUC&rpar;.
+            </p>
+            <h3 class="header" id="national_teams">National Teams</h3>
+            <p>There are also national teams participating in international tournament, both field and beach formats.</p>
+            <p>Yearly or twice&ndash;yearly national competitions are held.</p>
+            <p>In the US and other countries, the national teams are selected after a tryout process.</p>
+            <p>WFDF maintains an international ranking list for the national teams.</p>
+            <h3 class="header" id="hat_tournaments">Hat Tournaments</h3>
+            <p>
+                Hat tournaments are common in the ultimate circuit. At these tournaments players join 
+                individually rather than as a team. The tournament organizers form teams by randomly 
+                taking the names of the participants from a hat. This sort of procedure is an excellent 
+                way to meet people from all skill levels.
+            </p>
+            <p>
+                Many hat tournaments on the US west coast have a &ldquo;hat rule&rdquo; requiring all players to 
+                wear a hat at all times during play. If a player gains possession of the disc, yet 
+                loses her or his hat in the process, the play is considered a turnover and possession 
+                of the disc reverts to the other team.
+            </p>
+            <p>
+                However, in some tournaments, the organizers do not actually use a hat, but form teams 
+                while taking into account skill, experience, sex, age, height, and fitness level of the 
+                players in the attempt to form teams of even strength. Many times the random element 
+                remains, so that organizers randomly pick players from each level for each team, combining a 
+                lottery with skill matching. Usually, the player provides this information when he or she 
+                signs up to enter the tournament. There are also many cities that run hat leagues, structured 
+                like a hat tournament, but where the group of players stay together over the course of a season.
+            </p>
+        </section>
+        <!-- common concepts and terms section of the document -->
+        <section id="common_concepts_section">
+            <h2 class="header" id="common_concepts">Common Concepts and Terms</h2>
+            <hr>
+            <ul id="terms">
+                <li>Assist &lpar;or goal&ndash;assist&rpar;
+                    <ul class="terms">
+                        <li>To throw the disc to a player who catches it in the endzone for a score.</li>
+                    </ul>
+                </li>
+                <li>Bid
+                    <ul class="terms">
+                        <li>To make a play on a disc, usually by diving, jumping or performing some other athletic movement.</li>
+                    </ul>
+                </li>
+                <li>Bookends
+                    <ul class="terms">
+                        <li>To both cause the turnover and score the point.</li>
+                    </ul>
+                </li>
+                <li>Break
+                    <ul class="terms">
+                        <li>When a thrower completes a throw to the &ldquo;break&rdquo; side of the field. 
+                            The break side of the field is the opposite direction of the force.
+                        </li>
+                    </ul>
+                </li>
+                <li>Brick
+                    <ul class="terms">
+                        <li>When the pull goes out of bound, play starts at the sideline or the 
+                            brick mark located in the center of the field 20 yards in front of the 
+                            goal line the receiving team is defending. The offensive player picking 
+                            up the disc signals that she or he wants to play from the brick mark by clapping hands above head.
+                        </li>
+                    </ul>
+                </li>
+                <li>Callahan
+                    <ul class="terms">
+                        <li>A defensive player catches the disc in the far end endzone while defending. 
+                            This yields an immediate score for the defending team &lpar;akin to an own goal 
+                            in other sports&rpar;, as this endzone is their endzone to score in. Considered a very impressive achievement.
+                        </li>
+                    </ul>
+                </li>
+                <li>Cup
+                    <ul class="terms">
+                        <li>A type of zone defense. Usually, 2&ndash;4 players &lpar;including a mark&rpar; all 
+                            standing 10 feet from the thrower, and attempting to block the throwing lanes the thrower has.
+                        </li>
+                    </ul>
+                </li>
+                <li>force
+                    <ul class="terms">
+                        <li>The direction the mark is trying to force the player with the disc to 
+                            throw. Usually the force is towards one sideline or the other.
+                        </li>
+                    </ul>
+                </li>
+                <li>Layout
+                    <ul class="terms">
+                        <li>A player extends her or his body horizontally towards the disc, ending up 
+                            lying on the ground usually. This can happen offensively to catch a far or 
+                            low disc, or defensively to hit the disc and force a turnover.
+                        </li>
+                    </ul>
+                </li>
+                <li>D
+                    <ul class="terms">
+                        <li>Getting the defense or turnover.</li>
+                    </ul>
+                </li>
+                <li>Greatest
+                    <ul class="terms">
+                        <li>A player jumps to out of bounds for the disc, and while in the air throws back 
+                            the disc to be caught inside the field of play.
+                        </li>
+                    </ul>
+                </li>
+                <li>Huck
+                    <ul class="terms">
+                        <li>To throw the disc a long distance.</li>
+                    </ul>
+                </li>
+                <li>Mark
+                    <ul class="terms">
+                        <li>The defender guarding the person throwing the disc.</li>
+                    </ul>
+                </li>
+                <li>Pick
+                    <ul class="terms">
+                        <li>One player obstructs or screens a defensive player, preventing them from placing 
+                            an effective guard on the player they are marking. Picks are against the rules 
+                            and are generally accidental, and the player causing the pick may be an offensive or defensive player.
+                        </li>
+                    </ul>
+                </li>
+                <li>Sky
+                    <ul class="terms">
+                        <li>To grab the disc in the air over the opponent.</li>
+                    </ul>
+                </li>
+                <li>Spike
+                    <ul class="terms">
+                        <li>To throw the disc to the ground forcefully after scoring; borrowed from 
+                            <a href="https://en.wikipedia.org/wiki/American_football" target="_blank">American football.</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </body>
+</html>
