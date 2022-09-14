@@ -15,7 +15,7 @@
         </div>
         <div id="add_joke">
             <h2>Lets hear what you got!</h2>
-            <form method="post">
+            <form method="post" id="add_joke_form">
                 <label for="first_name">Contributers First Name:</label>
                 <input type="text" id="first_name" name="first_name" required><br>
                 <label for="last_name">Contributers Last Name:</label>
@@ -29,56 +29,23 @@
                 </div>
                 <div id="age_restricted">
                     <label for="appropriate">This joke is acceptable for the following ages:</label><br>
-                    <input type="checkbox" id="friendly_child" name="friendly_child" value="Child">
+                    <input type="checkbox" id="friendly_child" name="friendly" value="Child">
                     <label for="friendly_child">10 and younger</label><br>
-                    <input type="checkbox" id="friendly_young" name="friendly_young" value="Young">
+                    <input type="checkbox" id="friendly_young" name="friendly" value="Young">
                     <label for="friendly_young">11-17</label><br>
-                    <input type="checkbox" id="friendly_adult" name="friendly_adult" value="Adult">
+                    <input type="checkbox" id="friendly_adult" name="friendly" value="Adult">
                     <label for="friendly_adult">18+</label><br>
                 </div>
                 <label for="joke">Joke:</label><br>
                 <textarea id="joke" name="joke" rows="6" cols="50" placeholder="Lets hear a funny!" required></textarea><br>
                 <input type="reset" value="Clear">
-                <input type="submit" value="Share Joke">
+                <input type="submit" value="Share Joke" onclick="submit_data()">
             </form>
         </div>
         <div id="hear_joke">
             <p>Now that you've shared your funny joke do you want to hear one?</p>
             <a href="Hear_Joke.html"><button type="button">Hear Joke!</button></a>
         </div>
-
-        <script>
-            /* ensure at least one checkbox is checked for appropriate age groups */
-            (function() {
-                const div = document.querySelector('#age_restricted');
-                const checkboxes = div.querySelectorAll('input[type=checkbox]');
-                const firstCheckbox = checkboxes.length > 0 ? checkboxes[0] : null;
-
-                function init() {
-                    if (firstCheckbox) {
-                        for (let i = 0; i < checkboxes.length; i++) {
-                            checkboxes[i].addEventListener('change', checkValidity);
-                        }
-
-                        checkValidity();
-                    }
-                }
-
-                function isChecked() {
-                    for (let i = 0; i < checkboxes.length; i++) {
-                        if (checkboxes[i].checked) return true;
-                    }
-
-                    return false;
-                }
-
-                function checkValidity() {
-                    const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
-                    firstCheckbox.setCustomValidity(errorMessage);
-                }
-
-                init();
-            })();
-        </script>
+        <script src="../../JavaScript/Jokes/Add_Joke.js"></script>
     </body>
 </html>

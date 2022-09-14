@@ -1,0 +1,14 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Sort_Array.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josh Johnson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
