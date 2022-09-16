@@ -39,7 +39,6 @@ function ensureChecked() {
             }
         }
 
-        validForm = false;
         return false;
     }
 
