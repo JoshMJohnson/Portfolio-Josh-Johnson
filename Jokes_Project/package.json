@@ -1,13 +1,14 @@
 {
-  "name": "jokes",
+  "name": "jokes_project",
   "version": "1.0.0",
-  "description": "Holds a database of jokes that can share and add to such database",
-  "main": "Jokes.js",
+  "description": "Holds a database of jokes that can be accessed and/or added to",
+  "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "data"
+    "data",
+    "server"
   ],
   "author": "Josh Johnson",
   "license": "MIT",
