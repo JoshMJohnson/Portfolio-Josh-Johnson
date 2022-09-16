@@ -15,7 +15,7 @@
         </div>
         <div id="add_joke">
             <h2>Lets hear what you got!</h2>
-            <form method="post" id="add_joke_form">
+            <form id="add_joke_form" method="post">
                 <label for="first_name">Contributers First Name:</label>
                 <input type="text" id="first_name" name="first_name" required><br>
                 <label for="last_name">Contributers Last Name:</label>
@@ -39,7 +39,7 @@
                 <label for="joke">Joke:</label><br>
                 <textarea id="joke" name="joke" rows="6" cols="50" placeholder="Lets hear a funny!" required></textarea><br>
                 <input type="reset" value="Clear">
-                <input type="submit" value="Share Joke" onclick="submit_data()">
+                <input type="submit" value="Share Joke" onclick="ensureChecked()">
             </form>
         </div>
         <div id="hear_joke">

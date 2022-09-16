@@ -1,3 +1,21 @@
+/* add joke to database */    
+const fn = document.getElementById('first_name');
+const ln = document.getElementById('last_name');
+const orig = document.getElementsByName('original');
+const restrict = document.getElementsByName('friendly');
+const joke = document.getElementById('joke');
+
+const data = {fn, ln, orig, restrict, joke};
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+};
+
+fetch('/add', options);        
+
 /* ensure at least one checkbox is checked for appropriate age groups */
 function ensureChecked() {
     const div = document.querySelector('#age_restricted');
@@ -21,6 +39,7 @@ function ensureChecked() {
             }
         }
 
+        validForm = false;
         return false;
     }
 
@@ -30,29 +49,4 @@ function ensureChecked() {
     }
     
     init();
-};
-
-/* submit form data */
-function submit_data() {
-    if (ensureChecked()) {
-        alert("Submitting form");
-
-        const first = document.getElementById('first_name').textContent;
-        const last = document.getElementById('last_name').textContent;
-        const orig = document.getElementsByName('original').values;
-        const restricted = document.getElementsByName('friendly').values;
-        const joke = document.getElementById('joke').textContent;
-
-        const data = {first, last, orig, restricted, joke};
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        };
-        fetch('/', options);
-    } else {
-        alert("Submitting form else");
-    }
-}
+}; 
