@@ -1,11 +1,14 @@
 {
-  "name": "javascript",
+  "name": "jokes",
   "version": "1.0.0",
-  "description": "",
-  "main": "Sort_Array.js",
+  "description": "Holds a database of jokes that can share and add to such database",
+  "main": "Jokes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "data"
+  ],
   "author": "Josh Johnson",
   "license": "MIT",
   "dependencies": {

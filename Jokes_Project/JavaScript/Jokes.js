@@ -6,7 +6,7 @@ const express = require('express');
 const app = express();
 
 app.listen(port, () => console.log('listening at 3000'));
-app.use(express.static(__dirname + '/../../HTML/Jokes'));
+app.use(express.static(__dirname + '..'));
 
 app.use(express.json());
 

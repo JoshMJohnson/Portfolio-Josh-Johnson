@@ -2,6 +2,8 @@
  * This JavaScript program sorts unsorted arrays of integers given by
  * the program itself, as well as given through text files
  * using multiple different sorting algorithms. 
+ * 
+ * Must run sorting algorithms that involved a file with nodejs through command line
  *
  * Sorting algorithms implemented
  * - Selection Sort
