@@ -30,10 +30,10 @@ app.post('/add', (req, res) => {
     console.log('request received!!');
 
     const data = req.body;
-    
+
+    console.log(data);
     console.log(database);
 
-    /* testing */
     const firstn = data.fn;
     const lastn = data.ln;
     const orig = data.orig;
@@ -45,5 +45,4 @@ app.post('/add', (req, res) => {
     console.log(`original value: ${orig}`);
     console.log(`restrict value: ${restrict}`);
     console.log(`joke value: ${joke}`);
-    /* end of testing */
 });

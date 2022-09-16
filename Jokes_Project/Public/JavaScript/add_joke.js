@@ -1,20 +1,25 @@
+const form = document.getElementById('add_joke_form');
+form.addEventListener('submit', addJoke);
+
 /* add joke to database */    
-const fn = document.getElementById('first_name');
-const ln = document.getElementById('last_name');
-const orig = document.getElementsByName('original');
-const restrict = document.getElementsByName('friendly');
-const joke = document.getElementById('joke');
+function addJoke() {
+    const fn = document.getElementById('first_name');
+    const ln = document.getElementById('last_name');
+    const orig = document.getElementsByName('original');
+    const restrict = document.getElementsByName('friendly');
+    const joke = document.getElementById('joke');
 
-const data = {fn, ln, orig, restrict, joke};
-const options = {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-};
+    const data = {fn, ln, orig, restrict, joke};
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
 
-fetch('/add', options);        
+    fetch('/add', options);        
+}
 
 /* ensure at least one checkbox is checked for appropriate age groups */
 function ensureChecked() {
