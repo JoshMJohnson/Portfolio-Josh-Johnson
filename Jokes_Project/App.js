@@ -7,14 +7,14 @@ app.listen(port, () => console.log(`listening at ${port}`));
 app.use(express.static('Public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/Public/HTML/Jokes.html');
+    res.sendFile(__dirname + '/Public/HTML/jokes.html');
 });
 
-app.get('/Add_Joke.html', (req, res) => {
-    res.sendFile(__dirname + '/Public/HTML/Add_Joke.html');
+app.get('/add_joke.html', (req, res) => {
+    res.sendFile(__dirname + '/Public/HTML/add_joke.html');
 });
 
-app.get('/Hear_Joke.html', (req, res) => {
-    res.sendFile(__dirname + '/Public/HTML/Hear_Joke.html');
+app.get('/hear_joke.html', (req, res) => {
+    res.sendFile(__dirname + '/Public/HTML/hear_joke.html');
 });
 

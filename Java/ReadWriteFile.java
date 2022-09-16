@@ -11,11 +11,11 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.util.Scanner;
 
-public class ReadWriteFile {
+public class readWriteFile {
 	public static void main(String args[]) {
 		try {			
-			File file_in = new File("../Test_Files/Basic_Text.txt");
-			FileWriter writer = new FileWriter("../Test_Files/Output_Files/Basic_Dup_From_Read_Write_File_Java.txt");
+			File file_in = new File("../Test_Files/basic_text.txt");
+			FileWriter writer = new FileWriter("../Test_Files/Output_Files/basic_dup_from_read_write_file_java.txt");
 			BufferedWriter buff = new BufferedWriter(writer);
 
 			Scanner reader = new Scanner(file_in);

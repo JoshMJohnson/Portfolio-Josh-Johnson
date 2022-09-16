@@ -52,7 +52,7 @@ print_array(arrays[array_id - 1], true, "Quick");
 /* insertion sort - array size and values are discovered by reading a file */
 array_id++;
 arrays[array_id - 1] = new Array();
-file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
+file_name = "../Test_Files/random_integers_no_duplicates.txt";
 read_from_file(arrays[array_id - 1], file_name);
 
 print_array(arrays[array_id - 1], false, "Insertion");
@@ -62,7 +62,7 @@ print_array(arrays[array_id - 1], true, "Insertion");
 /* merge sort - array size and values are discovered by reading a file */
 array_id++;
 arrays[array_id - 1] = new Array();
-file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
+file_name = "../Test_Files/random_integers_with_duplicates.txt";
 read_from_file(arrays[array_id - 1], file_name);
 
 print_array(arrays[array_id - 1], false, "Merge");

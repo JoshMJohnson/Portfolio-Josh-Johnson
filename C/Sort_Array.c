@@ -114,7 +114,7 @@ int main() {
 
     /* bubble sort - array size and values are discovered by reading a file */
     id++;
-    file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
+    file_name = "../Test_Files/random_integers_no_duplicates.txt";
     head = create_linked_list_from_file(file_name);
     array_sizes[id - 1] = size_of_list(head);
     array_pointers[id - 1] = (int*) malloc(array_sizes[id - 1] * sizeof(int));
@@ -126,7 +126,7 @@ int main() {
 
     /* merge sort - array size and values are discovered by reading a file */
     id++;
-    file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
+    file_name = "../Test_Files/random_integers_with_duplicates.txt";
     head = create_linked_list_from_file(file_name);
     array_sizes[id - 1] = size_of_list(head);
     array_pointers[id - 1] = (int*) malloc(array_sizes[id - 1] * sizeof(int));

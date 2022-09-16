@@ -14,13 +14,13 @@ int main() {
     char c;
 
     /* tries to open existing file to read from */
-    if ((file_in = fopen("../Test_Files/Poem.txt", "r")) == NULL) {
+    if ((file_in = fopen("../Test_Files/poem.txt", "r")) == NULL) {
         printf("Could not open the existing file to read from");
         exit(EXIT_FAILURE); /* same as exit(1) */
     }
 
     /* tries to open or create a file to write to */
-    if ((file_out = fopen("../Test_Files/Output_Files/Poem_Dup_From_Read_Write_File_C.txt", "w")) == NULL) {
+    if ((file_out = fopen("../Test_Files/Output_Files/poem_dup_from_read_write_file_c.txt", "w")) == NULL) {
         printf("Could not create or open file");
         exit(EXIT_FAILURE);
     }

@@ -19,9 +19,9 @@ import java.io.FileNotFoundException;
 import java.io.File;
 import java.lang.Math;
 
- public class SortArray {
+ public class sortArray {
     public static void main (String[] args) {
-        SortArray sa = new SortArray();
+        sortArray sa = new sortArray();
         int array_id = 0;
         int[][] arrays = new int[5][]; // size of array is equal to number of algorithms implemented
         
@@ -54,7 +54,7 @@ import java.lang.Math;
 
         /* insertion sort - array size and values are discovered by reading a file */
         array_id++;
-        String file_name = "../Test_Files/Random_Integers_No_Duplicates.txt";
+        String file_name = "../Test_Files/random_integers_no_duplicates.txt";
         ArrayList<Integer> array_list = sa.create_array_from_file(file_name);
         arrays[array_id - 1] = sa.create_array_from_list(array_list);
 
@@ -64,7 +64,7 @@ import java.lang.Math;
 
         /* quick sort - array size and values are discovered by reading a file */
         array_id++;
-        file_name = "../Test_Files/Random_Integers_With_Duplicates.txt";
+        file_name = "../Test_Files/random_integers_with_duplicates.txt";
         array_list = sa.create_array_from_file(file_name);
         arrays[array_id - 1] = sa.create_array_from_list(array_list);
 
