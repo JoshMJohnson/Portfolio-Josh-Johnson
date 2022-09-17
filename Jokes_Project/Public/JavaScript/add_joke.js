@@ -3,11 +3,22 @@ form.addEventListener('submit', addJoke);
 
 /* add joke to database */    
 function addJoke() {
-    const fn = document.getElementById('first_name');
-    const ln = document.getElementById('last_name');
-    const orig = document.getElementsByName('original');
-    const restrict = document.getElementsByName('friendly');
-    const joke = document.getElementById('joke');
+    const fn = document.getElementById('first_name').value;
+    const ln = document.getElementById('last_name').value;
+    const orig = document.querySelector('input[name="original"]:checked').value;
+
+    /* get value of checked boxes within the checkbox age_restricted input */
+    const restrict = [];
+    const div = document.querySelector('#age_restricted');
+    const checkboxes = div.querySelectorAll('input[type=checkbox]');
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            restrict.push(checkboxes[i].value);
+        }
+    }
+
+    const joke = document.getElementById('joke').value;
 
     const data = {fn, ln, orig, restrict, joke};
     const options = {

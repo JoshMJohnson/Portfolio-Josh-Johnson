@@ -1,5 +1,4 @@
 const express = require('express');
-
 const app = express();
 const port = 3000;
 
@@ -27,8 +26,6 @@ const database = [];
 
 /* add joke to database */
 app.post('/add', (req, res) => {
-    console.log('request received!!');
-
     const data = req.body;
 
     console.log(data);
@@ -46,3 +43,5 @@ app.post('/add', (req, res) => {
     console.log(`restrict value: ${restrict}`);
     console.log(`joke value: ${joke}`);
 });
+
+/* hear joke from database */
