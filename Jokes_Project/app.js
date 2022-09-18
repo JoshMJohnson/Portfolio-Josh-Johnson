@@ -22,26 +22,58 @@ app.get('/hear_joke.html', (req, res) => {
 });
 
 /* manage database */
-const database = [];
+const sqlite3 = require('sqlite3').verbose();
+const database = 'jokes.db';
 
-/* add joke to database */
+/* connect to database */
+const db = new sqlite3.Database(database, sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+        return console.error(err.message);
+    }
+
+    console.log('Connection to database was successful');
+})
+
+/* create database table to hold jokes */ /*
+db.run (
+    `CREATE TABLE jokes (
+        id                  INTEGER     PRIMARY KEY
+                                        AUTOINCREMENT, 
+        dateContributed     DATETIME    TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+        fullName            TEXT        NOT NULL, 
+        originalJoke        TEXT        NOT NULL, 
+        ageRestricted       BOOLEAN     NOT NULL, 
+        joke                STRING      NOT NULL
+                                        UNIQUE
+    );`
+); */
+
+/* insert joke data into the database */
 app.post('/add', (req, res) => {
     const data = req.body;
-
-    console.log(data);
-    console.log(database);
-
-    const firstn = data.fn;
-    const lastn = data.ln;
+    const full_name = `${data.fn} ${data.ln}`;
     const orig = data.orig;
     const restrict = data.restrict;
     const joke = data.joke;
 
-    console.log(`first name value: ${firstn}`);
-    console.log(`last name value: ${lastn}`);
-    console.log(`original value: ${orig}`);
-    console.log(`restrict value: ${restrict}`);
-    console.log(`joke value: ${joke}`);
+    const sql_insert = `INSERT INTO jokes (fullName, originalJoke, ageRestricted, joke)
+                            VALUES (?, ?, ?, ?)`;
+
+    db.run(
+        sql_insert, [full_name, orig, restrict, joke], (err) => {
+            if (err) {
+                return console.error(err.message);
+            }
+
+            console.log("Joke was added to the database!!");
+    });
 });
 
 /* hear joke from database */
+
+
+
+
+
+
+

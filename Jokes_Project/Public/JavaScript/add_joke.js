@@ -29,7 +29,8 @@ function addJoke() {
         body: JSON.stringify(data)
     };
 
-    fetch('/add', options);        
+    fetch('/add', options);    
+    alert("Joke was added to the database!!");    
 }
 
 /* ensure at least one checkbox is checked for appropriate age groups */
