@@ -48,7 +48,7 @@ db.run (
     );`
 ); */
 
-/* insert joke data into the database */
+/* insert joke into the database */
 app.post('/add', (req, res) => {
     const data = req.body;
     const full_name = `${data.fn} ${data.ln}`;
@@ -69,11 +69,32 @@ app.post('/add', (req, res) => {
     });
 });
 
-/* hear joke from database */
+/* hear joke(s) from database */
+app.post('/hear', (req, res) => {
+    console.log("server retrieving jokes");
 
+    const data = req.body;
+    const sendBack = []
 
+    console.log(data);
 
+    res.json(JSON.stringify(data));
 
+    // const sql_read = `SELECT * FROM jokes`;
 
+    // db.all(
+    //     sql_read, [], (err) => {
+    //         if (err) {
+    //             return console.error(err.message);
+    //         }
 
+    //         rows.forEach((row) => {
+    //             sendBack.push(row);
+    //         });
 
+    //         console.log("Jokes retrieved from database!!");
+    // });
+
+    // res.json(JSON.stringify(sendBack));
+
+});

@@ -29,7 +29,7 @@ h2 {
     text-align: center;
 }
 
-#age_restricted {
+#age_restricted, #rel, #person_div {
     display: none;
 }
 
@@ -44,7 +44,7 @@ button:hover {
 }
 
 /* form information */
-#original, #restrictions, #related_jokes {
+#original, #restrictions, #related_jokes, #related, #person_field, #person {
     margin-bottom: 10px;
     margin-left: 10px;
 }
