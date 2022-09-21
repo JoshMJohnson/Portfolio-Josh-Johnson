@@ -113,19 +113,6 @@ function followThrough() {
             }
         }
     }
-
-    /* submit form and bypass the required fields that are hidden */
-    if ((personShowing == false && contentShowing == false && restrictedShowing == false) 
-            || (personShowing == false && contentField != "" && restrictedShowing == false)
-            || (personShowing == false && contentShowing == false && restrict.length != 0)
-            || (personShowing == false && contentField != "" && restrict.length != 0)
-            || (personField != "" && contentShowing == false && restrictedShowing == false)
-            || (personField != "" && contentField != "" && restrictedShowing == false)
-            || (personField != "" && contentShowing == false && restrict.length != 0)
-            || (personField != "" && contentField != "" && restrict.length != 0)
-            ) {        
-        document.getElementById('hear_joke_form').submit();
-    }
 }
 
 /* hear joke(s) from database */

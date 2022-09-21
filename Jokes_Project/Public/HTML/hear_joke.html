@@ -15,7 +15,7 @@
         </div>
         <div id="hear_joke">
             <h2>Get ready to laugh your socks off!</h2>
-            <form id="hear_joke_form">
+            <form id="hear_joke_form" onsubmit="return false">
                 <label for="person">Do you want to hear jokes from a specific person?</label>
                 <select id="person" name="person" onchange="showHidePerson()">
                     <option value="no" selected>No</option>
@@ -56,7 +56,7 @@
                 </div>
                 <input type="submit" value="I'm ready to laugh!" id="sub" onclick="followThrough()">
             </form>
-            <p>Jokes:<br/><span id="database_jokes"></span></p>
+            <p>Jokes:<br/><div id="database_jokes"></div></p>
         </div>
         <div id="add_joke">
             <p>Did you think of a funny joke that you'd like to share?</p>

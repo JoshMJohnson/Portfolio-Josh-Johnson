@@ -74,7 +74,7 @@ app.post('/hear', (req, res) => {
     console.log("server retrieving jokes");
 
     const data = req.body;
-    const sendBack = []
+    // const sendBack = []
 
     console.log(data);
 
