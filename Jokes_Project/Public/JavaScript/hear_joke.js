@@ -153,5 +153,5 @@ function hearJoke() {
 async function getData(options) {
     const response = await fetch('/hear', options);
     const responseData = await response.json();
-    document.getElementById('database_jokes').textContent = "here is one of my jokes!!"; //****BROKEN: flashes info/reloads page removing content****
+    document.getElementById('database_jokes').textContent = "here is one of my jokes!!";
 }
