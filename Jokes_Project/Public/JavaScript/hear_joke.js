@@ -43,6 +43,7 @@ function showHide(id1, id2, element) {
         /* if selecting display for age_restrictions */
         if (element == "res") {
             restrictedShowing = false;
+            ensureChecked();
         } else if (element == "content") { /* else if selecting display for content */
             contentShowing = false;
         } else if (element == "p") { /* else if selecting display for person */
@@ -53,36 +54,40 @@ function showHide(id1, id2, element) {
 
 /* ensure at least one checkbox is checked for appropriate age groups */
 function ensureChecked() {
-    const div = document.querySelector('#age_restricted');
-    const checkboxes = div.querySelectorAll('input[type=checkbox]');
-    const firstCheckbox = checkboxes.length > 0 ? checkboxes[0] : null;
-    
-    function init() {
-        if (firstCheckbox) {
+    if (restrictedShowing) {
+        const div = document.querySelector('#age_restricted');
+        const checkboxes = div.querySelectorAll('input[type=checkbox]');
+        const firstCheckbox = checkboxes.length > 0 ? checkboxes[0] : null;
+        
+        function init() {
+            if (firstCheckbox) {
+                for (let i = 0; i < checkboxes.length; i++) {
+                    checkboxes[i].addEventListener('change', checkValidity);
+                }
+
+                checkValidity();
+            }
+        }
+
+        function isChecked() {
             for (let i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].addEventListener('change', checkValidity);
+                if (checkboxes[i].checked) {
+                    return true;
+                }
             }
 
-            checkValidity();
-        }
-    }
-
-    function isChecked() {
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                return true;
-            }
+            return false;
         }
 
-        return false;
+        function checkValidity() {
+            const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
+            firstCheckbox.setCustomValidity(errorMessage);
+        }
+        
+        init();
+    } else {
+        return true;
     }
-
-    function checkValidity() {
-        const errorMessage = !isChecked() ? 'At least one checkbox must be selected.' : '';
-        firstCheckbox.setCustomValidity(errorMessage);
-    }
-    
-    init();
 };
 
 /* allows the user to submit the form without requiring at least one box checked on invisible content */
