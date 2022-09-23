@@ -164,6 +164,12 @@ async function getData(options) {
     const responseData = await response.json();
     const listedJokes = document.getElementById('database_jokes');
 
+    /* remove previous jokes listed if any */
+    while (listedJokes.firstChild) {
+        listedJokes.removeChild(listedJokes.firstChild);
+    }
+    
+    /* add jokes requested from client to the web page */
     for (let i = 0; i < responseData.length; i++) {
         const li = document.createElement('li');
         const hr = document.createElement('hr');

@@ -76,20 +76,61 @@ app.post('/add', (req, res) => {
 /* hear joke(s) from database */
 app.post('/hear', (req, res) => {
     console.log("server retrieving jokes from database");
+    console.log(req.body);
 
-    const sendBack = []
-    const sql_read = `SELECT * FROM jokes`;
+    /* values requested from client */
+    const data = req.body;
+    const person = data.specific; /* possible values: no/yes */
+    const name = data.name;
+    const contentBased = data.related; /* possible values: no/yes */
+    const keywords = data.keywords;
+    let original = data.original; /* possible values: no/yes/both */
 
-    db.all(
-        sql_read, [], (err, rows) => {
-            if (err) {
-                return console.error(err.message);
-            }
+    if (original == 'no') { /* value of 0 = false */
+        original = 0;
+    } else if (original == 'yes') { /* value of 1 = true */
+        original = 1;
+    }
 
-            rows.forEach((row) => {
-                sendBack.push(row);
-            });
-            
-            res.json(sendBack);
-    });
+    const restricted = data.restricted; /* possible values: no/yes */
+    const restrict = data.restrict; /* possible values: Child/Young/Adult */
+
+    const sendBack = [];
+
+    if (person == 'no' && contentBased == 'no' && original == 'both' && restricted == 'no') {
+        const sql = `SELECT joke FROM jokes`;
+
+        db.all(
+            sql, [], (err, rows) => {
+                if (err) {
+                    return console.error(err.message);
+                }
+    
+                rows.forEach((row) => {
+                    sendBack.push(row);
+                });
+                
+                res.json(sendBack);
+        });
+    } else if ((person == 'no' && contentBased == 'no' && original == 0 && restricted == 'no')
+                || (person == 'no' && contentBased == 'no' && original == 1 && restricted == 'no')) {
+        let sql = `SELECT joke 
+                   FROM jokes 
+                   WHERE originalJoke = '${original}'`;     
+
+        db.all(
+            sql, [], (err, rows) => {
+                if (err) {
+                    return console.error(err.message);
+                }
+                
+                rows.forEach((row) => {
+                    sendBack.push(row);
+                });
+                            
+                res.json(sendBack);
+        });
+    }
+
+    
 });

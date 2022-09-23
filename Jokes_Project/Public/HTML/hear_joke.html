@@ -38,7 +38,7 @@
                 <select id="original" name="original">
                     <option value="no" selected>No</option>
                     <option value="yes">Yes</option>
-                    <option value="Both">Both</option>
+                    <option value="both">Both</option>
                 </select><br>
                 <label for="restrictions">Do you need restricted jokes based on age group?</label>
                 <select id="restrictions" name="restrictions" onchange="showHideRes(this)">
@@ -56,7 +56,8 @@
                 </div>
                 <input type="submit" value="I'm ready to laugh!" id="sub" onclick="followThrough()">
             </form>
-            <p>Jokes:<br/><ul id="database_jokes"></ul></p>
+            <h3>Jokes</h3>
+            <ul id="database_jokes"></ul>
         </div>
         <div id="add_joke">
             <p>Did you think of a funny joke that you'd like to share?</p>
