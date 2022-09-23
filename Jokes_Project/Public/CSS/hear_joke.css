@@ -48,3 +48,18 @@ button:hover {
     margin-bottom: 10px;
     margin-left: 10px;
 }
+
+
+/* line breaks between jokes */
+li {
+    list-style: none;
+    
+}
+
+hr {
+    background-color: rgb(107, 252, 107);
+    height: 10px;
+    width: 90%;
+    position: relative;
+    right: 5%;
+}

@@ -164,9 +164,14 @@ async function getData(options) {
     const responseData = await response.json();
     const listedJokes = document.getElementById('database_jokes');
 
-    responseData.forEach((joke) => {
+    for (let i = 0; i < responseData.length; i++) {
         const li = document.createElement('li');
-        li.textContent = joke.fullName;
+        const hr = document.createElement('hr');
+        li.textContent = `${responseData[i].joke}`;
         listedJokes.appendChild(li);
-    });
+
+        if (i != responseData.length - 1) {
+            listedJokes.appendChild(hr);
+        }
+    }
 }
