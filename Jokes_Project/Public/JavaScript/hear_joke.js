@@ -1,3 +1,7 @@
+/*
+ * Client side JavaScript for hear_jokes page
+ */
+
 const form = document.getElementById('hear_joke_form');
 form.addEventListener('submit', hearJoke);
 
@@ -158,5 +162,11 @@ function hearJoke() {
 async function getData(options) {
     const response = await fetch('/hear', options);
     const responseData = await response.json();
-    document.getElementById('database_jokes').textContent = "here is one of my jokes!!";
+    const listedJokes = document.getElementById('database_jokes');
+
+    responseData.forEach((joke) => {
+        const li = document.createElement('li');
+        li.textContent = joke.fullName;
+        listedJokes.appendChild(li);
+    });
 }

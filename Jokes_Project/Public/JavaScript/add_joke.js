@@ -1,3 +1,7 @@
+/*
+ * Client side JavaScript for add_joke page
+ */
+
 const form = document.getElementById('add_joke_form');
 form.addEventListener('submit', addJoke);
 

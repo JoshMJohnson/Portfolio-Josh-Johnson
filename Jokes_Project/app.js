@@ -1,3 +1,7 @@
+/*
+ * Server side JavaScript
+ */
+
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -71,30 +75,21 @@ app.post('/add', (req, res) => {
 
 /* hear joke(s) from database */
 app.post('/hear', (req, res) => {
-    console.log("server retrieving jokes");
+    console.log("server retrieving jokes from database");
 
-    const data = req.body;
-    // const sendBack = []
+    const sendBack = []
+    const sql_read = `SELECT * FROM jokes`;
 
-    console.log(data);
+    db.all(
+        sql_read, [], (err, rows) => {
+            if (err) {
+                return console.error(err.message);
+            }
 
-    res.json(JSON.stringify(data));
-
-    // const sql_read = `SELECT * FROM jokes`;
-
-    // db.all(
-    //     sql_read, [], (err) => {
-    //         if (err) {
-    //             return console.error(err.message);
-    //         }
-
-    //         rows.forEach((row) => {
-    //             sendBack.push(row);
-    //         });
-
-    //         console.log("Jokes retrieved from database!!");
-    // });
-
-    // res.json(JSON.stringify(sendBack));
-
+            rows.forEach((row) => {
+                sendBack.push(row);
+            });
+            
+            res.json(sendBack);
+    });
 });
