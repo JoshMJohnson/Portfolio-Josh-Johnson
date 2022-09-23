@@ -95,42 +95,29 @@ app.post('/hear', (req, res) => {
     const restricted = data.restricted; /* possible values: no/yes */
     const restrict = data.restrict; /* possible values: Child/Young/Adult */
 
-    const sendBack = [];
+    let sql;
 
     if (person == 'no' && contentBased == 'no' && original == 'both' && restricted == 'no') {
-        const sql = `SELECT joke FROM jokes`;
-
-        db.all(
-            sql, [], (err, rows) => {
-                if (err) {
-                    return console.error(err.message);
-                }
-    
-                rows.forEach((row) => {
-                    sendBack.push(row);
-                });
-                
-                res.json(sendBack);
-        });
+        sql = `SELECT joke FROM jokes`;
     } else if ((person == 'no' && contentBased == 'no' && original == 0 && restricted == 'no')
                 || (person == 'no' && contentBased == 'no' && original == 1 && restricted == 'no')) {
-        let sql = `SELECT joke 
-                   FROM jokes 
-                   WHERE originalJoke = '${original}'`;     
+        sql = `SELECT joke 
+               FROM jokes 
+               WHERE originalJoke = '${original}'`;     
+    } 
 
-        db.all(
-            sql, [], (err, rows) => {
-                if (err) {
-                    return console.error(err.message);
-                }
-                
-                rows.forEach((row) => {
-                    sendBack.push(row);
-                });
-                            
-                res.json(sendBack);
-        });
-    }
+    const sendBack = [];
 
-    
+    db.all(
+        sql, [], (err, rows) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            
+            rows.forEach((row) => {
+                sendBack.push(row);
+            });
+                        
+            res.json(sendBack);
+    });
 });
