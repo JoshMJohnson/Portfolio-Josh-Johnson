@@ -44,10 +44,10 @@ db.run (
         id                  INTEGER     PRIMARY KEY
                                         AUTOINCREMENT, 
         dateContributed     DATETIME    TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-        fullName            TEXT        NOT NULL, 
-        originalJoke        TEXT        NOT NULL, 
+        fullName            STRING      NOT NULL, 
+        originalJoke        STRING      NOT NULL, 
         ageRestricted       BOOLEAN     NOT NULL, 
-        joke                STRING      NOT NULL
+        joke                TEXT        NOT NULL
                                         UNIQUE
     );`
 ); */
@@ -76,7 +76,6 @@ app.post('/add', (req, res) => {
 /* hear joke(s) from database */
 app.post('/hear', (req, res) => {
     console.log("server retrieving jokes from database");
-    console.log(req.body);
 
     /* values requested from client */
     const data = req.body;
@@ -95,6 +94,7 @@ app.post('/hear', (req, res) => {
     const restricted = data.restricted; /* possible values: no/yes */
     const restrict = data.restrict; /* possible values: Child/Young/Adult */
 
+    /* sql query  */
     let sql;
 
     if (person == 'no' && contentBased == 'no' && restricted == 'no') {
@@ -194,6 +194,7 @@ app.post('/hear', (req, res) => {
         }
     }
 
+    /* send jokes from database to client side */
     const sendBack = [];
 
     db.all(
