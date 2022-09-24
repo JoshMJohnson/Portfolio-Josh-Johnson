@@ -98,6 +98,7 @@ function ensureChecked() {
 function followThrough() {
     /* if specific person text field is showing */
     if (personShowing == true) {
+        document.getElementById('person_field').required = true;
         const personField = document.getElementById('person_field').value;
     } else { /* else specific person text field is not showing */
         document.getElementById('person_field').required = false;
@@ -105,6 +106,7 @@ function followThrough() {
 
     /* if content text field is showing */
     if (contentShowing == true) {
+        document.getElementById('related_jokes').required = true;
         const contentField = document.getElementById('related_jokes').value;
     } else { /* else content text field is not showing */
         document.getElementById('related_jokes').required = false;

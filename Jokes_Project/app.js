@@ -83,7 +83,7 @@ app.post('/hear', (req, res) => {
     const person = data.specific; /* possible values: no/yes */
     const name = data.name;
     const contentBased = data.related; /* possible values: no/yes */
-    const keywords = data.keywords;
+    const keyWord = data.keyWords;
     let original = data.original; /* possible values: no/yes/both */
 
     if (original == 'no') { /* value of 0 = false */
@@ -97,14 +97,102 @@ app.post('/hear', (req, res) => {
 
     let sql;
 
-    if (person == 'no' && contentBased == 'no' && original == 'both' && restricted == 'no') {
-        sql = `SELECT joke FROM jokes`;
-    } else if ((person == 'no' && contentBased == 'no' && original == 0 && restricted == 'no')
-                || (person == 'no' && contentBased == 'no' && original == 1 && restricted == 'no')) {
-        sql = `SELECT joke 
-               FROM jokes 
-               WHERE originalJoke = '${original}'`;     
-    } 
+    if (person == 'no' && contentBased == 'no' && restricted == 'no') {
+        if (original == 'both') {
+            sql = `SELECT joke FROM jokes`;
+        } else {
+            sql = `SELECT joke 
+                   FROM jokes 
+                   WHERE originalJoke = '${original}'`;
+        }  
+    }  else if (person == 'yes' && contentBased == 'no' && restricted == 'no') {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE fullName LIKE '%${name}%'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE fullName LIKE '%${name}%'
+                   AND originalJoke = '${original}'`;
+        }
+    } else if (person == 'yes' && contentBased == 'yes' && restricted == 'no') {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE joke LIKE '%${keyWord}%'
+                   AND fullName LIKE '%${name}%'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE joke LIKE '%${keyWord}%'
+                   AND fullName LIKE '%${name}%'
+                   AND originalJoke = '${original}'`;
+        }
+    } else if (person == 'no' && contentBased == 'yes' && restricted == 'no') {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE joke LIKE '%${keyWord}%'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE joke LIKE '%${keyWord}%'
+                   AND originalJoke = '${original}'`;
+        }
+    } else if (person == 'no' && contentBased == 'no' && restricted == 'yes') {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE ageRestricted = '${restrict}'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE ageRestricted = '${restrict}'
+                   AND originalJoke = '${original}'`;
+        }
+    } else if (person == 'no' && contentBased == 'yes' && restricted == 'yes') {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE joke LIKE '%${keyWord}%'
+                   AND ageRestricted = '${restrict}'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE joke LIKE '%${keyWord}%'
+                   AND ageRestricted = '${restrict}'
+                   AND originalJoke = '${original}'`;
+        }
+    } else if (person == 'yes' && contentBased == 'no' && restricted == 'yes') {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE fullName LIKE '%${name}%'
+                   AND ageRestricted = '${restrict}'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE fullName LIKE '%${name}%'
+                   AND ageRestricted = '${restrict}'
+                   AND originalJoke = '${original}'`;
+        }
+    } else {
+        if (original == 'both') {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE fullName LIKE '%${name}%'
+                   AND joke LIKE '%${keyWord}%'
+                   AND ageRestricted = '${restrict}'`;
+        } else {
+            sql = `SELECT joke
+                   FROM jokes
+                   WHERE fullName LIKE '%${name}%'
+                   AND joke LIKE '%${keyWord}%'
+                   AND ageRestricted = '${restrict}'
+                   AND originalJoke = '${original}'`;
+        }
+    }
 
     const sendBack = [];
 
