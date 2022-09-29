@@ -19,9 +19,9 @@ import java.io.FileNotFoundException;
 import java.io.File;
 import java.lang.Math;
 
- public class sortArray {
+ public class SortArray {
     public static void main (String[] args) {
-        sortArray sa = new sortArray();
+        SortArray sa = new SortArray();
         int array_id = 0;
         int[][] arrays = new int[5][]; // size of array is equal to number of algorithms implemented
         

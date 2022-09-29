@@ -11,7 +11,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.util.Scanner;
 
-public class readWriteFile {
+public class ReadWriteFile {
 	public static void main(String args[]) {
 		try {			
 			File file_in = new File("../Test_Files/basic_text.txt");

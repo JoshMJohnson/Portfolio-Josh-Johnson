@@ -5,7 +5,7 @@
  * Created By: Josh Johnson
  */
 
-public class helloWorld {
+public class HelloWorld {
 	public static void main(String [] args) {
 		System.out.print("Hello World in Java!");
 	}
