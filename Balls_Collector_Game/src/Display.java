@@ -9,7 +9,11 @@ import java.awt.image.DataBufferInt;
 
 /** Created By: Josh Johnson
   * Description: 3-Dimensional game
-  */
+  *  - TODO: have a start-up menu
+  *  - TODO: control character in center of screen
+  *  - TODO: run around and collect bouncing balls to increase in score before time runs out
+  *  - TODO: keeps a high score list
+  *  - TODO: have a end-game menu (start-up menu to play again/quit) */
 public class Display extends Canvas implements Runnable {
     /* window settings */
 	private final static int WIDTH = 1700;

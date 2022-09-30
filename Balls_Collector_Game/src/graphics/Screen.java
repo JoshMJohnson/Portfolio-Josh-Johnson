@@ -8,8 +8,7 @@ public class Screen extends Render {
     
     /** constructor for Screen class 
       * @param width: number of pixels horizontally on the window
-      * @param height: number of pixels vertically on the window
-      */
+      * @param height: number of pixels vertically on the window */
     public Screen(int width, int height) {
         super(width, height);
         
@@ -24,12 +23,16 @@ public class Screen extends Render {
     /** renders the pixels */
     public void render() {
         /* refreshes the pixels where the rendering is no longer happening;
-         * gets rid of trail
-         */
+         * gets rid of trail */
         for (int i = 0; i < width * height; i++) {
             pixels[i] = 0;
         }
-        int animation = (int) (Math.sin(System.currentTimeMillis() % 1000.0 / 1000 * Math.PI * .25) * 500);
-        draw(test, 100, 100 + animation);
+        
+        /* for loop adds a trail behind animated object;
+         * to keep animation, but remove trail - keep contents but remove loop */
+        for (int i = 0; i < 100; i++) {
+            int animation = (int) (Math.sin((System.currentTimeMillis() + i) % 1000.0 / 1000 * Math.PI * .15) * 500);
+            draw(test, 100, 100 + animation);
+        }
     }
 }
