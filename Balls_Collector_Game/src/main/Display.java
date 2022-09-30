@@ -1,4 +1,5 @@
-import graphics.Render;
+package main;
+
 import graphics.Screen;
 import javax.swing.JFrame;
 import java.awt.Canvas;
@@ -9,16 +10,17 @@ import java.awt.image.DataBufferInt;
 
 /** Created By: Josh Johnson
   * Description: 3-Dimensional game
-  *  - TODO: have a start-up menu
+  *  - TODO: have a start-up menu with game rules/controls shown
   *  - TODO: control character in center of screen
-  *  - TODO: run around and collect bouncing balls to increase in score before time runs out
-  *  - TODO: keeps a high score list
-  *  - TODO: have a end-game menu (start-up menu to play again/quit) */
+  *  - TODO: run around and collect bouncing balls before time runs out
+  *  - TODO: collect all bouncing balls = winner!; else loser
+  *  - TODO: have a end-game menu (start-up menu to play again/quit)
+  *     - collect all bouncing balls = winner!; else loser */
 public class Display extends Canvas implements Runnable {
     /* window settings */
-	private final static int WIDTH = 1700;
-	private final static int HEIGHT  = 850;
-	private final static String TITLE = "Balls Collector Game";
+	public final static int WIDTH = 1700;
+	public final static int HEIGHT  = 850;
+	public final static String TITLE = "Balls Collector Game";
 	
 	/* game settings */
 	private Thread thread;
@@ -27,7 +29,6 @@ public class Display extends Canvas implements Runnable {
     private int[] pixels;
 
 	/* other java classes */
-	private Render render;
 	private Screen screen;
 		
 	/** constructor for Display class */
@@ -87,9 +88,39 @@ public class Display extends Canvas implements Runnable {
 	
 	 /** thread use; start-up method when the game is set to run */
 	 public void run() {
+	     int frames = 0;
+	     double unprocessedSeconds = 0;
+	     long prevTime = System.nanoTime();
+	     double secondsPerTick = 1 / 60.0;
+	     int tickCount = 0;
+	     boolean ticked = false;
+	     
 	     while (running) {
-	         tick();
+	         long currentTime = System.nanoTime();
+	         long passedTime = currentTime - prevTime;
+	         prevTime = currentTime;
+	         unprocessedSeconds += passedTime / 1000000000.0;
+	         
+	         while (unprocessedSeconds > secondsPerTick) {
+	             tick();
+	             unprocessedSeconds -= secondsPerTick;
+	             ticked = true;
+	             tickCount++;
+	             
+	             if (tickCount %60 == 0) {
+	                 System.out.println(frames + "fps");
+	                 prevTime += 1000;
+	                 frames = 0;
+	             }
+	         }
+	         
+	         if (ticked) {
+	             render();
+	             frames++;
+	         }
+	         
 	         render();
+	         frames++;
          }
      }
 	 

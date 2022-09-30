@@ -1,7 +1,10 @@
 package graphics;
 
+import main.Display;
+
 /** renders the pixels in the game */
 public class Render {
+    /* variables */
     public final int width;
     public final int height;
     public final int[] pixels;
@@ -24,7 +27,7 @@ public class Render {
             int yPixels = y + yOffset;
             
             /* if pixel is off screen vertically */
-            if (yPixels < 0 || yPixels >= 850) {
+            if (yPixels < 0 || yPixels >= height) {
                 continue;
             }
             
@@ -32,11 +35,15 @@ public class Render {
                 int xPixels = x + xOffset;
                 
                 /* if pixel is off screen horizontally */
-                if (xPixels < 0 || xPixels >= 1700) {
+                if (xPixels < 0 || xPixels >= width) {
                     continue;
                 }
                 
-                pixels[xPixels + yPixels * width] = render.pixels[x + y * render.width];
+                int ren = render.pixels[x + y * render.width];
+                
+                if (ren > 0) {
+                    pixels[xPixels + yPixels * width] = ren;
+                }
             }
         }
     }
