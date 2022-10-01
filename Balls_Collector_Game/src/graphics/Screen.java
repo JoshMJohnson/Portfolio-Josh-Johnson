@@ -37,7 +37,7 @@ public class Screen extends Render {
             int animation = (int) (Math.sin((game.time + i * 2) % 1000.0 / 100) * 100);
         }
         
-        render.floor();
+        render.floor(game);
         draw(render, 0, 0);
     }
 }

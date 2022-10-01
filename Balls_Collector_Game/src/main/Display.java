@@ -133,7 +133,7 @@ public class Display extends Canvas implements Runnable {
          }
      }
 	 
-	 /***/
+    /** game progression */
 	 private void tick() {
 	     game.tick();
 	 }
