@@ -1,6 +1,5 @@
 package graphics;
 
-import main.Display;
 
 /** renders the pixels in the game */
 public class Render {
@@ -39,10 +38,12 @@ public class Render {
                     continue;
                 }
                 
-                int ren = render.pixels[x + y * render.width];
+                /* alpha support */
+                int alpha = render.pixels[x + y * render.width];
                 
-                if (ren > 0) {
-                    pixels[xPixels + yPixels * width] = ren;
+                /* if pixels need to be rendered */
+                if (alpha > 0) {
+                    pixels[xPixels + yPixels * width] = alpha;
                 }
             }
         }
