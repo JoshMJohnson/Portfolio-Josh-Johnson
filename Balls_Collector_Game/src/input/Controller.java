@@ -42,10 +42,10 @@ public class Controller {
             rotationa += rotationSpeed;
         }
         
+        
+        /* handles changes in actions */
         xa += (xMovement * Math.cos(rotation) + zMovement * Math.sin(rotation)) * walkSpeed;
         za += (zMovement * Math.cos(rotation) - xMovement * Math.sin(rotation)) * walkSpeed;
-
-        
         x += xa;
         z += za;
         xa *= 0.1;
