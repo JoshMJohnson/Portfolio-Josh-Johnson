@@ -1,10 +1,31 @@
 package main;
 
+import input.Controller;
+
+import java.awt.event.KeyEvent;
+
+/** overall game manager */
 public class Game {
     public int time;
+    public Controller controls;
+    
+    /** constructor for the Game class */
+    public Game() {
+        controls = new Controller();
+    }
     
     /** game progression */
-    public void tick() {
+    public void tick(boolean[] key) {
         time++;
+        
+        /* user input */
+        boolean forward = key[KeyEvent.VK_W];
+        boolean backward = key[KeyEvent.VK_S];
+        boolean left = key[KeyEvent.VK_A];
+        boolean right = key[KeyEvent.VK_D];
+        boolean turnLeft = key[KeyEvent.VK_LEFT];
+        boolean turnRight = key[KeyEvent.VK_RIGHT];
+        
+        controls.tick(forward, backward, left, right, turnLeft, turnRight);
     }
 }

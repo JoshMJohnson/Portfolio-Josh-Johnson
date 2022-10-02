@@ -5,12 +5,11 @@ import main.Game;
 
 /** keeps track of pixels on the screen */
 public class Screen extends Render {
+    /* class objects */
     private Render test;
     private Render3D render;
     
-    /** constructor for Screen class 
-      * @param width
-      * @param height */
+    /** constructor for Screen class */
     public Screen(int width, int height) {
         super(width, height);
         
@@ -23,7 +22,7 @@ public class Screen extends Render {
         }
     }
 
-    /** renders the pixels */
+    /** renders pixels */
     public void render(Game game) {
         /* refreshes the pixels where the rendering is no longer happening;
          * gets rid of trail */
@@ -31,7 +30,7 @@ public class Screen extends Render {
             pixels[i] = 0;
         }
         
-        /* for loop adds a trail behind animated object;
+        /* adds a trail behind animated object;
          * to keep animation, but remove trail - keep contents but remove loop */
         for (int i = 0; i < 50; i++) {
             int animation = (int) (Math.sin((game.time + i * 2) % 1000.0 / 100) * 100);

@@ -1,6 +1,7 @@
 package main;
 
 import graphics.Screen;
+import input.InputHandler;
 import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.Dimension;
@@ -18,51 +19,41 @@ import java.awt.image.DataBufferInt;
   *  - TODO: have a end-game menu (start-up menu to play again/quit)
   *     - collect all bouncing balls = winner!; else loser */
 public class Display extends Canvas implements Runnable {
+    /* class objects */
+    private Screen screen;
+    private Game game;
+    private InputHandler input;
+    
     /* window settings */
-	public final static int WIDTH = 1700;
-	public final static int HEIGHT  = 850;
-	public final static String TITLE = "Balls Collector Game";
+	public final static int width = 1700;
+	public final static int height  = 850;
+	public final static String title = "Balls Collector Game";
 	
 	/* game settings */
 	private Thread thread;
 	private BufferedImage img;
 	private boolean running = false;
     private int[] pixels;
-
-	/* other java classes */
-	private Screen screen;
-	private Game game;
 		
 	/** constructor for Display class */
 	public Display() {
 	    /* window size */
-	    Dimension size = new Dimension(WIDTH, HEIGHT);
+	    Dimension size = new Dimension(width, height);
 	    setPreferredSize(size);
 	    setMinimumSize(size);
 	    setMaximumSize(size);
 	    
-	    screen = new Screen(WIDTH, HEIGHT);
+	    screen = new Screen(width, height);
 	    game = new Game();
-	    img = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+	    img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	    pixels = ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
-	}
-	
-	/** main method */
-	public static void main (String args[]) {
-	    JFrame frame = new JFrame();
-		Display game = new Display();
-		
-		/* setup game window */
-		frame.add(game);
-		frame.pack(); /* sizes frame to ensure all contents are at or above their preferred sizes */
-		frame.setTitle(TITLE);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    frame.setLocationRelativeTo(null); //center window on screen
-		frame.setResizable(false);
-		frame.setVisible(true);
-		
-		/* begin the game */
-		game.start();
+	    
+	    /* enable user input */
+	    input = new InputHandler();
+	    addKeyListener(input);
+	    addFocusListener(input);
+	    addMouseListener(input);
+	    addMouseMotionListener(input);   
 	}
 	
 	/** starts the game */
@@ -94,7 +85,7 @@ public class Display extends Canvas implements Runnable {
         }
 	}
 	
-	 /** thread use; start-up method when the game is set to run */
+	 /** thread use; start-up method when the game is set to start */
 	 public void run() {
 	     int frames = 0;
 	     double unprocessedSeconds = 0;
@@ -135,7 +126,7 @@ public class Display extends Canvas implements Runnable {
 	 
     /** game progression */
 	 private void tick() {
-	     game.tick();
+	     game.tick(input.key);
 	 }
 	 
 	 /** render the screen */
@@ -149,13 +140,31 @@ public class Display extends Canvas implements Runnable {
 	     
 	     screen.render(game);
 	     
-	     for (int i = 0; i < WIDTH * HEIGHT; i++) {
+	     for (int i = 0; i < width * height; i++) {
 	         pixels[i] = screen.pixels[i];
 	     }
 	     
 	     Graphics g = bs.getDrawGraphics();
-	     g.drawImage(img, 0, 0, WIDTH, HEIGHT, null);
+	     g.drawImage(img, 0, 0, width, height, null);
 	     g.dispose();
 	     bs.show();
-	 }
+    }
+
+    /** main method */
+    public static void main(String args[]) {
+        JFrame frame = new JFrame();
+        Display game = new Display();
+
+        /* setup game window */
+        frame.add(game);
+        frame.pack(); /* sizes frame to ensure all contents are at or above their preferred sizes */
+        frame.setTitle(title);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null); // center window on screen
+        frame.setResizable(false);
+        frame.setVisible(true);
+
+        /* begin the game */
+        game.start();
+    }
 }
