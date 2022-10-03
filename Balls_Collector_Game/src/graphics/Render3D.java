@@ -1,5 +1,6 @@
 package graphics;
 
+import input.Controller;
 import main.Game;
 
 /** handles the pixel motion effects */
@@ -27,15 +28,32 @@ public class Render3D extends Render {
         /* movement */
         double forward = game.controls.z;
         double right =  game.controls.x;
+        double up = game.controls.y;
+        double walking = Math.sin(game.time / 6.0) * 0.4;
+        
+        /* adjusts head bobbing amounts */
+        if (Controller.crouchWalk) {
+            walking = Math.sin(game.time / 6.0) * 0.15;
+        } else if (Controller.runForward) {
+            walking = Math.sin(game.time / 6.0) * 0.8;
+        }
         
         /* render effects */
         for (int y = 0; y < height; y++) {
             double ceiling = (double) (y - height / 2) / height;   
-            double z = floorPosition / ceiling;
+            double z = (floorPosition + up) / ceiling;
+            
+            if (Controller.walk) {
+                z = (floorPosition + up + walking) / ceiling;
+            }
 
             /* ensure floor and ceiling are moving in same direction */
             if (ceiling < 0) {
-                z = ceilingPosition / -ceiling;
+                z = (ceilingPosition - up) / -ceiling;
+                
+                if (Controller.walk) {
+                    z = (ceilingPosition - up - walking) / -ceiling;
+                }
             }
                         
             for (int x = 0; x < width; x++) {

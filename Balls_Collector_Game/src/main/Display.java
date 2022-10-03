@@ -112,6 +112,7 @@ public class Display extends Canvas implements Runnable {
 	         long passedTime = currentTime - prevTime;
 	         prevTime = currentTime;
 	         unprocessedSeconds += passedTime / 1000000000.0;
+	         requestFocus(); /* automatically selects window when game is started */
 	         
 	         /* frames per second counter */
 	         while (unprocessedSeconds > secondsPerTick) {

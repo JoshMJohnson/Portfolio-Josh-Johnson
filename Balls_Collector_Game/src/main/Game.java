@@ -23,7 +23,10 @@ public class Game {
         boolean backward = key[KeyEvent.VK_S];
         boolean left = key[KeyEvent.VK_A];
         boolean right = key[KeyEvent.VK_D];
+        boolean jump = key[KeyEvent.VK_SPACE];
+        boolean crouch = key[KeyEvent.VK_CONTROL];
+        boolean run = key[KeyEvent.VK_SHIFT];
         
-        controls.tick(forward, backward, left, right);
+        controls.tick(forward, backward, left, right, jump, crouch, run);
     }
 }
