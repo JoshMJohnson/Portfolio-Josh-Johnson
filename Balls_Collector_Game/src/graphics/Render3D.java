@@ -17,7 +17,7 @@ public class Render3D extends Render {
     public void floor(Game game) {
         /* floor and ceiling distances away from center */
         double floorPosition = 8;
-        double ceilingPosition = 8;
+        double ceilingPosition = 40;
         
         /* rotations */
         double rotation = game.controls.rotation;
@@ -46,7 +46,7 @@ public class Render3D extends Render {
                 int xPix = (int) (xx + right);
                 int yPix = (int) (yy + forward);
                 zBuffer[x + y * width] = z;
-                pixels[x + y * width] = ((xPix & 15) * 16) | ((yPix & 15) * 16) << 8;
+                pixels[x + y * width] = Texture.floor.pixels[(xPix & 7) + (yPix & 7) * 8];
             }
         }
     }

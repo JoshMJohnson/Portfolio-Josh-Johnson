@@ -3,9 +3,11 @@ package input;
 /** handles user input controls */
 public class Controller {
     public double x, z, rotation, xa, za, rotationa;
+    public static boolean turnLeft = false;
+    public static boolean turnRight = false;
     
     /** game progression */
-    public void tick(boolean forward, boolean backward, boolean left, boolean right, boolean turnLeft, boolean turnRight) {
+    public void tick(boolean forward, boolean backward, boolean left, boolean right) {
         /* action speed */
         double rotationSpeed = 0.01;
         double walkSpeed = 0.2;

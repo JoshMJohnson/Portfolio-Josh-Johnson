@@ -11,33 +11,54 @@ import java.awt.event.MouseMotionListener;
 /** handles change in the program indicated by events created by user input */
 public class InputHandler implements KeyListener, FocusListener, MouseListener, MouseMotionListener {
     public boolean[] key = new boolean[68836]; /* size is determined by number of possible key inputs */
+    public static int mouseX;
+    public static int mouseY;
     
     @Override
+    /** handles action when mouse is clicked */
     public void mouseClicked(MouseEvent e) {
         
     }
 
     @Override
+    /** handles action when mouse enters a component */
     public void mouseEntered(MouseEvent e) {
         
     }
 
     @Override
+    /** handles action when mouse leaves a component */
     public void mouseExited(MouseEvent e) {
         
     }
 
     @Override
+    /** handles action when mouse is pressed */
     public void mousePressed(MouseEvent e) {
         
     }
 
     @Override
+    /** handles action when mouse is released */
     public void mouseReleased(MouseEvent e) {
+        
+    }    
+
+    @Override
+    /** handles action when mouse is dragged */
+    public void mouseDragged(MouseEvent e) {
         
     }
 
     @Override
+    /** handles action when mouse moves on screen */
+    public void mouseMoved(MouseEvent e) {
+        mouseX = e.getX();
+        mouseY = e.getY();
+    }
+
+    @Override
+    /** handles action when window gains selected window status */
     public void focusGained(FocusEvent e) {
         
     }
@@ -52,7 +73,7 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
     }
 
     @Override
-    /** if valid key is pressed then set that key value to true */
+    /** handles action when a key is pressed */
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
         
@@ -62,7 +83,7 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
     }
 
     @Override
-    /** set key value to false on key release */    
+    /** handles action when a key is released */
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
         
@@ -73,16 +94,6 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
         
     }
 }

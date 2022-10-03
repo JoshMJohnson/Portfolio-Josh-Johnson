@@ -1,11 +1,19 @@
 package main;
 
 import graphics.Screen;
+import input.Controller;
 import input.InputHandler;
+
 import javax.swing.JFrame;
+
 import java.awt.Canvas;
+import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -34,6 +42,11 @@ public class Display extends Canvas implements Runnable {
 	private BufferedImage img;
 	private boolean running = false;
     private int[] pixels;
+    private int fps;
+    
+    /* user settings */
+    private int newX = 0;
+    private int oldX = 0;
 		
 	/** constructor for Display class */
 	public Display() {
@@ -94,13 +107,13 @@ public class Display extends Canvas implements Runnable {
 	     int tickCount = 0;
 	     boolean ticked = false;
 	     
-	     /* frames per second counter */
 	     while (running) {
 	         long currentTime = System.nanoTime();
 	         long passedTime = currentTime - prevTime;
 	         prevTime = currentTime;
 	         unprocessedSeconds += passedTime / 1000000000.0;
 	         
+	         /* frames per second counter */
 	         while (unprocessedSeconds > secondsPerTick) {
 	             tick();
 	             unprocessedSeconds -= secondsPerTick;
@@ -108,7 +121,7 @@ public class Display extends Canvas implements Runnable {
 	             tickCount++;
 	             
 	             if (tickCount %60 == 0) {
-	                 System.out.println(frames + "fps");
+	                 fps = frames;
 	                 prevTime += 1000;
 	                 frames = 0;
 	             }
@@ -121,6 +134,19 @@ public class Display extends Canvas implements Runnable {
 	         
 	         render();
 	         frames++;
+	         
+	         /* mouse actions */
+	         newX = InputHandler.mouseX;
+	         
+	         if (newX > oldX) { /* if moving right */
+	             Controller.turnRight = true;
+	         } else if (newX < oldX) { /* if moving left */
+	             Controller.turnLeft = true;
+	         } else if (newX == oldX) { /* if still */
+	             Controller.turnRight = false;
+	             Controller.turnLeft = false;
+	         }	         
+	         oldX = newX;
          }
      }
 	 
@@ -146,18 +172,24 @@ public class Display extends Canvas implements Runnable {
 	     
 	     Graphics g = bs.getDrawGraphics();
 	     g.drawImage(img, 0, 0, width, height, null);
+	     g.setFont(new Font("Verdana", 0, 50));
+	     g.setColor(Color.yellow);
+	     g.drawString(fps + " FPS", 20, 50);
 	     g.dispose();
 	     bs.show();
     }
 
     /** main method */
     public static void main(String args[]) {
+        BufferedImage cursor = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
+        Cursor blank = Toolkit.getDefaultToolkit().createCustomCursor(cursor, new Point(0,0), "blank");
         JFrame frame = new JFrame();
         Display game = new Display();
 
         /* setup game window */
         frame.add(game);
         frame.pack(); /* sizes frame to ensure all contents are at or above their preferred sizes */
+//        frame.getContentPane().setCursor(blank);
         frame.setTitle(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null); // center window on screen
