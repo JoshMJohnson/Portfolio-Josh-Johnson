@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
+/***/
 public class Texture {
     public static Render floor = loadBitmap("/textures/temp.png");
     

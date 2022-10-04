@@ -3,9 +3,7 @@ package main;
 import graphics.Screen;
 import input.Controller;
 import input.InputHandler;
-
 import javax.swing.JFrame;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -70,7 +68,7 @@ public class Display extends Canvas implements Runnable {
 	}
 	
 	/** starts the game */
-	private void start() {
+	public void start() {
 	    /* if already running  */
 	    if (running) {
 	        return;
@@ -82,7 +80,7 @@ public class Display extends Canvas implements Runnable {
 	}
 	
 	/** stops the game */
-	private void stop() {
+	public void stop() {
 	    /* if already not running */
 	    if (!running) {
 	        return;
@@ -121,7 +119,7 @@ public class Display extends Canvas implements Runnable {
 	             ticked = true;
 	             tickCount++;
 	             
-	             if (tickCount %60 == 0) {
+	             if (tickCount % 60 == 0) {
 	                 fps = frames;
 	                 prevTime += 1000;
 	                 frames = 0;
@@ -139,14 +137,18 @@ public class Display extends Canvas implements Runnable {
 	         /* mouse actions */
 	         newX = InputHandler.mouseX;
 	         
-	         if (newX > oldX) { /* if moving right */
+	         /* turning left and right */
+	         if (newX > oldX) { /* if moving right; rotate right */
 	             Controller.turnRight = true;
-	         } else if (newX < oldX) { /* if moving left */
+	         } else if (newX < oldX) { /* if moving left; rotate left */
 	             Controller.turnLeft = true;
-	         } else if (newX == oldX) { /* if still */
-	             Controller.turnRight = false;
-	             Controller.turnLeft = false;
+	         } else if (newX == oldX) { /* if still; stop rotation */
+	             if (newX > 100 && newX < width - 100) {
+	                 Controller.turnRight = false;
+	                 Controller.turnLeft = false;  
+	             }
 	         }	         
+	         
 	         oldX = newX;
          }
      }
@@ -190,7 +192,7 @@ public class Display extends Canvas implements Runnable {
         /* setup game window */
         frame.add(game);
         frame.pack(); /* sizes frame to ensure all contents are at or above their preferred sizes */
-//        frame.getContentPane().setCursor(blank);
+//        frame.getContentPane().setCursor(blank); // hides the curser on the game
         frame.setTitle(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null); // center window on screen

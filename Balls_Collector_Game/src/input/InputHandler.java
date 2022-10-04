@@ -14,66 +14,66 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
     public static int mouseX;
     public static int mouseY;
     
-    @Override
     /** handles action when mouse is clicked */
+    @Override
     public void mouseClicked(MouseEvent e) {
         
     }
 
-    @Override
     /** handles action when mouse enters a component */
+    @Override
     public void mouseEntered(MouseEvent e) {
         
     }
 
-    @Override
     /** handles action when mouse leaves a component */
+    @Override
     public void mouseExited(MouseEvent e) {
         
     }
 
-    @Override
     /** handles action when mouse is pressed */
+    @Override
     public void mousePressed(MouseEvent e) {
         
     }
 
-    @Override
     /** handles action when mouse is released */
+    @Override
     public void mouseReleased(MouseEvent e) {
         
     }    
 
-    @Override
     /** handles action when mouse is dragged */
+    @Override
     public void mouseDragged(MouseEvent e) {
         
     }
 
-    @Override
     /** handles action when mouse moves on screen */
+    @Override
     public void mouseMoved(MouseEvent e) {
         mouseX = e.getX();
         mouseY = e.getY();
     }
 
-    @Override
     /** handles action when window gains selected window status */
+    @Override
     public void focusGained(FocusEvent e) {
         
     }
 
-    @Override
     /** handles action when window is taking in a command but loses 
       * selected window status before action is completed */
+    @Override
     public void focusLost(FocusEvent e) {
         for (int i = 0; i < key.length; i++) {
             key[i] = false;
         }
     }
 
-    @Override
     /** handles action when a key is pressed */
+    @Override
     public void keyPressed(KeyEvent e) {
         int keyCode = e.getKeyCode();
         
@@ -82,8 +82,8 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
         }
     }
 
-    @Override
     /** handles action when a key is released */
+    @Override
     public void keyReleased(KeyEvent e) {
         int keyCode = e.getKeyCode();
         
