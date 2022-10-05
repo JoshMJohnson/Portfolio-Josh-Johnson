@@ -1,5 +1,7 @@
 package input;
 
+import main.Display;
+
 /** handles user input controls */
 public class Controller {
     public double x, y, z, rotation, xa, za, rotationa;
@@ -46,12 +48,12 @@ public class Controller {
         
         /* register turning left */
         if (turnLeft) {
-            rotationa -= rotationSpeed;
+            rotationa -= rotationSpeed;                      
         }
         
         /* register turning right */
         if (turnRight) {
-            rotationa += rotationSpeed;
+            rotationa += rotationSpeed;                         
         }
         
         /* register jump */
@@ -89,7 +91,7 @@ public class Controller {
         if (!run) {
             runForward = false;
         }
-        
+                
         /* handles changes in actions */
         xa += (xMovement * Math.cos(rotation) + zMovement * Math.sin(rotation)) * walkSpeed;
         za += (zMovement * Math.cos(rotation) - xMovement * Math.sin(rotation)) * walkSpeed;

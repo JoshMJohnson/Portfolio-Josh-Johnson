@@ -1,12 +1,16 @@
 package graphics;
 
 import java.util.Random;
+
 import input.Controller;
+import levels.Block;
+import levels.Level;
 import main.Game;
 
 /** handles the pixel motion effects */
 public class Render3D extends Render {
     public double[] zBuffer;
+    public double[] zBufferWall;
     private double renderDistance = 5000;
     private double forwardMovement, rightMovement, cosine, sine, up, walking;
     
@@ -14,10 +18,16 @@ public class Render3D extends Render {
     public Render3D(int width, int height) {
         super(width, height);
         zBuffer = new double[width * height];
+        zBufferWall = new double[width];
     }
         
     /** renders the floor and ceiling */
     public void floor(Game game) {
+        /* make walls solid */
+        for (int x = 0; x < width; x++) {
+            zBufferWall[x] = 0;
+        }
+        
         /* floor and ceiling distances away from center */
         double floorPosition = 8;
         double ceilingPosition = 40;
@@ -72,36 +82,92 @@ public class Render3D extends Render {
                 pixels[x + y * width] = Texture.floor.pixels[(xPix & 7) + (yPix & 7) * 8];
             }
         }
+        
+        /* create levels */
+        Level level = game.level;
+        int size = 20;
+        
+        /* creates blocks */
+        for (int xBlock = -size; xBlock <= size; xBlock++) {
+            for (int zBlock = -size; zBlock <= size; zBlock++) {
+                Block block = level.create(xBlock, zBlock);
+                Block eastSide = level.create(xBlock + 1, zBlock); 
+                Block southSide = level.create(xBlock, zBlock + 1);
+                
+                if (block.solid) {
+                    if (!eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
+                    }
+                    
+                    if (!southSide.solid) {
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, 0);
+                    }
+                } else {
+                    if (eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, 0);
+                    }
+                    
+                    if (southSide.solid) {
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, 0);
+                    }
+                }
+            }
+        }
     }
     
     /** render the walls */
     public void renderWall(double xLeft, double xRight, double zDistanceLeft, double zDistanceRight, double yHeight) {
         /* has wall move with users head bobbing while moving */
-        double upCorrect = 0.062;
-        double rightCorrect = 0.062;
-        double forwardCorrect = 0.062;
-        double walkCorrect = -0.062;
+        double upCorrect = 0.0625;
+        double rightCorrect = 0.0625;
+        double forwardCorrect = 0.0625;
+        double walkCorrect = -0.0625;
         
         /* left side of the wall */
-        double xCalculateLeft = (xLeft - (rightMovement * rightCorrect)) * 2;
-        double zCalculateLeft = (zDistanceLeft - (forwardMovement * forwardCorrect)) * 2;
+        double xCalculateLeft = ((xLeft / 2) - (rightMovement * rightCorrect)) * 2;
+        double zCalculateLeft = ((zDistanceLeft / 2) - (forwardMovement * forwardCorrect)) * 2;
         double rotationLeftSideX = xCalculateLeft * cosine - zCalculateLeft * sine;
         double yCornerTopLeft = (-yHeight - (-up * upCorrect + (walking * walkCorrect))) * 2;
         double yCornerBottomLeft = ((+0.5 - yHeight) - (-up * upCorrect + (walking * walkCorrect))) * 2;
         double rotationLeftSideZ = zCalculateLeft * cosine + xCalculateLeft * sine;
         
         /* right side of the wall */
-        double xCalculateRight = (xRight - (rightMovement * rightCorrect)) * 2;
-        double zCalculateRight = (zDistanceRight - (forwardMovement * forwardCorrect)) * 2;
+        double xCalculateRight = ((xRight / 2) - (rightMovement * rightCorrect)) * 2;
+        double zCalculateRight = ((zDistanceRight / 2) - (forwardMovement * forwardCorrect)) * 2;
         double rotationRightSideX = xCalculateRight * cosine - zCalculateRight * sine;
         double yCornerTopRight = (-yHeight - (-up * upCorrect + (walking * walkCorrect))) * 2;
         double yCornerBottomRight = ((+0.5 - yHeight) - (-up * upCorrect + (walking * walkCorrect))) * 2;
         double rotationRightSideZ = zCalculateRight * cosine + xCalculateRight * sine;
         
+        /* clipping */
+        double texture3b = 0;
+        double texture4b = 8;
+        double clip = 0.5;
+        
+        if (rotationLeftSideZ < clip && rotationRightSideZ < clip) {
+            return;
+        }
+        
+        /* left side of the wall clipping */
+        if (rotationLeftSideZ < clip) {
+            double clip0 = (clip - rotationLeftSideZ) / (rotationRightSideZ - rotationLeftSideZ);
+            rotationLeftSideZ = rotationLeftSideZ + (rotationRightSideZ - rotationLeftSideZ) * clip0;
+            rotationLeftSideX = rotationLeftSideX + (rotationRightSideX - rotationLeftSideX) * clip0;
+            texture3b = texture3b + (texture4b - texture3b) * clip0;
+        }
+        
+        /* right side of the wall clipping */
+        if (rotationRightSideZ < clip) {
+            double clip0 = (clip - rotationLeftSideZ) / (rotationRightSideZ - rotationLeftSideZ);
+            rotationRightSideZ = rotationLeftSideZ + (rotationRightSideZ - rotationLeftSideZ) * clip0;
+            rotationRightSideX = rotationLeftSideX + (rotationRightSideX - rotationLeftSideX) * clip0;
+            texture4b = texture3b + (texture4b - texture3b) * clip0;
+        }
+        
         /* pixel locations for walls */
         double xPixelLeft = (rotationLeftSideX / rotationLeftSideZ * height + width / 2);
         double xPixelRight = (rotationRightSideX / rotationRightSideZ * height + width / 2);
-
+        
         /* skip rendering negative pixels */
         if (xPixelLeft >= xPixelRight) {
             return;
@@ -113,7 +179,9 @@ public class Render3D extends Render {
         /* skip rendering pixels off screen */
         if (xPixelLeftInt < 0) {
             xPixelLeftInt = 0;
-        } else if (xPixelRightInt > width) {
+        } 
+        
+        if (xPixelRightInt > width) {
             xPixelRightInt = width;
         }
         
@@ -126,14 +194,21 @@ public class Render3D extends Render {
         /* texture preparation */
         double texture1 = 1 / rotationLeftSideZ;
         double texture2 = 1 / rotationRightSideZ;
-        double texture3 = 0 / rotationLeftSideZ;
-        double texture4 = 8 / rotationRightSideZ - texture3;
+        double texture3 = texture3b / rotationLeftSideZ;
+        double texture4 = texture4b / rotationRightSideZ - texture3;
         
         /* render walls */
         for (int x = xPixelLeftInt; x < xPixelRightInt; x++) {
             double pixelRotation = (x - xPixelLeft) / (xPixelRight - xPixelLeft);          
+            double zWall = texture1 + (texture2 - texture1) * pixelRotation;
             
-            int xTexture = (int) ((texture3 + texture4 * pixelRotation) / (texture1 + (texture2 - texture1) * pixelRotation));
+            if (zBufferWall[x] > zWall) {
+                continue;
+            }
+            
+            zBufferWall[x] = zWall;
+            
+            int xTexture = (int) ((texture3 + texture4 * pixelRotation) / zWall);
             
             double yPixelTop = yPixelLeftTop + (yPixelRightTop - yPixelLeftTop) * pixelRotation;          
             double yPixelBottom = yPixelLeftBottom + (yPixelRightBottom - yPixelLeftBottom) * pixelRotation;
@@ -144,15 +219,16 @@ public class Render3D extends Render {
             /* skip rendering pixels off screen */
             if (yPixelTopInt < 0) {
                 yPixelTopInt = 0;
-            } else if (yPixelBottomInt > height) {
+            }
+            
+            if (yPixelBottomInt > height) {
                 yPixelBottomInt = height;
             }
             
             for (int y = yPixelTopInt; y < yPixelBottomInt; y++) {
                 double pixelRotationY = (y - yPixelTop) / (yPixelBottom - yPixelTop);
-                int yTexture = (int) (8 * pixelRotationY);
-                
-                pixels[x + y * width] = xTexture * 100 + yTexture * 100;           
+                int yTexture = (int) (8 * pixelRotationY);    
+                pixels[x + y * width] = Texture.wall.pixels[(xTexture & 7) + (yTexture & 7) * 8];
                 zBuffer[x + y * width] = 1 / (texture1 + (texture2 - texture1) * pixelRotation) * 2; //handles render distance limiting
             }
         }

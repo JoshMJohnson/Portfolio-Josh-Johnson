@@ -13,11 +13,12 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
     public boolean[] key = new boolean[68836]; /* size is determined by number of possible key inputs */
     public static int mouseX;
     public static int mouseY;
+    public static int mouseButton;
     
     /** handles action when mouse is clicked */
     @Override
     public void mouseClicked(MouseEvent e) {
-        
+        mouseButton = e.getButton();
     }
 
     /** handles action when mouse enters a component */

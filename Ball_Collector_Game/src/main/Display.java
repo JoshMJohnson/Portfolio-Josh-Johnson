@@ -33,7 +33,7 @@ public class Display extends Canvas implements Runnable {
     /* window settings */
 	public final static int width = 1700;
 	public final static int height  = 850;
-	public final static String title = "Balls Collector Game";
+	public final static String title = "Ball Collector Game";
 	
 	/* game settings */
 	private Thread thread;
@@ -43,8 +43,9 @@ public class Display extends Canvas implements Runnable {
     private int fps;
     
     /* user settings */
-    private int newX = 0;
-    private int oldX = 0;
+    private int newX = width / 2;
+    private int oldX = width / 2;
+    public static int mouseSpeed;
 		
 	/** constructor for Display class */
 	public Display() {
@@ -137,23 +138,22 @@ public class Display extends Canvas implements Runnable {
 	         /* mouse actions */
 	         newX = InputHandler.mouseX;
 	         
-	         /* turning left and right */
 	         if (newX > oldX) { /* if moving right; rotate right */
 	             Controller.turnRight = true;
 	         } else if (newX < oldX) { /* if moving left; rotate left */
 	             Controller.turnLeft = true;
 	         } else if (newX == oldX) { /* if still; stop rotation */
-	             if (newX > 100 && newX < width - 100) {
+	             if (newX > 100 && newX < width - 100) { /* only stop rotating if mouse is not on edge of window */
 	                 Controller.turnRight = false;
 	                 Controller.turnLeft = false;  
 	             }
-	         }	         
+	         }	   
 	         
 	         oldX = newX;
          }
      }
 	 
-    /** game progression */
+     /** game progression */
 	 private void tick() {
 	     game.tick(input.key);
 	 }
