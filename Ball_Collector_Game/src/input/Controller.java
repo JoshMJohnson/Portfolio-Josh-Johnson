@@ -1,7 +1,5 @@
 package input;
 
-import main.Display;
-
 /** handles user input controls */
 public class Controller {
     public double x, y, z, rotation, xa, za, rotationa;

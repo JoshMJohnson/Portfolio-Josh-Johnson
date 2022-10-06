@@ -1,7 +1,5 @@
 package graphics;
 
-import java.util.Random;
-
 import input.Controller;
 import levels.Block;
 import levels.Level;
@@ -30,7 +28,7 @@ public class Render3D extends Render {
         
         /* floor and ceiling distances away from center */
         double floorPosition = 8;
-        double ceilingPosition = 40;
+        double ceilingPosition = 20;
         
         /* rotations */
         double rotation = game.controls.rotation;
@@ -83,32 +81,33 @@ public class Render3D extends Render {
             }
         }
         
-        /* create levels */
+        /* create pillars; inner walls */
         Level level = game.level;
         int size = 20;
-        
+        double wallHeightAdjustment = 0.0625;
+
         /* creates blocks */
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
                 Block block = level.create(xBlock, zBlock);
-                Block eastSide = level.create(xBlock + 1, zBlock); 
+                Block eastSide = level.create(xBlock + 1, zBlock);
                 Block southSide = level.create(xBlock, zBlock + 1);
-                
+               
                 if (block.solid) {
                     if (!eastSide.solid) {
-                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, wallHeightAdjustment);
                     }
-                    
+
                     if (!southSide.solid) {
-                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, 0);
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, wallHeightAdjustment);
                     }
                 } else {
                     if (eastSide.solid) {
-                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, 0);
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, wallHeightAdjustment);
                     }
-                    
+
                     if (southSide.solid) {
-                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, 0);
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, wallHeightAdjustment);
                     }
                 }
             }
@@ -119,8 +118,8 @@ public class Render3D extends Render {
     public void renderWall(double xLeft, double xRight, double zDistanceLeft, double zDistanceRight, double yHeight) {
         /* has wall move with users head bobbing while moving */
         double upCorrect = 0.0625;
-        double rightCorrect = 0.0625;
-        double forwardCorrect = 0.0625;
+        double rightCorrect = 0.1;
+        double forwardCorrect = 0.1;
         double walkCorrect = -0.0625;
         
         /* left side of the wall */
@@ -207,9 +206,7 @@ public class Render3D extends Render {
             }
             
             zBufferWall[x] = zWall;
-            
-            int xTexture = (int) ((texture3 + texture4 * pixelRotation) / zWall);
-            
+                        
             double yPixelTop = yPixelLeftTop + (yPixelRightTop - yPixelLeftTop) * pixelRotation;          
             double yPixelBottom = yPixelLeftBottom + (yPixelRightBottom - yPixelLeftBottom) * pixelRotation;
             
@@ -225,6 +222,8 @@ public class Render3D extends Render {
                 yPixelBottomInt = height;
             }
             
+            int xTexture = (int) ((texture3 + texture4 * pixelRotation) / zWall);
+
             for (int y = yPixelTopInt; y < yPixelBottomInt; y++) {
                 double pixelRotationY = (y - yPixelTop) / (yPixelBottom - yPixelTop);
                 int yTexture = (int) (8 * pixelRotationY);    

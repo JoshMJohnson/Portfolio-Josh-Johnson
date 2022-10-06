@@ -43,8 +43,8 @@ public class Display extends Canvas implements Runnable {
     private int fps;
     
     /* user settings */
-    private int newX = width / 2;
-    private int oldX = width / 2;
+    private int newX = width;
+    private int oldX = width;
     public static int mouseSpeed;
 		
 	/** constructor for Display class */
@@ -192,7 +192,7 @@ public class Display extends Canvas implements Runnable {
         /* setup game window */
         frame.add(game);
         frame.pack(); /* sizes frame to ensure all contents are at or above their preferred sizes */
-//        frame.getContentPane().setCursor(blank); // hides the curser on the game
+        frame.getContentPane().setCursor(blank); // hides the curser on the game
         frame.setTitle(title);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null); // center window on screen

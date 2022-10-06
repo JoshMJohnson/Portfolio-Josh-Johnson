@@ -4,12 +4,12 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-/***/
+/** deals with textures such as images for parts of the game */
 public class Texture {
     public static Render floor = loadBitmap("/textures/temp.png");
     public static Render wall = loadBitmap("/textures/wall.png");
     
-    /***/
+    /** locates and loads textures */
     public static Render loadBitmap(String fileName) {
         try {
             BufferedImage image = ImageIO.read(Texture.class.getResource(fileName));

@@ -2,6 +2,7 @@ package levels;
 
 import java.util.Random;
 
+/** creates a layout for the level */
 public class Level {
     public Block[] blocks;
     public final int width, height;
@@ -30,6 +31,7 @@ public class Level {
         }
     }
     
+    /** creates a block */
     public Block create(int x, int y) {
         if (x < 0 || y < 0 || x >= width || y >= height) {
             return Block.solidWall;
