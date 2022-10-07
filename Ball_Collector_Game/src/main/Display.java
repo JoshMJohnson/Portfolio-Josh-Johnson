@@ -1,17 +1,14 @@
 package main;
 
 import graphics.Screen;
+import gui.Launcher;
 import input.Controller;
 import input.InputHandler;
-import javax.swing.JFrame;
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -31,9 +28,10 @@ public class Display extends Canvas implements Runnable {
     private InputHandler input;
     
     /* window settings */
-	public final static int width = 1700;
-	public final static int height  = 850;
-	public final static String title = "Ball Collector Game";
+	public static int width;
+	public static int height;
+	public final static String TITLE = "Ball Collector Game";
+	public static int selection = 0;
 	
 	/* game settings */
 	private Thread thread;
@@ -55,9 +53,9 @@ public class Display extends Canvas implements Runnable {
 	    setMinimumSize(size);
 	    setMaximumSize(size);
 	    
-	    screen = new Screen(width, height);
+	    screen = new Screen(getGameWidth(), getGameHeight());
 	    game = new Game();
-	    img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+	    img = new BufferedImage(getGameWidth(), getGameHeight(), BufferedImage.TYPE_INT_RGB);
 	    pixels = ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
 	    
 	    /* enable user input */
@@ -67,6 +65,32 @@ public class Display extends Canvas implements Runnable {
 	    addMouseListener(input);
 	    addMouseMotionListener(input);   
 	}
+	
+	/** gets the window width of the game */
+	public static int getGameWidth() {
+	    if (selection == 0) {
+	        width = 640;
+	    } else if (selection == 1) {
+	        width = 800; 
+	    } else {
+	        width = 1024;
+	    }
+	    
+	    return width;
+	}
+
+	/** gets window height of the game */
+	public static int getGameHeight() {
+        if (selection == 0) {
+            height = 480;
+        } else if (selection == 1) {
+            height = 600;
+        } else {
+            height = 768;
+        }
+        
+        return height;
+    }
 	
 	/** starts the game */
 	public void start() {
@@ -93,7 +117,7 @@ public class Display extends Canvas implements Runnable {
             thread.join();
         } catch (Exception e) {
             e.printStackTrace();
-            System.exit(0);
+            System.exit(1); /* exited on error */
         }
 	}
 	
@@ -169,12 +193,12 @@ public class Display extends Canvas implements Runnable {
 	     
 	     screen.render(game);
 	     
-	     for (int i = 0; i < width * height; i++) {
+	     for (int i = 0; i < getGameWidth() * getGameHeight(); i++) {
 	         pixels[i] = screen.pixels[i];
 	     }
 	     
 	     Graphics g = bs.getDrawGraphics();
-	     g.drawImage(img, 0, 0, width, height, null);
+	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);
 	     g.setFont(new Font("Verdana", 0, 50));
 	     g.setColor(Color.yellow);
 	     g.drawString(fps + " FPS", 20, 50);
@@ -184,22 +208,6 @@ public class Display extends Canvas implements Runnable {
 
     /** main method */
     public static void main(String args[]) {
-        BufferedImage cursor = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
-        Cursor blank = Toolkit.getDefaultToolkit().createCustomCursor(cursor, new Point(0,0), "blank");
-        JFrame frame = new JFrame();
-        Display game = new Display();
-
-        /* setup game window */
-        frame.add(game);
-        frame.pack(); /* sizes frame to ensure all contents are at or above their preferred sizes */
-        frame.getContentPane().setCursor(blank); // hides the curser on the game
-        frame.setTitle(title);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null); // center window on screen
-        frame.setResizable(false);
-        frame.setVisible(true);
-
-        /* begin the game */
-        game.start();
+        new Launcher(0);
     }
 }

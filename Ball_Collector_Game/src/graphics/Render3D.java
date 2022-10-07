@@ -118,8 +118,8 @@ public class Render3D extends Render {
     public void renderWall(double xLeft, double xRight, double zDistanceLeft, double zDistanceRight, double yHeight) {
         /* has wall move with users head bobbing while moving */
         double upCorrect = 0.0625;
-        double rightCorrect = 0.1;
-        double forwardCorrect = 0.1;
+        double rightCorrect = 0.11;
+        double forwardCorrect = 0.11;
         double walkCorrect = -0.0625;
         
         /* left side of the wall */
