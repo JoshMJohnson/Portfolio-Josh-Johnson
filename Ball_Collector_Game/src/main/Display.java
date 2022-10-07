@@ -41,8 +41,8 @@ public class Display extends Canvas implements Runnable {
     private int fps;
     
     /* user settings */
-    private int newX = width;
-    private int oldX = width;
+    private int newX = width / 2;
+    private int oldX = width / 2;
     public static int mouseSpeed;
 		
 	/** constructor for Display class */
@@ -72,8 +72,11 @@ public class Display extends Canvas implements Runnable {
 	        width = 640;
 	    } else if (selection == 1) {
 	        width = 800; 
-	    } else {
+	    } else if (selection == 2){
 	        width = 1024;
+	    }
+	    else {
+	        width = 1400;
 	    }
 	    
 	    return width;
@@ -85,8 +88,10 @@ public class Display extends Canvas implements Runnable {
             height = 480;
         } else if (selection == 1) {
             height = 600;
-        } else {
+        } else if (selection == 2) {
             height = 768;
+        } else {
+            height = 1000;
         }
         
         return height;
