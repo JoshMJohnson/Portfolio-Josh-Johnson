@@ -28,7 +28,7 @@ public class Render3D extends Render {
         
         /* floor and ceiling distances away from center */
         double floorPosition = 8;
-        double ceilingPosition = 20;
+        double ceilingPosition = 8;
         
         /* rotations */
         double rotation = game.controls.rotation;
@@ -87,6 +87,36 @@ public class Render3D extends Render {
         double wallHeightAdjustment = 0.0625;
 
         /* creates blocks */
+        /* lower half of wall */
+        for (int xBlock = -size; xBlock <= size; xBlock++) {
+            for (int zBlock = -size; zBlock <= size; zBlock++) {
+                Block block = level.create(xBlock, zBlock);
+                Block eastSide = level.create(xBlock + 1, zBlock);
+                Block southSide = level.create(xBlock, zBlock + 1);
+               
+                if (block.solid) {
+                    if (!eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, wallHeightAdjustment);
+                    }
+
+                    if (!southSide.solid) {
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, wallHeightAdjustment);
+                    }
+                } else {
+                    if (eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, wallHeightAdjustment);
+                    }
+
+                    if (southSide.solid) {
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, wallHeightAdjustment);
+                    }
+                }
+            }
+        }
+
+        /* upper half of wall */
+        wallHeightAdjustment += 0.5;
+        
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
                 Block block = level.create(xBlock, zBlock);
