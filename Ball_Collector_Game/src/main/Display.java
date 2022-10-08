@@ -75,7 +75,7 @@ public class Display extends Canvas implements Runnable {
 	    } else if (selection == 2){
 	        width = 1024;
 	    }
-	    else {
+	    else if (selection == 3) {
 	        width = 1400;
 	    }
 	    
@@ -90,7 +90,7 @@ public class Display extends Canvas implements Runnable {
             height = 600;
         } else if (selection == 2) {
             height = 768;
-        } else {
+        } else if (selection == 3) {
             height = 1000;
         }
         

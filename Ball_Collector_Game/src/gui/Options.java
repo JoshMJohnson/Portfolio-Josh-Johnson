@@ -6,11 +6,10 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-
 import main.Display;
 
 /** creates a window for the options menu */
@@ -23,8 +22,9 @@ public class Options extends Launcher {
     private JButton submitButton;
     private Rectangle rSubmitButton, rResolution;
     private Choice resolution = new Choice();
-    private JLabel resLabel = new JLabel();
-      
+    private JTextField textWidth, textHeight;  
+    private JLabel resLabel, customWidth, customHeight, customLabel;
+    
     /** constructor for Options class */
     public Options(Color fontColor, Color buttonColor) {
         super(1);
@@ -47,15 +47,16 @@ public class Options extends Launcher {
         
         /* change resolution option */
         /* label for resolution */
-        int resLabelWidth = 110;
-        int resLabelHeight = 20;        
+        int resTitleWidth = 110;
+        int resWidth = 100;
+        int resHeight = 20;        
         resLabel = new JLabel("Change Resolution");
-        resLabel.setBounds((windowWidth / 2) - (resLabelWidth / 2) - 3, 10, resLabelWidth, resLabelHeight);
+        resLabel.setBounds((windowWidth / 2) - (resTitleWidth / 2) + 3, 10, resTitleWidth, resHeight);
         resLabel.setForeground(fontColor);
         window.add(resLabel);
                 
         /* drop-down box for resolution */
-        rResolution = new Rectangle((windowWidth / 2) - (resLabelWidth / 2) , 20 + resLabelHeight, 100, 30);
+        rResolution = new Rectangle((windowWidth / 2) - (resWidth / 2) , 20 + resHeight, resWidth, resHeight);
         resolution.setBounds(rResolution);
         resolution.setForeground(fontColor);
         resolution.setBackground(buttonColor);
@@ -65,12 +66,50 @@ public class Options extends Launcher {
         resolution.add("1400 x 1000");
         resolution.select(0);
         window.add(resolution);
+               
+        /* labels for custom resolution */
+        customLabel = new JLabel("Custom Resolution");
+        customLabel.setBounds((windowWidth / 2) - (resTitleWidth / 2) + 3, 70, resTitleWidth, resHeight);
+        customLabel.setForeground(fontColor);
+        window.add(customLabel);
+        
+        customWidth = new JLabel("Width:");
+        customWidth.setBounds((windowWidth / 2) - (resWidth / 2), 80 + resHeight, resWidth, resHeight);
+        customWidth.setForeground(fontColor);
+        window.add(customWidth);
+        
+        customHeight = new JLabel("Height:");
+        customHeight.setBounds((windowWidth / 2) - (resWidth / 2), 110 + resHeight, resWidth, resHeight);
+        customHeight.setForeground(fontColor);
+        window.add(customHeight);
+        
+        /* text fields for custom resolution */
+        textWidth = new JTextField();
+        textWidth.setBounds((windowWidth / 2), 80 + resHeight, resWidth / 2, resHeight);
+        textWidth.setBackground(buttonColor);
+        textWidth.setForeground(fontColor);
+        window.add(textWidth);
+        
+        textHeight = new JTextField();
+        textHeight.setBounds((windowWidth / 2), 110 + resHeight, resWidth / 2, resHeight);
+        textHeight.setBackground(buttonColor);
+        textHeight.setForeground(fontColor);
+        window.add(textHeight);
         
         /* action listeners */
         /* submit button */
         submitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                Display.selection = resolution.getSelectedIndex();
+            public void actionPerformed(ActionEvent e) {  
+                try { /* if custom resolution is desired; both fields filled out correctly */
+                    int custWidth = Integer.parseInt(textWidth.getText());
+                    int custHeight = Integer.parseInt(textHeight.getText());
+                    Display.width = custWidth;
+                    Display.height = custHeight;
+                    Display.selection = -1; 
+                } catch (NumberFormatException ex) { /* else; drop-down box selected resolution */
+                    Display.selection = resolution.getSelectedIndex();
+                }
+
                 dispose();
                 new Launcher(0);
             }
