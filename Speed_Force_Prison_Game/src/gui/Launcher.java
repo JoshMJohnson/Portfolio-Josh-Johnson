@@ -1,7 +1,6 @@
 package gui;
 
 import input.InputHandler;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -35,9 +34,7 @@ public class Launcher extends Canvas implements Runnable {
     
     /** constructor for the Launcher class */
     public Launcher(int id, Display display) {       
-        /* window settings */ 
-//        Color backgroundColor = new Color(32, 3, 2);
-                               
+        /* window settings */                                
         frame.setUndecorated(true);
         frame.setTitle("Ball Collector Game Launcher");
         frame.setSize(new Dimension(windowWidth, windowHeight));

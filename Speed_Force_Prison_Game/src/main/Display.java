@@ -4,7 +4,6 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Controller;
 import input.InputHandler;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,18 +12,13 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 /** Created By: Josh Johnson
-  * Description: 3-Dimensional game
-  *  - TODO: have a start-up menu with game rules/controls shown
-  *  - TODO: control character in center of screen
-  *  - TODO: run around and collect bouncing balls before time runs out
-  *  - TODO: collect all bouncing balls = winner!; else loser
-  *  - TODO: have a end-game menu (start-up menu to play again/quit)
-  *     - collect all bouncing balls = winner!; else loser */
+  * Program Description: 3-Dimensional game
+  * Game Description: Catch the blur in time to regain your speed and escape the Speed Force Prison!
+  *  - TODO: run around and collect blur's before time runs out
+  *  - TODO: collect enough blur's before time expires = winner!; else loser
+  *  - TODO: have a end-game menu showing results with return to launcher button */
 public class Display extends Canvas implements Runnable {
     /* class objects */
     private Screen screen;
@@ -34,7 +28,7 @@ public class Display extends Canvas implements Runnable {
     /* window settings */
 	public static int width;
 	public static int height;
-	public final static String TITLE = "Ball Collector Game";
+	public final static String TITLE = "Speed Force Prison";
 	public static int selection = 0;
 	
 	/* game settings */
@@ -160,11 +154,8 @@ public class Display extends Canvas implements Runnable {
 	             }
 	             
 	             if (ticked) {
-//	               render();
 	                 frames++;
 	             }
-	             
-//	           render();
 	         }	         
 	         
 	         /* mouse actions */
@@ -214,8 +205,6 @@ public class Display extends Canvas implements Runnable {
 	     bs.show();
     }
 	 
-	 
-
     /** main method */
     public static void main(String args[]) {
         Display display = new Display();
