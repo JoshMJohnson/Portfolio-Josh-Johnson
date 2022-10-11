@@ -27,10 +27,10 @@ public class Options extends Launcher {
     
     /** constructor for Options class */
     public Options(Color fontColor, Color buttonColor) {
-        super(1);
-        setTitle("Options");
+        super(1, new Display());
+        frame.setTitle("Options");
         setSize(new Dimension(windowWidth, windowHeight));
-        setLocationRelativeTo(null);
+        frame.setLocationRelativeTo(null);
         drawButtons(fontColor, buttonColor);
     }
     
@@ -38,7 +38,7 @@ public class Options extends Launcher {
     private void drawButtons(Color fontColor, Color buttonColor) {
         /* create buttons */
         submitButton = new JButton("Save");
-        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 100, buttonWidth, buttonHeight - 10);
+        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 50, buttonWidth, buttonHeight - 10);
         submitButton.setBounds(rSubmitButton);
         submitButton.setForeground(fontColor);
         submitButton.setBackground(buttonColor);
@@ -110,8 +110,8 @@ public class Options extends Launcher {
                     Display.selection = resolution.getSelectedIndex();
                 }
 
-                dispose();
-                new Launcher(0);
+                frame.dispose();
+                new Launcher(0, new Display());
             }
         });
     }

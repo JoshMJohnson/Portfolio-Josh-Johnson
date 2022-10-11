@@ -4,6 +4,7 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Controller;
 import input.InputHandler;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,6 +13,9 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 /** Created By: Josh Johnson
   * Description: 3-Dimensional game
@@ -105,7 +109,7 @@ public class Display extends Canvas implements Runnable {
 	    }
 	    
 	    running = true;
-	    thread = new Thread(this);
+	    thread = new Thread(this, "game");
 	    thread.start();
 	}
 	
@@ -154,15 +158,14 @@ public class Display extends Canvas implements Runnable {
 	                 prevTime += 1000;
 	                 frames = 0;
 	             }
-	         }
-	         
-	         if (ticked) {
-	             render();
-	             frames++;
-	         }
-	         
-	         render();
-	         frames++;
+	             
+	             if (ticked) {
+//	               render();
+	                 frames++;
+	             }
+	             
+//	           render();
+	         }	         
 	         
 	         /* mouse actions */
 	         newX = InputHandler.mouseX;
@@ -210,9 +213,12 @@ public class Display extends Canvas implements Runnable {
 	     g.dispose();
 	     bs.show();
     }
+	 
+	 
 
     /** main method */
     public static void main(String args[]) {
-        new Launcher(0);
+        Display display = new Display();
+        new Launcher(0, display);
     }
 }

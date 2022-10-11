@@ -1,22 +1,24 @@
 package gui;
 
+import input.InputHandler;
+
+import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JButton;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import main.RunGame;
+import main.Display;
 
 /** launcher menu that appears when the program runs */
-public class Launcher extends JFrame {
+public class Launcher extends Canvas implements Runnable {
     /* java classes */
     protected JPanel window = new JPanel();
-    private JButton play, options, help, quit;
-    private Rectangle rPlay, rOptions, rHelp, rQuit;
     
     /* window dimensions */
     private int windowWidth = 700;
@@ -26,97 +28,132 @@ public class Launcher extends JFrame {
     protected int buttonWidth = 120;
     protected int buttonHeight = 40;
     
+    /* running variables */
+    private Thread thread;
+    public JFrame frame = new JFrame();
+    public boolean running = false;
+    
     /** constructor for the Launcher class */
-    public Launcher(int id) {       
+    public Launcher(int id, Display display) {       
         /* window settings */ 
-        Color backgroundColor = new Color(32, 3, 2);
+//        Color backgroundColor = new Color(32, 3, 2);
                                
-        setTitle("Ball Collector Game Launcher");
-        setSize(new Dimension(windowWidth, windowHeight));
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().add(window);
-        window.setBackground(backgroundColor);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setVisible(true);
+        frame.setUndecorated(true);
+        frame.setTitle("Ball Collector Game Launcher");
+        frame.setSize(new Dimension(windowWidth, windowHeight));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(this);
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
         window.setLayout(null);
+                
+        /* user input */
+        InputHandler input = new InputHandler();
+        addKeyListener(input);
+        addFocusListener(input);
+        addMouseListener(input);
+        addMouseMotionListener(input);
         
-        if (id == 0) {
-            drawButtons();
-        }     
+        startMenu();
+        display.start();
+        frame.repaint();
     }
     
-    /** creates buttons on the launcher window */
-    private void drawButtons() {
-        final Color fontColor = new Color(200, 95, 92);
-        final Color buttonColor = new Color(246, 194, 170);
+    /** render the menu */
+    private void renderMenu() {
+        BufferStrategy bs = this.getBufferStrategy();
         
-        /* play button */
-        play = new JButton("Play Game!");
-        rPlay = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 250, buttonWidth, buttonHeight);
-        play.setBounds(rPlay);
-        play.setForeground(fontColor);
-        play.setBackground(buttonColor);
-        play.setBorder(new LineBorder(Color.WHITE, 3));
-        window.add(play);
+        if (bs == null) {
+            createBufferStrategy(3);
+            return;
+        }
+                          
+        Graphics g = bs.getDrawGraphics();       
+        g.fillRect(0,  0, 700, 500);
         
-        /* options button */
-        options = new JButton("Options");
-        rOptions = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 200, buttonWidth, buttonHeight);
-        options.setBounds(rOptions);
-        options.setForeground(fontColor);
-        options.setBackground(buttonColor);
-        options.setBorder(new LineBorder(Color.WHITE, 3));
-        window.add(options);
-        
-        /* help button */
-        help = new JButton("Help");
-        rHelp = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 150, buttonWidth, buttonHeight);
-        help.setBounds(rHelp);
-        help.setForeground(fontColor);
-        help.setBackground(buttonColor);
-        help.setBorder(new LineBorder(Color.WHITE, 3));
-        window.add(help);
-        
-        /* quit button */
-        quit = new JButton("Quit");
-        rQuit = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 100, buttonWidth, buttonHeight);
-        quit.setBounds(rQuit);
-        quit.setForeground(fontColor);
-        quit.setBackground(buttonColor);
-        quit.setBorder(new LineBorder(Color.WHITE, 3));
-        window.add(quit);
-        
-        /* action listeners for buttons */
-        /* play button */
-        play.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose(); /* close the GUI when the game window loads */
-                new RunGame();
-            }            
-        });
-        
-        /* options button */
-        options.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new Options(fontColor, buttonColor);
-            }            
-        });
-        
-        /* help button */
-        help.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                
-            }
+        try {
+            g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_background.png")), 0, 0, 700, 500, null);
             
-        });
-        
-        /* quit button */
-        quit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0); /* exited on request */
+            /* moving selected icon */
+            if (InputHandler.mouseX > 20 && InputHandler.mouseX < 95
+                    && InputHandler.mouseY > 40 && InputHandler.mouseY < 100) { /* if play button hovered */
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 95, 60, 40, 40, null);
+                
+                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
+                    System.out.println("Play Clicked!");
+                }
+            } else if(InputHandler.mouseX > 20 && InputHandler.mouseX < 200
+                    && InputHandler.mouseY > 100 && InputHandler.mouseY < 160) { /* else if; options button hovered */
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 170, 120, 40, 40, null);
+                
+                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
+                    System.out.println("Options Clicked!");
+                }
+            } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
+                    && InputHandler.mouseY > 160 && InputHandler.mouseY < 220) { /* else if; help button hovered*/
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, 180, 40, 40, null);
+                
+                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
+                    System.out.println("Help Clicked!");
+                }
+            } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
+                    && InputHandler.mouseY > 200 && InputHandler.mouseY < 280) { /* else if quit button hovered */
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, 240, 40, 40, null);
+                
+                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
+                    System.exit(0);
+                }
             }
-        });
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        
+        /* creating buttons */
+        Color buttonColor = new Color(139, 0, 0);
+        g.setColor(buttonColor);
+        g.setFont(new Font("Comic Sans MS", 0, 40));
+        g.drawString("Play", 20, 90);
+        g.drawString("Options", 20, 150);
+        g.drawString("Help", 20, 210);
+        g.drawString("Quit", 20, 270);
+        g.dispose();
+        
+        bs.show();
+    }
+    
+    /** continuously updates contents on the frame */
+    public void updateFrame() {
+        if (InputHandler.dragged) {
+            Point curLocation = frame.getLocation();
+            frame.setLocation(curLocation.x + InputHandler.mouseDragX - InputHandler.mousePressedX, 
+                        curLocation.y + InputHandler.mouseDragY - InputHandler.mousePressedY);             
+        }        
+    }
+
+    /** run method implemented from the implemented java class Runnable */
+    @Override
+    public void run() {
+        requestFocus();
+        while (running) {
+            renderMenu();
+            updateFrame();
+        }
+    }
+    
+    /** creates start-up menu */
+    public void startMenu() {
+        running = true;
+        thread = new Thread(this, "menu");
+        thread.start();
+    }
+    
+    /** terminates the start-up menu */
+    public void stopMenu() {
+        try {
+            thread.join();
+        } catch(InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
