@@ -1,6 +1,7 @@
 package gui;
 
 import input.InputHandler;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import main.Display;
+import main.RunGame;
 
 /** launcher menu that appears when the program runs */
 public class Launcher extends Canvas implements Runnable {
@@ -22,18 +23,14 @@ public class Launcher extends Canvas implements Runnable {
     /* window dimensions */
     private int windowWidth = 700;
     private int windowHeight = 500;
-    
-    /* button dimensions */
-    protected int buttonWidth = 120;
-    protected int buttonHeight = 40;
-    
+        
     /* running variables */
     private Thread thread;
     public JFrame frame = new JFrame();
     public boolean running = false;
     
     /** constructor for the Launcher class */
-    public Launcher(int id, Display display) {       
+    public Launcher() {       
         /* window settings */                                
         frame.setUndecorated(true);
         frame.setTitle("Ball Collector Game Launcher");
@@ -53,12 +50,11 @@ public class Launcher extends Canvas implements Runnable {
         addMouseMotionListener(input);
         
         startMenu();
-        display.start();
         frame.repaint();
     }
     
     /** render the menu */
-    private void renderMenu() {
+    private void renderMenu() throws IllegalStateException {
         BufferStrategy bs = this.getBufferStrategy();
         
         if (bs == null) {
@@ -74,29 +70,30 @@ public class Launcher extends Canvas implements Runnable {
             
             /* moving selected icon */
             if (InputHandler.mouseX > 20 && InputHandler.mouseX < 95
-                    && InputHandler.mouseY > 40 && InputHandler.mouseY < 100) { /* if play button hovered */
-                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 95, 60, 40, 40, null);
+                    && InputHandler.mouseY > ((windowHeight / 2) - 150) && InputHandler.mouseY < ((windowHeight / 2) - 110)) { /* if play button hovered */
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 95, (windowHeight / 2) - 150, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
-                    System.out.println("Play Clicked!");
+                if (InputHandler.mouseButton == 1) { /* clicking on the play button */                    
+                    frame.dispose();
+                    new RunGame();
                 }
-            } else if(InputHandler.mouseX > 20 && InputHandler.mouseX < 200
-                    && InputHandler.mouseY > 100 && InputHandler.mouseY < 160) { /* else if; options button hovered */
-                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 170, 120, 40, 40, null);
+            } else if(InputHandler.mouseX > 20 && InputHandler.mouseX < 170
+                    && InputHandler.mouseY > ((windowHeight / 2) - 70) && InputHandler.mouseY < ((windowHeight / 2) - 30)) { /* else if; options button hovered */
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 170, (windowHeight / 2) - 70, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
-                    System.out.println("Options Clicked!");
+                if (InputHandler.mouseButton == 1) { /* clicking on the options button */                    
+                    new Options();
                 }
             } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
-                    && InputHandler.mouseY > 160 && InputHandler.mouseY < 220) { /* else if; help button hovered*/
-                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, 180, 40, 40, null);
+                    && InputHandler.mouseY > ((windowHeight / 2) + 10) && InputHandler.mouseY < ((windowHeight / 2) + 50)) { /* else if; help button hovered*/
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, (windowHeight / 2) + 10, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
+                if (InputHandler.mouseButton == 1) { /* clicking on the help button */
                     System.out.println("Help Clicked!");
                 }
             } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
-                    && InputHandler.mouseY > 200 && InputHandler.mouseY < 280) { /* else if quit button hovered */
-                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, 240, 40, 40, null);
+                    && InputHandler.mouseY > ((windowHeight / 2) + 90) && InputHandler.mouseY < ((windowHeight / 2) + 130)) { /* else if quit button hovered */
+                g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, (windowHeight / 2) + 90, 40, 40, null);
                 
                 if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
                     System.exit(0);
@@ -110,10 +107,10 @@ public class Launcher extends Canvas implements Runnable {
         Color buttonColor = new Color(139, 0, 0);
         g.setColor(buttonColor);
         g.setFont(new Font("Comic Sans MS", 0, 40));
-        g.drawString("Play", 20, 90);
-        g.drawString("Options", 20, 150);
-        g.drawString("Help", 20, 210);
-        g.drawString("Quit", 20, 270);
+        g.drawString("Play", 20, (windowHeight / 2) - 120);
+        g.drawString("Options", 20, (windowHeight / 2) - 40);
+        g.drawString("Help", 20, (windowHeight / 2) + 40);
+        g.drawString("Quit", 20, (windowHeight / 2) + 120);
         g.dispose();
         
         bs.show();
@@ -133,7 +130,12 @@ public class Launcher extends Canvas implements Runnable {
     public void run() {
         requestFocus();
         while (running) {
-            renderMenu();
+            try {
+                renderMenu();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+            }
+            
             updateFrame();
         }
     }

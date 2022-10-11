@@ -24,6 +24,7 @@ public class Display extends Canvas implements Runnable {
     private Screen screen;
     private Game game;
     private InputHandler input;
+    private static Launcher launcher;
     
     /* window settings */
 	public static int width;
@@ -95,6 +96,15 @@ public class Display extends Canvas implements Runnable {
         return height;
     }
 	
+	/** returns the launcher; used to close the launcher when leaving window */
+	public static Launcher getLauncherInstance() {
+	    if (launcher == null) {
+	        launcher = new Launcher();
+	    }
+	    
+	    return launcher;
+	}
+	
 	/** starts the game */
 	public void start() {
 	    /* if already running  */
@@ -154,31 +164,32 @@ public class Display extends Canvas implements Runnable {
 	             }
 	             
 	             if (ticked) {
+	                 render();
 	                 frames++;
 	             }
-	         }	         
-	         
-	         /* mouse actions */
-	         newX = InputHandler.mouseX;
-	         
-	         if (newX > oldX) { /* if moving right; rotate right */
-	             Controller.turnRight = true;
-	         } else if (newX < oldX) { /* if moving left; rotate left */
-	             Controller.turnLeft = true;
-	         } else if (newX == oldX) { /* if still; stop rotation */
-	             if (newX > 100 && newX < width - 100) { /* only stop rotating if mouse is not on edge of window */
-	                 Controller.turnRight = false;
-	                 Controller.turnLeft = false;  
-	             }
-	         }	   
-	         
-	         oldX = newX;
+	         }	    
          }
      }
 	 
-     /** game progression */
+     /** game progression update */
 	 private void tick() {
 	     game.tick(input.key);
+	     
+	     /* mouse actions */
+         newX = InputHandler.mouseX;
+         
+         if (newX > oldX) { /* if moving right; rotate right */
+             Controller.turnRight = true;
+         } else if (newX < oldX) { /* if moving left; rotate left */
+             Controller.turnLeft = true;
+         } else if (newX == oldX) { /* if still; stop rotation */
+             if (newX > 100 && newX < width - 100) { /* only stop rotating if mouse is not on edge of window */
+                 Controller.turnRight = false;
+                 Controller.turnLeft = false;  
+             }
+         }     
+         
+         oldX = newX;
 	 }
 	 
 	 /** render the screen */
@@ -207,7 +218,6 @@ public class Display extends Canvas implements Runnable {
 	 
     /** main method */
     public static void main(String args[]) {
-        Display display = new Display();
-        new Launcher(0, display);
+        getLauncherInstance();
     }
 }

@@ -7,7 +7,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 
 /** begins the game when told to start from the launcher/start-up window  */
-public class RunGame {
+public class RunGame {   
     /** constructor for the Launcher class */
     public RunGame() {
         BufferedImage cursor = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
@@ -27,5 +27,11 @@ public class RunGame {
 
         /* begin the game */
         game.start();
+        stopMenuThread();                
+    }
+    
+    /** stops the launcher menu from running */
+    private void stopMenuThread() {
+        Display.getLauncherInstance().stopMenu();
     }
 }

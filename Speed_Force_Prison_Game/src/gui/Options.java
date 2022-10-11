@@ -7,14 +7,17 @@ import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 import main.Display;
 
 /** creates a window for the options menu */
-public class Options extends Launcher {
+public class Options extends JFrame {
     /* window settings */
+    private JPanel window = new JPanel();
     private int windowWidth = 300;
     private int windowHeight = 400;
    
@@ -24,21 +27,34 @@ public class Options extends Launcher {
     private Choice resolution = new Choice();
     private JTextField textWidth, textHeight;  
     private JLabel resLabel, customWidth, customHeight, customLabel;
+    private int buttonWidth = 120;
+    private int buttonHeight = 40;
     
     /** constructor for Options class */
-    public Options(Color fontColor, Color buttonColor) {
-        super(1, new Display());
-        frame.setTitle("Options");
+    public Options() {
+        Color backgroundColor = new Color(139, 0 , 0);
+                
+        setTitle("Options");
         setSize(new Dimension(windowWidth, windowHeight));
-        frame.setLocationRelativeTo(null);
-        drawButtons(fontColor, buttonColor);
+        add(window);
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setVisible(true);
+        window.setLayout(null);  
+        window.setBackground(backgroundColor);
+        drawButtons();
+        window.repaint();
     }
     
     /** creates buttons within the option menu */
-    private void drawButtons(Color fontColor, Color buttonColor) {
+    private void drawButtons() {
+        /* creating colors */
+        Color fontColor = new Color(255, 255, 0);
+        Color buttonColor = new Color(255, 99, 71);
+        
         /* create buttons */
         submitButton = new JButton("Save");
-        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 50, buttonWidth, buttonHeight - 10);
+        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2), windowHeight - 75, buttonWidth, buttonHeight - 10);
         submitButton.setBounds(rSubmitButton);
         submitButton.setForeground(fontColor);
         submitButton.setBackground(buttonColor);
@@ -110,8 +126,7 @@ public class Options extends Launcher {
                     Display.selection = resolution.getSelectedIndex();
                 }
 
-                frame.dispose();
-                new Launcher(0, new Display());
+                dispose();
             }
         });
     }
