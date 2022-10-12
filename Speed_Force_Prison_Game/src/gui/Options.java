@@ -54,7 +54,7 @@ public class Options extends JFrame {
         Color fontColor = new Color(255, 255, 0);
         
         /* label for options */
-        int optionsLabelWidth = windowWidth - 60;
+        int optionsLabelWidth = windowWidth - 80;
         int optionsLabelHeight = 60;
         optionsLabel = new JLabel("Options", SwingConstants.CENTER);
         optionsLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 26));
@@ -123,7 +123,7 @@ public class Options extends JFrame {
         
         /* create buttons */
         submitButton = new JButton("Save");
-        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2) - 3, windowHeight - 100, buttonWidth, buttonHeight - 10);
+        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2) - 3, windowHeight - 85, buttonWidth, buttonHeight - 10);
         submitButton.setBounds(rSubmitButton);
         submitButton.setForeground(fontColor);
         submitButton.setBackground(buttonColor);
