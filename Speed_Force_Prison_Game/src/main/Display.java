@@ -27,8 +27,8 @@ public class Display extends Canvas implements Runnable {
     private static Launcher launcher;
     
     /* window settings */
-	public static int width;
-	public static int height;
+	public static int windowWidth;
+	public static int windowHeight;
 	public final static String TITLE = "Speed Force Prison";
 	public static int selection = 0;
 	
@@ -40,14 +40,14 @@ public class Display extends Canvas implements Runnable {
     private int fps;
     
     /* user settings */
-    private int newX = width / 2;
-    private int oldX = width / 2;
+    private int newX = windowWidth / 2;
+    private int oldX = windowWidth / 2;
     public static int mouseSpeed;
 		
 	/** constructor for Display class */
 	public Display() {
 	    /* window size */
-	    Dimension size = new Dimension(width, height);
+	    Dimension size = new Dimension(windowWidth, windowHeight);
 	    setPreferredSize(size);
 	    setMinimumSize(size);
 	    setMaximumSize(size);
@@ -68,32 +68,32 @@ public class Display extends Canvas implements Runnable {
 	/** gets the window width of the game */
 	public static int getGameWidth() {
 	    if (selection == 0) {
-	        width = 640;
+	        windowWidth = 640;
 	    } else if (selection == 1) {
-	        width = 800; 
+	        windowWidth = 800; 
 	    } else if (selection == 2){
-	        width = 1024;
+	        windowWidth = 1024;
 	    }
 	    else if (selection == 3) {
-	        width = 1400;
+	        windowWidth = 1400;
 	    }
 	    
-	    return width;
+	    return windowWidth;
 	}
 
 	/** gets window height of the game */
 	public static int getGameHeight() {
         if (selection == 0) {
-            height = 480;
+            windowHeight = 480;
         } else if (selection == 1) {
-            height = 600;
+            windowHeight = 600;
         } else if (selection == 2) {
-            height = 768;
+            windowHeight = 768;
         } else if (selection == 3) {
-            height = 1000;
+            windowHeight = 1000;
         }
         
-        return height;
+        return windowHeight;
     }
 	
 	/** returns the launcher; used to close the launcher when leaving window */
@@ -183,7 +183,7 @@ public class Display extends Canvas implements Runnable {
          } else if (newX < oldX) { /* if moving left; rotate left */
              Controller.turnLeft = true;
          } else if (newX == oldX) { /* if still; stop rotation */
-             if (newX > 100 && newX < width - 100) { /* only stop rotating if mouse is not on edge of window */
+             if (newX > 100 && newX < windowWidth - 100) { /* only stop rotating if mouse is not on edge of window */
                  Controller.turnRight = false;
                  Controller.turnLeft = false;  
              }

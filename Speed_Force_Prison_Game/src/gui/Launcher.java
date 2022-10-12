@@ -1,7 +1,6 @@
 package gui;
 
 import input.InputHandler;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,11 +15,9 @@ import javax.swing.JPanel;
 import main.RunGame;
 
 /** launcher menu that appears when the program runs */
-public class Launcher extends Canvas implements Runnable {
-    /* java classes */
-    protected JPanel window = new JPanel();
-    
-    /* window dimensions */
+public class Launcher extends Canvas implements Runnable {    
+    /* window settings */
+    private JPanel window = new JPanel();
     private int windowWidth = 700;
     private int windowHeight = 500;
         
@@ -28,7 +25,9 @@ public class Launcher extends Canvas implements Runnable {
     private Thread thread;
     public JFrame frame = new JFrame();
     public boolean running = false;
-    
+    public static boolean optionsMenuOpened = false;
+    public static boolean helpMenuOpened = false;
+        
     /** constructor for the Launcher class */
     public Launcher() {       
         /* window settings */                                
@@ -65,6 +64,8 @@ public class Launcher extends Canvas implements Runnable {
         Graphics g = bs.getDrawGraphics();       
         g.fillRect(0,  0, 700, 500);
         
+        Color backgroundColor = new Color(139, 0 , 0);
+        
         try {
             g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_background.png")), 0, 0, 700, 500, null);
             
@@ -73,23 +74,33 @@ public class Launcher extends Canvas implements Runnable {
                     && InputHandler.mouseY > ((windowHeight / 2) - 150) && InputHandler.mouseY < ((windowHeight / 2) - 110)) { /* if play button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 95, (windowHeight / 2) - 150, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the play button */                    
+                if (InputHandler.mouseButton == 1) { /* clicking on the play button */    
                     frame.dispose();
                     new RunGame();
+
                 }
             } else if(InputHandler.mouseX > 20 && InputHandler.mouseX < 170
                     && InputHandler.mouseY > ((windowHeight / 2) - 70) && InputHandler.mouseY < ((windowHeight / 2) - 30)) { /* else if; options button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 170, (windowHeight / 2) - 70, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the options button */                    
-                    new Options();
+                
+                if (InputHandler.mouseButton == 1) { /* clicking on the options button */  
+                    if (optionsMenuOpened == false) {
+                        new Options(backgroundColor); 
+                    }
+                    
+                    optionsMenuOpened = true;
                 }
             } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
                     && InputHandler.mouseY > ((windowHeight / 2) + 10) && InputHandler.mouseY < ((windowHeight / 2) + 50)) { /* else if; help button hovered*/
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, (windowHeight / 2) + 10, 40, 40, null);
                 
                 if (InputHandler.mouseButton == 1) { /* clicking on the help button */
-                    System.out.println("Help Clicked!");
+                    if (helpMenuOpened == false) {
+                        new Help(backgroundColor);
+                    }
+                    
+                    helpMenuOpened = true;
                 }
             } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
                     && InputHandler.mouseY > ((windowHeight / 2) + 90) && InputHandler.mouseY < ((windowHeight / 2) + 130)) { /* else if quit button hovered */

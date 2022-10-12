@@ -18,7 +18,7 @@ public class RunGame {
         /* setup game window */
         frame.add(game);
         frame.setSize(Display.getGameWidth(), Display.getGameHeight());
-        frame.getContentPane().setCursor(blank); // hides the curser on the game
+        frame.getContentPane().setCursor(blank); // hides the cursor on the game
         frame.setTitle(Display.TITLE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null); // center window on screen
