@@ -181,7 +181,7 @@ public class Help extends JFrame {
         submitButton.setBounds(rSubmitButton);
         submitButton.setForeground(fontColor);
         submitButton.setBackground(buttonColor);
-        submitButton.setBorder(new LineBorder(Color.WHITE, 3));
+        submitButton.setBorder(new LineBorder(Color.YELLOW, 3));
         window.add(submitButton);
         
         /* action listeners */
