@@ -5,6 +5,7 @@ Contains code in multiple coding languages that perform tasks and demonstrate co
 Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
+
 ---
 [Completed Projects Section]: #
 ## Completed Projects :thumbsup:
