@@ -6,15 +6,6 @@ Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
 
-<div>
-    Table of Contents
-    <ul>
-        <li>[Completed Projects Section][#Completed-Projects-Section]</li>
-        <li>[Alogrithms & Basic Concepts](#Alogrithms-Section)</li>
-        <li>[Incompleted Projects]</li>
-    </ul>
-</div>
-
 ---
 [Completed-Projects-Section]: #
 ## Completed Projects :thumbsup:
