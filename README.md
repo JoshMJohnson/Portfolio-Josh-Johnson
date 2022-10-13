@@ -8,7 +8,7 @@ All code has been written and reviewed by Josh Johnson.
 
 ---
 [Completed Projects Section]: #
-## Completed Projects :thumbsup:
+## <p style='color:red'>Completed Projects</p> :thumbsup:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :----------------------- | :------------------------------------: |
 | Jokes&lowbar;Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management</li><li>Form Usage<ul><li>User Input<ul><li>Radio</li><li>Text</li><li>Checkbox</li><li>Textarea</li><li>Dropdown Box</li></ul></li><li>Requirements</li></ul></li><li>Buttons</li><li>Links<ul><li>Subpages</li></ul></li></ul> | Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from |
