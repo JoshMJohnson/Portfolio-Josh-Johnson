@@ -6,8 +6,8 @@ Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
 
-[Completed Projects :thumbsup:](#completed-projects)
-[Alogrithms & Basic Concepts :writing_hand:](#alogrithms-&amp;-basic-concepts)
+[Completed Projects :thumbsup:](#completed-projects-:thumbsup:)<br>
+[Alogrithms & Basic Concepts :writing_hand:](#alogrithms-&amp;-basic-concepts-:writing_hand:)<br>
 
 
 ---
