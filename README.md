@@ -1,4 +1,3 @@
-[Summary Section]: #
 # **Simple_Coding_Examples** :open_book:
 Contains code in multiple coding languages that perform tasks and demonstrate concepts.
 
