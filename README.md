@@ -9,7 +9,8 @@ All code has been written and reviewed by Josh Johnson.
 <div>
     Table of Contents
     <ol>
-        <li>[Completed-Projects-Section]: #</li>
+        <li>[Completed-Projects-Section]: # 
+        ## Completed Projects :thumbsup:</li>
         <li></li>
         <li></li>
     </ol>
