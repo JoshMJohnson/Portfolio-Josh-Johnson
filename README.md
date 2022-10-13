@@ -8,8 +8,8 @@ All code has been written and reviewed by Josh Johnson.
 ## Completed Projects :thumbsup:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------: |
-| Jokes_Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node js</li><li>Database Management</li><li>Form Usage</li></ul> |  |
-| Ultimate_Frisbee | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | <ul><li>Link Usage</li><li>Images</li><li>Lists</li><li>Quotes</li></ul> |  |
+| Jokes_Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management</li><li>Form Usage</li></ul> |  |
+| Ultimate_Frisbee | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | <ul><li>Links<ul><li>Insourced</li><li>Outsourced</li></ul></li><li>Images</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li><li>Quotes</li></ul> |  |
 ---
 ## Alogrithms & Basic Concepts :writing_hand:
 | Project | Language(s) | Concepts Demonstrated | Description |
@@ -27,4 +27,4 @@ All code has been written and reviewed by Josh Johnson.
 ## Uncompleted Projects :point_up:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------: |
-| Speed_Force_Prison_Game  | Java | <ul><li>3D Rendering</li><li>User Input<ul><li>Keyboard</li><li>Mouse</li></ul></li><li>JFrames/JPanels<ul><li>JButtons</li><li>JLabels</li><li>JTextFields</li></ul></li><li>Timer Usage</li><li>Image Usage</li><li>Threads</li><li>Java Class Interaction</li><li></li></ul> |  |
+| Speed_Force_Prison_Game  | Java | <ul><li>3D Rendering</li><li>User Input<ul><li>Keyboard</li><li>Mouse</li></ul></li><li>JFrames/JPanels<ul><li>JButtons</li><li>JLabels</li><li>JTextFields</li></ul></li><li>Timer Usage</li><li>Image Usage</li><li>Threads</li><li>Java Class Interaction</li></ul> |  |
