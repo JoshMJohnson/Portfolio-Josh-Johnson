@@ -6,7 +6,7 @@ Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
 
-[Completed Projects :thumbsup:]: 
+[Completed Projects :thumbsup:]: #
 
 
 ---
