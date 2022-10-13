@@ -6,7 +6,7 @@ Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
 
-[Completed Projects](#Completed-Projects-:thumbsup:)
+[Completed Projects :thumbsup:](completed-projects-:thumbsup:)
 
 
 ---
@@ -36,3 +36,5 @@ All code has been written and reviewed by Josh Johnson.
 | Speed&lowbar;Force&lowbar;Prison&lowbar;Game  | Java | <ul><li>3&ndash;Dimensional Rendering</li><li>User Input<ul><li>Keyboard</li><li>Mouse</li></ul></li><li>JFrames&frasl;JPanels<ul><li>JButtons</li><li>JLabels</li><li>JTextFields</li></ul></li><li>Timer Usage</li><li>Image Usage</li><li>Threads</li><li>Java Class Interaction</li></ul> | 3&ndash;Dimensional game that uses Java&apos;s graphical interface |
 
 <sup>_Incompleted projects are currently being worked on_</sup>
+
+[def]: #Completed-Projects-:thumbsup:
