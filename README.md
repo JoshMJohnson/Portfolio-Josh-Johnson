@@ -6,18 +6,20 @@ Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
 
-[Completed Projects :thumbsup:](#completed-projects-:thumbsup:)<br>
-[Alogrithms & Basic Concepts :writing_hand:](#alogrithms-&amp;-basic-concepts-:writing_hand:)<br>
+[Completed Projects :thumbsup:](#completed-projects)<br>
+[Alogrithms & Basic Concepts :writing_hand:](#alogrithms-&amp;-basic-concepts)<br>
 
 
 ---
-## Completed Projects :thumbsup:
+## Completed Projects
+:thumbsup:<br>
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
 | Jokes&lowbar;Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management</li><li>Form Usage<ul><li>User Input<ul><li>Radio</li><li>Text</li><li>Checkbox</li><li>Textarea</li><li>Dropdown Box</li></ul></li><li>Requirements</li></ul></li><li>Buttons</li><li>DOM Elements</li><li>Links<ul><li>Relative</li></ul></li></ul> | Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from |
 | Ultimate_Frisbee | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Inline</li></ul></li><li>Images</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li><li>Quotes</li></ul> | Customized ultimate frisbee Wiki page |
 ---
-## Alogrithms &amp; Basic Concepts :writing_hand:
+## Alogrithms &amp; Basic Concepts
+:writing_hand:<br>
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | sort&lowbar;array | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li></ul> | Organize lists of integers in ascending order gathered using different methods |
