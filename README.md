@@ -14,7 +14,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Alogrithms & Basic Concepts :writing_hand:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------: |
-| sort_array | C |  |  |
+| sort_array | C | <ul><li>Sorting Algorithms<ul><li>Selection Sort</li><li>Insertion Sort</li><li>Quick Sort</li><li>Bubble Sort</li><li>Merge Sort</li></ul></li></ul> |  |
 | read_write_file | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> |  |
 | hello_world | C |  | Classic 'hello world' program |
 | sortArray | Java |  |  |
