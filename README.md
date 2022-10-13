@@ -7,8 +7,8 @@ Test files are also included within this repo.
 All code has been written and reviewed by Josh Johnson.
 
 [Completed Projects :thumbsup:](#completed-projects-thumbsup)<br>
-[Alogrithms & Basic Concepts :writing_hand:](#alogrithms-&-basic-concepts-writinghand)<br>
-
+[Alogrithms & Basic Concepts :writing_hand:](#alogrithms-&-basic-concepts-writing_hand)<br>
+[Incompleted Projects :point_up:](#incompleted-projects-point_up)<br>
 
 ---
 ## Completed Projects :thumbsup:
@@ -29,7 +29,6 @@ All code has been written and reviewed by Josh Johnson.
 | sort_array | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li></ul> | Organize lists of integers in ascending order gathered using different methods |
 | hello&lowbar;world | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
 ---
-[Incompleted-Projects-Section]: #
 ## Incompleted Projects :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
