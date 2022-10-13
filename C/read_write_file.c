@@ -20,7 +20,7 @@ int main() {
     }
 
     /* tries to open or create a file to write to */
-    if ((file_out = fopen("../Test_Files/Output_Files/poem_dup_from_read_write_file_c.txt", "w")) == NULL) {
+    if ((file_out = fopen("Output_Files/poem_dup_from_read_write_file_c.txt", "w")) == NULL) {
         printf("Could not create or open file");
         exit(EXIT_FAILURE);
     }
