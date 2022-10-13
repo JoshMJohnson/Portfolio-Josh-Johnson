@@ -17,7 +17,7 @@ All code has been written and reviewed by Josh Johnson.
 [Alogrithms & Basic Concepts Section]: #
 ## Alogrithms & Basic Concepts :writing_hand:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | sort&lowbar;array | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li></ul> | Organize lists of integers in ascending order gathered using different methods |
 | read_write_file | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Reads a poem located within a text file and writes a copy to an output file |
 | hello_world | C | Using the console | Classic &lsquo;hello world&rsquo; program |
