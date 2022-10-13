@@ -6,8 +6,8 @@ Test files are also included within this repo.
 All code has been written and reviewed by Josh Johnson.
 
 ## Completed Projects :thumbsup:
-| Project     | Language(s)    | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------: |
+| Project | Language(s) | Concepts Demonstrated | Description |
+| :------------------------: | :------------------------: | :------------------------: | :------------------------: |
 | Jokes_Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node js</li><li>Database Management</li><li>Form Usage</li></ul> | ------------------------ |
 | Ultimate_Frisbee | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | ------------------------ | ------------------------ |
 ---
