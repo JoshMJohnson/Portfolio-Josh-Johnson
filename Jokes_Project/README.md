@@ -1,3 +1,5 @@
+# Jokes Project :clown_face:
+---
 Instructions of how to run program:
 
     1.) Open command line and traverse to Jokes_Project folder
