@@ -15,13 +15,13 @@ All code has been written and reviewed by Josh Johnson.
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------: |
 | sort_array | C |  |  |
-| read_write_file | C |  |  |
-| hello_world | C |  |  |
+| read_write_file | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> |  |
+| hello_world | C |  | Classic 'hello world' program |
 | sortArray | Java |  |  |
-| readWriteFile | Java |  |  |
-| helloWorld | Java |  |  |
+| readWriteFile | Java | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul>  |  |
+| helloWorld | Java |  | Classic 'hello world' program |
 | sort_array | JavaScript |  |  |
-| hello_world | JavaScript |  |  |
+| hello_world | JavaScript |  | Classic 'hello world' program |
 
 ---
 ## Uncompleted Projects :point_up:
