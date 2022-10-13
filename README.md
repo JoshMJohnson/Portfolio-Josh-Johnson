@@ -23,7 +23,8 @@ All code has been written and reviewed by Josh Johnson.
 | sort_array | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li></ul> | Organize lists of integers in ascending order gathered using different methods |
 | hello_world | JavaScript | Using the console | Classic 'hello world' program |
 ---
-## Uncompleted Projects :point_up:
+## Incompleted Projects :point_up:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | Speed_Force_Prison_Game  | Java | <ul><li>3-Dimensional Rendering</li><li>User Input<ul><li>Keyboard</li><li>Mouse</li></ul></li><li>JFrames/JPanels<ul><li>JButtons</li><li>JLabels</li><li>JTextFields</li></ul></li><li>Timer Usage</li><li>Image Usage</li><li>Threads</li><li>Java Class Interaction</li></ul> | 3-Dimensional game that uses Java's graphical interface |
+<sup>Incompleted projects are currently being worked on</sup>
