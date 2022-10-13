@@ -4,11 +4,11 @@
  * using multiple different sorting algorithms. 
  *
  * Sorting algorithms implemented
- * - Bubble Sort
- * - Selection Sort
- * - Merge Sort
- * - Insertion Sort
- * - Quick Sort
+ * - Bubble
+ * - Selection
+ * - Merge
+ * - Insertion
+ * - Quick
  * 
  * Created By: Josh Johnson
  */

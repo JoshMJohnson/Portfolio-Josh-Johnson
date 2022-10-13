@@ -14,13 +14,13 @@ All code has been written and reviewed by Josh Johnson.
 ## Alogrithms & Basic Concepts :writing_hand:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------: |
-| sort_array | C | <ul><li>Sorting Algorithms<ul><li>Selection Sort</li><li>Insertion Sort</li><li>Quick Sort</li><li>Bubble Sort</li><li>Merge Sort</li></ul></li></ul> |  |
+| sort_array | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li></ul> |  |
 | read_write_file | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> |  |
 | hello_world | C |  | Classic 'hello world' program |
-| sortArray | Java |  |  |
+| sortArray | Java | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li></ul> |  |
 | readWriteFile | Java | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul>  |  |
 | helloWorld | Java |  | Classic 'hello world' program |
-| sort_array | JavaScript |  |  |
+| sort_array | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li></ul> |  |
 | hello_world | JavaScript |  | Classic 'hello world' program |
 
 ---
