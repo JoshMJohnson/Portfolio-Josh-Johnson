@@ -7,9 +7,9 @@ Test files are also included within this repo.
 All code has been written and reviewed by Josh Johnson.
 
 
-    Table of Contents
-    [Completed-Projects-Section]: #
-    ## Completed Projects :thumbsup:
+Table of Contents
+
+[Completed-Projects-Section]: #Completed Projects :thumbsup:
 
 
 ---
