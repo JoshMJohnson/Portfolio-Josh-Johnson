@@ -9,8 +9,8 @@ All code has been written and reviewed by Josh Johnson.
 <div>
     Table of Contents
     <ul>
-        <li>![Completed Projects]one</li>
-        <li>![Alogrithms & Basic Concepts](two)</li>
+        <li>![Completed Projects Section]one</li>
+        <li>![Alogrithms & Basic Concepts](Completed Projects Section)</li>
         <li>![Incompleted Projects]</li>
     </ul>
 </div>
