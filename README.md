@@ -6,7 +6,7 @@ Test files are also included within this repo.
 
 All code has been written and reviewed by Josh Johnson.
 
-(incompleted project)
+[a relative link](incompleted project)
 
 ---
 [Completed Projects Section]: #
