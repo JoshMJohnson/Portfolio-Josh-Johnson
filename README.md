@@ -8,7 +8,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Completed Projects :thumbsup:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :----------------------- | :------------------------------------: |
-| Jokes_Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management</li><li>Form Usage</li><li>Buttons</li><li>Links<ul><li>Subpages</li></ul></li></ul> |  |
+| Jokes_Project | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management</li><li>Form Usage<ul><li>User Input<ul><li>Radio</li></ul></li><li>Requirements</li></ul></li><li>Buttons</li><li>Links<ul><li>Subpages</li></ul></li></ul> |  |
 | Ultimate_Frisbee | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | <ul><li>Links<ul><li>Insourced</li><li>Outsourced</li></ul></li><li>Images</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li><li>Quotes</li></ul> |  |
 ---
 ## Alogrithms & Basic Concepts :writing_hand:
