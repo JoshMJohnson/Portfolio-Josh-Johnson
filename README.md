@@ -27,4 +27,4 @@ All code has been written and reviewed by Josh Johnson.
 ## Uncompleted Projects :point_up:
 | Project | Language(s) | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------: |
-| Speed_Force_Prison_Game  | Java | <ul><li>3D Rendering</li><li>User Input</li></ul> |  |
+| Speed_Force_Prison_Game  | Java | <ul><li>3D Rendering</li><li>User Input<ul><li>Keyboard</li><li>Mouse</li></ul></li><li>JFrames/JPanels<ul><li>JButtons</li><li>JLabels</li><li>JTextFields</li></ul></li><li>Timer Usage</li><li>Image Usage</li><li>Threads</li><li>Java Class Interaction</li><li></li></ul> |  |
