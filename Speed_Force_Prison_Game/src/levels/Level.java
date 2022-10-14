@@ -20,7 +20,7 @@ public class Level {
             for (int x = 0; x < width; x++) {
                 Block block = null;
                 
-                if (random.nextInt(4) == 0) {
+                if (random.nextInt(5) == 0) { /* likelihood of rendering a wall */
                     block = new SolidBlock();
                 } else {
                     block = new Block();

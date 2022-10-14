@@ -83,7 +83,7 @@ public class Render3D extends Render {
         
         /* create pillars; inner walls */
         Level level = game.level;
-        int size = 20;
+        int size = 10;
         double wallHeightAdjustment = 0.0625;
 
         /* creates blocks */
