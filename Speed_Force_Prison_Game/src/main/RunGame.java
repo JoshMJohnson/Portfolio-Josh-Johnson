@@ -37,7 +37,7 @@ public class RunGame {
         frame.setResizable(false);
         frame.setVisible(true);
 
-        /* begin the game */
+        /* begin the game */        
         game.start();
         stopMenuThread();                
     }

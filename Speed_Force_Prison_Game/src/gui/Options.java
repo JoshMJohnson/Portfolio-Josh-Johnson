@@ -26,10 +26,11 @@ public class Options extends JFrame {
    
     /* buttons */
     private JButton submitButton;
-    private Rectangle rSubmitButton, rResolution;
+    private Rectangle rSubmitButton, rResolution, rDifficulty;
     private Choice resolution = new Choice();
+    private Choice difficulty = new Choice();
     private JTextField textWidth, textHeight;  
-    private JLabel resLabel, customWidth, customHeight, customLabel, optionsLabel;
+    private JLabel resLabel, customWidth, customHeight, customLabel, optionsLabel, difficultyLabel;
     private int buttonWidth = 120;
     private int buttonHeight = 40;
         
@@ -51,6 +52,8 @@ public class Options extends JFrame {
     
     /** creates buttons within the option menu */
     private void drawButtons() {  
+        /* creating colors */
+        Color buttonColor = new Color(255, 99, 71);
         Color fontColor = new Color(255, 255, 0);
         
         /* label for options */
@@ -62,10 +65,7 @@ public class Options extends JFrame {
         optionsLabel.setForeground(fontColor);
         optionsLabel.setBorder(BorderFactory.createLineBorder(Color.YELLOW, 5));
         window.add(optionsLabel);
-        
-        /* creating colors */
-        Color buttonColor = new Color(255, 99, 71);
-
+                
         /* change resolution option */
         /* label for resolution */
         int resTitleWidth = 123;
@@ -92,34 +92,54 @@ public class Options extends JFrame {
         /* labels for custom resolution */
         customLabel = new JLabel("Custom Resolution");
         customLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        customLabel.setBounds((windowWidth / 2) - (resTitleWidth / 2) - 3, 160, resTitleWidth, resHeight);
+        customLabel.setBounds((windowWidth / 2) - (resTitleWidth / 2) - 3, 130 + resHeight, resTitleWidth, resHeight);
         customLabel.setForeground(fontColor);
         window.add(customLabel);
         
         customWidth = new JLabel("Width:");
         customWidth.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
-        customWidth.setBounds((windowWidth / 2) - (resWidth / 2) - 3, 170 + resHeight, resWidth, resHeight);
+        customWidth.setBounds((windowWidth / 2) - (resWidth / 2) - 3, 160 + resHeight, resWidth, resHeight);
         customWidth.setForeground(fontColor);
         window.add(customWidth);
         
         customHeight = new JLabel("Height:");
         customHeight.setFont(new Font("Comic Sans MS", Font.BOLD, 11));
-        customHeight.setBounds((windowWidth / 2) - (resWidth / 2) - 3, 200 + resHeight, resWidth, resHeight);
+        customHeight.setBounds((windowWidth / 2) - (resWidth / 2) - 3, 190 + resHeight, resWidth, resHeight);
         customHeight.setForeground(fontColor);
         window.add(customHeight);
         
         /* text fields for custom resolution */
         textWidth = new JTextField();
-        textWidth.setBounds((windowWidth / 2) - 3, 170 + resHeight, resWidth / 2, resHeight);
+        textWidth.setBounds((windowWidth / 2) - 3, 160 + resHeight, resWidth / 2, resHeight);
         textWidth.setBackground(buttonColor);
         textWidth.setForeground(fontColor);
         window.add(textWidth);
         
         textHeight = new JTextField();
-        textHeight.setBounds((windowWidth / 2) - 3, 200 + resHeight, resWidth / 2, resHeight);
+        textHeight.setBounds((windowWidth / 2) - 3, 190 + resHeight, resWidth / 2, resHeight);
         textHeight.setBackground(buttonColor);
         textHeight.setForeground(fontColor);
         window.add(textHeight);
+        
+        /* difficulty option */
+        /* label for difficulty */
+        difficultyLabel = new JLabel("Change Difficulty");
+        difficultyLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        difficultyLabel.setBounds((windowWidth / 2) - (resTitleWidth / 2) - 3, 230 + resHeight, resTitleWidth, resHeight);
+        difficultyLabel.setForeground(fontColor);
+        window.add(difficultyLabel);
+        
+        /* drop-down box for difficulty */
+        rDifficulty = new Rectangle((windowWidth / 2) - (resWidth / 2) - 3, 260 + resHeight, resWidth, resHeight);
+        difficulty.setBounds(rDifficulty);
+        difficulty.setForeground(fontColor);
+        difficulty.setBackground(buttonColor);
+        difficulty.add("Sandbox");
+        difficulty.add("Childs Play");
+        difficulty.add("Average Joe");
+        difficulty.add("God Mode");
+        difficulty.select(0);
+        window.add(difficulty);
         
         /* create buttons */
         submitButton = new JButton("Save");
@@ -143,6 +163,9 @@ public class Options extends JFrame {
                 } catch (NumberFormatException ex) { /* else; drop-down box selected resolution */
                     Display.selection = resolution.getSelectedIndex();
                 }
+                
+                /* adjusting difficulty level */
+                Display.difficulty = difficulty.getSelectedIndex();
                 
                 Launcher.optionsMenuOpened = false;
                 dispose();

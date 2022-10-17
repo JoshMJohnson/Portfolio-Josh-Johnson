@@ -4,11 +4,14 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Controller;
 import input.InputHandler;
+import javax.swing.Timer;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
@@ -25,6 +28,9 @@ public class Display extends Canvas implements Runnable {
     private Game game;
     private InputHandler input;
     private static Launcher launcher;
+    private Timer timer;
+    private BufferStrategy bs;
+    private Graphics g;
     
     /* window settings */
 	public static int windowWidth;
@@ -37,8 +43,10 @@ public class Display extends Canvas implements Runnable {
 	private BufferedImage img;
 	private boolean running = false;
     private int[] pixels;
-    private int fps;
-    
+    private int fps; /* frames per second */
+    private int countdown = 120; /* timer in seconds */
+    public static int difficulty = 0; /* sets difficulty */
+        
     /* user settings */
     private int newX = windowWidth / 2;
     private int oldX = windowWidth / 2;
@@ -56,6 +64,7 @@ public class Display extends Canvas implements Runnable {
 	    game = new Game();
 	    img = new BufferedImage(getGameWidth(), getGameHeight(), BufferedImage.TYPE_INT_RGB);
 	    pixels = ((DataBufferInt) img.getRaster().getDataBuffer()).getData();
+	    setDifficulty();
 	    
 	    /* enable user input */
 	    input = new InputHandler();
@@ -63,6 +72,19 @@ public class Display extends Canvas implements Runnable {
 	    addFocusListener(input);
 	    addMouseListener(input);
 	    addMouseMotionListener(input);   
+	}
+	
+	/** sets the difficulty of the game */
+	public int setDifficulty() {
+	    if (difficulty == 0) { /* if easiest mode; infinite time */
+	        return countdown = Integer.MAX_VALUE;
+	    } else if (difficulty == 1) { /* else if second easiest mode  */
+	        return countdown;
+	    } else if (difficulty == 2) { /* else if third easiest mode */
+	        return countdown /= 2;
+	    } else { /* else hardest game mode */
+	        return countdown /= 3;
+	    }    
 	}
 	
 	/** gets the window width of the game */
@@ -124,8 +146,15 @@ public class Display extends Canvas implements Runnable {
 	        return;
 	    }
 	    
+        timer.stop();
 	    running = false;
 	    
+	    /* show game over */
+        g.setFont(new Font("Comic Sans MS", 0, 80));
+        g.drawString("Game Over!", 100, windowHeight/2);
+        g.dispose();
+        bs.show();
+            
 	    try {
             thread.join();
         } catch (Exception e) {
@@ -143,14 +172,27 @@ public class Display extends Canvas implements Runnable {
 	     int tickCount = 0;
 	     boolean ticked = false;
 	     
+	     /* countdown timer */
+         timer = new Timer(1000, new ActionListener() {
+             public void actionPerformed(ActionEvent e) {
+                 countdown--;                 
+             }
+         }); /* updates timer every 1000ms or 1 second */
+         
+         timer.start(); 
+	     	     
 	     while (running) {
+	         if (countdown == -1) {	 
+	             stop();
+	         }
+	                  	         
+	         /* frames per second counter */
 	         long currentTime = System.nanoTime();
 	         long passedTime = currentTime - prevTime;
 	         prevTime = currentTime;
 	         unprocessedSeconds += passedTime / 1000000000.0;
 	         requestFocus(); /* automatically selects window when game is started */
 	         
-	         /* frames per second counter */
 	         while (unprocessedSeconds > secondsPerTick) {
 	             tick();
 	             unprocessedSeconds -= secondsPerTick;
@@ -194,7 +236,7 @@ public class Display extends Canvas implements Runnable {
 	 
 	 /** render the screen */
 	 private void render() {
-	     BufferStrategy bs = this.getBufferStrategy();
+	     bs = this.getBufferStrategy();
 	     
 	     if (bs == null) {
 	         createBufferStrategy(3);
@@ -207,12 +249,20 @@ public class Display extends Canvas implements Runnable {
 	         pixels[i] = screen.pixels[i];
 	     }
 	     
-	     Graphics g = bs.getDrawGraphics();
+	     g = bs.getDrawGraphics();
 	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);
-	     g.setFont(new Font("Verdana", 0, 50));
+	     g.setFont(new Font("Verdana", 0, 30));
 	     g.setColor(Color.yellow);
-	     g.drawString(fps + " FPS", 20, 50);
-	     g.dispose();
+	     g.drawString(fps + " FPS", 15, 45);
+	     g.setFont(new Font("Verdana", 0, 30));
+	     
+	     if (difficulty == 0) {
+	         g.drawString("-", windowWidth - 110, 40);
+	     } else {
+	         g.drawString(countdown + "", windowWidth - 110, 40);
+	     }
+	     g.setFont(new Font("Verdana", 0, 15));
+	     g.drawString("Seconds Remaining", windowWidth - 175, 60);
 	     bs.show();
     }
 	 
