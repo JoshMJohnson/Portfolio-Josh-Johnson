@@ -44,7 +44,7 @@ public class Display extends Canvas implements Runnable {
 	private boolean running = false;
     private int[] pixels;
     private int fps; /* frames per second */
-    private int countdown = 120; /* timer in seconds */
+    private int countdown = 100; /* timer in seconds */
     public static int difficulty = 0; /* sets difficulty */
     private int blurs = 5; 
         
@@ -262,7 +262,13 @@ public class Display extends Canvas implements Runnable {
 	         g.drawString("-", windowWidth - 110, 40);
 	         g.drawString("-", windowWidth / 2 - 5, windowHeight - 130);
 	     } else {
-	         g.drawString(countdown + "", windowWidth - 110, 40);
+	         if (countdown < 10) {
+	             g.drawString(countdown + "", windowWidth - 110, 40);
+	         } else if (countdown < 100) {
+	             g.drawString(countdown + "", windowWidth - 120, 40);
+	         } else {
+	             g.drawString(countdown + "", windowWidth - 130, 40);
+	         }
 	         
 	         if (blurs < 10) {
 	             g.drawString(blurs + "", windowWidth / 2 - 5, windowHeight - 130);
