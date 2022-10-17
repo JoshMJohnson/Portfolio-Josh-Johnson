@@ -46,6 +46,7 @@ public class Display extends Canvas implements Runnable {
     private int fps; /* frames per second */
     private int countdown = 120; /* timer in seconds */
     public static int difficulty = 0; /* sets difficulty */
+    private int blurs = 5; 
         
     /* user settings */
     private int newX = windowWidth / 2;
@@ -75,15 +76,15 @@ public class Display extends Canvas implements Runnable {
 	}
 	
 	/** sets the difficulty of the game */
-	public int setDifficulty() {
+	public void setDifficulty() {
 	    if (difficulty == 0) { /* if easiest mode; infinite time */
-	        return countdown = Integer.MAX_VALUE;
-	    } else if (difficulty == 1) { /* else if second easiest mode  */
-	        return countdown;
+	        countdown = Integer.MAX_VALUE;
 	    } else if (difficulty == 2) { /* else if third easiest mode */
-	        return countdown /= 2;
-	    } else { /* else hardest game mode */
-	        return countdown /= 3;
+	        countdown /= 2;
+	        blurs = (int) (Math.floor(blurs * 1.5));
+	    } else if (difficulty == 3) { /* else if hardest game mode */
+	        countdown /= 3;
+	        blurs = (int) (Math.floor(blurs * 2));
 	    }    
 	}
 	
@@ -181,6 +182,7 @@ public class Display extends Canvas implements Runnable {
          
          timer.start(); 
 	     	     
+         /* execute while game is running */
 	     while (running) {
 	         if (countdown == -1) {	 
 	             stop();
@@ -251,18 +253,29 @@ public class Display extends Canvas implements Runnable {
 	     
 	     g = bs.getDrawGraphics();
 	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);
-	     g.setFont(new Font("Verdana", 0, 30));
+	     
 	     g.setColor(Color.yellow);
-	     g.drawString(fps + " FPS", 15, 45);
 	     g.setFont(new Font("Verdana", 0, 30));
+	     g.drawString(fps + " FPS", 15, 45);
 	     
 	     if (difficulty == 0) {
 	         g.drawString("-", windowWidth - 110, 40);
+	         g.drawString("-", windowWidth / 2 - 5, windowHeight - 130);
 	     } else {
 	         g.drawString(countdown + "", windowWidth - 110, 40);
+	         
+	         if (blurs < 10) {
+	             g.drawString(blurs + "", windowWidth / 2 - 5, windowHeight - 130);
+	         } else {
+	             g.drawString(blurs + "", windowWidth / 2 - 15, windowHeight - 130);
+	         }
 	     }
+	     
 	     g.setFont(new Font("Verdana", 0, 15));
-	     g.drawString("Seconds Remaining", windowWidth - 175, 60);
+	     g.drawString("Seconds Remaining", windowWidth - 175, 60);	     
+         g.setFont(new Font("Verdana", 0, 15));
+         g.drawString("Blur's Left to Catch", windowWidth / 2 - 70, windowHeight - 100);
+	     
 	     bs.show();
     }
 	 
