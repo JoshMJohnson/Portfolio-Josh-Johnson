@@ -45,7 +45,7 @@ public class Display extends Canvas implements Runnable {
     private int[] pixels;
     private int fps; /* frames per second */
     private int countdown = 100; /* timer in seconds */
-    public static int difficulty = 0; /* sets difficulty */
+    public static int difficulty = 1; /* sets difficulty */
     private int blurs = 5; 
         
     /* user settings */
@@ -79,6 +79,10 @@ public class Display extends Canvas implements Runnable {
 	public void setDifficulty() {
 	    if (difficulty == 0) { /* if easiest mode; infinite time */
 	        countdown = Integer.MAX_VALUE;
+	        blurs = Integer.MAX_VALUE;	        
+	    } else if (difficulty == 1) { /* else if second easiest mode */
+	        countdown = 100;
+	        blurs = 5; 
 	    } else if (difficulty == 2) { /* else if third easiest mode */
 	        countdown /= 2;
 	        blurs = (int) (Math.floor(blurs * 1.5));
@@ -281,6 +285,17 @@ public class Display extends Canvas implements Runnable {
 	     g.drawString("Seconds Remaining", windowWidth - 175, 60);	     
          g.setFont(new Font("Verdana", 0, 15));
          g.drawString("Blur's Left to Catch", windowWidth / 2 - 70, windowHeight - 100);
+                  
+         g.setFont(new Font("Verdana", 0, 10));
+         if (difficulty == 0) { /* sandbox difficulty */
+             g.drawString("Difficulty: Sandbox", windowWidth / 2 - 50, windowHeight - 75);
+         } else if (difficulty == 1) { /* Childs Play difficulty */
+             g.drawString("Difficulty: Childs Play", windowWidth / 2 - 55, windowHeight - 75);
+         } else if (difficulty == 2) { /* Average Joe difficulty */
+             g.drawString("Difficulty: Average Joe", windowWidth / 2 - 60, windowHeight - 75);
+         } else { /* God Mode difficulty */
+             g.drawString("Difficulty: God Mode", windowWidth / 2 - 55, windowHeight - 75);
+         }
 	     
 	     bs.show();
     }
