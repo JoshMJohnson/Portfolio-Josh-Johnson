@@ -84,7 +84,6 @@ public class Render3D extends Render {
         /* create pillars; inner walls */
         Level level = game.level;
         int size = 10;
-        double wallHeightAdjustment = 0.0625;
 
         /* creates blocks */
         /* lower half of wall */
@@ -96,26 +95,26 @@ public class Render3D extends Render {
                
                 if (block.solid) {
                     if (!eastSide.solid) {
-                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, wallHeightAdjustment);
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
                     }
 
                     if (!southSide.solid) {
-                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, wallHeightAdjustment);
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, 0);
                     }
                 } else {
                     if (eastSide.solid) {
-                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, wallHeightAdjustment);
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, 0);
                     }
 
                     if (southSide.solid) {
-                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, wallHeightAdjustment);
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, 0);
                     }
                 }
             }
         }
 
         /* upper half of wall */
-        wallHeightAdjustment += 0.5;
+        double upperHalf = 0.5;
         
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
@@ -125,20 +124,101 @@ public class Render3D extends Render {
                
                 if (block.solid) {
                     if (!eastSide.solid) {
-                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, wallHeightAdjustment);
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, upperHalf);
                     }
-
+                    
                     if (!southSide.solid) {
-                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, wallHeightAdjustment);
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, upperHalf);
                     }
                 } else {
                     if (eastSide.solid) {
-                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, wallHeightAdjustment);
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, upperHalf);
                     }
 
                     if (southSide.solid) {
-                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, wallHeightAdjustment);
-                    }
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, upperHalf);
+                    }                    
+                }
+            }
+        }
+        
+        /* sprites */
+        for (int xBlock = -size; xBlock <= size; xBlock++) {
+            for (int zBlock = -size; zBlock <= size; zBlock++) {
+                Block block = level.create(xBlock, zBlock);
+                
+                /* sprite walking buffer */
+                for (int s = 0; s < block.sprites.size(); s++) {
+                    Sprite sprite = block.sprites.get(s);
+                    renderSprite(xBlock + sprite.x, sprite.y, zBlock + sprite.z);
+                }
+            }
+        }
+    }
+    
+    /** rendering Sprites */
+    public void renderSprite(double x, double y, double z) {
+        /* has wall move with users head bobbing while moving */
+        double upCorrect = -0.0625;
+        double rightCorrect = 0.11;
+        double forwardCorrect = 0.11;
+        double walkCorrect = 0.0625;
+        
+        /* sprite calculations */
+        double xCalculate = ((x / 2) - (rightMovement * rightCorrect)) * 2;
+        double yCalculate = ((y / 2) - (up * upCorrect))+ (walking * walkCorrect) * 2;
+        double zCalculate = ((z / 2) - (forwardMovement * forwardCorrect)) * 2;
+        
+        double rotationX = xCalculate * cosine - zCalculate * sine;
+        double rotationY = yCalculate;
+        double rotationZ = zCalculate * cosine + xCalculate * sine;
+        
+        /* center of block */
+        double xCenter = width / 2;
+        double yCenter = height / 2;
+
+        /* rotation values */
+        double xPixel = rotationX / rotationZ * height + xCenter;
+        double yPixel = rotationY / rotationZ * height + yCenter;
+        
+        /* corner pins */
+        double xPixelLeft = xPixel - 50 / rotationZ;
+        double xPixelRight = xPixel + 50 / rotationZ;
+        
+        double yPixelLeft = yPixel - 50 / rotationZ;
+        double yPixelRight = yPixel + 50 / rotationZ;
+        
+        /* casting to integers */
+        int xPixelLeftInt = (int) xPixelLeft;
+        int xPixelRightInt = (int) xPixelRight;
+        int yPixelLeftInt = (int) yPixelLeft;
+        int yPixelRightInt = (int) yPixelRight;
+        
+        /* clipping */
+        if (xPixelLeftInt < 0) { /* x left side */
+            xPixelLeftInt = 0;
+        }
+        
+        if (xPixelRightInt > width) { /* x right side */
+            xPixelRightInt = width;
+        }
+        
+        if (yPixelLeftInt < 0) { /* y left side */
+            yPixelLeftInt = 0;
+        }
+        
+        if (yPixelRightInt > height) { /* y right side */
+            yPixelRightInt = height;
+        }
+        
+        rotationZ *= 8;
+        
+        /* render Sprites */
+        for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
+            for (int xPix = xPixelLeftInt; xPix < xPixelRightInt; xPix++) {
+                if (zBuffer[xPix + yPix * width] > rotationZ) {
+                    pixels[xPix + yPix * width] = 0xFFEA00;
+                    zBuffer[xPix + yPix * width] = rotationZ;
                 }
             }
         }

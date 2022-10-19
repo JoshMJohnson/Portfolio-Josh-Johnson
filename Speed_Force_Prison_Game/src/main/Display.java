@@ -20,7 +20,6 @@ import java.awt.image.DataBufferInt;
   * Program Description: 3-Dimensional game
   * Game Description: Catch the blur in time to regain your speed and escape the Speed Force Prison!
   *  - TODO: run around and collect blur's before time runs out
-  *  - TODO: collect enough blur's before time expires = winner!; else loser
   *  - TODO: have a end-game menu showing results with return to launcher button */
 public class Display extends Canvas implements Runnable {
     /* class objects */
@@ -44,9 +43,10 @@ public class Display extends Canvas implements Runnable {
 	private boolean running = false;
     private int[] pixels;
     private int fps; /* frames per second */
-    private int countdown = 100; /* timer in seconds */
     public static int difficulty = 1; /* sets difficulty */
+    private int countdown = 100; /* timer in seconds */
     private int blurs = 5; 
+    private boolean playerWon;
         
     /* user settings */
     private int newX = windowWidth / 2;
@@ -152,11 +152,15 @@ public class Display extends Canvas implements Runnable {
 	    }
 	    
         timer.stop();
-	    running = false;
+	    running = false;	    
+        g.setFont(new Font("Comic Sans MS", 0, 50));
 	    
-	    /* show game over */
-        g.setFont(new Font("Comic Sans MS", 0, 80));
-        g.drawString("Game Over!", 100, windowHeight/2);
+	    if (!playerWon) { /* if player loses the game */
+	        g.drawString("You're out of time!", windowWidth / 2 - 225, windowHeight/2);
+	    } else { /* else player wins game */
+            g.drawString("You Escaped!", windowWidth / 2 - 190, windowHeight/2);
+	    }
+	    	    
         g.dispose();
         bs.show();
             
@@ -188,10 +192,16 @@ public class Display extends Canvas implements Runnable {
 	     	     
          /* execute while game is running */
 	     while (running) {
-	         if (countdown == -1) {	 
+	         if (countdown == -1 || blurs == 0) { /* if time runs out or all blurs have been caught */
+	             if (countdown == -1) {
+	                 playerWon = false;
+	             } else {
+	                 playerWon = true;
+	             }
+	             
 	             stop();
 	         }
-	                  	         
+	         	                  	         
 	         /* frames per second counter */
 	         long currentTime = System.nanoTime();
 	         long passedTime = currentTime - prevTime;
