@@ -11,6 +11,7 @@ public class Render3D extends Render {
     public double[] zBufferWall;
     private double renderDistance = 5000;
     private double forwardMovement, rightMovement, cosine, sine, up, walking;
+    private double spriteSheetWidth = 8;
     
     /** constructor for the Render3D class */
     public Render3D(int width, int height) {
@@ -77,7 +78,7 @@ public class Render3D extends Render {
                 int xPix = (int) (xx + rightMovement);
                 int yPix = (int) (yy + forwardMovement);
                 zBuffer[x + y * width] = z;
-                pixels[x + y * width] = Texture.floor.pixels[(xPix & 7) + (yPix & 7) * 8];
+                pixels[x + y * width] = Texture.floor.pixels[(xPix & 7) + (yPix & 7) * 50];
             }
         }
         
@@ -182,11 +183,11 @@ public class Render3D extends Render {
         double yPixel = rotationY / rotationZ * height + yCenter;
         
         /* corner pins */
-        double xPixelLeft = xPixel - 50 / rotationZ;
-        double xPixelRight = xPixel + 50 / rotationZ;
+        double xPixelLeft = xPixel - 100 / rotationZ;
+        double xPixelRight = xPixel + 100 / rotationZ;
         
-        double yPixelLeft = yPixel - 50 / rotationZ;
-        double yPixelRight = yPixel + 50 / rotationZ;
+        double yPixelLeft = yPixel - 200 / rotationZ;
+        double yPixelRight = yPixel + 200 / rotationZ;
         
         /* casting to integers */
         int xPixelLeftInt = (int) xPixelLeft;
@@ -211,13 +212,20 @@ public class Render3D extends Render {
             yPixelRightInt = height;
         }
         
-        rotationZ *= 8;
+        rotationZ *= 4; /* has sprites get darker the further away they are */
         
         /* render Sprites */
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
+            double pixelRotationY = (yPix - yPixelRight) / (yPixelLeft - yPixelRight);
+            int yTexture = (int) pixelRotationY * 8;
+            
             for (int xPix = xPixelLeftInt; xPix < xPixelRightInt; xPix++) {
+                double pixelRotationX = (xPix - xPixelRight) / (xPixelLeft - xPixelRight);
+                int xTexture = (int) pixelRotationX * 8;
+
                 if (zBuffer[xPix + yPix * width] > rotationZ) {
-                    pixels[xPix + yPix * width] = 0xFFEA00;
+//                    pixels[xPix + yPix * width] = 0xFFEA00; /* texture of sprites */
+                    pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 8]; /* texture of sprites */
                     zBuffer[xPix + yPix * width] = rotationZ;
                 }
             }
