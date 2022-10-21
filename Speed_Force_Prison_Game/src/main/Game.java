@@ -15,7 +15,7 @@ public class Game {
     /** constructor for the Game class */
     public Game() {
         controls = new Controller();
-        level = new Level(30, 30);
+        level = new Level(100, 100);
     }
     
     /** game progression */

@@ -1,47 +1,61 @@
 package levels;
 
+import graphics.Render3D;
 import graphics.Sprite;
+
 import java.util.Random;
+
+import main.Display;
 
 /** creates a layout for the level */
 public class Level {
-    public Block[] blocks;
-    public final int width, height;
+    public Block[] arenaBlocks; 
+    public final int arenaWidth, arenaHeight;
     
     /** constructor for the Level class */
     public Level(int width, int height) {
-        this.width = width;
-        this.height = height;
-        blocks = new Block[width * height];
+        this.arenaWidth = width;
+        this.arenaHeight = height;
+        arenaBlocks = new Block[width * height];
+                
+        /* gets number of blurs needed to be collected before games is won */
+        int numBlurs = Display.blurs;
         
-        Random random = new Random();
+        if (Display.difficulty == 2) { /* if second hardest difficulty */
+            numBlurs = (int) (Math.floor(numBlurs * 1.5));
+        } else if (Display.difficulty == 3) { /* if hardest difficulty */
+            numBlurs = (int) (Math.floor(numBlurs * 2));
+        }
         
+        int blurChance = (int) Math.ceil(Render3D.arenaBorderSize / numBlurs); /* only renders exact amount of blurs to win game */        
+        Random random = new Random();        
+
         /* render blocks */
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 Block block = null;
                 
-                if (random.nextInt(8) == 0) { /* likelihood of rendering a wall */
+                if (random.nextInt(6) == 0) { /* likelihood of rendering a wall */
                     block = new SolidBlock();
                 } else {
                     block = new Block();
                     
-                    if (random.nextInt(5) == 0) { /* places sprite on one out of every 5 open tiles */
+                    if (random.nextInt(blurChance) == 0) { /* places sprite on one out of every 5 open tiles */
                         block.addSprite(new Sprite(0, 0, 0));
                     }
                 }
                 
-                blocks[x + y * width] = block;
+                arenaBlocks[x + y * width] = block;
             }
         }
     }
     
     /** creates a block */
     public Block create(int x, int y) {
-        if (x < 0 || y < 0 || x >= width || y >= height) {
+        if (x < 0 || y < 0 || x >= arenaWidth || y >= arenaHeight) {
             return Block.solidWall;
         }
         
-        return blocks[x + y * width];
+        return arenaBlocks[x + y * arenaWidth];
     }
 }

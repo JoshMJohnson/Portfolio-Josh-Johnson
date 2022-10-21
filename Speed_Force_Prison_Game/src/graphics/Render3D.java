@@ -11,7 +11,8 @@ public class Render3D extends Render {
     public double[] zBufferWall;
     private double renderDistance = 5000;
     private double forwardMovement, rightMovement, cosine, sine, up, walking;
-    private double spriteSheetWidth = 8;
+//    private double spriteSheetWidth = 8;
+    public static int arenaBorderSize = 1000; /* size of map */
     
     /** constructor for the Render3D class */
     public Render3D(int width, int height) {
@@ -83,13 +84,12 @@ public class Render3D extends Render {
         }
         
         /* create pillars; inner walls */
-        Level level = game.level;
-        int size = 1000; /* size of map */
-
+        Level level = game.level;        
+        
         /* creates blocks */
         /* lower half of wall */
-        for (int xBlock = -size; xBlock <= size; xBlock++) {
-            for (int zBlock = -size; zBlock <= size; zBlock++) {
+        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
+            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
                 /* creates outer wall */
                 Block block = level.create(xBlock + 1, zBlock + 1);
                 Block eastSide = level.create(xBlock + 2, zBlock + 1);
@@ -119,8 +119,8 @@ public class Render3D extends Render {
         /* upper half of wall */
         double upperHalf = 0.5;
         
-        for (int xBlock = -size; xBlock <= size; xBlock++) {
-            for (int zBlock = -size; zBlock <= size; zBlock++) {
+        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
+            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
                 /* creates outer wall */
                 Block block = level.create(xBlock + 1, zBlock + 1);
                 Block eastSide = level.create(xBlock + 2, zBlock + 1);
@@ -148,8 +148,8 @@ public class Render3D extends Render {
         }
         
         /* sprites */
-        for (int xBlock = -size; xBlock <= size; xBlock++) {
-            for (int zBlock = -size; zBlock <= size; zBlock++) {
+        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
+            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
                 Block block = level.create(xBlock, zBlock);
                 
                 /* sprite walking buffer */
@@ -216,7 +216,7 @@ public class Render3D extends Render {
             yPixelRightInt = height;
         }
         
-        rotationZ *= 2;
+        rotationZ *= 2; /* sprite z positioning adjustment */ 
         
         /* render Sprites */
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {

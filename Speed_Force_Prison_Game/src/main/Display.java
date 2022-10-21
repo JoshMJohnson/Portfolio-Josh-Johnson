@@ -45,7 +45,7 @@ public class Display extends Canvas implements Runnable {
     private int fps; /* frames per second */
     public static int difficulty = 1; /* sets difficulty */
     private int countdown = 100; /* timer in seconds */
-    private int blurs = 5; 
+    public static int blurs = 5; 
     private boolean playerWon;
         
     /* user settings */
@@ -91,7 +91,7 @@ public class Display extends Canvas implements Runnable {
 	        blurs = (int) (Math.floor(blurs * 2));
 	    }    
 	}
-	
+			
 	/** gets the window width of the game */
 	public static int getGameWidth() {
 	    if (selection == 0) {
