@@ -21,7 +21,7 @@ public class Screen extends Render {
             pixels[i] = 0;
         }
                 
-        render.floorAndCeiling(game);
+        render.arena(game);
         render.renderDistanceLimiter();
         
         draw(render, 0, 0);

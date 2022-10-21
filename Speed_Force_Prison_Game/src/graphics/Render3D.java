@@ -21,7 +21,7 @@ public class Render3D extends Render {
     }
         
     /** renders the floor and ceiling */
-    public void floorAndCeiling(Game game) {
+    public void arena(Game game) {
         /* make walls solid */
         for (int x = 0; x < width; x++) {
             zBufferWall[x] = 0;
@@ -84,16 +84,18 @@ public class Render3D extends Render {
         
         /* create pillars; inner walls */
         Level level = game.level;
-        int size = 1000; /* changes size of map */
+        int size = 1000; /* size of map */
 
         /* creates blocks */
         /* lower half of wall */
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
+                /* creates outer wall */
                 Block block = level.create(xBlock + 1, zBlock + 1);
                 Block eastSide = level.create(xBlock + 2, zBlock + 1);
                 Block southSide = level.create(xBlock + 1, zBlock + 2);
                
+                /* creates pillars */
                 if (block.solid) {
                     if (!eastSide.solid) {
                         renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
@@ -119,10 +121,12 @@ public class Render3D extends Render {
         
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
+                /* creates outer wall */
                 Block block = level.create(xBlock + 1, zBlock + 1);
                 Block eastSide = level.create(xBlock + 2, zBlock + 1);
                 Block southSide = level.create(xBlock + 1, zBlock + 2);
                
+                /* creates pillars */
                 if (block.solid) {
                     if (!eastSide.solid) {
                         renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, upperHalf);
@@ -212,14 +216,16 @@ public class Render3D extends Render {
             yPixelRightInt = height;
         }
         
+        rotationZ *= 2;
+        
         /* render Sprites */
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
-            double pixelRotationY = (yPix - yPixelRight) / (yPixelLeft - yPixelRight);
-            int yTexture = (int) pixelRotationY * 8;
+//            double pixelRotationY = (yPix - yPixelRight) / (yPixelLeft - yPixelRight);
+//            int yTexture = (int) pixelRotationY * 8;
             
             for (int xPix = xPixelLeftInt; xPix < xPixelRightInt; xPix++) {
-                double pixelRotationX = (xPix - xPixelRight) / (xPixelLeft - xPixelRight);
-                int xTexture = (int) pixelRotationX * 8;
+//                double pixelRotationX = (xPix - xPixelRight) / (xPixelLeft - xPixelRight);
+//                int xTexture = (int) pixelRotationX * 8;
 
                 if (zBuffer[xPix + yPix * width] > rotationZ) {
 //                    pixels[xPix + yPix * width] = 0xFFEA00; /* texture of sprites */
