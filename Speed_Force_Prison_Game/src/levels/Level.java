@@ -27,8 +27,12 @@ public class Level {
             numBlurs = (int) (Math.floor(numBlurs * 2));
         }
         
-        int blurChance = (int) Math.ceil(Render3D.arenaBorderSize / numBlurs); /* only renders exact amount of blurs to win game */        
-        Random random = new Random();        
+        int blurChance = (int) Math.ceil(Render3D.arenaBorderSize * 2 / numBlurs); /* adjusts amount of blurs to win game based on difficulty */        
+        Random random = new Random();  
+        
+        System.out.println("numBlurs: " + numBlurs);
+        System.out.println("blurChance: " + blurChance);
+        System.out.println("arenaBroderSize: " + Render3D.arenaBorderSize);
 
         /* render blocks */
         for (int y = 0; y < height; y++) {
