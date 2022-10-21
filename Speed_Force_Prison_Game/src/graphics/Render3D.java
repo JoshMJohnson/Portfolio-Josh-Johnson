@@ -21,7 +21,7 @@ public class Render3D extends Render {
     }
         
     /** renders the floor and ceiling */
-    public void floor(Game game) {
+    public void floorAndCeiling(Game game) {
         /* make walls solid */
         for (int x = 0; x < width; x++) {
             zBufferWall[x] = 0;
@@ -84,15 +84,15 @@ public class Render3D extends Render {
         
         /* create pillars; inner walls */
         Level level = game.level;
-        int size = 10;
+        int size = 1000; /* changes size of map */
 
         /* creates blocks */
         /* lower half of wall */
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
-                Block block = level.create(xBlock, zBlock);
-                Block eastSide = level.create(xBlock + 1, zBlock);
-                Block southSide = level.create(xBlock, zBlock + 1);
+                Block block = level.create(xBlock + 1, zBlock + 1);
+                Block eastSide = level.create(xBlock + 2, zBlock + 1);
+                Block southSide = level.create(xBlock + 1, zBlock + 2);
                
                 if (block.solid) {
                     if (!eastSide.solid) {
@@ -119,9 +119,9 @@ public class Render3D extends Render {
         
         for (int xBlock = -size; xBlock <= size; xBlock++) {
             for (int zBlock = -size; zBlock <= size; zBlock++) {
-                Block block = level.create(xBlock, zBlock);
-                Block eastSide = level.create(xBlock + 1, zBlock);
-                Block southSide = level.create(xBlock, zBlock + 1);
+                Block block = level.create(xBlock + 1, zBlock + 1);
+                Block eastSide = level.create(xBlock + 2, zBlock + 1);
+                Block southSide = level.create(xBlock + 1, zBlock + 2);
                
                 if (block.solid) {
                     if (!eastSide.solid) {
@@ -211,8 +211,6 @@ public class Render3D extends Render {
         if (yPixelRightInt > height) { /* y right side */
             yPixelRightInt = height;
         }
-        
-        rotationZ *= 4; /* has sprites get darker the further away they are */
         
         /* render Sprites */
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
