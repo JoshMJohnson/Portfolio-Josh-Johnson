@@ -147,21 +147,21 @@ public class Render3D extends Render {
             }
         }
         
-        /* sprites */
+        /* blurs */
         for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
             for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
                 Block block = level.create(xBlock, zBlock);
                 
-                /* sprite walking buffer */
-                for (int s = 0; s < block.sprites.size(); s++) {
-                    Sprite sprite = block.sprites.get(s);
-                    renderSprite(xBlock + sprite.x, sprite.y, zBlock + sprite.z);
+                /* blur walking buffer */
+                for (int s = 0; s < block.blurs.size(); s++) {
+                    Blur blur = block.blurs.get(s);
+                    renderSprite(xBlock + blur.x, blur.y, zBlock + blur.z);
                 }
             }
         }
     }
     
-    /** rendering Sprites */
+    /** rendering Blurs */
     public void renderSprite(double x, double y, double z) {
         /* has wall move with users head bobbing while moving */
         double upCorrect = -0.0625;
@@ -169,7 +169,7 @@ public class Render3D extends Render {
         double forwardCorrect = 0.11;
         double walkCorrect = 0.0625;
         
-        /* sprite calculations */
+        /* blur calculations */
         double xCalculate = ((x / 2) - (rightMovement * rightCorrect)) * 2;
         double yCalculate = ((y / 2) - (up * upCorrect))+ (walking * walkCorrect) * 2;
         double zCalculate = ((z / 2) - (forwardMovement * forwardCorrect)) * 2;
@@ -216,9 +216,9 @@ public class Render3D extends Render {
             yPixelRightInt = height;
         }
         
-        rotationZ *= 2; /* sprite z positioning adjustment */ 
+        rotationZ *= 2; /* blur z positioning adjustment */ 
         
-        /* render Sprites */
+        /* render Blurs */
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
 //            double pixelRotationY = (yPix - yPixelRight) / (yPixelLeft - yPixelRight);
 //            int yTexture = (int) pixelRotationY * 8;
@@ -228,8 +228,8 @@ public class Render3D extends Render {
 //                int xTexture = (int) pixelRotationX * 8;
 
                 if (zBuffer[xPix + yPix * width] > rotationZ) {
-//                    pixels[xPix + yPix * width] = 0xFFEA00; /* texture of sprites */
-                    pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 8]; /* texture of sprites */
+//                    pixels[xPix + yPix * width] = 0xFFEA00; /* texture of blurs */
+                    pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 8]; /* texture of blurs */
                     zBuffer[xPix + yPix * width] = rotationZ;
                 }
             }

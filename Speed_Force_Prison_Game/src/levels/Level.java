@@ -1,7 +1,7 @@
 package levels;
 
 import graphics.Render3D;
-import graphics.Sprite;
+import graphics.Blur;
 
 import java.util.Random;
 
@@ -44,8 +44,8 @@ public class Level {
                 } else {
                     block = new Block();
                     
-                    if (random.nextInt(blurChance) == 0) { /* places sprite on one out of every 5 open tiles */
-                        block.addSprite(new Sprite(0, 0, 0));
+                    if (random.nextInt(blurChance) == 0) { /* places blur on one out of every 5 open tiles */
+                        block.addBlur(new Blur(0, 0, 0));
                     }
                 }
                 

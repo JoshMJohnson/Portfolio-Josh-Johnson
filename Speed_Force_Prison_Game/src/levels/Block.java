@@ -1,16 +1,16 @@
 package levels;
 
-import graphics.Sprite;
+import graphics.Blur;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Block {
     public boolean solid = false;
     public static Block solidWall = new SolidBlock();
-    public List<Sprite> sprites = new ArrayList<Sprite>();
+    public List<Blur> blurs = new ArrayList<Blur>();
     
-    /** adds a sprite to the list of sprites */
-    public void addSprite(Sprite sprite) {
-        sprites.add(sprite);
+    /** adds a blur to the list of blurs */
+    public void addBlur(Blur blur) {
+        blurs.add(blur);
     }
 }
