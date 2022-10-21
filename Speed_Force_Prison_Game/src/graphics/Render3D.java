@@ -88,64 +88,64 @@ public class Render3D extends Render {
         
         /* creates blocks */
         /* lower half of wall */
-//        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
-//            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
-//                /* creates outer wall */
-//                Block block = level.create(xBlock + 1, zBlock + 1);
-//                Block eastSide = level.create(xBlock + 2, zBlock + 1);
-//                Block southSide = level.create(xBlock + 1, zBlock + 2);
-//               
-//                /* creates pillars */
-//                if (block.solid) {
-//                    if (!eastSide.solid) {
-//                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
-//                    }
-//
-//                    if (!southSide.solid) {
-//                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, 0);
-//                    }
-//                } else {
-//                    if (eastSide.solid) {
-//                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, 0);
-//                    }
-//
-//                    if (southSide.solid) {
-//                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, 0);
-//                    }
-//                }
-//            }
-//        }
-//
-//        /* upper half of wall */
-//        double upperHalf = 0.5;
-//        
-//        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
-//            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
-//                /* creates outer wall */
-//                Block block = level.create(xBlock + 1, zBlock + 1);
-//                Block eastSide = level.create(xBlock + 2, zBlock + 1);
-//                Block southSide = level.create(xBlock + 1, zBlock + 2);
-//               
-//                /* creates pillars */
-//                if (block.solid) {
-//                    if (!eastSide.solid) {
-//                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, upperHalf);
-//                    }
-//                    
-//                    if (!southSide.solid) {
-//                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, upperHalf);
-//                    }
-//                } else {
-//                    if (eastSide.solid) {
-//                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, upperHalf);
-//                    }
-//
-//                    if (southSide.solid) {
-//                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, upperHalf);
-//                    }                    
-//                }
-//            }
-//        }
+        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
+            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
+                /* creates outer wall */
+                Block block = level.create(xBlock + 1, zBlock + 1);
+                Block eastSide = level.create(xBlock + 2, zBlock + 1);
+                Block southSide = level.create(xBlock + 1, zBlock + 2);
+               
+                /* creates pillars */
+                if (block.solid) {
+                    if (!eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
+                    }
+
+                    if (!southSide.solid) {
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, 0);
+                    }
+                } else {
+                    if (eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, 0);
+                    }
+
+                    if (southSide.solid) {
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, 0);
+                    }
+                }
+            }
+        }
+
+        /* upper half of wall */
+        double upperHalf = 0.5;
+        
+        for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
+            for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
+                /* creates outer wall */
+                Block block = level.create(xBlock + 1, zBlock + 1);
+                Block eastSide = level.create(xBlock + 2, zBlock + 1);
+                Block southSide = level.create(xBlock + 1, zBlock + 2);
+               
+                /* creates pillars */
+                if (block.solid) {
+                    if (!eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, upperHalf);
+                    }
+                    
+                    if (!southSide.solid) {
+                        renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, upperHalf);
+                    }
+                } else {
+                    if (eastSide.solid) {
+                        renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, upperHalf);
+                    }
+
+                    if (southSide.solid) {
+                        renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, upperHalf);
+                    }                    
+                }
+            }
+        }
         
         /* sprites */
         for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
