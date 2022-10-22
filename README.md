@@ -1,5 +1,5 @@
-# **Simple_Coding_Examples** :open_book:
-Contains code in multiple coding languages that perform tasks and demonstrate concepts.
+# **Portfolio-Josh-Johnson** :open_book:
+Personal portfolio for Josh Johnson containing projects and demonstrating concepts.
 
 Test files are also included within this repo.
 
