@@ -61,10 +61,10 @@ public class Launcher extends Canvas implements Runnable {
             return;
         }
                           
-        Graphics g = bs.getDrawGraphics();       
-        g.fillRect(0,  0, 700, 500);
-        
+        Graphics g = bs.getDrawGraphics();               
         Color backgroundColor = new Color(139, 0 , 0);
+        
+        g.fillRect(0,  0, 700, 500);
         
         try {
             g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_background.png")), 0, 0, 700, 500, null);
@@ -77,13 +77,11 @@ public class Launcher extends Canvas implements Runnable {
                 if (InputHandler.mouseButton == 1) { /* clicking on the play button */    
                     frame.dispose();
                     new RunGame();
-
                 }
             } else if(InputHandler.mouseX > 20 && InputHandler.mouseX < 170
                     && InputHandler.mouseY > ((windowHeight / 2) - 70) && InputHandler.mouseY < ((windowHeight / 2) - 30)) { /* else if; options button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 170, (windowHeight / 2) - 70, 40, 40, null);
-                
-                
+                                
                 if (InputHandler.mouseButton == 1) { /* clicking on the options button */  
                     if (optionsMenuOpened == false) {
                         new Options(backgroundColor); 
@@ -122,8 +120,7 @@ public class Launcher extends Canvas implements Runnable {
         g.drawString("Options", 20, (windowHeight / 2) - 40);
         g.drawString("Help", 20, (windowHeight / 2) + 40);
         g.drawString("Quit", 20, (windowHeight / 2) + 120);
-        g.dispose();
-        
+        g.dispose();        
         bs.show();
     }
     

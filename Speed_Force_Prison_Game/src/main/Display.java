@@ -2,7 +2,7 @@ package main;
 
 import graphics.Screen;
 import gui.Launcher;
-import input.Controller;
+import input.Player;
 import input.InputHandler;
 import javax.swing.Timer;
 import java.awt.Canvas;
@@ -20,7 +20,9 @@ import java.awt.image.DataBufferInt;
   * Program Description: 3-Dimensional game
   * Game Description: Catch the blur in time to regain your speed and escape the Speed Force Prison!
   *  - TODO: run around and collect blur's before time runs out
-  *  - TODO: have a end-game menu showing results with return to launcher button */
+  *  - TODO: have a end-game menu showing results with return to launcher button 
+  *  
+  *  Controls what the player can see during different points of time while running the program */
 public class Display extends Canvas implements Runnable {
     /* class objects */
     private Screen screen;
@@ -215,6 +217,7 @@ public class Display extends Canvas implements Runnable {
 	             ticked = true;
 	             tickCount++;
 	             
+	             /* limits frame rate: sets game update to 60 times per second */
 	             if (tickCount % 60 == 0) {
 	                 fps = frames;
 	                 prevTime += 1000;
@@ -237,13 +240,13 @@ public class Display extends Canvas implements Runnable {
          newX = InputHandler.mouseX;
          
          if (newX > oldX) { /* if moving right; rotate right */
-             Controller.turnRight = true;
+             Player.turnRight = true;
          } else if (newX < oldX) { /* if moving left; rotate left */
-             Controller.turnLeft = true;
+             Player.turnLeft = true;
          } else if (newX == oldX) { /* if still; stop rotation */
              if (newX > 100 && newX < windowWidth - 100) { /* only stop rotating if mouse is not on edge of window */
-                 Controller.turnRight = false;
-                 Controller.turnLeft = false;  
+                 Player.turnRight = false;
+                 Player.turnLeft = false;  
              }
          }     
          
@@ -266,8 +269,7 @@ public class Display extends Canvas implements Runnable {
 	     }
 	     
 	     g = bs.getDrawGraphics();
-	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);
-	     
+	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);	     
 	     g.setColor(Color.yellow);
 	     g.setFont(new Font("Verdana", 0, 30));
 	     g.drawString(fps + " FPS", 15, 45);
@@ -299,11 +301,11 @@ public class Display extends Canvas implements Runnable {
          g.setFont(new Font("Verdana", 0, 10));
          if (difficulty == 0) { /* sandbox difficulty */
              g.drawString("Difficulty: Sandbox", windowWidth / 2 - 50, windowHeight - 75);
-         } else if (difficulty == 1) { /* Childs Play difficulty */
+         } else if (difficulty == 1) { /* easiest difficulty */
              g.drawString("Difficulty: Childs Play", windowWidth / 2 - 55, windowHeight - 75);
-         } else if (difficulty == 2) { /* Average Joe difficulty */
+         } else if (difficulty == 2) { /* second easiest difficulty */
              g.drawString("Difficulty: Average Joe", windowWidth / 2 - 60, windowHeight - 75);
-         } else { /* God Mode difficulty */
+         } else { /* hardest difficulty */
              g.drawString("Difficulty: God Mode", windowWidth / 2 - 55, windowHeight - 75);
          }
 	     

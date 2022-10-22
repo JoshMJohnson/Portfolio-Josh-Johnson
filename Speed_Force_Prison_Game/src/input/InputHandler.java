@@ -22,21 +22,15 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
     
     /** handles action when mouse is clicked */
     @Override
-    public void mouseClicked(MouseEvent e) {
-        
-    }
+    public void mouseClicked(MouseEvent e) {}
 
     /** handles action when mouse enters a component */
     @Override
-    public void mouseEntered(MouseEvent e) {
-        
-    }
+    public void mouseEntered(MouseEvent e) {}
 
     /** handles action when mouse leaves a component */
     @Override
-    public void mouseExited(MouseEvent e) {
-        
-    }
+    public void mouseExited(MouseEvent e) {}
 
     /** handles action when mouse is pressed */
     @Override
@@ -70,9 +64,7 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
 
     /** handles action when window gains selected window status */
     @Override
-    public void focusGained(FocusEvent e) {
-        
-    }
+    public void focusGained(FocusEvent e) {}
 
     /** handles action when window is taking in a command but loses 
       * selected window status before action is completed */
@@ -105,7 +97,5 @@ public class InputHandler implements KeyListener, FocusListener, MouseListener, 
 
     /** handles action when a key is typed */
     @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
+    public void keyTyped(KeyEvent e) {}
 }

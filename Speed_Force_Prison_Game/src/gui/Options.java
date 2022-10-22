@@ -44,8 +44,7 @@ public class Options extends JFrame {
         setResizable(false);
         setVisible(true);
         window.setLayout(null);  
-        window.setBackground(backgroundColor);       
-                      
+        window.setBackground(backgroundColor);                            
         drawButtons();
         window.repaint();
     }
@@ -171,6 +170,5 @@ public class Options extends JFrame {
                 dispose();
             }
         });
-    }
-    
+    }    
 }

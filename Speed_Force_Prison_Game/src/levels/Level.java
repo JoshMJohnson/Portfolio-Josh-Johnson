@@ -2,9 +2,7 @@ package levels;
 
 import graphics.Render3D;
 import graphics.Blur;
-
 import java.util.Random;
-
 import main.Display;
 
 /** creates a layout for the level */
@@ -18,6 +16,11 @@ public class Level {
         this.arenaHeight = height;
         arenaBlocks = new Block[width * height];
                 
+        generateLevel();
+    }
+    
+    /** sets up the level */
+    private void generateLevel() {
         /* gets number of blurs needed to be collected before games is won */
         int numBlurs = Display.blurs;
         
@@ -30,13 +33,9 @@ public class Level {
         int blurChance = (int) Math.ceil(Render3D.arenaBorderSize * 2 / numBlurs); /* adjusts amount of blurs to win game based on difficulty */        
         Random random = new Random();  
         
-        System.out.println("numBlurs: " + numBlurs);
-        System.out.println("blurChance: " + blurChance);
-        System.out.println("arenaBroderSize: " + Render3D.arenaBorderSize);
-
         /* render blocks */
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < arenaHeight; y++) {
+            for (int x = 0; x < arenaWidth; x++) {
                 Block block = null;
                 
                 if (random.nextInt(6) == 0) { /* likelihood of rendering a wall */
@@ -49,7 +48,7 @@ public class Level {
                     }
                 }
                 
-                arenaBlocks[x + y * width] = block;
+                arenaBlocks[x + y * arenaWidth] = block;
             }
         }
     }

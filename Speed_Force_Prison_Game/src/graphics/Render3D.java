@@ -1,6 +1,6 @@
 package graphics;
 
-import input.Controller;
+import input.Player;
 import levels.Block;
 import levels.Level;
 import main.Game;
@@ -11,7 +11,6 @@ public class Render3D extends Render {
     public double[] zBufferWall;
     private double renderDistance = 5000;
     private double forwardMovement, rightMovement, cosine, sine, up, walking;
-//    private double spriteSheetWidth = 8;
     public static int arenaBorderSize = 1000; /* size of map */
     
     /** constructor for the Render3D class */
@@ -33,14 +32,14 @@ public class Render3D extends Render {
         double ceilingPosition = 8;
         
         /* rotations */
-        double rotation = game.controls.rotation;
+        double rotation = game.player.rotation;
         cosine = Math.cos(rotation);
         sine = Math.sin(rotation);
         
         /* movement */
-        forwardMovement = game.controls.z;
-        rightMovement =  game.controls.x;
-        up = game.controls.y;
+        forwardMovement = game.player.z;
+        rightMovement =  game.player.x;
+        up = game.player.y;
         walking = 0;
                        
         /* render effects */
@@ -48,16 +47,16 @@ public class Render3D extends Render {
             double ceiling = (double) (y - height / 2) / height;   
             double z = (floorPosition + up) / ceiling;
             
-            if (Controller.walk) {
+            if (Player.walk) {
                 walking = Math.sin(game.time / 6.0) * 0.4;
                 z = (floorPosition + up + walking) / ceiling;
             }
             
             /* adjusts head bobbing amounts */
-            if (Controller.crouchWalk && Controller.walk) {
+            if (Player.crouchWalk && Player.walk) {
                 walking = Math.sin(game.time / 6.0) * 0.15;
                 z = (floorPosition + up + walking) / ceiling;
-            } else if (Controller.runForward && Controller.walk) {
+            } else if (Player.runForward && Player.walk) {
                 walking = Math.sin(game.time / 6.0) * 0.8;
                 z = (floorPosition + up + walking) / ceiling;
             }
@@ -66,7 +65,7 @@ public class Render3D extends Render {
             if (ceiling < 0) {
                 z = (ceilingPosition - up) / -ceiling;
                 
-                if (Controller.walk) {
+                if (Player.walk) {
                     z = (ceilingPosition - up - walking) / -ceiling;
                 }
             }
@@ -220,15 +219,8 @@ public class Render3D extends Render {
         
         /* render Blurs */
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
-//            double pixelRotationY = (yPix - yPixelRight) / (yPixelLeft - yPixelRight);
-//            int yTexture = (int) pixelRotationY * 8;
-            
             for (int xPix = xPixelLeftInt; xPix < xPixelRightInt; xPix++) {
-//                double pixelRotationX = (xPix - xPixelRight) / (xPixelLeft - xPixelRight);
-//                int xTexture = (int) pixelRotationX * 8;
-
                 if (zBuffer[xPix + yPix * width] > rotationZ) {
-//                    pixels[xPix + yPix * width] = 0xFFEA00; /* texture of blurs */
                     pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 8]; /* texture of blurs */
                     zBuffer[xPix + yPix * width] = rotationZ;
                 }
@@ -330,8 +322,7 @@ public class Render3D extends Render {
             zBufferWall[x] = zWall;
                         
             double yPixelTop = yPixelLeftTop + (yPixelRightTop - yPixelLeftTop) * pixelRotation;          
-            double yPixelBottom = yPixelLeftBottom + (yPixelRightBottom - yPixelLeftBottom) * pixelRotation;
-            
+            double yPixelBottom = yPixelLeftBottom + (yPixelRightBottom - yPixelLeftBottom) * pixelRotation;            
             int yPixelTopInt = (int) yPixelTop;
             int yPixelBottomInt = (int) yPixelBottom;
             

@@ -1,10 +1,9 @@
 package graphics;
 
 import java.awt.image.BufferedImage;
-
 import javax.imageio.ImageIO;
 
-/** deals with textures such as images for parts of the game */
+/** deals with textures such as images used for parts of the game */
 public class Texture {
     public static Render floor = loadBitmap("/textures/floor.png");
     public static Render wall = loadBitmap("/textures/wallTemp.png");

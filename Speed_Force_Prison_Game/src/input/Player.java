@@ -1,7 +1,7 @@
 package input;
 
 /** handles user input controls */
-public class Controller {
+public class Player {
     public double x, y, z, rotation, xa, za, rotationa;
     public static boolean turnLeft = false;
     public static boolean turnRight = false;

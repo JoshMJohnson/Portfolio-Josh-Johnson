@@ -1,20 +1,18 @@
 package main;
 
-import input.Controller;
-
+import input.Player;
 import java.awt.event.KeyEvent;
-
 import levels.Level;
 
 /** overall game manager */
 public class Game {
     public int time;
-    public Controller controls;
+    public Player player;
     public Level level;
     
     /** constructor for the Game class */
     public Game() {
-        controls = new Controller();
+        player = new Player();
         level = new Level(100, 100);
     }
     
@@ -31,6 +29,6 @@ public class Game {
         boolean crouch = key[KeyEvent.VK_CONTROL];
         boolean run = key[KeyEvent.VK_SHIFT];
         
-        controls.tick(forward, backward, left, right, jump, crouch, run);
+        player.tick(forward, backward, left, right, jump, crouch, run);
     }
 }
