@@ -38,4 +38,4 @@ All code has been written and reviewed by Josh Johnson.
 
 <sup>_Projects in development are currently being worked on_</sup>
 
-<center>[:arrow_up: Back to top :arrow_up:](#portfolio-josh-johnson-open_book)</center>
+<p style="align: center;">[:arrow_up: Back to top :arrow_up:]</p>(#portfolio-josh-johnson-open_book)
