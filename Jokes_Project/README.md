@@ -2,7 +2,7 @@
 Keeps a database of jokes that users can add jokes to and⁄or retrieve jokes from
 
 ---
-## Instructions of how to run program:
+## Instructions of how to run program
 
     1.) Open command line and traverse to Jokes_Project folder
 
