@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 /** deals with textures such as images used for parts of the game */
 public class Texture {
     public static Render floor = loadBitmap("/textures/floor.png");
-    public static Render wall = loadBitmap("/textures/wallTemp.png");
+    public static Render wall = loadBitmap("/textures/wall.png");
     public static Render blur = loadBitmap("/textures/blur.png");
     
     /** locates and loads textures */

@@ -185,12 +185,12 @@ public class Render3D extends Render {
         double xPixel = rotationX / rotationZ * height + xCenter;
         double yPixel = rotationY / rotationZ * height + yCenter;
         
-        /* corner pins */
-        double xPixelLeft = xPixel - 100 / rotationZ;
-        double xPixelRight = xPixel + 100 / rotationZ;
+        /* relative location of blur */
+        double xPixelLeft = xPixel - 80 / rotationZ;
+        double xPixelRight = xPixel + 80 / rotationZ;
         
         double yPixelLeft = yPixel - 200 / rotationZ;
-        double yPixelRight = yPixel + 200 / rotationZ;
+        double yPixelRight = yPixel + 50 / rotationZ;
         
         /* casting to integers */
         int xPixelLeftInt = (int) xPixelLeft;
