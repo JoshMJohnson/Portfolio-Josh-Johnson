@@ -1,5 +1,5 @@
 # Ultimate Frisbee Project :flying_disc:
-Customized ultimate frisbee Wiki page
+Customized Ultimate Frisbee Wiki page
 
 ---
 ## Instructions of how to run program
