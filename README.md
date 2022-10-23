@@ -40,3 +40,9 @@ All code has been written and reviewed by Josh Johnson.
 
 | [:arrow_up: Back to top :arrow_up:](#portfolio-josh-johnson-open_book) |
 | :--------------------------------------: |
+
+<style>
+    td, th {
+        border: none;
+    }
+</style>
