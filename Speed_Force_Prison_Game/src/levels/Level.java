@@ -44,7 +44,7 @@ public class Level {
                 } else {
                     block = new Block();
                     
-                    if (random.nextInt(blurChance) == 0) { /* places a blur on one out of every 'blurChance;value' open tiles */
+                    if (random.nextInt(blurChance) == 0) { /* places a blur on one out of every 'blurChance;value' tiles */
                         block.addBlur(new Blur(0.5, 0, 0.5));
                     }
                 }

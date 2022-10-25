@@ -186,11 +186,10 @@ public class Render3D extends Render {
         double yPixel = rotationY / rotationZ * height + yCenter;
         
         /* relative location of blur */
-        double xPixelLeft = xPixel - 80 / rotationZ;
-        double xPixelRight = xPixel + 80 / rotationZ;
-        
-        double yPixelLeft = yPixel - 200 / rotationZ;
-        double yPixelRight = yPixel + 50 / rotationZ;
+        double xPixelLeft = xPixel - 80 / rotationZ; /* extends blur 80 pixels in width in the left direction */
+        double xPixelRight = xPixel + 80 / rotationZ; /* extends blur 80 pixels in width in the right direction */       
+        double yPixelLeft = yPixel - 150 / rotationZ; /* extends blur 200 pixels in height in the upward direction */
+        double yPixelRight = yPixel + 40 / rotationZ; /* extends blur 80 pixels in height in the downward direction */
         
         /* casting to integers */
         int xPixelLeftInt = (int) xPixelLeft;
@@ -221,7 +220,8 @@ public class Render3D extends Render {
         for (int yPix = yPixelLeftInt; yPix < yPixelRightInt; yPix++) {
             for (int xPix = xPixelLeftInt; xPix < xPixelRightInt; xPix++) {
                 if (zBuffer[xPix + yPix * width] > rotationZ) {
-                    pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 8]; /* texture of blurs */
+                    pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 30]; /* texture of blurs */
+//                    pixels[xPix + yPix * width] = 0xFF8C00; /* texture of blurs; color:dark-orange */
                     zBuffer[xPix + yPix * width] = rotationZ;
                 }
             }

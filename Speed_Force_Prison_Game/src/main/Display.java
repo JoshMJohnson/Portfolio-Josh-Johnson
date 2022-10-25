@@ -295,10 +295,9 @@ public class Display extends Canvas implements Runnable {
 	     
 	     g.setFont(new Font("Verdana", 0, 15));
 	     g.drawString("Seconds Remaining", windowWidth - 175, 60);	     
-         g.setFont(new Font("Verdana", 0, 15));
-         g.drawString("Blur's Left to Catch", windowWidth / 2 - 70, windowHeight - 100);
-                  
+         g.drawString("Blur's Left to Catch", windowWidth / 2 - 70, windowHeight - 100);                  
          g.setFont(new Font("Verdana", 0, 10));
+         
          if (difficulty == 0) { /* sandbox difficulty */
              g.drawString("Difficulty: Sandbox", windowWidth / 2 - 50, windowHeight - 75);
          } else if (difficulty == 1) { /* easiest difficulty */
