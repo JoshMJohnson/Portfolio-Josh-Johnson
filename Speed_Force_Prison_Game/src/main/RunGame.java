@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 
 /** begins the game when told to start from the launcher/start-up window  */
 public class RunGame {   
+    public static JFrame frame = new JFrame();
+
     /** constructor for the Launcher class */
     public RunGame() {
         Toolkit toolkit = null;
@@ -24,7 +26,6 @@ public class RunGame {
         }
         
         Cursor cursorIcon = toolkit.createCustomCursor(cursorImage, new Point(0,0), "img");        
-        JFrame frame = new JFrame();
         Display game = new Display();
 
         /* setup game window */

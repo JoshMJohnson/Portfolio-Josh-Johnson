@@ -4,7 +4,10 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Player;
 import input.InputHandler;
+
+import javax.swing.JFrame;
 import javax.swing.Timer;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -22,7 +25,7 @@ import java.awt.image.DataBufferInt;
   *  - TODO: run around and collect blur's before time runs out
   *  - TODO: have a end-game menu showing results with return to launcher button 
   *  
-  *  Controls what the player can see during different points of time while running the program */
+  *  Control what the player can see during different points of time while running the program */
 public class Display extends Canvas implements Runnable {
     /* class objects */
     private Screen screen;
@@ -147,7 +150,7 @@ public class Display extends Canvas implements Runnable {
 	}
 	
 	/** stops the game */
-	public void stop() {
+	public void stop(boolean fullyPlayed, boolean mainMenu) {
 	    /* if already not running */
 	    if (!running) {
 	        return;
@@ -155,23 +158,40 @@ public class Display extends Canvas implements Runnable {
 	    
         timer.stop();
 	    running = false;	    
-        g.setFont(new Font("Comic Sans MS", 0, 50));
 	    
-	    if (!playerWon) { /* if player loses the game */
-	        g.drawString("You're out of time!", windowWidth / 2 - 225, windowHeight/2);
-	    } else { /* else player wins game */
-            g.drawString("You Escaped!", windowWidth / 2 - 190, windowHeight/2);
-	    }
-	    	    
-        g.dispose();
-        bs.show();
+	    /* if player needs a winner/loser pop-up */
+	    if (fullyPlayed) {
+            g.setFont(new Font("Comic Sans MS", 0, 50));
+
+            if (!playerWon) { /* if player loses the game */
+                g.drawString("You're out of time!", windowWidth / 2 - 225, windowHeight / 2);
+            } else { /* else player wins game */
+                g.drawString("You Escaped!", windowWidth / 2 - 190, windowHeight / 2);
+            }
+
+            g.dispose();
+            bs.show();
+	    } 
             
-	    try {
-            thread.join();
+	    try {		   
+	        /* if Restart/Main Menu button in-game was selected */
+	        if (!fullyPlayed) {
+	            RunGame.frame.dispose(); 	      
+                RunGame.frame = new JFrame(); 
+
+	            if (!mainMenu) { /* if Restart selected */
+	                new RunGame();
+	            } else { /* else; Main Menu selected */
+	                launcher = null;
+	                getLauncherInstance();
+	            }
+	        }
+	        
+            thread.join(); /* stops running game thread */
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1); /* exited on error */
-        }
+        }    
 	}
 	
 	 /** thread use; start-up method when the game is set to start */
@@ -201,7 +221,7 @@ public class Display extends Canvas implements Runnable {
 	                 playerWon = true;
 	             }
 	             
-	             stop();
+	             stop(true, false);
 	         }
 	         	                  	         
 	         /* frames per second counter */
@@ -255,6 +275,8 @@ public class Display extends Canvas implements Runnable {
 	 
 	 /** render the screen */
 	 private void render() {
+	     Color standardColor = Color.YELLOW;
+	     
 	     bs = this.getBufferStrategy();
 	     
 	     if (bs == null) {
@@ -270,7 +292,7 @@ public class Display extends Canvas implements Runnable {
 	     
 	     g = bs.getDrawGraphics();
 	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);	     
-	     g.setColor(Color.yellow);
+	     g.setColor(standardColor);
 	     g.setFont(new Font("Verdana", 0, 30));
 	     g.drawString(fps + " FPS", 15, 45);
 	     
@@ -307,9 +329,60 @@ public class Display extends Canvas implements Runnable {
          } else { /* hardest difficulty */
              g.drawString("Difficulty: God Mode", windowWidth / 2 - 55, windowHeight - 75);
          }
-	     
+         
+         renderButtons(standardColor);	     
 	     bs.show();
     }
+	 
+	 /** creates the Quit and Restart buttons while in game */
+	 private void renderButtons(Color standardColor) {   
+	     Color hoveredColor = new Color(255, 155, 0);
+	     
+	     g.setColor(standardColor);
+	     g.setFont(new Font("Verdana", 0, 20));
+	     
+	     /* in-game quit button */
+	     g.drawString("Quit", 15, windowHeight - 50);
+	     
+	     if (InputHandler.mouseX > 10 && InputHandler.mouseX < 60
+	             && InputHandler.mouseY > windowHeight - 90 && InputHandler.mouseY < windowHeight) {
+	         g.setColor(hoveredColor);
+	         g.drawString("Quit", 15, windowHeight - 50);
+	         
+	         if (InputHandler.mouseButton == 1) { /* clicking on the quit button */
+	             System.exit(0);
+	         }
+	     }
+	     	     
+	     /* in-game Restart button */
+	     g.setColor(standardColor);
+	     g.drawString("Restart", 85, windowHeight - 50);
+	     
+	     if (InputHandler.mouseX > 80 && InputHandler.mouseX < 190
+                 && InputHandler.mouseY > windowHeight - 90 && InputHandler.mouseY < windowHeight) {
+             g.setColor(hoveredColor);
+             g.drawString("Restart", 85, windowHeight - 50);
+             
+             if (InputHandler.mouseButton == 1) { /* clicking on the Restart button */
+                 InputHandler.mouseButton = 0;
+                 stop(false, false);              
+             }
+         }
+	     
+	     /* in-game Main Menu button */
+	     g.setColor(standardColor);
+         g.drawString("Main Menu", windowWidth - 140, windowHeight - 50);
+         
+         if (InputHandler.mouseX > windowWidth - 210 && InputHandler.mouseX < windowWidth
+                 && InputHandler.mouseY > windowHeight - 90 && InputHandler.mouseY < windowHeight) {
+             g.setColor(hoveredColor);
+             g.drawString("Main Menu", windowWidth - 140, windowHeight - 50);
+             
+             if (InputHandler.mouseButton == 1) { /* clicking on the Main Menu button */ 
+                 stop(false, true);
+             }
+         }
+	 }
 	 
     /** main method */
     public static void main(String args[]) {

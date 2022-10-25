@@ -74,7 +74,8 @@ public class Launcher extends Canvas implements Runnable {
                     && InputHandler.mouseY > ((windowHeight / 2) - 150) && InputHandler.mouseY < ((windowHeight / 2) - 110)) { /* if play button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 95, (windowHeight / 2) - 150, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the play button */    
+                if (InputHandler.mouseButton == 1) { /* clicking on the play button */ 
+                    InputHandler.mouseButton = 0;
                     frame.dispose();
                     new RunGame();
                 }
@@ -120,7 +121,6 @@ public class Launcher extends Canvas implements Runnable {
         g.drawString("Options", 20, (windowHeight / 2) - 40);
         g.drawString("Help", 20, (windowHeight / 2) + 40);
         g.drawString("Quit", 20, (windowHeight / 2) + 120);
-        g.dispose();        
         bs.show();
     }
     

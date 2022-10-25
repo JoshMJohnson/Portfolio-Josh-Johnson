@@ -32,7 +32,7 @@ public class Options extends JFrame {
     private JTextField textWidth, textHeight;  
     private JLabel resLabel, customWidth, customHeight, customLabel, optionsLabel, difficultyLabel;
     private int buttonWidth = 120;
-    private int buttonHeight = 40;
+    private int buttonHeight = 30;
         
     /** constructor for Options class */
     public Options(Color backgroundColor) {  
@@ -142,7 +142,7 @@ public class Options extends JFrame {
         
         /* create buttons */
         submitButton = new JButton("Save");
-        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2) - 3, windowHeight - 85, buttonWidth, buttonHeight - 10);
+        rSubmitButton = new Rectangle((windowWidth / 2) - (buttonWidth / 2) - 3, windowHeight - 85, buttonWidth, buttonHeight);
         submitButton.setBounds(rSubmitButton);
         submitButton.setForeground(fontColor);
         submitButton.setBackground(buttonColor);
