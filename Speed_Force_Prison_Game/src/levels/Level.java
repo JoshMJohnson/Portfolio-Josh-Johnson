@@ -31,6 +31,7 @@ public class Level {
         }
         
         int blurChance = (int) Math.ceil(Render3D.arenaBorderSize * 2 / numBlurs); /* adjusts amount of blurs to win game based on difficulty */        
+        int wallChance = 6;        
         Random random = new Random();  
         
         /* render blocks */
@@ -38,13 +39,13 @@ public class Level {
             for (int x = 0; x < arenaWidth; x++) {
                 Block block = null;
                 
-                if (random.nextInt(6) == 0) { /* likelihood of rendering a wall */
+                if (random.nextInt(wallChance) == 0) { /* likelihood of rendering a wall */
                     block = new SolidBlock();
                 } else {
                     block = new Block();
                     
-                    if (random.nextInt(2) == 0) { /* places blur on one out of every 5 open tiles */
-                        block.addBlur(new Blur(0, 0, 0));
+                    if (random.nextInt(blurChance) == 0) { /* places a blur on one out of every 'blurChance;value' open tiles */
+                        block.addBlur(new Blur(0.5, 0, 0.5));
                     }
                 }
                 
