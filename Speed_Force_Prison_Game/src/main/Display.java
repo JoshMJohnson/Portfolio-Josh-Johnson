@@ -22,10 +22,7 @@ import java.awt.image.DataBufferInt;
 /** Created By: Josh Johnson
   * Program Description: 3-Dimensional game
   * Game Description: Catch the blur in time to regain your speed and escape the Speed Force Prison!
-  *  - TODO: run around and collect blur's before time runs out
-  *  - TODO: have a end-game menu showing results with return to launcher button 
-  *  
-  *  Control what the player can see during different points of time while running the program */
+  */
 public class Display extends Canvas implements Runnable {
     /* class objects */
     private Screen screen;
@@ -52,7 +49,8 @@ public class Display extends Canvas implements Runnable {
     private int countdown = 100; /* timer in seconds */
     public static int blurs = 5; 
     private boolean playerWon;
-        
+    private boolean gameOver = false;    
+    
     /* user settings */
     private int newX = windowWidth / 2;
     private int oldX = windowWidth / 2;
@@ -156,36 +154,26 @@ public class Display extends Canvas implements Runnable {
 	        return;
 	    }
 	    
-        timer.stop();
-	    running = false;	    
+	    timer.stop();
 	    
-	    /* if player needs a winner/loser pop-up */
-	    if (fullyPlayed) {
-            g.setFont(new Font("Comic Sans MS", 0, 50));
-
-            if (!playerWon) { /* if player loses the game */
-                g.drawString("You're out of time!", windowWidth / 2 - 225, windowHeight / 2);
-            } else { /* else player wins game */
-                g.drawString("You Escaped!", windowWidth / 2 - 190, windowHeight / 2);
-            }
-
-            g.dispose();
-            bs.show();
-	    } 
-            
+	    /* allow buttons to still work even after the game has reached an end point */
+        while (fullyPlayed) {
+            render();
+//            winnerLoser();
+        }
+                
+        running = false;
+  
 	    try {		   
-	        /* if Restart/Main Menu button in-game was selected */
-	        if (!fullyPlayed) {
-	            RunGame.frame.dispose(); 	      
-                RunGame.frame = new JFrame(); 
+            RunGame.frame.dispose();
+            RunGame.frame = new JFrame();
 
-	            if (!mainMenu) { /* if Restart selected */
-	                new RunGame();
-	            } else { /* else; Main Menu selected */
-	                launcher = null;
-	                getLauncherInstance();
-	            }
-	        }
+            if (!mainMenu) { /* if Restart selected */
+                new RunGame();
+            } else { /* else; Main Menu selected */
+                launcher = null;
+                getLauncherInstance();
+            }
 	        
             thread.join(); /* stops running game thread */
         } catch (Exception e) {
@@ -214,13 +202,14 @@ public class Display extends Canvas implements Runnable {
 	     	     
          /* execute while game is running */
 	     while (running) {
-	         if (countdown == -1 || blurs == 0) { /* if time runs out or all blurs have been caught */
-	             if (countdown == -1) {
+	         if (countdown == 0 || blurs == 0) { /* if time runs out or all blurs have been caught */
+	             if (countdown == 0) {
 	                 playerWon = false;
 	             } else {
 	                 playerWon = true;
 	             }
 	             
+	             gameOver = true;
 	             stop(true, false);
 	         }
 	         	                  	         
@@ -272,7 +261,7 @@ public class Display extends Canvas implements Runnable {
          
          oldX = newX;
 	 }
-	 
+		 
 	 /** render the screen */
 	 private void render() {
 	     Color standardColor = Color.YELLOW;
@@ -290,7 +279,7 @@ public class Display extends Canvas implements Runnable {
 	         pixels[i] = screen.pixels[i];
 	     }
 	     
-	     g = bs.getDrawGraphics();
+	     g = bs.getDrawGraphics();	     
 	     g.drawImage(img, 0, 0, getGameWidth(), getGameHeight(), null);	     
 	     g.setColor(standardColor);
 	     g.setFont(new Font("Verdana", 0, 30));
@@ -331,7 +320,12 @@ public class Display extends Canvas implements Runnable {
          }
          
          renderButtons(standardColor);	     
-	     bs.show();
+         
+         if (gameOver) {
+             winnerLoser(standardColor);
+         }
+         
+         bs.show();
     }
 	 
 	 /** creates the Quit and Restart buttons while in game */
@@ -373,7 +367,7 @@ public class Display extends Canvas implements Runnable {
 	     g.setColor(standardColor);
          g.drawString("Main Menu", windowWidth - 140, windowHeight - 50);
          
-         if (InputHandler.mouseX > windowWidth - 210 && InputHandler.mouseX < windowWidth
+         if (InputHandler.mouseX > windowWidth - 150 && InputHandler.mouseX < windowWidth
                  && InputHandler.mouseY > windowHeight - 90 && InputHandler.mouseY < windowHeight) {
              g.setColor(hoveredColor);
              g.drawString("Main Menu", windowWidth - 140, windowHeight - 50);
@@ -384,6 +378,18 @@ public class Display extends Canvas implements Runnable {
          }
 	 }
 	 
+	 /** winner/loser notification */
+     private void winnerLoser(Color standardColor) {
+        g.setFont(new Font("Comic Sans MS", 0, 50));
+        g.setColor(standardColor);
+
+        if (!playerWon) { /* if player loses the game */
+            g.drawString("You're out of time!", windowWidth / 2 - 225, windowHeight / 2);
+        } else { /* else player wins game */
+            g.drawString("You Escaped!", windowWidth / 2 - 180, windowHeight / 2);
+        }
+     }
+     
     /** main method */
     public static void main(String args[]) {
         getLauncherInstance();
