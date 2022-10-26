@@ -2,7 +2,7 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\Josh\Documents\Work\Code\Portfolio-Josh-Johnson\Speed_Force_Prison_Game\Incompleted_Game.jar</jar>
+  <jar>C:\Users\Josh\Documents\Work\Code\Portfolio-Josh-Johnson\Speed_Force_Prison_Game\Incomplete_Game.jar</jar>
   <outfile>C:\Users\Josh\Documents\Work\Code\Portfolio-Josh-Johnson\Speed_Force_Prison_Game\Incomplete_Game.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
