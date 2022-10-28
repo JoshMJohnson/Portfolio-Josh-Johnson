@@ -9,4 +9,4 @@ Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe t
 *** temporary executable file of an older version named: Incomplete_Game.exe ***
 
 ## Progression
-![Progression one](/game_progression/1.png)
+![/game_progression/1.png]
