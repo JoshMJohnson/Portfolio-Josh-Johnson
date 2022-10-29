@@ -68,4 +68,4 @@ Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe t
 
 <img width="400" height="275" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/15.png">
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:arrow_up: [Back to top](#speed-force-prison-game-video-game) :arrow_up:
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:arrow_up: [Back to top](#speed-force-prison-game-video_game) :arrow_up:
