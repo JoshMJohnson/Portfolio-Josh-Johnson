@@ -12,7 +12,7 @@ public class Game {
     
     /** constructor for the Game class */
     public Game() {
-        player = new Player();
+        player = new Player(0, 0);
         level = new Level(100, 100);
     }
     

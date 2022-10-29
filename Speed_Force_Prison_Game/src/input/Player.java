@@ -2,12 +2,32 @@ package input;
 
 /** handles user input controls */
 public class Player {
-    public double x, y, z, rotation, xa, za, rotationa;
+    /* player movement */
+    public static double x, y, z, rotation;
+    public double xa, za, rotationa;
     public static boolean turnLeft = false;
     public static boolean turnRight = false;
     public static boolean walk = false;
     public static boolean crouchWalk = false;
     public static boolean runForward = false;
+    
+    /* collisions variables */
+    public static boolean forwardCollision = false;
+    public static boolean backwardCollision = false;
+    public static boolean leftCollision = false;
+    public static boolean rightCollision = false;
+    
+    /* indicated direction of player */
+    public static boolean forwardDirection = false;
+    public static boolean backwardDirection = false;
+    public static boolean leftDirection = false;
+    public static boolean rightDirection = false;
+    
+    /** constructor for the Player class */
+    public Player(int x, int z) {
+        Player.x = x;
+        Player.z = z;
+    }
     
     /** game progression */
     public void tick(boolean forward, boolean backward, boolean left, 
@@ -19,29 +39,43 @@ public class Player {
         double zMovement = 0;
         double jumpHeight = 0.5;
         double crouchHeight = 0.3;
-                
+        
+        /* direction indications */
+        forwardDirection = forward;
+        backwardDirection = backward;
+        leftDirection = left;
+        rightDirection = right;
+        
         /* register forward movement */
         if (forward) {
-            zMovement++;
-            walk = true;
+            if (!forwardCollision) {
+                zMovement++;
+                walk = true;
+            }
         }
         
         /* register backward movement */
         if (backward) {
-            zMovement--;
-            walk = true;
+            if (!backwardCollision) {
+                zMovement--;
+                walk = true;
+            }
         }
-        
+
         /* register left movement */
         if (left) {
-            xMovement--;
-            walk = true;
+            if (!leftCollision) {
+                xMovement--;
+                walk = true;
+            }
         }
         
         /* register right movement */
         if (right) {
-            xMovement++;
-            walk = true;
+            if (!rightCollision) {
+                xMovement++;
+                walk = true;
+            }
         }
         
         /* register turning left */
@@ -100,5 +134,11 @@ public class Player {
         za *= 0.1;
         rotation += rotationa;
         rotationa *= 0.5;
+        
+        /* resetting collisions */
+        forwardCollision = false;
+        leftCollision = false;
+        rightCollision = false;
+        backwardCollision = false;
     }
 }

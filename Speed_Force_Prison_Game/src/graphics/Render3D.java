@@ -9,9 +9,9 @@ import main.Game;
 public class Render3D extends Render {
     public double[] zBuffer;
     public double[] zBufferWall;
-    private double renderDistance = 5000;
+    private double renderDistance = 2000; /* shadowing; larger the number, darker things get */
     private double forwardMovement, rightMovement, cosine, sine, up, walking;
-    public static int arenaBorderSize = 1000; /* size of map */
+    public static int arenaBorderSize = 100; /* max pixels in the x and z directions */
     
     /** constructor for the Render3D class */
     public Render3D(int width, int height) {
@@ -37,9 +37,9 @@ public class Render3D extends Render {
         sine = Math.sin(rotation);
         
         /* movement */
-        forwardMovement = game.player.z;
-        rightMovement =  game.player.x;
-        up = game.player.y;
+        forwardMovement = Player.z;
+        rightMovement =  Player.x;
+        up = Player.y;
         walking = 0;
                        
         /* render effects */
@@ -47,7 +47,8 @@ public class Render3D extends Render {
             double ceiling = (double) (y - height / 2) / height;   
             double z = (floorPosition + up) / ceiling;
             
-            if (Player.walk) {
+            /* forward/backward movement */ 
+            if (Player.walk) { 
                 walking = Math.sin(game.time / 6.0) * 0.4;
                 z = (floorPosition + up + walking) / ceiling;
             }
@@ -59,8 +60,8 @@ public class Render3D extends Render {
             } else if (Player.runForward && Player.walk) {
                 walking = Math.sin(game.time / 6.0) * 0.8;
                 z = (floorPosition + up + walking) / ceiling;
-            }
-
+            } 
+            
             /* ensure floor and ceiling are moving in same direction */
             if (ceiling < 0) {
                 z = (ceilingPosition - up) / -ceiling;
@@ -82,14 +83,13 @@ public class Render3D extends Render {
             }
         }
         
-        /* create pillars; inner walls */
+        /* generates map layout */
         Level level = game.level;        
         
         /* creates blocks */
-        /* lower half of wall */
+        /* lower half of wall */ 
         for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
             for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
-                /* creates outer wall */
                 Block block = level.create(xBlock + 1, zBlock + 1);
                 Block eastSide = level.create(xBlock + 2, zBlock + 1);
                 Block southSide = level.create(xBlock + 1, zBlock + 2);
@@ -115,12 +115,11 @@ public class Render3D extends Render {
             }
         }
 
-        /* upper half of wall */
+        /* upper half of wall */ 
         double upperHalf = 0.5;
         
         for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
             for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
-                /* creates outer wall */
                 Block block = level.create(xBlock + 1, zBlock + 1);
                 Block eastSide = level.create(xBlock + 2, zBlock + 1);
                 Block southSide = level.create(xBlock + 1, zBlock + 2);
@@ -146,22 +145,127 @@ public class Render3D extends Render {
             }
         }
         
-        /* blurs */
+        /* blurs */ //TODO blur location
         for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
             for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
-                Block block = level.create(xBlock, zBlock);
+                Block block = level.create(xBlock + 1, zBlock + 1);
                 
                 /* blur walking buffer */
                 for (int s = 0; s < block.blurs.size(); s++) {
                     Blur blur = block.blurs.get(s);
-                    renderSprite(xBlock + blur.x, blur.y, zBlock + blur.z);
+                    renderBlurs(xBlock + blur.x, blur.y, zBlock + blur.z);
                 }
             }
+        }
+
+        /* wall collision handling */
+        if (Player.walk) {
+            wallCollision();
+        }
+    }
+        
+    /** TODO: wall collision handling */
+    private void wallCollision() {
+        /* player movement direction indicators */
+        boolean forwardIndicated = Player.forwardDirection;
+        boolean backwardIndicated = Player.backwardDirection;
+        boolean leftIndicated = Player.leftDirection;
+        boolean rightIndicated = Player.rightDirection;
+        
+        arenaBorderWallCollisions(forwardIndicated, backwardIndicated, leftIndicated, rightIndicated);
+
+        /* inner walls */
+        //TODO forward
+        //TODO backward
+        //TODO left
+        //TODO right
+    }
+    
+    /** handles player collisions with the arena border walls */
+    private void arenaBorderWallCollisions(boolean forwardIndicated, boolean backwardIndicated, boolean leftIndicated, boolean rightIndicated) {
+        /* player direction facing */
+        boolean playerFacingNorth = Math.cos(Player.rotation) > 0;
+        boolean playerFacingEast = Math.sin(Player.rotation) > 0;
+        boolean playerFacingSouth = Math.cos(Player.rotation) <= 0;
+        boolean playerFacingWest = Math.sin(Player.rotation) <= 0;
+        
+        /* arena dimensions for player */
+        int maxZ = 447;
+        int maxX = 447;
+        int minZ = -1;
+        int minX = -1;
+        
+        /* northern border */        
+        if (forwardIndicated && playerFacingNorth && (Player.z > maxZ)) { /* forward movement indicated */
+            Player.forwardCollision = true;
+        }      
+        
+        if (leftIndicated && playerFacingEast && (Player.z > maxZ)) { /* left movement indicated */ 
+            Player.leftCollision = true;
+        }
+        
+        if (rightIndicated && playerFacingWest && (Player.z > maxZ)) { /* right movement indicated */
+            Player.rightCollision = true;
+        }
+        
+        if (backwardIndicated&& playerFacingSouth && (Player.z > maxZ)) { /* backward movement indicated */
+            Player.backwardCollision = true;
+        }
+            
+        /* southern border */
+        if (forwardIndicated && playerFacingSouth && (Player.z < minZ)) { /* forward movement indicated */
+            Player.forwardCollision = true;
+        }      
+        
+        if (leftIndicated && playerFacingWest && (Player.z < minZ)) { /* left movement indicated */ 
+            Player.leftCollision = true;
+        }
+        
+        if (rightIndicated && playerFacingEast && (Player.z < minZ)) { /* right movement indicated */
+            Player.rightCollision = true;
+        }
+        
+        if (backwardIndicated&& playerFacingNorth && (Player.z < minZ)) { /* backward movement indicated */
+            Player.backwardCollision = true;
+        }
+        
+        /* eastern border */
+        if (forwardIndicated && playerFacingEast && (Player.x > maxX)) { /* forward movement indicated */
+            Player.forwardCollision = true;
+        }      
+        
+        if (leftIndicated && playerFacingSouth && (Player.x > maxX)) { /* left movement indicated */ 
+            Player.leftCollision = true;
+        }
+        
+        if (rightIndicated && playerFacingNorth && (Player.x > maxX)) { /* right movement indicated */
+            Player.rightCollision = true;
+        }
+        
+        if (backwardIndicated&& playerFacingWest && (Player.x > maxX)) { /* backward movement indicated */
+            Player.backwardCollision = true;
+        }
+        
+        /* western border*/
+        if (forwardIndicated && playerFacingWest && (Player.x < minX)) { /* forward movement indicated */
+            Player.forwardCollision = true;
+        }      
+        
+        if (leftIndicated && playerFacingNorth && (Player.x < minX)) { /* left movement indicated */ 
+            Player.leftCollision = true;
+        }
+        
+        if (rightIndicated && playerFacingSouth && (Player.x < minX)) { /* right movement indicated */
+            Player.rightCollision = true;
+        }
+        
+        if (backwardIndicated&& playerFacingEast && (Player.x < minX)) { /* backward movement indicated */
+            Player.backwardCollision = true;
         }
     }
     
     /** rendering Blurs */
-    public void renderSprite(double x, double y, double z) {
+    public void renderBlurs(double x, double y, double z) {
         /* has wall move with users head bobbing while moving */
         double upCorrect = -0.0625;
         double rightCorrect = 0.11;

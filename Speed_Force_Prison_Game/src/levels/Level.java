@@ -1,13 +1,12 @@
 package levels;
 
-import graphics.Render3D;
 import graphics.Blur;
 import java.util.Random;
 import main.Display;
 
 /** creates a layout for the level */
 public class Level {
-    public Block[] arenaBlocks; 
+    public static Block[] arenaBlocks; 
     public final int arenaWidth, arenaHeight;
     
     /** constructor for the Level class */
@@ -21,8 +20,7 @@ public class Level {
     
     /** sets up the level */
     private void generateLevel() {
-        /* gets number of blurs needed to be collected before games is won */
-        int numBlurs = Display.blurs;
+        int numBlurs = Display.blurs; /* gets number of blurs needed to be collected before games is won */
         
         if (Display.difficulty == 2) { /* if second hardest difficulty */
             numBlurs = (int) (Math.floor(numBlurs * 1.5));
@@ -30,16 +28,17 @@ public class Level {
             numBlurs = (int) (Math.floor(numBlurs * 2));
         }
         
-        int blurChance = (int) Math.ceil(Render3D.arenaBorderSize * 2 / numBlurs); /* adjusts amount of blurs to win game based on difficulty */        
+        int blurChance = (int) Math.ceil(3000 / numBlurs); /* adjusts amount of blurs to win game based on difficulty */        
         int wallChance = 6;        
-        Random random = new Random();  
+        Random random = new Random(); 
         
         /* render blocks */
         for (int y = 0; y < arenaHeight; y++) {
             for (int x = 0; x < arenaWidth; x++) {
                 Block block = null;
                 
-                if (random.nextInt(wallChance) == 0) { /* likelihood of rendering a wall */
+                if ((random.nextInt(wallChance) == 0) 
+                        && (x > 5) && (y > 5) && (x < arenaWidth - 6) && (y < arenaHeight - 6)) { /* likelihood of rendering a wall excluding running lanes */
                     block = new SolidBlock();
                 } else {
                     block = new Block();
@@ -56,10 +55,10 @@ public class Level {
     
     /** creates a block */
     public Block create(int x, int y) {
-        if (x < 0 || y < 0 || x >= arenaWidth || y >= arenaHeight) {
+        if (x < 0 || y < 0 || x >= arenaWidth || y >= arenaHeight) { /* wall border around arena */
             return Block.solidWall;
         }
         
-        return arenaBlocks[x + y * arenaWidth];
+        return arenaBlocks[x + y * arenaWidth]; /* arena grid */
     }
 }

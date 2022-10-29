@@ -4,10 +4,8 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Player;
 import input.InputHandler;
-
 import javax.swing.JFrame;
 import javax.swing.Timer;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -159,7 +157,6 @@ public class Display extends Canvas implements Runnable {
 	    /* allow buttons to still work even after the game has reached an end point */
         while (fullyPlayed) {
             render();
-//            winnerLoser();
         }
                 
         running = false;
@@ -332,10 +329,9 @@ public class Display extends Canvas implements Runnable {
 	 private void renderButtons(Color standardColor) {   
 	     Color hoveredColor = new Color(255, 155, 0);
 	     
-	     g.setColor(standardColor);
-	     g.setFont(new Font("Verdana", 0, 20));
-	     
 	     /* in-game quit button */
+	     g.setColor(standardColor);
+         g.setFont(new Font("Verdana", 0, 20));
 	     g.drawString("Quit", 15, windowHeight - 50);
 	     
 	     if (InputHandler.mouseX > 10 && InputHandler.mouseX < 60
