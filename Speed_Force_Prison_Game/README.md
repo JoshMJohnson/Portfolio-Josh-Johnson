@@ -61,7 +61,7 @@ Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe t
 <img width="400" height="275" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/13.png">
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:arrow_down:<br>
-### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Final State
+### &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;Final State
 
 <img width="400" height="275" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/14.png">
 
