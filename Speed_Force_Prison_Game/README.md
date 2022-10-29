@@ -11,6 +11,8 @@ Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe t
 ## Progression
 <img width="400" height="300" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/1.png">
 
+:down_arrow:
+
 <img width="400" height="300" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/2.png">
 
 <img width="400" height="300" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/3.png">
