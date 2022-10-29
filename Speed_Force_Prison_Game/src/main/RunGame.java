@@ -31,10 +31,10 @@ public class RunGame {
         /* setup game window */
         frame.add(game);
         frame.setSize(Display.getGameWidth(), Display.getGameHeight());
-        frame.getContentPane().setCursor(cursorIcon); // hides the cursor on the game
+        frame.getContentPane().setCursor(cursorIcon); /* changes cursor in the game */
         frame.setTitle(Display.TITLE);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null); // center window on screen
+        frame.setLocationRelativeTo(null); /* centers window on screen */
         frame.setResizable(false);
         frame.setVisible(true);
 

@@ -9,9 +9,9 @@ import main.Game;
 public class Render3D extends Render {
     public double[] zBuffer;
     public double[] zBufferWall;
-    private double renderDistance = 2000; /* shadowing; larger the number, darker things get */
+    private double renderDistance = 2000; /* shadowing; larger the number, faster things get dark */
     private double forwardMovement, rightMovement, cosine, sine, up, walking;
-    public static int arenaBorderSize = 100; /* max pixels in the x and z directions */
+    public static int arenaBorderSize = 100; /* max x and z directions */
     
     /** constructor for the Render3D class */
     public Render3D(int width, int height) {
@@ -175,10 +175,10 @@ public class Render3D extends Render {
         arenaBorderWallCollisions(forwardIndicated, backwardIndicated, leftIndicated, rightIndicated);
 
         /* inner walls */
-        //TODO forward
-        //TODO backward
-        //TODO left
-        //TODO right
+        /* TODO forward movement indicated */
+        /* TODO backward movement indicated */
+        /* TODO left movement indicated */
+        /* TODO right movement indicated */
     }
     
     /** handles player collisions with the arena border walls */
@@ -325,7 +325,6 @@ public class Render3D extends Render {
             for (int xPix = xPixelLeftInt; xPix < xPixelRightInt; xPix++) {
                 if (zBuffer[xPix + yPix * width] > rotationZ) {
                     pixels[xPix + yPix * width] = Texture.blur.pixels[(xPix & 7) + (yPix & 7) * 30]; /* texture of blurs */
-//                    pixels[xPix + yPix * width] = 0xFF8C00; /* texture of blurs; color:dark-orange */
                     zBuffer[xPix + yPix * width] = rotationZ;
                 }
             }
@@ -445,7 +444,7 @@ public class Render3D extends Render {
                 double pixelRotationY = (y - yPixelTop) / (yPixelBottom - yPixelTop);
                 int yTexture = (int) (8 * pixelRotationY);    
                 pixels[x + y * width] = Texture.wall.pixels[(xTexture & 7) + (yTexture & 7) * 8];
-                zBuffer[x + y * width] = 1 / (texture1 + (texture2 - texture1) * pixelRotation) * 2; //handles render distance limiting
+                zBuffer[x + y * width] = 1 / (texture1 + (texture2 - texture1) * pixelRotation) * 2; 
             }
         }
     }
