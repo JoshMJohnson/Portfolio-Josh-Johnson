@@ -32,7 +32,7 @@ public class Render3D extends Render {
         double ceilingPosition = 8;
         
         /* rotations */
-        double rotation = game.player.rotation;
+        double rotation = Player.rotation;
         cosine = Math.cos(rotation);
         sine = Math.sin(rotation);
         
@@ -145,7 +145,7 @@ public class Render3D extends Render {
             }
         }
         
-        /* blurs */ //TODO blur location
+        /* blurs */
         for (int xBlock = -arenaBorderSize; xBlock <= arenaBorderSize; xBlock++) {
             for (int zBlock = -arenaBorderSize; zBlock <= arenaBorderSize; zBlock++) {
                 Block block = level.create(xBlock + 1, zBlock + 1);
