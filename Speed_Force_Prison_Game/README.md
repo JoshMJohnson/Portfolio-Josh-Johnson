@@ -9,7 +9,5 @@ Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe t
 *** temporary executable file of an older version named: Incomplete_Game.exe ***
 
 ## Progression
-![Progression One](https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/1.png)
+<img width="200" alt="Progression One" src="/game_progression/1.png">
 
-
-<img width="200" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/1.png">
