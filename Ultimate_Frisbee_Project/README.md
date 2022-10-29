@@ -2,5 +2,5 @@
 Customized Ultimate Frisbee Wiki page
 
 ---
-## Instructions of how to run program
+## Instructions of how to run program :scroll:
 Open the HTML file named ultimate&lowbar;frisbee.html with your browser
