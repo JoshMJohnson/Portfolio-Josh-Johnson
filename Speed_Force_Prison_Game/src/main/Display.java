@@ -4,8 +4,10 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Player;
 import input.InputHandler;
+
 import javax.swing.JFrame;
 import javax.swing.Timer;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -164,10 +166,11 @@ public class Display extends Canvas implements Runnable {
 	    try {		   
             RunGame.frame.dispose();
             RunGame.frame = new JFrame();
+            
+            blurs = 5;
+            countdown = 100;
 
             if (!mainMenu) { /* if Restart selected */
-                blurs = 5;
-                countdown = 100;
                 new RunGame();
             } else { /* else; Main Menu selected */
                 launcher = null;

@@ -32,9 +32,6 @@ public class Level {
         int wallChance = 6;        
         Random random = new Random(); 
         
-        System.out.println("arenaHeight: " + arenaHeight);
-        System.out.println("arenaWidth: " + arenaWidth);
-        
         /* render blocks */
         for (int y = 0; y < arenaHeight; y++) {
             for (int x = 0; x < arenaWidth; x++) {
