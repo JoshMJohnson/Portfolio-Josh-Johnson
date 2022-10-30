@@ -3,6 +3,7 @@ package graphics;
 import input.Player;
 import levels.Block;
 import levels.Level;
+import main.Display;
 import main.Game;
 
 /** handles the pixel motion effects */
@@ -160,12 +161,13 @@ public class Render3D extends Render {
 
         /* wall collision handling */
         if (Player.walk) {
-            wallCollision();
+            wallCollision(level);
+            blurCollisoin(level);
         }
     }
         
     /** TODO: wall collision handling */
-    private void wallCollision() {
+    private void wallCollision(Level level) {
         /* player movement direction indicators */
         boolean forwardIndicated = Player.forwardDirection;
         boolean backwardIndicated = Player.backwardDirection;
@@ -173,12 +175,26 @@ public class Render3D extends Render {
         boolean rightIndicated = Player.rightDirection;
         
         arenaBorderWallCollisions(forwardIndicated, backwardIndicated, leftIndicated, rightIndicated);
-
+        
         /* inner walls */
-        /* TODO forward movement indicated */
-        /* TODO backward movement indicated */
-        /* TODO left movement indicated */
-        /* TODO right movement indicated */
+        if (Player.x > 10 && Player.z > 10) { /* inner wall locations */
+            /* player block location */
+            int gridLocationX = (int) Math.floor(Player.x / 4.55) + 1;
+            int gridLocationZ = (int) Math.floor(Player.z / 4.55) + 1;
+            
+            /* player standing on grid index */
+            int gridIndexPlayerLocation = gridLocationX + gridLocationZ * arenaBorderSize;
+            
+            /* status at player location */
+            boolean standingOnBlock = level.arenaBlocks[gridIndexPlayerLocation].solid;
+            
+            /* TODO forward movement indicated */
+                
+        
+            /* TODO backward movement indicated */
+            /* TODO left movement indicated */
+            /* TODO right movement indicated */
+        }
     }
     
     /** handles player collisions with the arena border walls */
@@ -262,6 +278,25 @@ public class Render3D extends Render {
         if (backwardIndicated&& playerFacingEast && (Player.x < minX)) { /* backward movement indicated */
             Player.backwardCollision = true;
         }
+    }
+    
+    /** handles action when player collects a blur */
+    private void blurCollisoin(Level level) {
+        /* player block location */
+        int gridLocationX = (int) Math.floor(Player.x / 4.55) + 1;
+        int gridLocationZ = (int) Math.floor(Player.z / 4.55) + 1;
+        
+        /* player standing on grid index */
+        int gridIndexPlayerLocation = gridLocationX + gridLocationZ * arenaBorderSize;
+        
+        /* status at player location */
+        boolean standingOnBlur = level.arenaBlocks[gridIndexPlayerLocation].blurs.size() != 0;
+        
+        /* player standing on blur; collect */
+        if (standingOnBlur) {
+            level.arenaBlocks[gridIndexPlayerLocation].blurs.remove(0);
+            Display.blurs--;
+        } 
     }
     
     /** rendering Blurs */

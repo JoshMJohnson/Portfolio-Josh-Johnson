@@ -6,7 +6,7 @@ import main.Display;
 
 /** creates a layout for the level */
 public class Level {
-    public static Block[] arenaBlocks; 
+    public Block[] arenaBlocks; 
     public final int arenaWidth, arenaHeight;
     
     /** constructor for the Level class */
@@ -32,13 +32,16 @@ public class Level {
         int wallChance = 6;        
         Random random = new Random(); 
         
+        System.out.println("arenaHeight: " + arenaHeight);
+        System.out.println("arenaWidth: " + arenaWidth);
+        
         /* render blocks */
         for (int y = 0; y < arenaHeight; y++) {
             for (int x = 0; x < arenaWidth; x++) {
                 Block block = null;
                 
                 if ((random.nextInt(wallChance) == 0) 
-                        && (x > 5) && (y > 5) && (x < arenaWidth - 6) && (y < arenaHeight - 6)) { /* likelihood of rendering a wall excluding running lanes */
+                        && (x > 5) && (y > 5) && (x < arenaWidth - 5) && (y < arenaHeight - 5)) { /* likelihood of rendering a wall excluding running lanes */
                     block = new SolidBlock();
                 } else {
                     block = new Block();

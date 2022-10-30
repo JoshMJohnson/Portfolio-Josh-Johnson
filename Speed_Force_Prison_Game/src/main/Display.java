@@ -166,6 +166,8 @@ public class Display extends Canvas implements Runnable {
             RunGame.frame = new JFrame();
 
             if (!mainMenu) { /* if Restart selected */
+                blurs = 5;
+                countdown = 100;
                 new RunGame();
             } else { /* else; Main Menu selected */
                 launcher = null;
@@ -382,7 +384,7 @@ public class Display extends Canvas implements Runnable {
         if (!playerWon) { /* if player loses the game */
             g.drawString("You're out of time!", windowWidth / 2 - 225, windowHeight / 2);
         } else { /* else player wins game */
-            g.drawString("You Escaped!", windowWidth / 2 - 180, windowHeight / 2);
+            g.drawString("You Escaped!", windowWidth / 2 - 150, windowHeight / 2);
         }
      }
      
