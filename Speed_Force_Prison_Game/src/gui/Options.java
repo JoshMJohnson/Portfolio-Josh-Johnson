@@ -47,6 +47,13 @@ public class Options extends JFrame {
         window.setBackground(backgroundColor);                            
         drawButtons();
         window.repaint();
+        
+        /* allows the options window to reopen when closed using the default close operation */
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                Launcher.optionsMenuOpened = false;                
+            }
+        });
     }
     
     /** creates buttons within the option menu */

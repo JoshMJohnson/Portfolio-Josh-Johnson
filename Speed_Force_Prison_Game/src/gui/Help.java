@@ -49,6 +49,13 @@ public class Help extends JFrame {
         createText(fontColor);
         drawButtons(fontColor);
         window.repaint();
+        
+        /* allows the help window to reopen when closed using the default close operation */
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                Launcher.helpMenuOpened = false;              
+            }
+        });
     }
     
     /** creates the labels and text on the help window */

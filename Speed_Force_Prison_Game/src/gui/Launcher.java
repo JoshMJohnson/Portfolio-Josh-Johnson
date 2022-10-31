@@ -40,7 +40,7 @@ public class Launcher extends Canvas implements Runnable {
         frame.setResizable(false);
         frame.setVisible(true);
         window.setLayout(null);
-                
+        
         /* user input */
         InputHandler input = new InputHandler();
         addKeyListener(input);
