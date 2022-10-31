@@ -27,7 +27,8 @@ public class Help extends JFrame {
     private int buttonWidth = 120;
     private int buttonHeight = 40;
     private JLabel helpLabel, gameAbout, gameAboutTitle, gameControlsTitle;
-    private JLabel moveForwardL, moveBackwardL, moveLeftL, moveRightL, jumpL, sprintL, crouchL, lookLeftL, lookRightL; /* controls */
+    private JLabel moveForwardLabel, moveBackwardLabel, moveLeftLabel, moveRightLabel;
+    private JLabel jumpLabel, sprintLabel, crouchLabel, lookLeftLabel, lookRightLabel;
     
     /** constructor for the Help java class */
     public Help(Color backgroundColor) {    
@@ -42,10 +43,8 @@ public class Help extends JFrame {
         window.setBackground(backgroundColor);
         window.repaint();
         
-        /* creating colors */
-        Color fontColor = new Color(255, 255, 0);
-                
         /* fill in window with content */
+        Color fontColor = new Color(255, 255, 0);
         createText(fontColor);
         drawButtons(fontColor);
         window.repaint();
@@ -106,75 +105,75 @@ public class Help extends JFrame {
         
         /* control label for moving forward */
         String moveForwardText = "Move Forward - W";
-        moveForwardL = new JLabel(moveForwardText, SwingConstants.CENTER);
-        moveForwardL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        moveForwardL.setForeground(fontColor);
-        moveForwardL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10, controlLabelWidth, controlLabelHeight);
-        window.add(moveForwardL);
+        moveForwardLabel = new JLabel(moveForwardText, SwingConstants.CENTER);
+        moveForwardLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        moveForwardLabel.setForeground(fontColor);
+        moveForwardLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10, controlLabelWidth, controlLabelHeight);
+        window.add(moveForwardLabel);
         
         /* control label for moving backward */
         String moveBackwardText = "Move Backward - S";
-        moveBackwardL = new JLabel(moveBackwardText, SwingConstants.CENTER);
-        moveBackwardL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        moveBackwardL.setForeground(fontColor);
-        moveBackwardL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight, controlLabelWidth, controlLabelHeight);
-        window.add(moveBackwardL);
+        moveBackwardLabel = new JLabel(moveBackwardText, SwingConstants.CENTER);
+        moveBackwardLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        moveBackwardLabel.setForeground(fontColor);
+        moveBackwardLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight, controlLabelWidth, controlLabelHeight);
+        window.add(moveBackwardLabel);
         
         /* control label for moving left */
         String moveLeftText = "Move Left - A";
-        moveLeftL = new JLabel(moveLeftText, SwingConstants.CENTER);
-        moveLeftL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        moveLeftL.setForeground(fontColor);
-        moveLeftL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 2, controlLabelWidth, controlLabelHeight);
-        window.add(moveLeftL);
+        moveLeftLabel = new JLabel(moveLeftText, SwingConstants.CENTER);
+        moveLeftLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        moveLeftLabel.setForeground(fontColor);
+        moveLeftLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 2, controlLabelWidth, controlLabelHeight);
+        window.add(moveLeftLabel);
         
         /* control label for moving right */
         String moveRightText = "Move Right - D";
-        moveRightL = new JLabel(moveRightText, SwingConstants.CENTER);
-        moveRightL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        moveRightL.setForeground(fontColor);
-        moveRightL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 3, controlLabelWidth, controlLabelHeight);
-        window.add(moveRightL);
+        moveRightLabel = new JLabel(moveRightText, SwingConstants.CENTER);
+        moveRightLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        moveRightLabel.setForeground(fontColor);
+        moveRightLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 3, controlLabelWidth, controlLabelHeight);
+        window.add(moveRightLabel);
         
         /* control label for jumping */
         String jumpText = "Jump - SPACE";
-        jumpL = new JLabel(jumpText, SwingConstants.CENTER);
-        jumpL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        jumpL.setForeground(fontColor);
-        jumpL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 4, controlLabelWidth, controlLabelHeight);
-        window.add(jumpL);
+        jumpLabel = new JLabel(jumpText, SwingConstants.CENTER);
+        jumpLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        jumpLabel.setForeground(fontColor);
+        jumpLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 4, controlLabelWidth, controlLabelHeight);
+        window.add(jumpLabel);
         
         /* control label for sprinting */
         String sprintText = "Sprint - SHIFT";
-        sprintL = new JLabel(sprintText, SwingConstants.CENTER);
-        sprintL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        sprintL.setForeground(fontColor);
-        sprintL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 5, controlLabelWidth, controlLabelHeight);
-        window.add(sprintL);
+        sprintLabel = new JLabel(sprintText, SwingConstants.CENTER);
+        sprintLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        sprintLabel.setForeground(fontColor);
+        sprintLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 5, controlLabelWidth, controlLabelHeight);
+        window.add(sprintLabel);
         
         /* control label for crouching */
         String crouchText = "Crouch - CTRL";
-        crouchL = new JLabel(crouchText, SwingConstants.CENTER);
-        crouchL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        crouchL.setForeground(fontColor);
-        crouchL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 6, controlLabelWidth, controlLabelHeight);
-        window.add(crouchL);
+        crouchLabel = new JLabel(crouchText, SwingConstants.CENTER);
+        crouchLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        crouchLabel.setForeground(fontColor);
+        crouchLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 6, controlLabelWidth, controlLabelHeight);
+        window.add(crouchLabel);
         
         /* control label for looking left */
         String lookLeftText = "Look Left - Move Mouse Left";
-        lookLeftL = new JLabel(lookLeftText, SwingConstants.CENTER);
-        lookLeftL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        lookLeftL.setForeground(fontColor);
-        lookLeftL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 7, controlLabelWidth, controlLabelHeight);
-        window.add(lookLeftL);
+        lookLeftLabel = new JLabel(lookLeftText, SwingConstants.CENTER);
+        lookLeftLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        lookLeftLabel.setForeground(fontColor);
+        lookLeftLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 7, controlLabelWidth, controlLabelHeight);
+        window.add(lookLeftLabel);
         
         /* control label for looking right */
         String lookRightText = "Look Right - Move Mouse Right";
-        lookRightL = new JLabel(lookRightText, SwingConstants.CENTER);
-        lookRightL.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
-        lookRightL.setForeground(fontColor);
-        lookRightL.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 8, controlLabelWidth, controlLabelHeight);
-        window.add(lookRightL);        
+        lookRightLabel = new JLabel(lookRightText, SwingConstants.CENTER);
+        lookRightLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 14));
+        lookRightLabel.setForeground(fontColor);
+        lookRightLabel.setBounds(windowWidth / 2, helpLabelHeight + helpLabelHeight + 10 + controlLabelHeight * 8, controlLabelWidth, controlLabelHeight);
+        window.add(lookRightLabel);        
     }
     
     /** creates the buttons on the help window */

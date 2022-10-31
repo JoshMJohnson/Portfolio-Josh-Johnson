@@ -20,7 +20,7 @@ public class Level {
     
     /** sets up the level */
     private void generateLevel() {
-        int numBlurs = Display.blurs; /* gets number of blurs needed to be collected before games is won */
+        int numBlurs = Display.blurs; /* gets number of blurs needed to be collected before game is won */
         
         if (Display.difficulty == 2) { /* if second hardest difficulty */
             numBlurs = (int) (Math.floor(numBlurs * 1.5));

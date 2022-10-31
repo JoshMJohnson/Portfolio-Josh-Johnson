@@ -71,19 +71,19 @@ public class Launcher extends Canvas implements Runnable {
             
             /* moving selected icon */
             if (InputHandler.mouseX > 20 && InputHandler.mouseX < 95
-                    && InputHandler.mouseY > ((windowHeight / 2) - 150) && InputHandler.mouseY < ((windowHeight / 2) - 110)) { /* if play button hovered */
+                    && InputHandler.mouseY > ((windowHeight / 2) - 150) && InputHandler.mouseY < ((windowHeight / 2) - 110)) { /* if Play button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 95, (windowHeight / 2) - 150, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the play button */ 
+                if (InputHandler.mouseButton == 1) { /* clicking on the Play button */ 
                     InputHandler.mouseButton = 0;
                     frame.dispose();
                     new RunGame();
                 }
             } else if(InputHandler.mouseX > 20 && InputHandler.mouseX < 170
-                    && InputHandler.mouseY > ((windowHeight / 2) - 70) && InputHandler.mouseY < ((windowHeight / 2) - 30)) { /* else if; options button hovered */
+                    && InputHandler.mouseY > ((windowHeight / 2) - 70) && InputHandler.mouseY < ((windowHeight / 2) - 30)) { /* else if; Options button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 170, (windowHeight / 2) - 70, 40, 40, null);
                                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the options button */  
+                if (InputHandler.mouseButton == 1) { /* clicking on the Options button */  
                     if (optionsMenuOpened == false) {
                         new Options(backgroundColor); 
                     }
@@ -91,10 +91,10 @@ public class Launcher extends Canvas implements Runnable {
                     optionsMenuOpened = true;
                 }
             } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
-                    && InputHandler.mouseY > ((windowHeight / 2) + 10) && InputHandler.mouseY < ((windowHeight / 2) + 50)) { /* else if; help button hovered*/
+                    && InputHandler.mouseY > ((windowHeight / 2) + 10) && InputHandler.mouseY < ((windowHeight / 2) + 50)) { /* else if; Help button hovered*/
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, (windowHeight / 2) + 10, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the help button */
+                if (InputHandler.mouseButton == 1) { /* clicking on the Help button */
                     if (helpMenuOpened == false) {
                         new Help(backgroundColor);
                     }
@@ -102,10 +102,10 @@ public class Launcher extends Canvas implements Runnable {
                     helpMenuOpened = true;
                 }
             } else if (InputHandler.mouseX > 20 && InputHandler.mouseX < 110
-                    && InputHandler.mouseY > ((windowHeight / 2) + 90) && InputHandler.mouseY < ((windowHeight / 2) + 130)) { /* else if quit button hovered */
+                    && InputHandler.mouseY > ((windowHeight / 2) + 90) && InputHandler.mouseY < ((windowHeight / 2) + 130)) { /* else if Quit button hovered */
                 g.drawImage(ImageIO.read(Launcher.class.getResource("/textures/launcher_arrow.png")), 110, (windowHeight / 2) + 90, 40, 40, null);
                 
-                if (InputHandler.mouseButton == 1) { /* clicking on the exit button */
+                if (InputHandler.mouseButton == 1) { /* clicking on the Quit button */
                     System.exit(0);
                 }
             }

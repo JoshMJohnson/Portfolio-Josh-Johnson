@@ -12,9 +12,8 @@ public class Game {
     
     /** constructor for the Game class */
     public Game() {
-        player = new Player(0, 0, 0);
-        level = new Level(100, 100);
-        System.out.println("Player.rotation: " + Player.rotation);
+        player = new Player(0, 0, 0); /* player starting location */
+        level = new Level(100, 100); /* arena dimensions */
     }
     
     /** game progression */

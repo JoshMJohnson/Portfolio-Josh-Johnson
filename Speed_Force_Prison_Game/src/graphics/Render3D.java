@@ -23,7 +23,6 @@ public class Render3D extends Render {
         
     /** renders the floor and ceiling */
     public void arena(Game game) {
-        /* make walls solid */
         for (int x = 0; x < width; x++) {
             zBufferWall[x] = 0;
         }
@@ -180,7 +179,7 @@ public class Render3D extends Render {
             /* player standing on grid index */
             int gridIndexPlayerLocation = gridLocationX + gridLocationZ * arenaBorderSize;
             
-            /* future possible grid location indices of the player */
+            /* grid location indices surrounding the players current location */
             int forwardBlockIndex = 0;
             int rightBlockIndex = 0;
             int backwardBlockIndex = 0;
@@ -413,8 +412,8 @@ public class Render3D extends Render {
         /* relative location of blur */
         double xPixelLeft = xPixel - 80 / rotationZ; /* extends blur 80 pixels in width in the left direction */
         double xPixelRight = xPixel + 80 / rotationZ; /* extends blur 80 pixels in width in the right direction */       
-        double yPixelLeft = yPixel - 150 / rotationZ; /* extends blur 200 pixels in height in the upward direction */
-        double yPixelRight = yPixel + 40 / rotationZ; /* extends blur 80 pixels in height in the downward direction */
+        double yPixelLeft = yPixel - 150 / rotationZ; /* extends blur 150 pixels in height in the upward direction */
+        double yPixelRight = yPixel + 40 / rotationZ; /* extends blur 40 pixels in height in the downward direction */
         
         /* casting to integers */
         int xPixelLeftInt = (int) xPixelLeft;
@@ -423,21 +422,14 @@ public class Render3D extends Render {
         int yPixelRightInt = (int) yPixelRight;
         
         /* clipping */
-        if (xPixelLeftInt < 0) { /* x left side */
+        if (xPixelLeftInt < 0) /* x left side */
             xPixelLeftInt = 0;
-        }
-        
-        if (xPixelRightInt > width) { /* x right side */
+        if (xPixelRightInt > width) /* x right side */
             xPixelRightInt = width;
-        }
-        
-        if (yPixelLeftInt < 0) { /* y left side */
+        if (yPixelLeftInt < 0) /* y left side */
             yPixelLeftInt = 0;
-        }
-        
-        if (yPixelRightInt > height) { /* y right side */
+        if (yPixelRightInt > height) /* y right side */
             yPixelRightInt = height;
-        }
         
         rotationZ *= 2; /* blur z positioning adjustment */ 
         

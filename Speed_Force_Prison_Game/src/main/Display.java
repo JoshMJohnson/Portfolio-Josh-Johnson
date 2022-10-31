@@ -4,10 +4,8 @@ import graphics.Screen;
 import gui.Launcher;
 import input.Player;
 import input.InputHandler;
-
 import javax.swing.JFrame;
 import javax.swing.Timer;
-
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -21,8 +19,7 @@ import java.awt.image.DataBufferInt;
 
 /** Created By: Josh Johnson
   * Program Description: 3-Dimensional game
-  * Game Description: Catch the blur in time to regain your speed and escape the Speed Force Prison!
-  */
+  * Game Description: Catch the blur in time to regain your speed and escape the Speed Force Prison! */
 public class Display extends Canvas implements Runnable {
     /* class objects */
     private Screen screen;
