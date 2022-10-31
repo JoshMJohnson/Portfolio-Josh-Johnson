@@ -4,13 +4,13 @@ package input;
 public class Player {
     /* player movement */
     public static double x, y, z, rotation;
-    public double xa, za, rotationa;
     public static boolean turnLeft = false;
     public static boolean turnRight = false;
     public static boolean walk = false;
     public static boolean crouchWalk = false;
     public static boolean runForward = false;
-    
+    public double xa, za, rotationa;
+
     /* collisions variables */
     public static boolean forwardCollision = false;
     public static boolean backwardCollision = false;
@@ -24,9 +24,10 @@ public class Player {
     public static boolean rightDirection = false;
     
     /** constructor for the Player class */
-    public Player(int x, int z) {
+    public Player(double x, double z, double rotation) {
         Player.x = x;
         Player.z = z;
+        Player.rotation = rotation;
     }
     
     /** game progression */
