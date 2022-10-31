@@ -135,8 +135,8 @@ public class Options extends JFrame {
         difficulty.setBackground(buttonColor);
         difficulty.add("Sandbox");
         difficulty.add("Childs Play");
-        difficulty.add("Average Joe");
-        difficulty.add("God Mode");
+        difficulty.add("Barry Allen");
+        difficulty.add("The Flash!");
         difficulty.select(1);
         window.add(difficulty);
         

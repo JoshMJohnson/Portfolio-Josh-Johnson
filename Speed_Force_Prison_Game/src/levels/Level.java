@@ -29,7 +29,7 @@ public class Level {
         }
         
         int blurChance = (int) Math.ceil(3000 / numBlurs); /* adjusts amount of blurs to win game based on difficulty */        
-        int wallChance = 6;        
+        int wallChance = 14;        
         Random random = new Random(); 
         
         /* render blocks */

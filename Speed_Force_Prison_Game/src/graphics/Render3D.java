@@ -97,21 +97,15 @@ public class Render3D extends Render {
                
                 /* creates pillars */
                 if (block.solid) {
-                    if (!eastSide.solid) {
+                    if (!eastSide.solid) 
                         renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, 0);
-                    }
-
-                    if (!southSide.solid) {
+                    if (!southSide.solid) 
                         renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, 0);
-                    }
                 } else {
-                    if (eastSide.solid) {
+                    if (eastSide.solid) 
                         renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, 0);
-                    }
-
-                    if (southSide.solid) {
+                    if (southSide.solid) 
                         renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, 0);
-                    }
                 }
             }
         }
@@ -127,21 +121,15 @@ public class Render3D extends Render {
                
                 /* creates pillars */
                 if (block.solid) {
-                    if (!eastSide.solid) {
+                    if (!eastSide.solid) 
                         renderWall(xBlock + 1, xBlock + 1, zBlock, zBlock + 1, upperHalf);
-                    }
-                    
-                    if (!southSide.solid) {
+                    if (!southSide.solid) 
                         renderWall(xBlock + 1, xBlock, zBlock + 1, zBlock + 1, upperHalf);
-                    }
                 } else {
-                    if (eastSide.solid) {
+                    if (eastSide.solid) 
                         renderWall(xBlock + 1, xBlock + 1, zBlock + 1, zBlock, upperHalf);
-                    }
-
-                    if (southSide.solid) {
+                    if (southSide.solid) 
                         renderWall(xBlock, xBlock + 1, zBlock + 1, zBlock + 1, upperHalf);
-                    }                    
                 }
             }
         }
@@ -166,7 +154,7 @@ public class Render3D extends Render {
         }
     }
         
-    /** TODO: wall collision handling */
+    /** wall collision handling */
     private void wallCollision(Level level) {
         /* player movement direction indicators */
         boolean forwardIndicated = Player.forwardDirection;
@@ -174,10 +162,17 @@ public class Render3D extends Render {
         boolean leftIndicated = Player.leftDirection;
         boolean rightIndicated = Player.rightDirection;
         
-        arenaBorderWallCollisions(forwardIndicated, backwardIndicated, leftIndicated, rightIndicated);
+        /* player direction facing */
+        boolean playerFacingNorth = Math.cos(Player.rotation) > 0;
+        boolean playerFacingEast = Math.sin(Player.rotation) > 0;
+        boolean playerFacingSouth = Math.cos(Player.rotation) <= 0;
+        boolean playerFacingWest = Math.sin(Player.rotation) <= 0;
+        
+        arenaBorderWallCollisions(forwardIndicated, backwardIndicated, leftIndicated, rightIndicated,
+                playerFacingNorth, playerFacingEast, playerFacingSouth, playerFacingWest);
         
         /* inner walls */
-        if (Player.x > 10 && Player.z > 10) { /* inner wall locations */
+        if (Player.x > 5 && Player.z > 5 && Player.x < 445 && Player.z < 445) { /* inner wall locations */
             /* player block location */
             int gridLocationX = (int) Math.floor(Player.x / 4.55) + 1;
             int gridLocationZ = (int) Math.floor(Player.z / 4.55) + 1;
@@ -185,26 +180,145 @@ public class Render3D extends Render {
             /* player standing on grid index */
             int gridIndexPlayerLocation = gridLocationX + gridLocationZ * arenaBorderSize;
             
-            /* status at player location */
-            boolean standingOnBlock = level.arenaBlocks[gridIndexPlayerLocation].solid;
+            /* future possible grid location indices of the player */
+            int forwardBlockIndex = 0;
+            int rightBlockIndex = 0;
+            int backwardBlockIndex = 0;
+            int leftBlockIndex = 0;
+            int forwardLeftBlockIndex = 0;
+            int forwardRightBlockIndex = 0;
+            int backwardLeftBlockIndex = 0;
+            int backwardRightBlockIndex = 0;
             
-            /* TODO forward movement indicated */
-                
+            if (playerFacingNorth) { /* if northern facing */
+                forwardBlockIndex = gridIndexPlayerLocation + arenaBorderSize;
+                rightBlockIndex = gridIndexPlayerLocation + 1;
+                backwardBlockIndex = gridIndexPlayerLocation - arenaBorderSize;
+                leftBlockIndex = gridIndexPlayerLocation - 1;
+                forwardLeftBlockIndex = gridIndexPlayerLocation + arenaBorderSize - 1;
+                forwardRightBlockIndex = gridIndexPlayerLocation + arenaBorderSize + 1;
+            } else { /* if southern facing */
+                forwardBlockIndex = gridIndexPlayerLocation - arenaBorderSize;
+                rightBlockIndex = gridIndexPlayerLocation - 1;
+                backwardBlockIndex = gridIndexPlayerLocation + arenaBorderSize;
+                leftBlockIndex = gridIndexPlayerLocation + 1;
+                forwardLeftBlockIndex = gridIndexPlayerLocation - arenaBorderSize + 1;
+                forwardRightBlockIndex = gridIndexPlayerLocation - arenaBorderSize - 1;
+            }
+            
+            /* forward movement indicated */
+            if (forwardIndicated) {
+                if (playerFacingNorth) { /* if player facing north */
+                    if (level.arenaBlocks[forwardBlockIndex].solid && (Player.z % 4.55) < 1.5) /* if future collision straight */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[leftBlockIndex].solid  && (Player.x % 4.55) > 3) /* if future collision left */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[rightBlockIndex].solid && (Player.x % 4.55) < 1.5) /* if future collision right */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[forwardLeftBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 < 2.5)) /* if future forward/left corner collision */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[forwardRightBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 > 2)) /* if future forward/right corner collision */
+                        Player.forwardCollision = true;
+                } else { /* else; facing south */
+                    if (level.arenaBlocks[forwardBlockIndex].solid && (Player.z % 4.55) > 3) /* if future collision straight */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[leftBlockIndex].solid  && (Player.x % 4.55) < 1.5) /* if future collision left */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[rightBlockIndex].solid && (Player.x % 4.55) > 3) /* if future collision right */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[forwardLeftBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 > 2.5)) /* if future forward/left corner collision */
+                        Player.forwardCollision = true;
+                    if (level.arenaBlocks[forwardRightBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 < 2.5)) /* if future forward/right corner collision */
+                        Player.forwardCollision = true;
+                }
+            }
         
-            /* TODO backward movement indicated */
-            /* TODO left movement indicated */
-            /* TODO right movement indicated */
+            /* right movement indicated */
+            if (rightIndicated) {
+                if (playerFacingNorth) { /* if player facing north */
+                    if (level.arenaBlocks[forwardBlockIndex].solid && (Player.z % 4.55) > 3) /* if future collision straight */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[backwardBlockIndex].solid  && (Player.x % 4.55) < 1.5) /* if future collision behind */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[rightBlockIndex].solid && (Player.x % 4.55) > 3) /* if future collision right */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[backwardRightBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 > 2.5)) /* if future behind/right corner collision */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[forwardRightBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 > 2.5)) /* if future forward/right corner collision */
+                        Player.rightCollision = true;
+                } else { /* else; facing south */
+                    if (level.arenaBlocks[forwardBlockIndex].solid && (Player.z % 4.55) < 1.5) /* if future collision straight */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[backwardBlockIndex].solid  && (Player.x % 4.55) > 3) /* if future collision behind */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[rightBlockIndex].solid && (Player.x % 4.55) < 1.5) /* if future collision right */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[backwardLeftBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 < 2.5)) /* if future behind/right corner collision */
+                        Player.rightCollision = true;
+                    if (level.arenaBlocks[forwardRightBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 < 2.5)) /* if future forward/right corner collision */
+                        Player.rightCollision = true;
+                }
+            }
+            
+            /* backward movement indicated */
+            if (backwardIndicated) {
+                if (playerFacingNorth) { /* if player facing north */
+                    if (level.arenaBlocks[backwardBlockIndex].solid && (Player.z % 4.55) > 3) /* if future collision behind */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[leftBlockIndex].solid  && (Player.x % 4.55) < 1.5) /* if future collision left */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[rightBlockIndex].solid && (Player.x % 4.55) > 3) /* if future collision right */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[backwardLeftBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 < 2.5)) /* if future backward/left corner collision */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[backwardRightBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 > 2.5)) /* if future backward/right corner collision */
+                        Player.backwardCollision = true;
+                } else { /* else; facing south */
+                    if (level.arenaBlocks[backwardBlockIndex].solid && (Player.z % 4.55) > 3) /* if future collision behind */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[leftBlockIndex].solid  && (Player.x % 4.55) > 3) /* if future collision left */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[rightBlockIndex].solid && (Player.x % 4.55) < 1.5) /* if future collision right */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[backwardLeftBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 > 2.5)) /* if future backward/left corner collision */
+                        Player.backwardCollision = true;
+                    if (level.arenaBlocks[backwardRightBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 < 2.5)) /* if future backward/right corner collision */
+                        Player.backwardCollision = true;
+                }
+            }
+            
+            /* left movement indicated */
+            if (leftIndicated) {
+                if (playerFacingNorth) { /* if player facing north */
+                    if (level.arenaBlocks[forwardBlockIndex].solid && (Player.z % 4.55) > 3) /* if future collision straight */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[backwardBlockIndex].solid  && (Player.x % 4.55) < 1.5) /* if future collision behind */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[leftBlockIndex].solid && (Player.x % 4.55) < 1.5) /* if future collision left */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[forwardLeftBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 < 2.5)) /* if future backward/left corner collision */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[forwardRightBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 < 2.5)) /* if future forward/left corner collision */
+                        Player.leftCollision = true;
+                } else { /* else; facing south */
+                    if (level.arenaBlocks[forwardBlockIndex].solid && (Player.z % 4.55) < 1.5) /* if future collision straight */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[backwardBlockIndex].solid  && (Player.x % 4.55) > 3) /* if future collision behind */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[leftBlockIndex].solid && (Player.x % 4.55) > 3) /* if future collision left */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[forwardLeftBlockIndex].solid && (Player.z % 4.55 > 2.5) && (Player.x % 4.55 > 2.5)) /* if future backward/left corner collision */
+                        Player.leftCollision = true;
+                    if (level.arenaBlocks[forwardRightBlockIndex].solid && (Player.z % 4.55 < 2.5) && (Player.x % 4.55 > 2.5)) /* if future forward/left corner collision */
+                        Player.leftCollision = true;
+                }
+            }        
         }
     }
     
     /** handles player collisions with the arena border walls */
-    private void arenaBorderWallCollisions(boolean forwardIndicated, boolean backwardIndicated, boolean leftIndicated, boolean rightIndicated) {
-        /* player direction facing */
-        boolean playerFacingNorth = Math.cos(Player.rotation) > 0;
-        boolean playerFacingEast = Math.sin(Player.rotation) > 0;
-        boolean playerFacingSouth = Math.cos(Player.rotation) <= 0;
-        boolean playerFacingWest = Math.sin(Player.rotation) <= 0;
-        
+    private void arenaBorderWallCollisions(boolean forwardIndicated, boolean backwardIndicated, boolean leftIndicated, boolean rightIndicated,
+            boolean playerFacingNorth, boolean playerFacingEast, boolean playerFacingSouth, boolean playerFacingWest) {
         /* arena dimensions for player */
         int maxZ = 447;
         int maxX = 447;
@@ -212,72 +326,44 @@ public class Render3D extends Render {
         int minX = -1;
         
         /* northern border */        
-        if (forwardIndicated && playerFacingNorth && (Player.z > maxZ)) { /* forward movement indicated */
+        if (forwardIndicated && playerFacingNorth && (Player.z > maxZ)) /* forward movement indicated */
             Player.forwardCollision = true;
-        }      
-        
-        if (leftIndicated && playerFacingEast && (Player.z > maxZ)) { /* left movement indicated */ 
+        if (leftIndicated && playerFacingEast && (Player.z > maxZ)) /* left movement indicated */ 
             Player.leftCollision = true;
-        }
-        
-        if (rightIndicated && playerFacingWest && (Player.z > maxZ)) { /* right movement indicated */
+        if (rightIndicated && playerFacingWest && (Player.z > maxZ)) /* right movement indicated */
             Player.rightCollision = true;
-        }
-        
-        if (backwardIndicated&& playerFacingSouth && (Player.z > maxZ)) { /* backward movement indicated */
+        if (backwardIndicated&& playerFacingSouth && (Player.z > maxZ)) /* backward movement indicated */
             Player.backwardCollision = true;
-        }
-            
+        
         /* southern border */
-        if (forwardIndicated && playerFacingSouth && (Player.z < minZ)) { /* forward movement indicated */
+        if (forwardIndicated && playerFacingSouth && (Player.z < minZ)) /* forward movement indicated */
             Player.forwardCollision = true;
-        }      
-        
-        if (leftIndicated && playerFacingWest && (Player.z < minZ)) { /* left movement indicated */ 
+        if (leftIndicated && playerFacingWest && (Player.z < minZ)) /* left movement indicated */ 
             Player.leftCollision = true;
-        }
-        
-        if (rightIndicated && playerFacingEast && (Player.z < minZ)) { /* right movement indicated */
+        if (rightIndicated && playerFacingEast && (Player.z < minZ)) /* right movement indicated */
             Player.rightCollision = true;
-        }
-        
-        if (backwardIndicated&& playerFacingNorth && (Player.z < minZ)) { /* backward movement indicated */
+        if (backwardIndicated&& playerFacingNorth && (Player.z < minZ)) /* backward movement indicated */
             Player.backwardCollision = true;
-        }
         
         /* eastern border */
-        if (forwardIndicated && playerFacingEast && (Player.x > maxX)) { /* forward movement indicated */
+        if (forwardIndicated && playerFacingEast && (Player.x > maxX)) /* forward movement indicated */
             Player.forwardCollision = true;
-        }      
-        
-        if (leftIndicated && playerFacingSouth && (Player.x > maxX)) { /* left movement indicated */ 
+        if (leftIndicated && playerFacingSouth && (Player.x > maxX)) /* left movement indicated */ 
             Player.leftCollision = true;
-        }
-        
-        if (rightIndicated && playerFacingNorth && (Player.x > maxX)) { /* right movement indicated */
+        if (rightIndicated && playerFacingNorth && (Player.x > maxX)) /* right movement indicated */
             Player.rightCollision = true;
-        }
-        
-        if (backwardIndicated&& playerFacingWest && (Player.x > maxX)) { /* backward movement indicated */
+        if (backwardIndicated&& playerFacingWest && (Player.x > maxX)) /* backward movement indicated */
             Player.backwardCollision = true;
-        }
         
         /* western border*/
-        if (forwardIndicated && playerFacingWest && (Player.x < minX)) { /* forward movement indicated */
+        if (forwardIndicated && playerFacingWest && (Player.x < minX)) /* forward movement indicated */
             Player.forwardCollision = true;
-        }      
-        
-        if (leftIndicated && playerFacingNorth && (Player.x < minX)) { /* left movement indicated */ 
+        if (leftIndicated && playerFacingNorth && (Player.x < minX)) /* left movement indicated */ 
             Player.leftCollision = true;
-        }
-        
-        if (rightIndicated && playerFacingSouth && (Player.x < minX)) { /* right movement indicated */
+        if (rightIndicated && playerFacingSouth && (Player.x < minX)) /* right movement indicated */
             Player.rightCollision = true;
-        }
-        
-        if (backwardIndicated&& playerFacingEast && (Player.x < minX)) { /* backward movement indicated */
+        if (backwardIndicated&& playerFacingEast && (Player.x < minX)) /* backward movement indicated */
             Player.backwardCollision = true;
-        }
     }
     
     /** handles action when player collects a blur */

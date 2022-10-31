@@ -45,11 +45,11 @@ public class Display extends Canvas implements Runnable {
 	private boolean running = false;
     private int[] pixels;
     private int fps; /* frames per second */
-    public static int difficulty = 1; /* sets difficulty */
     private int countdown = 100; /* timer in seconds */
-    public static int blurs = 5; 
     private boolean playerWon;
-    private boolean gameOver = false;    
+    private boolean gameOver = false;   
+    public static int difficulty = 1; /* sets difficulty */
+    public static int blurs = 5;  
     
     /* user settings */
     private int newX = windowWidth / 2;
@@ -167,6 +167,7 @@ public class Display extends Canvas implements Runnable {
             RunGame.frame.dispose();
             RunGame.frame = new JFrame();
             
+            /* reset game initial values */
             blurs = 5;
             countdown = 100;
 
@@ -312,13 +313,13 @@ public class Display extends Canvas implements Runnable {
          g.setFont(new Font("Verdana", 0, 10));
          
          if (difficulty == 0) { /* sandbox difficulty */
-             g.drawString("Difficulty: Sandbox", windowWidth / 2 - 50, windowHeight - 75);
+             g.drawString("Difficulty: Sandbox", windowWidth / 2 - 52, windowHeight - 75);
          } else if (difficulty == 1) { /* easiest difficulty */
-             g.drawString("Difficulty: Childs Play", windowWidth / 2 - 55, windowHeight - 75);
+             g.drawString("Difficulty: Childs Play", windowWidth / 2 - 58, windowHeight - 75);
          } else if (difficulty == 2) { /* second easiest difficulty */
-             g.drawString("Difficulty: Average Joe", windowWidth / 2 - 60, windowHeight - 75);
+             g.drawString("Difficulty: Barry Allen", windowWidth / 2 - 57, windowHeight - 75);
          } else { /* hardest difficulty */
-             g.drawString("Difficulty: God Mode", windowWidth / 2 - 55, windowHeight - 75);
+             g.drawString("Difficulty: The Flash!", windowWidth / 2 - 57, windowHeight - 75);
          }
          
          renderButtons(standardColor);	     
