@@ -1,12 +1,9 @@
-*** This project has not been completed yet ***
-
 # Speed Force Prison Game :video_game:
 This program is a 3&ndash;Dimensional game written in Java that uses Java&apos;s graphical interface for rendering effects.
 
 ---
 ## Instructions of how to run program :scroll:
-Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe to start the game. Enjoy!<br>
-*** temporary executable file of an older version named: Incomplete_Game.exe ***
+Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe to start the game. Godspeed!<br>
 
 ---
 ## Game Progression :chart_with_upwards_trend:
