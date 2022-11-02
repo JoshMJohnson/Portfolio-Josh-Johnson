@@ -13,7 +13,7 @@ Keeps a database of jokes that users can add jokes to and&frasl;or retrieve joke
     4.) Operate at that address the same as one would at a website on the browser
 ---
 <!-- project images section -->
-## Project Images
+## Project Images :camera:
 <img width="800" height="675" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/sql_table.png">
 
 <img width="800" height="250" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/home_page.png">
