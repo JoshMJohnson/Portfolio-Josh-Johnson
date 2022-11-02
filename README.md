@@ -10,7 +10,7 @@ All code has been written and reviewed by Josh Johnson.
 [Projects In Development :point_up:](#projects-in-development-point_up)<br>
 
 ---
-<!-- Completed Projects section -->
+<!-- completed projects section -->
 ## Completed Projects :thumbsup:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
@@ -18,7 +18,7 @@ All code has been written and reviewed by Josh Johnson.
 | [Jokes&lowbar;Project](/Jokes_Project) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management<ul><li>Create Tables</li><li>Retrieving Data</li><li>Inserting Data</li></ul></li><li>DOM Elements</li><li>Buttons</li><li>Links<ul><li>Relative</li></ul></li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Radio</li><li>Text</li><li>Checkbox</li><li>Textarea</li><li>Dropdown Box</li></ul></li></ul></li><li>Client Side vs. Server Side</li></ul> | Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from |
 | [Ultimate&lowbar;Frisbee&lowbar;Project](/Ultimate_Frisbee_Project) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Images Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
 ---
-<!-- Algorithms & Basic Concepts section -->
+<!-- algorithms & basic concepts section -->
 ## Algorithms & Basic Concepts :writing_hand:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
@@ -31,7 +31,7 @@ All code has been written and reviewed by Josh Johnson.
 | [sort&lowbar;array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li></ul> | Organize lists of integers in ascending order gathered using different methods |
 | [hello&lowbar;world](/JavaScript/hello_world.js) | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
 ---
-<!-- Incompleted Projects section -->
+<!-- incompleted Projects section -->
 ## Projects In Development :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
@@ -39,5 +39,5 @@ All code has been written and reviewed by Josh Johnson.
 
 <sup>_Projects in development are currently being worked on_</sup>
 
-<!-- Footer section -->
+<!-- footer section -->
 :arrow_up: [Back to top](#portfolio-josh-johnson-open_book) :arrow_up:

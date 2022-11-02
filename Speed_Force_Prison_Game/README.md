@@ -2,10 +2,12 @@
 This program is a 3&ndash;Dimensional game written in Java that uses Java&apos;s graphical interface for rendering effects.
 
 ---
+<!-- instructions section -->
 ## Instructions of how to run program :scroll:
 Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe to start the game. Godspeed!<br>
 
 ---
+<!-- project progression images section -->
 ## Game Progression :chart_with_upwards_trend:
 <img width="400" height="275" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/1.png">
 
@@ -61,4 +63,5 @@ Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe t
 
 <img width="400" height="275" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/11.png">
 
+<!-- footer section -->
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:arrow_up: [Back to top](#speed-force-prison-game-video_game) :arrow_up:
