@@ -24,5 +24,7 @@ Keeps a database of jokes that users can add jokes to and&frasl;or retrieve joke
 
 <img width="800" height="625" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke2.png">
 
+<img width="800" height="625" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke3.png">
+
 <!-- footer section -->
 :arrow_up: [Back to top](#jokes-project-clown_face) :arrow_up:
