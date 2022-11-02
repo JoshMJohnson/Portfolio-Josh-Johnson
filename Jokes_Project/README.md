@@ -13,10 +13,10 @@ Keeps a database of jokes that users can add jokes to and&frasl;or retrieve joke
 ## Project Images
 <img width="800" height="675" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/sql_table.png">
 
-<img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/home_page.png">
+<img width="800" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/home_page.png">
 
-<img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/tell_joke.png">
+<img width="800" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/tell_joke.png">
 
-<img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke.png">
+<img width="800" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke.png">
 
-<img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke2.png">
+<img width="800" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke2.png">
