@@ -1,3 +1,5 @@
+*** This project has not been completed yet ***
+
 # Account Manager :raising_hand_man:
 Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts
 
