@@ -1,4 +1,4 @@
-# Ultimate Frisbee Project :flying_disc:
+# Ultimate Frisbee Wiki :flying_disc:
 Customized Ultimate Frisbee Wiki page
 
 ---
@@ -24,4 +24,4 @@ Open the HTML file named ultimate&lowbar;frisbee.html with your browser
 <img width="600" height="675" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Ultimate_Frisbee_Wiki/Images/project/7.png">
 
 <!-- footer section -->
-:arrow_up: [Back to top](#ultimate-frisbee-project-flying_disc) :arrow_up:
+:arrow_up: [Back to top](#ultimate-frisbee-wiki-flying_disc) :arrow_up:
