@@ -35,7 +35,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Projects In Development :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| TBD | TBD | TBD | TBD |
+| Account_Manager | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | <ul><li>User Permissions</li><li>Forms Usage<ul><li>Password</li><li>Text</li></ul></li></ul> | Allows user to create&sol;delete accounts and be able to login&sol;logout of such accounts |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
