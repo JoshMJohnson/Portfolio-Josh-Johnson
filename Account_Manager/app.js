@@ -1,2 +1,1 @@
-/* server side javascript */
-
+/* server side JavaScript for the Account Manager project */

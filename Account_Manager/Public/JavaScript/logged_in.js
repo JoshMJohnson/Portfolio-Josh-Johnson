@@ -1,0 +1,1 @@
+/* client side JavaScript for when a user logs in successfully */

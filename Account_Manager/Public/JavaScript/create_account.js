@@ -1,0 +1,1 @@
+/* client side JavaScript for when a user creates a new account */
