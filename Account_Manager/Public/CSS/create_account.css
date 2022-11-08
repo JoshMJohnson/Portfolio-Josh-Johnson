@@ -51,6 +51,7 @@ body {
 input:-webkit-autofill {
     -webkit-text-fill-color: #00FFAC !important;
     -webkit-box-shadow: 0 0 0 30px darkgreen inset !important;
+            box-shadow: 0 0 0 30px darkgreen inset !important;
 }
 
 input {
