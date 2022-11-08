@@ -79,3 +79,20 @@ h1 {
     position: relative;
     top: 5px;
 }
+
+/* images */
+#john_diggle, #roy_harper {
+    height: 400px;
+    position: absolute;
+    top: 100px;
+}
+
+#john_diggle {
+    margin-left: 125px;
+    width: 250px;
+}
+
+#roy_harper {
+    margin-left: -350px;
+    width: 200px;
+}
