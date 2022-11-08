@@ -47,6 +47,12 @@ body {
     background-color: lightgreen;
 }
 
+/* inputs */
+input:-webkit-autofill {
+    -webkit-text-fill-color: #00FFAC !important;
+    -webkit-box-shadow: 0 0 0 30px darkgreen inset !important;
+}
+
 input {
     background-color: darkgreen;
     color: #00FFAC;
