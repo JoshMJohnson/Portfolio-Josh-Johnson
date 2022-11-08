@@ -1,0 +1,82 @@
+/* general formatting */
+body {
+    background-color: lightgreen;
+}
+
+div {
+    padding-bottom: 15px;
+}
+
+/* heading */
+header>p {
+    color: lightgreen;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    font-size: smaller;
+}
+
+h1 {
+    color: lightgreen;
+    text-align: center;    
+    position: relative;
+    top: 5px;
+}
+
+header {
+    background-color: darkgreen;
+    margin-bottom: 10px;
+    height: 50px;    
+}
+
+/* forms */
+input:-webkit-autofill {
+    -webkit-text-fill-color: #00FFAC !important;
+    -webkit-box-shadow: 0 0 0 30px darkgreen inset !important;
+            box-shadow: 0 0 0 30px darkgreen inset !important;
+}
+
+input {
+    background-color: darkgreen;
+    color: #00FFAC;
+}
+
+::placeholder {
+    color: #00FFAC;;
+}
+
+#asterisk {
+    color: red;
+}
+
+#remove_user, #promote_user {
+    border-style: outset;
+    border-color: darkgreen;
+    border-width: 5px;
+    padding: 20px;
+    width: 200px;
+    display: inline-block;
+    text-align: center;
+}
+
+h2 {
+    position: relative;
+    top: -20px;
+}
+
+hr {
+    position: relative;
+    top: -15px;
+    border-width: 5px;
+    border-color: darkgreen;
+}
+
+body {
+    text-align: center;
+}
+
+#remove_user_button, #promote_user_button {
+    width: 110px;
+    height: 40px;
+    box-shadow: 5px 5px green;
+}

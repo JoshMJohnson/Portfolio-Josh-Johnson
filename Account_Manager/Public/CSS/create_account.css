@@ -20,6 +20,10 @@
     height: 0;
 }
 
+#avatar>label:first-of-type {
+    line-height: 2em;
+}
+
 /* general formatting */
 div {
     padding-bottom: 10px;
@@ -29,25 +33,15 @@ div {
     padding-left: 5px;
 }
 
-#avatar>label:first-of-type {
-    line-height: 2em;
-}
-
 *:not(input) {
     text-align: center;
-}
-
-#submit {
-    width: 125px;
-    height: 40px;
-    box-shadow: 5px 5px green;
 }
 
 body {
     background-color: lightgreen;
 }
 
-/* inputs */
+/* forms */
 input:-webkit-autofill {
     -webkit-text-fill-color: #00FFAC !important;
     -webkit-box-shadow: 0 0 0 30px darkgreen inset !important;
@@ -61,4 +55,27 @@ input {
 
 ::placeholder {
     color: #00FFAC;;
+}
+
+#asterisk {
+    color: red;
+}
+
+#create_user_submit {
+    width: 125px;
+    height: 40px;
+    box-shadow: 5px 5px green;
+}
+
+/* heading */
+header {
+    background-color: darkgreen;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+h1 {
+    color: lightgreen;
+    position: relative;
+    top: 5px;
 }

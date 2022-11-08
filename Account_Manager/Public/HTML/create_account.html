@@ -9,18 +9,20 @@
         <title>Account Manager</title>
     </head>
     <body>
-        <h1>Create Account</h1>
+        <header>
+            <h1>Create Account</h1>
+        </header>
         <form id="create_account">
             <div id="full_name">
-                <label for="full_name">Full Name*</label><br>
+                <label for="full_name">Full Name<span id="asterisk">*</span></label><br>
                 <input type="text" name="full_name" required><br>
             </div>            
             <div id="birth_date">
-                <label for="birth_date">Date of Birth*</label><br>
-                <input type="date" name="birth_date" required><br>
+                <label for="birth_date">Date of Birth</label><br>
+                <input type="date" name="birth_date"><br>
             </div>
             <div id="email">
-                <label for="email">Email*</label><br>
+                <label for="email">Email<span id="asterisk">*</span></label><br>
                 <input type="email" name="email" placeholder="example@gmail.com" required><br>
             </div>
             <div id="phone">
@@ -28,11 +30,11 @@
                 <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890"><br>
             </div>
             <div id="password">
-                <label for="password">Password*</label><br>
+                <label for="password">Password<span id="asterisk">*</span></label><br>
                 <input type="password" name="password" required><br>
             </div>
             <div id="confirm_password">
-                <label for="confirm_password">Confirm Password*</label><br>
+                <label for="confirm_password">Confirm Password<span id="asterisk">*</span></label><br>
                 <input type="password" name="confirm_password" required><br>
             </div>
             <div id="avatar">
@@ -58,7 +60,7 @@
                     <img src="../../Images/avatar5.jpg" alt="guy wearing an orange shirt" class="avatar">
                 </label>
             </div>            
-            <input type="image" src="../../Images/submit_icon.png" alt="Create Account" id="submit">
+            <input type="image" src="../../Images/submit_button.png" alt="Create Account" id="create_user_submit">
         </form>
         <script src="../JavaScript/create_account.js"></script>
     </body>

@@ -9,7 +9,29 @@
         <title>Account Manager</title>
     </head>
     <body>
-        
+        <header>
+            <h1>Welcome Back!</h1>
+            <p><span id="user_id"></span> : <span id="user_priv"></span></p>
+        </header>
+        <form id="remove_user">
+            <h2>Remove User</h2>
+            <hr>
+            <div id="email_remove">
+                <label for="email">Email address<span id="asterisk">*</span></label><br>
+                <input type="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+            <input type="image" src="../../Images/remove_user_button.png" alt="Remove User" id="remove_user_button">
+        </form>
+        <form id="promote_user">
+            <h2>Promote User</h2>
+            <hr>
+            <div id="email_promote">
+                <label for="email">Email address<span id="asterisk">*</span></label><br>
+                <input type="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+            <input type="image" src="../../Images/promote_user_button.png" alt="Promote User" id="promote_user_button">
+        </form>
+
 
         <script src="../JavaScript/logged_in.js"></script>
     </body>
