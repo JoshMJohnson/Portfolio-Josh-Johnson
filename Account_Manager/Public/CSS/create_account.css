@@ -1,0 +1,57 @@
+/* avatars */
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+[type=radio] + img {
+    cursor: pointer;
+}
+
+[type=radio]:checked + img {
+    outline: 4px solid #00FF00;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* general formatting */
+div {
+    padding-bottom: 10px;
+}
+
+#avatar>label:not(:first-of-type) {
+    padding-left: 5px;
+}
+
+#avatar>label:first-of-type {
+    line-height: 2em;
+}
+
+*:not(input) {
+    text-align: center;
+}
+
+#submit {
+    width: 125px;
+    height: 40px;
+    box-shadow: 5px 5px green;
+}
+
+body {
+    background-color: lightgreen;
+}
+
+input {
+    background-color: darkgreen;
+    color: #00FFAC;
+}
+
+::placeholder {
+    color: #00FFAC;;
+}

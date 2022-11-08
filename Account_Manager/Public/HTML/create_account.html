@@ -9,8 +9,49 @@
         <title>Account Manager</title>
     </head>
     <body>
-        
-
+        <h1>Create Account</h1>
+        <form id="create_account">
+            <div id="first_name">
+                <label for="first_name">First Name: </label>
+                <input type="text" name="first_name" required><br>
+            </div>
+            <div id="last_name">
+                <label for="last_name">Last Name: </label>
+                <input type="text" name="last_name" required><br>
+            </div>
+            <div id="email">
+                <label for="email">Email: </label>
+                <input type="email" name="email" placeholder="example@gmail.com" required><br>
+            </div>
+            <div id="phone">
+                <label for="phone">Phone Number: </label>
+                <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" required><br>
+            </div>
+            <div id="avatar">
+                <label for="avatar">Choose an Avatar</label><br>   
+                <label>
+                    <input type="radio" id="avatar1" name="avatar" checked>        
+                    <img src="../../Images/avatar1.jpg" alt="guy wearing shades" class="avatar">
+                </label>
+                <label>
+                    <input type="radio" id="avatar2" name="avatar">        
+                    <img src="../../Images/avatar2.png" alt="guy wearing a vest" class="avatar">
+                </label>
+                <label>
+                    <input type="radio" id="avatar3" name="avatar">        
+                    <img src="../../Images/avatar3.jpg" alt="girl in a pink shirt" class="avatar">
+                </label>
+                <label>
+                    <input type="radio" id="avatar4" name="avatar">        
+                    <img src="../../Images/avatar4.png" alt="girl in a tshirt" class="avatar">
+                </label>
+                <label>
+                    <input type="radio" id="avatar5" name="avatar">        
+                    <img src="../../Images/avatar5.jpg" alt="guy wearing an orange shirt" class="avatar">
+                </label>
+            </div>
+            <input type="image" src="../../Images/submit_icon.png" alt="Create Account" id="submit">
+        </form>
         <script src="../JavaScript/create_account.js"></script>
     </body>
 </html>
