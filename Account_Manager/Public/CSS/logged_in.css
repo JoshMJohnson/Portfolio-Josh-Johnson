@@ -120,5 +120,17 @@ body {
 
 /* members table */
 #club_members {
-    
+    border-style: groove;
+    border-color: darkgreen;
+    padding: 10px;
+    margin: auto;
+}
+
+#table_header {
+    background-color: grey;
+}
+
+#table_header>th {
+    padding-right: 40px;
+    padding-left: 40px;
 }
