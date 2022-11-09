@@ -16,7 +16,7 @@ All code has been written and reviewed by Josh Johnson.
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
 | [Speed&lowbar;Force&lowbar;Prison&lowbar;Game](/Speed_Force_Prison_Game)  | Java | <ul><li>3&ndash;Dimensional Rendering</li><li>Sprites</li><li>User Input<ul><li>Keyboard</li><li>Mouse</li></ul></li><li>JFrames&frasl;JPanels<ul><li>JButtons</li><li>JLabels</li><li>JTextFields</li></ul></li><li>Timer Usage</li><li>Image Usage</li><li>Threads</li><li>Java Class Interaction</li></ul> | 3&ndash;Dimensional game written in Java that uses Java&apos;s graphical interface for rendering effects |
 | [Jokes&lowbar;Project](/Jokes_Project) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management<ul><li>Create Tables</li><li>Retrieving Data</li><li>Inserting Data</li></ul></li><li>DOM Elements</li><li>Buttons</li><li>Links<ul><li>Relative</li></ul></li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Radio</li><li>Text</li><li>Checkbox</li><li>Textarea</li><li>Dropdown Box</li></ul></li></ul></li><li>Client Side vs. Server Side</li></ul> | Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from |
-| [Ultimate&lowbar;Frisbee&lowbar;Wiki](/Ultimate_Frisbee_Wiki) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Images Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
+| [Ultimate&lowbar;Frisbee&lowbar;Wiki](/Ultimate_Frisbee_Wiki) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Image Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
 ---
 <!-- algorithms & basic concepts section -->
 ## Algorithms & Basic Concepts :writing_hand:
@@ -35,7 +35,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Projects In Development :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| [Account&lowbar;Manager](/Account_Manager) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li><li>Swift</li><li>Ruby</li></ul> | <ul><li>Animation</li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Password</li><li>Text</li><li>Date</li><li>Email</li><li>Tel</li></ul></li></ul></li><li>Node JS</li><li>Server Side vs. Client Side</li><li>User Permissions</li></ul> | Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions |
+| [Account&lowbar;Manager](/Account_Manager) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li><li>Swift</li><li>Ruby</li></ul> | <ul><li>Animation</li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Password</li><li>Text</li><li>Date</li><li>Email</li><li>Tel</li></ul></li></ul></li><li>Node JS</li><li>Server Side vs. Client Side</li><li>Image Usage<li><li>User Permissions</li></ul> | Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
