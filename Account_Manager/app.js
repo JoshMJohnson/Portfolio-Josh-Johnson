@@ -38,7 +38,7 @@ db.run (
         phoneNumber VARCHAR (12),
         password    STRING,
         avatar      INTEGER      NOT NULL,
-        status      STRING       DEFAULT user
+        status      STRING       DEFAULT member
     );`
 ); */
 
