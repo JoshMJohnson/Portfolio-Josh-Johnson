@@ -35,7 +35,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Projects In Development :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| [Account&lowbar;Manager](/Account_Manager) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li><li>Swift</li><li>Ruby</li></ul> | <ul><li>Animation</li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Password</li><li>Text</li><li>Date</li><li>Email</li><li>Tel</li></ul></li></ul></li><li>Node JS</li><li>Server Side vs. Client Side</li><li>Image Usage</li><li>User Permissions</li></ul> | Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions |
+| [Account&lowbar;Manager](/Account_Manager) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li><li>Swift</li><li>Ruby</li></ul> | <ul><li>Animation</li><li>Tables</li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Password</li><li>Text</li><li>Date</li><li>Email</li><li>Tel</li><li>Image</li></ul></li></ul></li><li>Node JS</li><li>Server Side vs. Client Side</li><li>Image Usage</li><li>User Permissions</li></ul> | Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
