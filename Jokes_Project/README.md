@@ -14,7 +14,7 @@ Keeps a database of jokes that users can add jokes to and&frasl;or retrieve joke
 ---
 <!-- project images section -->
 ## Project Images :camera:
-<img width="600" height="475" alt="Highlight Clip" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/Jokes_Project_Highlight.mp4">
+https://user-images.githubusercontent.com/107897805/200720588-2da7f5c6-7be8-49d8-b06a-7d61253faf84.mp4
 
 <img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/sql_table.png">
 
