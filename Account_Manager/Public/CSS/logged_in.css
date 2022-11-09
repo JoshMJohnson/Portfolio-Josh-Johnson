@@ -4,7 +4,12 @@ body {
 }
 
 div {
-    padding-bottom: 15px;
+    padding-bottom: 25px;
+}
+
+.item, hr {
+    border-color: darkgreen;
+    border-width: 5px;
 }
 
 /* heading */
@@ -57,18 +62,13 @@ input {
     width: 200px;
     display: inline-block;
     text-align: center;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
-h2 {
-    position: relative;
-    top: -20px;
-}
-
-hr {
+.admin_hr {
     position: relative;
     top: -15px;
-    border-width: 5px;
-    border-color: darkgreen;
 }
 
 body {
@@ -79,4 +79,46 @@ body {
     width: 110px;
     height: 40px;
     box-shadow: 5px 5px green;
+}
+
+/* images */
+#smoak_hype {
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* timeline */
+#left_side_timeline, #right_side_timeline {
+    display: inline-block;
+}
+
+#left_side_timeline {
+    position: relative;
+    right: 100px;
+}
+
+#right_side_timeline {
+    position: relative;
+    left: 100px;
+    top: 100px;
+}
+
+.item {
+    border-style: inset;
+    margin-bottom: 200px;
+}
+
+.item {
+    padding: 20px;
+}
+
+#members_header, #fan_club_members_header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* members table */
+#club_members {
+    
 }

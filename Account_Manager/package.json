@@ -1,0 +1,19 @@
+{
+  "name": "account_manager",
+  "version": "1.0.0",
+  "description": "Green Arrow fan club account manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "permissions"
+  ],
+  "author": "Josh Johnson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.2"
+  }
+}

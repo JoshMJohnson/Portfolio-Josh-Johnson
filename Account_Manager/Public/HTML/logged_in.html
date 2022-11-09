@@ -10,29 +10,103 @@
     </head>
     <body>
         <header>
-            <h1>Welcome Back!</h1>
+            <h1>Welcome To The Team Arrow Fanclub!</h1>
             <p><span id="user_id"></span> : <span id="user_priv"></span></p>
         </header>
-        <form id="remove_user">
-            <h2>Remove User</h2>
-            <hr>
-            <div id="email_remove">
-                <label for="email">Email address<span id="asterisk">*</span></label><br>
-                <input type="email" name="email" placeholder="example@gmail.com" required>
+        <div class="admin_status">
+            <form id="remove_user">
+                <h2 class="admin_headers">Remove User</h2>
+                <hr class="admin_hr">
+                <div id="email_remove">
+                    <label for="email">Email address<span id="asterisk">*</span></label><br>
+                    <input type="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+                <input type="image" src="../Assets/remove_user_button.png" alt="Remove User" id="remove_user_button">
+            </form>
+            <form id="promote_user">
+                <h2 class="admin_headers">Promote User</h2>
+                <hr class="admin_hr">
+                <div id="email_promote">
+                    <label for="email">Email address<span id="asterisk">*</span></label><br>
+                    <input type="email" name="email" placeholder="example@gmail.com" required>
+                </div>
+                <input type="image" src="../Assets/promote_user_button.png" alt="Promote User" id="promote_user_button">
+            </form>
+        </div>
+        <img src="../Assets/felicity_smoak_hype.gif" alt="felicity smoak hype train" id="smoak_hype">
+        <div class="admin_status">
+            <h2 id="fan_club_members_header">Fan Club Members</h2>
+            <table id="club_members">
+                <tr id="table_header">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Birth Date</th>
+                    <th>Phone Number</th>
+                    <th>Status</th>
+                </tr>
+            </table>
+        </div>
+        <h2 id="members_header">Team Arrow Members</h2>
+        <hr id="members_hr">
+        <div id="joined_timeline">
+            <div id="left_side_timeline">
+                <div class="item">
+                    <h3>Year One</h3>
+                    <hr>
+                    <p>Oliver Queen</p>
+                    <p>John Diggle</p>
+                    <p>Felicity Smoak</p>
+                </div>
+                <div class="item">
+                    <h3>Year Three</h3>
+                    <hr>
+                    <p>Quentin Lance</p>
+                    <p>Thea Queen</p>
+                    <p>Cisco Ramon</p>
+                    <p>Barry Allen</p>
+                    <p>Caitlin Snow</p>
+                </div>
+                <div class="item">
+                    <h3>Year Five</h3>
+                    <hr>
+                    <p>Rene Ramirez</p>
+                    <p>Evelyn Sharp</p>
+                    <p>Malcolm Merlyn</p>
+                </div>
+                <div class="item">
+                    <h3>Year Seven</h3>
+                    <hr>
+                    <p>Nyssa al Ghul</p>
+                    <p>Emiko Adachi</p>
+                </div>
             </div>
-            <input type="image" src="../../Images/remove_user_button.png" alt="Remove User" id="remove_user_button">
-        </form>
-        <form id="promote_user">
-            <h2>Promote User</h2>
-            <hr>
-            <div id="email_promote">
-                <label for="email">Email address<span id="asterisk">*</span></label><br>
-                <input type="email" name="email" placeholder="example@gmail.com" required>
+            <div id="right_side_timeline">
+                <div class="item">
+                    <h3>Year Two</h3>
+                    <hr>
+                    <p>Roy Harper</p>
+                    <p>Sara Lance</p>
+                </div>
+                <div class="item">
+                    <h3>Year Four</h3>
+                    <hr>
+                    <p>Curtis Holt</p>     
+                    <p>Ray Palmer</p>    
+                    <p>Laurel Lance</p>           
+                </div>
+                <div class="item">
+                    <h3>Year Six</h3>
+                    <hr>
+                    <p>Dinah Drake</p>
+                    <p>Vincent Sobel</p>
+                </div>
+                <div class="item">
+                    <h3>Year Eight</h3>
+                    <hr>
+                    <p>Mar Novu</p>
+                </div>
             </div>
-            <input type="image" src="../../Images/promote_user_button.png" alt="Promote User" id="promote_user_button">
-        </form>
-
-
+        </div>
         <script src="../JavaScript/logged_in.js"></script>
     </body>
 </html>
