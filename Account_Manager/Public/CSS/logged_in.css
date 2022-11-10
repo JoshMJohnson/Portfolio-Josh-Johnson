@@ -41,6 +41,11 @@ input:-webkit-autofill {
             box-shadow: 0 0 0 30px darkgreen inset !important;
 }
 
+.admin_headers {
+    position: relative;
+    top: -15px;
+}
+
 input {
     background-color: darkgreen;
     color: #00FFAC;
@@ -50,7 +55,7 @@ input {
     color: #00FFAC;;
 }
 
-#asterisk {
+.asterisk {
     color: red;
 }
 
@@ -75,7 +80,7 @@ body {
     text-align: center;
 }
 
-#remove_user_button, #promote_user_button {
+.admin_buttons {
     width: 110px;
     height: 40px;
     box-shadow: 5px 5px green;
@@ -105,17 +110,38 @@ body {
     top: 100px;
 }
 
-.item {
+.item, #left_side_timeline > div {
     border-style: inset;
     margin-bottom: 200px;
+}
+
+#right_side_timeline > div {
+    border-style: outset;
 }
 
 .item {
     padding: 20px;
 }
 
-#members_header, #fan_club_members_header {
+.member_headers {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#joined_timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#joined_timeline::after {
+    content: '';
+    width: 6px;
+    background-color: darkgreen;
+    position: absolute;
+    top: 125px;
+    bottom: 230px;
+    left: 50%;
+    margin-left: -3px;
 }
 
 /* members table */
