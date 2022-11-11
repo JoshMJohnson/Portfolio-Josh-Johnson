@@ -10,10 +10,10 @@
         <title>Jokes</title>
     </head>
     <body>
-        <div id="heading">
+        <header>
             <h1>Funny Jokes R Us</h1>
-        </div>
-        <div id="hear_joke">
+        </header>
+        <section>
             <h2>Get ready to laugh your socks off!</h2>
             <form id="hear_joke_form" onsubmit="return false"> <!-- onsubmit: return false stops page from refreshing -->
                 <label for="person">Do you want to hear jokes from a specific person?</label>
@@ -58,11 +58,11 @@
             </form>
             <h3>Jokes</h3>
             <ul id="database_jokes"></ul>
-        </div>
-        <div id="add_joke">
+        </section>
+        <section>
             <p>Did you think of a funny joke that you'd like to share?</p>
             <a href="add_joke.html"><button type="button">Tell Joke!</button></a>
-        </div>
+        </section>
         <script src="../JavaScript/hear_joke.js"></script>
     </body>
 </html>
