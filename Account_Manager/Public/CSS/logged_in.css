@@ -17,7 +17,7 @@ div {
 }
 
 /* heading */
-header>p {
+header > p {
     color: lightgreen;
     position: absolute;
     top: 10px;
@@ -25,7 +25,7 @@ header>p {
     font-size: smaller;
 }
 
-h1 {
+header > h1 {
     color: lightgreen;
     text-align: center;    
     position: relative;
@@ -206,7 +206,7 @@ body {
     background-color: grey;
 }
 
-#table_header>th {
+#table_header > th {
     padding-right: 40px;
     padding-left: 40px;
 }
