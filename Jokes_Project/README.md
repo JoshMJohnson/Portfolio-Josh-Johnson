@@ -16,7 +16,7 @@ Keeps a database of jokes that users can add jokes to and&frasl;or retrieve joke
 ## Project Images :camera:
 https://user-images.githubusercontent.com/107897805/200720588-2da7f5c6-7be8-49d8-b06a-7d61253faf84.mp4
 
-Database Details:<br>
+Database Content:<br>
 <img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/sql_table.png">
 
 Database Structure:<br>
