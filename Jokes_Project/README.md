@@ -19,6 +19,9 @@ https://user-images.githubusercontent.com/107897805/200720588-2da7f5c6-7be8-49d8
 Database Details:<br>
 <img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/sql_table.png">
 
+Database Structure:<br>
+<img width="600" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/database_structure.png">
+
 Homepage:<br>
 <img width="600" height="250" alt="Progression Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/home_page.png">
 
