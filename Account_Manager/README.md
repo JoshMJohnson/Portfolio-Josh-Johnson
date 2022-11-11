@@ -12,5 +12,7 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ## Project Images :camera:
 <img width="700" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
+<img width="475" height="700" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
+
 <!-- footer section -->
 :arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
