@@ -22,7 +22,7 @@ Database Details:<br>
 Homepage:<br>
 <img width="600" height="250" alt="Progression Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/home_page.png">
 
-Add A Joke:<br>
+Add Joke:<br>
 <img width="600" height="475" alt="Progression Three" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/tell_joke.png">
 
 Hear Jokes Initial:<br>
