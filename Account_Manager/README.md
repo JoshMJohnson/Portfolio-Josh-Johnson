@@ -10,8 +10,10 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ---
 <!-- project images section -->
 ## Project Images :camera:
+Create An Account:
 <img width="700" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
+Team Arrow Timeline:
 <img width="475" height="700" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
 
 <!-- footer section -->
