@@ -1,4 +1,4 @@
-/* header */
+/* heading */
 h1 {
     text-align: center;
     line-height: 75px;
@@ -6,13 +6,13 @@ h1 {
     color: grey;
 }
 
-div:first-of-type {
+header {
     background-color: rgb(107, 252, 107);
     height: 75px;
 }
 
 /* sectioning */
-div:not(div:first-of-type) {
+div {
     border: 2px solid darkgreen; /* width/style/color */
     padding: 10px;
     margin-top: 10px;
