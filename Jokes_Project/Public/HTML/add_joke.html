@@ -10,17 +10,17 @@
         <title>Jokes</title>
     </head>
     <body>
-        <div id="heading">
+        <header>
             <h1>Funny Jokes R Us</h1>
-        </div>
-        <div id="add_joke">
+        </header>
+        <section>
             <h2>Lets hear what you got!</h2>
             <form id="add_joke_form">
                 <label for="first_name">Contributers First Name:</label>
                 <input type="text" id="first_name" name="first_name" required><br>
                 <label for="last_name">Contributers Last Name:</label>
                 <input type="text" id="last_name" name="last_name" required><br>
-                <div id="original">
+                <div>
                     <label for="original">Did you think of this joke yourself?</label>
                     <input type="radio" id="yes" name="original" value="1" required>
                     <label for="yes">Yes</label>
@@ -41,11 +41,11 @@
                 <input type="reset" value="Clear">
                 <input type="submit" value="Share Joke" onclick="ensureChecked()">
             </form>
-        </div>
-        <div id="hear_joke">
+        </section>
+        <section>
             <p>Now that you've shared your funny joke do you want to hear one?</p>
             <a href="hear_joke.html"><button type="button">Hear Joke!</button></a>
-        </div>
+        </section>
         <script src="../JavaScript/add_joke.js"></script>
     </body>
 </html>

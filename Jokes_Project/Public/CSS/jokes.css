@@ -1,5 +1,5 @@
 /* heading */
-h1 {
+header > h1 {
     text-align: center;
     line-height: 75px;
     font-family: cursive;
@@ -12,7 +12,7 @@ header {
 }
 
 /* sectioning */
-div {
+section {
     border: 2px solid darkgreen; /* width/style/color */
     padding: 10px;
     margin-top: 10px;

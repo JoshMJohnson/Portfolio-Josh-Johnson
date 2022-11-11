@@ -1,23 +1,20 @@
-/* header */
-h1 {
+/* heading */
+header > h1 {
     text-align: center;
     line-height: 75px;
     font-family: cursive;
     color: grey;
 }
 
-#heading {
+header {
     background-color: rgb(107, 252, 107);
     height: 75px;
 }
 
 /* sectioning */
-#add_joke, #hear_joke {
-    border: 2px solid darkgreen; /* width/style/color */
+section {
+    border: 2px solid darkgreen; 
     margin-top: 10px;
-}
-
-#hear_joke, #add_joke {
     padding: 10px;
 }
 
