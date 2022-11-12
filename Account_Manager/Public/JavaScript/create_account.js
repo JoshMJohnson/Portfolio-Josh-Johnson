@@ -63,15 +63,15 @@ function acceptablePassword(password, confirmPassword) {
     return true;
 }
 
-/* show password if desired */
+/* password show/hide toggle */
 function showPassword() {
     var showPass = document.getElementById('password');    
     var showConfirm = document.getElementById('confirm_password');
 
-    if (showPass.type === "password") { /* if hidden */
+    if (showPass.type === "password") { /* if currently hidden */
         showPass.type = "text";
         showConfirm.type = "text";
-    } else { /* else shown */
+    } else { /* else currently shown */
         showPass.type = "password";
         showConfirm.type ="password";
     }

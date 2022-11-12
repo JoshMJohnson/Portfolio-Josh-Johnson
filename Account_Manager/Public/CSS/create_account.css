@@ -67,6 +67,10 @@ input {
     box-shadow: 5px 5px green;
 }
 
+[type="checkbox"] {
+    accent-color: darkgreen;
+}
+
 /* heading */
 header {
     background-color: darkgreen;
