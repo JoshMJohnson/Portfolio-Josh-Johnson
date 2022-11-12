@@ -1,6 +1,6 @@
-/* client side JavaScript for when a user creates a new account */
-const form = document.getElementById('create_account');
-form.addEventListener('submit', createAccount);
+/* 
+ * client side JavaScript for when a user creates a new account 
+ */
 
 /* creates a new member account */
 function createAccount() {
@@ -17,6 +17,7 @@ function createAccount() {
     alert('looooooool');
 
 
+    document.getElementById('create_account').submit();
 }
 
 /* confirms that the password given is the same as confirm password value and meets criteria */
@@ -63,7 +64,7 @@ function acceptablePassword() {
         return;
     }
 
-    document.getElementById('create_account').submit();
+    createAccount();
 }
 
 /* password show/hide toggle */
