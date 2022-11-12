@@ -14,7 +14,7 @@ function createAccount() {
     const avatar = document.getElementsByClassName('avatar').value;
 
     /* add member to database */
-    
+    alert('looooooool');
 
 
 }
@@ -29,7 +29,7 @@ function acceptablePassword() {
     const confirmPassword = document.getElementById('confirm_password').value;
 
     /* password and confirm password is the same value */
-    if (password != confirmPassword) {
+    if (password.valueOf() != confirmPassword.valueOf()) {
         errorPasswordNotification('Passwords do not match');
         return false;
     }
@@ -63,7 +63,7 @@ function acceptablePassword() {
         return false;
     }
 
-    return true;
+    document.getElementById('create_account').submit();
 }
 
 /* password show/hide toggle */
