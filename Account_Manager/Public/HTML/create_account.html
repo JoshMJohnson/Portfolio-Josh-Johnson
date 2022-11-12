@@ -13,51 +13,55 @@
             <h1>Join The Team Arrow Fan Club</h1>
         </header>
         <form id="create_account">
-            <div id="full_name">
-                <label for="full_name">Full Name<span id="asterisk">*</span></label><br>
-                <input type="text" name="full_name" required><br>
+            <div>
+                <label for="full_name">Full Name<span class="asterisk">*</span></label><br>
+                <input type="text" name="full_name" id="full_name" required><br>
             </div>            
-            <div id="birth_date">
+            <div>
                 <label for="birth_date">Date of Birth</label><br>
-                <input type="date" name="birth_date"><br>
+                <input type="date" name="birth_date" id="birth_date"><br>
             </div>
-            <div id="email">
-                <label for="email">Email<span id="asterisk">*</span></label><br>
-                <input type="email" name="email" placeholder="example@gmail.com" required><br>
+            <div>
+                <label for="email">Email<span class="asterisk">*</span></label><br>
+                <input type="email" name="email" placeholder="example@gmail.com" id="email" required><br>
             </div>
-            <div id="phone">
+            <div>
                 <label for="phone">Phone Number</label><br>
-                <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890"><br>
+                <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" id="phone"><br>
             </div>
-            <div id="password">
-                <label for="password">Password<span id="asterisk">*</span></label><br>
-                <input type="password" name="password" required><br>
+            <div>
+                <label for="password">Password<span class="asterisk">*</span></label><br>
+                <input type="password" name="password" id="password" required><br>
             </div>
-            <div id="confirm_password">
-                <label for="confirm_password">Confirm Password<span id="asterisk">*</span></label><br>
-                <input type="password" name="confirm_password" required><br>
+            <div>
+                <label for="confirm_password">Confirm Password<span class="asterisk">*</span></label><br>
+                <input type="password" name="confirm_password" id="confirm_password" required><br>
+            </div>
+            <div>
+                <label for="show_password">Show Password </label>
+                <input type="checkbox" onclick="showPassword()">
             </div>
             <div id="avatar">
                 <label for="avatar">Choose an Avatar</label><br>   
                 <label>
-                    <input type="radio" id="avatar1" name="avatar" checked>        
-                    <img src="../Assets/avatar1.jpg" alt="guy wearing shades" class="avatar">
+                    <input type="radio" name="avatar" checked>        
+                    <img src="../Assets/avatar1.jpg" alt="guy wearing shades" class="avatar" value="../Assets/avatar1.jpg">
                 </label>
                 <label>
-                    <input type="radio" id="avatar2" name="avatar">        
-                    <img src="../Assets/avatar2.png" alt="guy wearing a vest" class="avatar">
+                    <input type="radio" name="avatar">        
+                    <img src="../Assets/avatar2.png" alt="guy wearing a vest" class="avatar" value="../Assets/avatar2.jpg">
                 </label>
                 <label>
-                    <input type="radio" id="avatar3" name="avatar">        
-                    <img src="../Assets/avatar3.jpg" alt="girl in a pink shirt" class="avatar">
+                    <input type="radio" name="avatar">        
+                    <img src="../Assets/avatar3.jpg" alt="girl in a pink shirt" class="avatar" value="../Assets/avatar3.jpg">
                 </label>
                 <label>
-                    <input type="radio" id="avatar4" name="avatar">        
-                    <img src="../Assets/avatar4.png" alt="girl in a tshirt" class="avatar">
+                    <input type="radio" name="avatar">        
+                    <img src="../Assets/avatar4.png" alt="girl in a tshirt" class="avatar" value="../Assets/avatar4.jpg">
                 </label>
                 <label>
-                    <input type="radio" id="avatar5" name="avatar">        
-                    <img src="../Assets/avatar5.jpg" alt="guy wearing an orange shirt" class="avatar">
+                    <input type="radio" name="avatar">        
+                    <img src="../Assets/avatar5.jpg" alt="guy wearing an orange shirt" class="avatar" value="../Assets/avatar5.jpg">
                 </label>
             </div>            
             <input type="image" src="../Assets/submit_button.png" alt="Create Account" id="create_user_submit">

@@ -18,10 +18,10 @@ div {
 
 /* heading */
 header > p {
-    color: lightgreen;
-    position: absolute;
-    top: 10px;
-    right: 100px;
+    color: darkgreen;
+    position: relative;
+    top: -10px;
+    text-align: center;
     font-size: smaller;
 }
 
@@ -63,7 +63,7 @@ input {
     color: red;
 }
 
-#remove_user, #promote_user {
+form {
     border-style: outset;
     border-color: darkgreen;
     border-width: 5px;
@@ -73,6 +73,8 @@ input {
     text-align: center;
     margin-left: 25px;
     margin-right: 25px;
+    position: relative;
+    top: 20px;
 }
 
 .admin_hr {
