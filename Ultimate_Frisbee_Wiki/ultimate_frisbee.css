@@ -36,33 +36,33 @@ figcaption {
     margin: 5px 10px;
 }
 
-#vertical_stack_display>img {
+#vertical_stack_display > img {
     width: 13em;
     height: 17em;
 }
 
-#plaque>img, #pie_tin>img {
+#plaque > img, #pie_tin > img {
     width: 14em;
     height: 14em;
 }
 
-#plaque>figcaption, #pie_tin>figcaption, #vertical_stack_display>figcaption, #mark>figcaption, #australia_canada>figcaption {
+#plaque > figcaption, #pie_tin > figcaption, #vertical_stack_display > figcaption, #mark > figcaption, #australia_canada > figcaption {
     width: 210px;
     padding-left: 5px;
 }
 
-#foul>figcaption {
+#foul > figcaption {
     width: 285px;
     padding-left: 5px;
 }
 
-#breaking_cup>figcaption {
+#breaking_cup > figcaption {
     width: 290px;
     padding-left: 5px;
 }
 
 /* text */
-blockquote>span {
+blockquote > span {
     display: block;
     padding: 20px;
 }
@@ -169,11 +169,11 @@ ol li:before {
     color: red;
 }
 
-#terms>li {
+#terms > li {
     font-weight: bold;
 }
 
-.terms>li {
+.terms > li {
     font-weight: normal;
     padding-bottom: 20px;
 }
