@@ -31,7 +31,7 @@ function acceptablePassword() {
     /* password and confirm password is the same value */
     if (password.valueOf() != confirmPassword.valueOf()) {
         errorPasswordNotification('Passwords do not match');
-        return false;
+        return;
     }
 
     /* loop through the password given */
@@ -51,16 +51,16 @@ function acceptablePassword() {
     /* given password meets criteria */
     if (password.length < 8) { /* if less than 8 characters long */
         errorPasswordNotification("Must have 8 or more characters");
-        return false;
+        return;
     } else if (!goodCapital) { /* else if no captial letters used */
         errorPasswordNotification("Must have at least one capital letter");
-        return false;
+        return;
     } else if (!goodSpecial) { /* else if no special charaters used */
         errorPasswordNotification("Must have at least one special character (!, #, $, @, %, ~, &)");
-        return false;
+        return;
     } else if (!goodNumber) { /* else if no numbers used */
         errorPasswordNotification("Must have at least one number");
-        return false;
+        return;
     }
 
     document.getElementById('create_account').submit();
