@@ -6,28 +6,31 @@ form.addEventListener('submit', createAccount);
 function createAccount() {
     /* collect values given by user */
     const fullName = document.getElementById('full_name').value;
-    const dob = document.getElementsById('birth_date').value;
-    const email = document.getElementsById('email').value;
-    const phone = document.getElementsById('phone').value;
-    const password = document.getElementsById('password').value;
-    const confirmPassword = document.getElementsById('confirm_password').value;
+    const dob = document.getElementById('birth_date').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
     const avatar = document.getElementsByClassName('avatar').value;
 
-    acceptablePassword(password, confirmPassword); /* verify password */
-
-
+    /* add member to database */
+    
 
 
 }
 
 /* confirms that the password given is the same as confirm password value and meets criteria */
-function acceptablePassword(password, confirmPassword) {
+function acceptablePassword() {
     let goodCapital = false;
     let goodSpecial = false;
     let goodNumber = false;
 
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+
     /* password and confirm password is the same value */
     if (password != confirmPassword) {
+        errorPasswordNotification('Passwords do not match');
         return false;
     }
 
@@ -47,16 +50,16 @@ function acceptablePassword(password, confirmPassword) {
 
     /* given password meets criteria */
     if (password.length < 8) { /* if less than 8 characters long */
-        alert("Must have 8 or more characters");
+        errorPasswordNotification("Must have 8 or more characters");
         return false;
     } else if (!goodCapital) { /* else if no captial letters used */
-        alert("Must have at least one capital letter");
+        errorPasswordNotification("Must have at least one capital letter");
         return false;
     } else if (!goodSpecial) { /* else if no special charaters used */
-        alert("Must have at least one special character (!, #, $, @, %, ~, &)");
+        errorPasswordNotification("Must have at least one special character (!, #, $, @, %, ~, &)");
         return false;
     } else if (!goodNumber) { /* else if no numbers used */
-        alert("Must have at least one number");
+        errorPasswordNotification("Must have at least one number");
         return false;
     }
 
@@ -75,4 +78,10 @@ function showPassword() {
         showPass.type = "password";
         showConfirm.type ="password";
     }
+}
+
+/* provides custom error message */
+function errorPasswordNotification(errorMessage) {
+    const passwordBox = document.getElementById('password');
+    passwordBox.setCustomValidity(errorMessage);
 }
