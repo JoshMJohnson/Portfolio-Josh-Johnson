@@ -15,6 +15,7 @@ body {
     background-color: lightgreen;
 }
 
+/* password requirments visual */
 #password_specs {
     width: 300px;
     font-size: x-small;
@@ -30,6 +31,19 @@ body {
     text-align: left;
     margin-left: 65px;
     font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: "\25AA";
+    color: darkgreen;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
 }
 
 /* forms */
