@@ -14,7 +14,7 @@ function createAccount() {
     const avatar = document.getElementsByClassName('avatar').value;
 
     /* add member to database */
-    alert('looooooool');
+    
 
 
     document.getElementById('create_account').submit();
@@ -69,8 +69,8 @@ function acceptablePassword() {
 
 /* password show/hide toggle */
 function showPassword() {
-    var showPass = document.getElementById('password');    
-    var showConfirm = document.getElementById('confirm_password');
+    const showPass = document.getElementById('password');    
+    const showConfirm = document.getElementById('confirm_password');
 
     if (showPass.type === "password") { /* if currently hidden */
         showPass.type = "text";

@@ -1,29 +1,3 @@
-/* avatars */
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-
-[type=radio] + img {
-    cursor: pointer;
-}
-
-[type=radio]:checked + img {
-    outline: 4px solid #00FF00;
-}
-
-[type=radio] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-#avatar > label:first-of-type {
-    line-height: 2em;
-}
-
 /* general formatting */
 div {
     padding-bottom: 10px;
@@ -39,6 +13,23 @@ div {
 
 body {
     background-color: lightgreen;
+}
+
+#password_specs {
+    width: 300px;
+    font-size: x-small;
+    margin: auto;
+}
+
+#password_specs li {
+    text-align: left;
+    margin-left: 40px;
+}
+
+#password_specs > p {
+    text-align: left;
+    margin-left: 65px;
+    font-weight: bold;
 }
 
 /* forms */
@@ -99,4 +90,30 @@ h1 {
 #roy_harper {
     margin-left: -350px;
     width: 200px;
+}
+
+/* avatars */
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+[type=radio] + img {
+    cursor: pointer;
+}
+
+[type=radio]:checked + img {
+    outline: 4px solid #00FF00;
+}
+
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#avatar > label:first-of-type {
+    line-height: 2em;
 }
