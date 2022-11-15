@@ -21,7 +21,7 @@ All code has been written and reviewed by Josh Johnson.
 ---
 <!-- algorithms & basic concepts section -->
 ## Algorithms & Basic Concepts :writing_hand:
-| File | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
+| File | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | [sort&lowbar;array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li></ul> | Organize lists of integers in ascending order gathered using different methods |
 | [read&lowbar;write&lowbar;file](/C/Read_Write_File.c) | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Reads a poem located within a text file and writes a copy to an output file |
