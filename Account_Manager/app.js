@@ -11,6 +11,14 @@ app.use(express.json({limit: '1mb'}));
 
 /* gives paths to web pages within the site */
 app.get('/', (request, response) => {
+    response.sendFile(__dirname + '/Public/HTML/login.html');
+});
+
+app.get('/create_account', (request, response) => {
+    response.sendFile(__dirname + '/Public/HTML/create_account.html');
+});
+
+app.get('/logged_in', (request, response) => {
     response.sendFile(__dirname + '/Public/HTML/logged_in.html');
 });
 
@@ -58,5 +66,28 @@ app.get('/members', (request, response) => {
             });
                         
             response.json(sendBack);
+    });
+});
+
+/* adds member to the database for fan club members */
+app.post('/addMember', (req, res) => {
+    const data = req.body;
+    const fullName = data.fullName;
+    const dob = data.dob;
+    const email = data.email;
+    const phone = data.phone;
+    const password = data.password;
+    const avatar = data.avatarValue;
+
+    const sql_insert = `INSERT INTO members (email, name, dob, phoneNumber, password, avatar)
+                            VALUES (?, ?, ?, ?, ?, ?)`;
+
+    db.run(
+        sql_insert, [email, fullName, dob, phone, password, avatar], (err) => {
+            if (err) {
+                return console.error(err.message);
+            }
+
+            console.log("Member added to the fan club database!");
     });
 });

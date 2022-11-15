@@ -10,13 +10,30 @@ function createAccount() {
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm_password').value;
-    const avatar = document.getElementsByClassName('avatar').value;
+    const avatar = document.getElementsByName('avatar');
+
+    /* get value of radio input for avatar */
+    var avatarValue;
+
+    for (let i = 0; i < avatar.length; i++) {
+        if (avatar[i].checked) {
+            avatarValue = avatar[i].value;
+            break;
+        }
+    }
 
     /* add member to database */
-    
+    const data = {fullName, dob, email, phone, password, avatarValue};
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
 
-
+    fetch('/addMember', options);
+    alert("Member was added to the fan club!");
     document.getElementById('create_account').submit();
 }
 
