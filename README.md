@@ -35,17 +35,17 @@ All code has been written and reviewed by Josh Johnson.
 <!-- test files -->
 ## Test Files :open_file_folder:
 | File | File Type | Content |
-| :-----------: | :-----------: |
-| basic_text | txt | 5 lines with each stating its relative location in the file |
+| :-----------: | :-----------: | :-----------: |
+| basic&lowbar;text | txt | 5 lines with each stating its relative location in the file |
 | blank | txt | file with no content |
-| decreasing_count_of_integers | txt | starting at 40 - counts down to 0 - inclusive - by integer value of negative 1 |
-| increasing_count_of_integers | txt | starting at 0 - counts up to 40 - inclusive - by integer value of plus 1 |
-| moby_dick | txt | the entire book of moby dick |
+| decreasing&lowbar;count&lowbar;of&lowbar;integers | txt | starting at 40 - counts down to 0 - inclusive - by integer value of negative 1 |
+| increasing&lowbar;count&lowbar;of&lowbar;integers | txt | starting at 0 - counts up to 40 - inclusive - by integer value of plus 1 |
+| moby&lowbar;dick | txt | the entire book of moby dick |
 | poem | txt | 21 line - 4 paragraph poem |
-| random_floats_no_duplicates | txt | random mix of double values and integer values containing no duplicate values |
-| random_floats_with_duplicates | txt | random mix of double values and integer values containing a few duplicate values |
-| random_integers_no_duplicates | txt | random integer values containing no duplicate values |
-| random_integers_with_duplicates | txt | random integer values containing a few duplicate values |
+| random&lowbar;floats&lowbar;no&lowbar;duplicates | txt | random mix of double values and integer values containing no duplicate values |
+| random&lowbar;floats&lowbar;with&lowbar;duplicates | txt | random mix of double values and integer values containing a few duplicate values |
+| random&lowbar;integers&lowbar;no&lowbar;duplicates | txt | random integer values containing no duplicate values |
+| random&lowbar;integers&lowbar;with&lowbar;duplicates | txt | random integer values containing a few duplicate values |
 ---
 <!-- incompleted Projects section -->
 ## Projects In Development :point_up:
