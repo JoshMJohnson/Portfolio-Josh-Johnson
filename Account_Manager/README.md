@@ -10,11 +10,14 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ---
 <!-- project images section -->
 ## Project Images :camera:
+Database Structure:<br>
+<img width="700" height="475" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/database_structure.png">
+
 Create An Account:<br>
-<img width="700" height="475" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
+<img width="700" height="475" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
 Team Arrow Timeline:<br>
-<img width="475" height="700" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
+<img width="475" height="700" alt="Team Arrow Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
 
 <!-- footer section -->
 :arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
