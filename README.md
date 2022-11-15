@@ -7,8 +7,8 @@ All code has been written and reviewed by Josh Johnson.
 
 [Completed Projects :thumbsup:](#completed-projects-thumbsup)<br>
 [Alogrithms & Basic Concepts :writing_hand:](#algorithms--basic-concepts-writing_hand)<br>
-[Projects In Development :point_up:](#projects-in-development-point_up)<br>
 [Test Files :open_file_folder:](#test-files-open_file_folder)<br>
+[Projects In Development :point_up:](#projects-in-development-point_up)<br>
 
 ---
 <!-- completed projects section -->
