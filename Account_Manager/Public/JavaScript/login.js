@@ -1,1 +1,3 @@
-/* client side JavaScript for the login screen */
+/* 
+ * client side JavaScript for the login screen 
+ */

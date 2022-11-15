@@ -1,0 +1,22 @@
+/* general formatting */
+* {
+    text-align: center;
+}
+
+body {
+    background-color: lightgreen;
+}
+
+/* heading */
+header > h1 {
+    color: lightgreen;
+    text-align: center;    
+    position: relative;
+    top: 5px;
+}
+
+header {
+    background-color: darkgreen;
+    margin-bottom: 10px;
+    height: 50px;    
+}

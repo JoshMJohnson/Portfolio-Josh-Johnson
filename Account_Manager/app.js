@@ -1,4 +1,6 @@
-/* server side JavaScript for the Account Manager project */
+/* 
+ * server side JavaScript for the Account Manager project 
+ */
 const express = require('express');
 const app = express();
 const port = 4000;

@@ -1,14 +1,16 @@
-/* client side JavaScript for when a user logs in successfully */
-getData();
+/* 
+ * client side JavaScript for when a user logs in successfully 
+ */
+getMembers();
 
 /* gets a list of all the members currently in the database */
-async function getData() {
+async function getMembers() {
     const response = await fetch('/members');
     const data = await response.json();
     const members = document.getElementById('club_members');
     
     /* add members from database to the web page */
-    for (let i = 0; i < data.length; i++) {        
+    for (let i = 0; i < data.length; i++) {       
         /* create a row */
         let row = members.insertRow(1);
 
