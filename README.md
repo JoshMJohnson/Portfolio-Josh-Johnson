@@ -38,10 +38,10 @@ All code has been written and reviewed by Josh Johnson.
 | :-----------: | :-----------: | :-----------: |
 | [basic&lowbar;text](/Test_Files/basic_text.txt) | txt | 5 lines with each stating its relative location in the file |
 | [blank](/Test_Files/blank.txt) | txt | file with no content |
-| [decreasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/decreasing_count_of_integers.txt) | txt | starting at 40 - counts down to 0 - inclusive - by integer value of negative 1 |
-| [increasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/increasing_count_of_integers.txt) | txt | starting at 0 - counts up to 40 - inclusive - by integer value of plus 1 |
+| [decreasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/decreasing_count_of_integers.txt) | txt | starting at 40 &mdash; counts down to 0 &mdash; inclusive &mdash; by integer value of negative 1 |
+| [increasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/increasing_count_of_integers.txt) | txt | starting at 0 &mdash; counts up to 40 &mdash; inclusive &mdash; by integer value of plus 1 |
 | [moby&lowbar;dick](/Test_Files/moby_dick.txt) | txt | the entire book of moby dick |
-| [poem](/Test_Files/poem.txt) | txt | 21 line - 4 paragraph poem |
+| [poem](/Test_Files/poem.txt) | txt | 21 line &mdash; 4 paragraph poem |
 | [random&lowbar;floats&lowbar;no&lowbar;duplicates](/Test_Files/random_floats_no_duplicates.txt) | txt | random mix of double values and integer values containing no duplicate values |
 | [random&lowbar;floats&lowbar;with&lowbar;duplicates](/Test_Files/random_floats_with_duplicates.txt) | txt | random mix of double values and integer values containing a few duplicate values |
 | [random&lowbar;integers&lowbar;no&lowbar;duplicates](/Test_Files/random_integers_no_duplicates.txt) | txt | random integer values containing no duplicate values |
