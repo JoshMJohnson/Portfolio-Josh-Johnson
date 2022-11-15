@@ -8,7 +8,7 @@ All code has been written and reviewed by Josh Johnson.
 [Completed Projects :thumbsup:](#completed-projects-thumbsup)<br>
 [Alogrithms & Basic Concepts :writing_hand:](#algorithms--basic-concepts-writing_hand)<br>
 [Projects In Development :point_up:](#projects-in-development-point_up)<br>
-
+[Test Files :open_file_folder:](#test-files-:open_file_folder:)<br>
 ---
 <!-- completed projects section -->
 ## Completed Projects :thumbsup:
@@ -30,6 +30,21 @@ All code has been written and reviewed by Josh Johnson.
 | [HelloWorld](/Java/HelloWorld.java) | Java | Using the console | Classic &lsquo;hello world&rsquo; program |
 | [sort&lowbar;array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li></ul> | Organize lists of integers in ascending order gathered using different methods |
 | [hello&lowbar;world](/JavaScript/hello_world.js) | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
+---
+<!-- test files -->
+## Test Files :open_file_folder:
+| File | File Type | Content |
+| :-----------: | :-----------: |
+| basic_text | txt | 5 lines with each stating its relative location in the file |
+| blank | txt | file with no content |
+| decreasing_count_of_integers | txt | starting at 40 - counts down to 0 - inclusive - by integer value of negative 1 |
+| increasing_count_of_integers | txt | starting at 0 - counts up to 40 - inclusive - by integer value of plus 1 |
+| moby_dick | txt | the entire book of moby dick |
+| poem | txt | 21 line - 4 paragraph poem |
+| random_floats_no_duplicates | txt | random mix of double values and integer values containing no duplicate values |
+| random_floats_with_duplicates | txt | random mix of double values and integer values containing a few duplicate values |
+| random_integers_no_duplicates | txt | random integer values containing no duplicate values |
+| random_integers_with_duplicates | txt | random integer values containing a few duplicate values |
 ---
 <!-- incompleted Projects section -->
 ## Projects In Development :point_up:
