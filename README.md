@@ -36,7 +36,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Test Files :open_file_folder:
 | File | File Type | Content |
 | :-----------: | :-----------: | :-----------: |
-| [basic&lowbar;text](/Test_Files/basic_text.txt) | txt | 5 lines with each stating its relative location in the file |
+| [basic&lowbar;text](/Test_Files/basic_text.txt) | txt | 5 lines with each line stating its relative location in the file |
 | [blank](/Test_Files/blank.txt) | txt | file with no content |
 | [decreasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/decreasing_count_of_integers.txt) | txt | starting at 40 &mdash; counts down to 0 &mdash; inclusive &mdash; by integer value of negative 1 |
 | [increasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/increasing_count_of_integers.txt) | txt | starting at 0 &mdash; counts up to 40 &mdash; inclusive &mdash; by integer value of plus 1 |
