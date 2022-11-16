@@ -10,11 +10,11 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ---
 <!-- project images section -->
 ## Project Images :camera:
-Database Structure:<br>
-<img width="475" height="250" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Structure.png">
-
 Database Data:<br>
 <img width="700" height="250" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Data.png">
+
+Database Structure:<br>
+<img width="475" height="250" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Structure.png">
 
 Create An Account:<br>
 <img width="700" height="475" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
