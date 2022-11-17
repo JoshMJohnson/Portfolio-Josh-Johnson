@@ -46,7 +46,7 @@ p {
 
 a {
     color: rgb(48, 168, 48);
-    text-decoration: none;
+    text-decoration: darkgreen wavy underline;
 }
 
 a:hover {
