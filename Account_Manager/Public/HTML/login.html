@@ -9,14 +9,23 @@
         <title>Account Manager</title>
     </head>
     <body>
-        <header>
-            <h1>Login To The Team Arrow Fan Club Site</h1>
-        </header>
-        <section id="animation">
-        </section>
-        <section id="credentials">
-        </section>
-        <p>Don't have an account? <a href="create_account.html">Join the fan club!</a></p>
+        <div id="center">
+            <h1>Login</h1>
+            <form method="post">
+                <div class="text_field">
+                    <input type="email" required>
+                    <span></span>
+                    <label for="email">Email</label>
+                </div>
+                <div class="text_field">
+                    <input type="password" required>
+                    <span></span>
+                    <label for="password">Password</label>
+                </div>
+                <p>Don't have an account? <a href="create_account.html">Join the fan club!</a></p>
+                <input type="submit" value="Login">
+            </form>
+        </div>
         <script src="../JavaScript/login.js"></script>
     </body>
 </html>
