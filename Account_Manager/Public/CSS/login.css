@@ -39,6 +39,10 @@ p {
     padding: 0px 5px;
 }
 
+.text_field input::placeholder {
+    color: transparent;
+}
+
 .text_field label {
     position: absolute;
     top: 50%;
@@ -55,6 +59,7 @@ p {
     margin: 30px 0px;
 }
 
+/* annimation */
 .text_field span::before {
     content: '';
     position: absolute;
@@ -66,12 +71,14 @@ p {
 }
 
 .text_field input:focus ~ label, 
-.text_field input:valid ~ label {
+.text_field input:valid ~ label,
+.text_field input#email:not(:placeholder-shown):invalid ~ label {
     top: -5px;
     color: darkgreen;
 }
 
 .text_field input:focus ~ span::before, 
-.text_field input:valid ~ span::before {
+.text_field input:valid ~ span::before,
+.text_field input#email:not(:placeholder-shown):invalid ~ span::before {
     width: 100%;
 }
