@@ -40,13 +40,11 @@ const db = new sqlite3.Database(database, sqlite3.OPEN_READWRITE, (err) => {
 /* create database table to hold fan club members */ /*
 db.run (
     `CREATE TABLE members (
-        email       STRING       PRIMARY KEY
-                                 UNIQUE
-                                 NOT NULL,
+        email       STRING       PRIMARY KEY,
         name        STRING       NOT NULL,
         dob         DATE,
         phoneNumber VARCHAR (12),
-        password    STRING,
+        password    STRING       NOT NULL,
         avatar      INTEGER      NOT NULL,
         status      STRING       DEFAULT member
     );`
