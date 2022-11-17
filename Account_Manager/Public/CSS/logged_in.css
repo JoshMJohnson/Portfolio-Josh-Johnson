@@ -17,6 +17,14 @@ div {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+/* images */
+#smoak_hype {
+    padding: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* heading */
 header > p {
     color: darkgreen;
@@ -93,12 +101,21 @@ body {
     box-shadow: 5px 5px green;
 }
 
-/* images */
-#smoak_hype {
-    padding: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* members table */
+#club_members {
+    border-style: groove;
+    border-color: darkgreen;
+    padding: 10px;
+    margin: auto;
+}
+
+#table_header {
+    background-color: grey;
+}
+
+#table_header > th {
+    padding-right: 40px;
+    padding-left: 40px;
 }
 
 /* timeline items */
@@ -195,21 +212,4 @@ body {
     border: medium solid white;
     border-width: 10px 10px 10px 0;
     border-color: transparent darkgreen transparent transparent;
-}
-
-/* members table */
-#club_members {
-    border-style: groove;
-    border-color: darkgreen;
-    padding: 10px;
-    margin: auto;
-}
-
-#table_header {
-    background-color: grey;
-}
-
-#table_header > th {
-    padding-right: 40px;
-    padding-left: 40px;
 }

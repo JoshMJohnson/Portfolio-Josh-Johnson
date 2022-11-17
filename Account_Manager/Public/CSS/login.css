@@ -30,6 +30,7 @@ p {
     font-size: smaller;
 }
 
+/* form fields */
 .text_field input {
     width: 100%;
     background-color: lightgreen;
@@ -37,10 +38,6 @@ p {
     border: none;
     outline: none;
     padding: 0px 5px;
-}
-
-.text_field input::placeholder {
-    color: transparent;
 }
 
 .text_field label {
@@ -59,7 +56,17 @@ p {
     margin: 30px 0px;
 }
 
-/* annimation */
+input:-webkit-autofill {
+    -webkit-text-fill-color: darkgreen !important;
+    -webkit-box-shadow: 0 0 0 30px lightgreen inset !important;
+            box-shadow: 0 0 0 30px lightgreen inset !important;
+}
+
+/* form fields annimation */
+.text_field input::placeholder {
+    color: transparent;
+}
+
 .text_field span::before {
     content: '';
     position: absolute;

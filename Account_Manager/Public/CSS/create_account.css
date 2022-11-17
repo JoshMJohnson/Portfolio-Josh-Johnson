@@ -3,10 +3,6 @@ div {
     padding-bottom: 10px;
 }
 
-#avatar > label:not(:first-of-type) {
-    padding-left: 5px;
-}
-
 *:not(input) {
     text-align: center;
 }
@@ -16,35 +12,17 @@ body {
     background-attachment: fixed; /* gradient covers entire page */
 }
 
-/* password requirments visual */
-#password_specs {
-    width: 300px;
-    font-size: x-small;
-    margin: auto;
+/* heading */
+header {
+    background-color: darkgreen;
+    margin-bottom: 10px;
+    height: 50px;
 }
 
-#password_specs li {
-    text-align: left;
-    margin-left: 40px;
-}
-
-#password_specs > p {
-    text-align: left;
-    margin-left: 65px;
-    font-weight: bold;
-}
-
-ul {
-    list-style: none;
-}
-
-ul li::before {
-    content: "\25AA";
-    color: darkgreen;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1.5em;
+h1 {
+    color: lightgreen;
+    position: relative;
+    top: 5px;
 }
 
 /* forms */
@@ -77,17 +55,35 @@ input {
     accent-color: darkgreen;
 }
 
-/* heading */
-header {
-    background-color: darkgreen;
-    margin-bottom: 10px;
-    height: 50px;
+/* password requirments visual */
+#password_specs {
+    width: 300px;
+    font-size: x-small;
+    margin: auto;
 }
 
-h1 {
-    color: lightgreen;
-    position: relative;
-    top: 5px;
+#password_specs li {
+    text-align: left;
+    margin-left: 40px;
+}
+
+#password_specs > p {
+    text-align: left;
+    margin-left: 65px;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: "\25AA";
+    color: darkgreen;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
 }
 
 /* images */
@@ -131,4 +127,8 @@ h1 {
 
 #avatar > label:first-of-type {
     line-height: 2em;
+}
+
+#avatar > label:not(:first-of-type) {
+    padding-left: 5px;
 }
