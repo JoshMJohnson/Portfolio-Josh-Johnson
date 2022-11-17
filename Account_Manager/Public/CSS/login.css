@@ -4,6 +4,22 @@ body {
     background-attachment: fixed; /* gradient covers entire page */
 }
 
+/* form heading */
+#header {
+    background-color: darkgreen;
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+h1 {
+    position: relative;
+    top: 5px;
+    text-align: center;
+    padding: 0px 0px 20px 0px;
+    color: lightgreen;
+    font-family: serif;
+}
+
 /* form */
 #center {
     position: absolute;
@@ -21,13 +37,20 @@ form {
     box-sizing: border-box;
 }
 
-h1 {
+p {
+    font-weight: bold;
+    font-size: .7em;
     text-align: center;
-    padding: 0px 0px 20px 0px;
+    color: darkgreen;
 }
 
-p {
-    font-size: smaller;
+a {
+    color: rgb(48, 168, 48);
+    text-decoration: none;
+}
+
+a:hover {
+    color: darkgreen;
 }
 
 /* form fields */
@@ -38,6 +61,7 @@ p {
     border: none;
     outline: none;
     padding: 0px 5px;
+    color: darkgreen;
 }
 
 .text_field label {
@@ -60,6 +84,23 @@ input:-webkit-autofill {
     -webkit-text-fill-color: darkgreen !important;
     -webkit-box-shadow: 0 0 0 30px lightgreen inset !important;
             box-shadow: 0 0 0 30px lightgreen inset !important;
+}
+
+[type="submit"] {
+    position: relative;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-color: darkgreen;
+    background-color: lightgreen;
+    color: darkgreen;
+    font-weight: bold;
+}
+
+[type="submit"]:hover {
+    background-color: darkgreen;
+    color: lightgreen;
+    cursor: pointer;
 }
 
 /* form fields annimation */
@@ -88,4 +129,15 @@ input:-webkit-autofill {
 .text_field input:valid ~ span::before,
 .text_field input#email:not(:placeholder-shown):invalid ~ span::before {
     width: 100%;
+}
+
+/* green arrow icon */
+#green_arrow {
+    position: relative;
+    top: 15px;
+    margin: auto;
+    display: block;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
 }
