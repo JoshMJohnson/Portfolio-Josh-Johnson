@@ -17,7 +17,7 @@ Database Structure:<br>
 <img width="600" height="175" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Structure.png">
 
 Create An Account:<br>
-<img width="700" height="475" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
+<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
 Team Arrow Timeline:<br>
 <img width="475" height="700" alt="Team Arrow Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
