@@ -32,4 +32,4 @@ Team Arrow Timeline:<br>
 <img width="475" height="700" alt="Team Arrow Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
 
 <!-- footer section -->
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
