@@ -55,7 +55,7 @@ form {
     color: rgb(48, 168, 48);
     transform: translateY(-50%);
     pointer-events: none;
-    transition: .5s;
+    transition: 1s;
 }
 
 .text_field {
@@ -135,7 +135,7 @@ a:hover {
     width: 0%;
     height: 2px;
     background: darkgreen;
-    transition: .5s;
+    transition: 1s;
 }
 
 .text_field input:focus ~ label, 
