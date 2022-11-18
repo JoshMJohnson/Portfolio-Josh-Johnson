@@ -16,12 +16,16 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/Public/HTML/login.html');
 });
 
-app.get('/create_account', (request, response) => {
+app.get('/create_account.html', (request, response) => {
     response.sendFile(__dirname + '/Public/HTML/create_account.html');
 });
 
-app.get('/logged_in', (request, response) => {
+app.get('/logged_in.html', (request, response) => {
     response.sendFile(__dirname + '/Public/HTML/logged_in.html');
+});
+
+app.get('/login.html', (request, response) => {
+    response.sendFile(__dirname + '/Public/HTML/login.html');
 });
 
 /* manage database */
