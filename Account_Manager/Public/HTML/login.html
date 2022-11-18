@@ -25,8 +25,14 @@
                     <span></span>
                     <label for="password">Password</label>
                 </div>
-                <p>Don't have an account? <a href="create_account.html">Join the fan club!</a></p>
-                <input type="submit" value="Login">
+                <div id="after_inputs">
+                    <div id="password_show">
+                        <label for="show_password">Show Password </label>
+                        <input type="checkbox" onclick="showPassword()">
+                    </div>
+                    <p>Don't have an account? <a href="create_account.html">Join the fan club!</a></p>
+                    <input type="submit" value="Login">
+                </div>
             </form>
         </div>
         <script src="../JavaScript/login.js"></script>

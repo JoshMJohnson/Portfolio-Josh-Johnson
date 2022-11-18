@@ -37,22 +37,6 @@ form {
     box-sizing: border-box;
 }
 
-p {
-    font-weight: bold;
-    font-size: .7em;
-    text-align: center;
-    color: darkgreen;
-}
-
-a {
-    color: rgb(48, 168, 48);
-    text-decoration: darkgreen wavy underline;
-}
-
-a:hover {
-    color: darkgreen;
-}
-
 /* form fields */
 .text_field input {
     width: 100%;
@@ -84,6 +68,37 @@ input:-webkit-autofill {
     -webkit-text-fill-color: darkgreen !important;
     -webkit-box-shadow: 0 0 0 30px lightgreen inset !important;
             box-shadow: 0 0 0 30px lightgreen inset !important;
+}
+
+/* form; after input fields */
+p {
+    font-weight: bold;
+    font-size: .7em;
+    text-align: center;
+    color: darkgreen;
+}
+
+a {
+    color: rgb(48, 168, 48);
+    text-decoration: darkgreen wavy underline;
+}
+
+a:hover {
+    color: darkgreen;
+}
+
+#after_inputs {
+    position: relative;
+    top: -25px;
+}
+
+#password_show {
+    text-align: center;
+    font-size: smaller;
+}
+
+[type="checkbox"] {
+    accent-color: darkgreen;
 }
 
 [type="submit"] {
