@@ -4,7 +4,7 @@ Keeps a database of jokes that users can add jokes to and&frasl;or retrieve joke
 ---
 <!-- instructions section -->
 ## Instructions of how to run program :scroll:
-    1.) Open command line and traverse to Jokes_Project folder
+    1.) Open command line and traverse to the Jokes_Project folder
 
     2.) Run node js by using the command 'node app.js' within the Jokes_Project folder in the terminal
 
