@@ -10,7 +10,7 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 
     2.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
 
-    3.) Open web browser and go to localhost:4000 &mdash; port 4000 is chosen within the app.js file and is possible to change port address if desired)
+    3.) Open web browser and go to localhost:4000 (port 4000 is chosen within the app.js file and is possible to change port address if desired)
     
     4.) Operate at that address the same as one would at a website on the browser
 ---
