@@ -101,6 +101,11 @@ a:hover {
     accent-color: darkgreen;
 }
 
+#password_show > label {
+    color: darkgreen;
+    font-weight: bold;
+}
+
 [type="submit"] {
     position: relative;
     top: 5px;
