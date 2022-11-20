@@ -51,7 +51,7 @@ function processUserInfo(userInfo) {
 
     /* user name */
     const userNameLocation = document.getElementById('user_id');
-    var userName = userData[0].replace('%20', ' ');
+    var userName = userData[0].replaceAll('%20', ' ');
     userNameLocation.innerText = userName;
 
     /* user avatar */
