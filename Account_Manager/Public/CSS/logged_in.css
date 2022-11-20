@@ -26,11 +26,29 @@ div {
     top: 30px;
 }
 
+header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+header #avatar_left {
+    margin-right: 10px;
+}
+
+header #avatar_right {
+    margin-left: 10px;
+}
+
 /* heading */
+header > span, header > p {
+    display: inline-block;
+}
+
 header > p {
     color: darkgreen;
     position: relative;
-    top: -5px;
+    top: -30px;
     text-align: center;
     font-size: smaller;
 }

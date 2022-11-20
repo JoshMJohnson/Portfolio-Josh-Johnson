@@ -52,16 +52,32 @@ function processUserInfo(userInfo) {
     /* user name */
     const userNameLocation = document.getElementById('user_id');
     var userName = userData[0].replace('%20', ' ');
-    
-
     userNameLocation.innerText = userName;
 
-
     /* user avatar */
+    const userAvatarLocationLeft = document.getElementById('avatar_left');
+    const userAvatarLocationRight = document.getElementById('avatar_right');
+    const img = document.createElement('img');
+    const img2 = document.createElement('img');
+    
+    if (userData[1] == 0) { /* avatar id = 0 */
+        img.src = "../Assets/avatar1.jpg";    
+    } else if (userData[1] == 1) { /* avatar id = 1 */
+        img.src = "../Assets/avatar2.png";
+    } else if (userData[1] == 2) { /* avatar id = 2 */
+        img.src = "../Assets/avatar3.jpg";
+    } else if (userData[1] == 3) { /* avatar id = 3 */
+        img.src = "../Assets/avatar4.png";
+    } else { /* avatar id = 4 */
+        img.src = "../Assets/avatar5.jpg";
+    }
 
+    img2.src = img.src;
+
+    userAvatarLocationLeft.appendChild(img);
+    userAvatarLocationRight.appendChild(img2);
 
     /* user status */
     const userStatusLocation = document.getElementById('user_priv');
     userStatusLocation.innerText = userData[2];
-
 }
