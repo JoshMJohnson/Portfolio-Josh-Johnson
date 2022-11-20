@@ -1,6 +1,7 @@
 /* 
  * client side JavaScript for when a user logs in successfully 
  */
+
 getMembers();
 
 /* gets a list of all the members currently in the database */
@@ -79,5 +80,19 @@ function processUserInfo(userInfo) {
 
     /* user status */
     const userStatusLocation = document.getElementById('user_priv');
-    userStatusLocation.innerText = userData[2];
+    var userStatus = userData[2];
+    userStatusLocation.innerText = userStatus;
+
+    getPrivileges(userStatus);
+}
+
+/* provides access based on user privileges */
+function getPrivileges(userStatus) {
+    if (userStatus == "member") {
+        var adminPrivs = document.getElementsByClassName('admin_status');
+
+        for (let i = 0; i < adminPrivs.length; i++) {
+            adminPrivs[i].style.display = 'none';
+        }
+    } 
 }
