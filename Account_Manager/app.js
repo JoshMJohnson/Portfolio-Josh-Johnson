@@ -128,3 +128,28 @@ app.post('/verifyAccount', (req, res) => {
             }
     });
 });
+
+/* promote a member status user to admin status */
+app.post('/promoteMember', (req, res) => {
+    const data = req.body;
+    const emailAddress = data.promoteEmail;
+
+    const sql_promote = `UPDATE members
+                         SET status = 'admin'
+                         WHERE email = '${emailAddress}'`;
+
+    db.run(
+        sql_promote, [], (err) => {
+            if (err) {
+                return console.error(err.message);
+            }
+
+            console.log("Member promoted to admin status!");
+    });
+});
+
+/* remove a member from the database */
+app.post('/removeMember', (req, res) => {
+
+
+});

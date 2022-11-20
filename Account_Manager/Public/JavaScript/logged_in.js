@@ -2,6 +2,13 @@
  * client side JavaScript for when a user logs in successfully 
  */
 
+/* event listeners for admin forms */
+const removeMemberForm = document.getElementById('remove_user');
+removeMemberForm.addEventListener('submit', removeMember);
+
+const promoteMemberForm = document.getElementById('promote_user');
+promoteMemberForm.addEventListener('submit', promoteMember);
+
 getMembers();
 
 /* gets a list of all the members currently in the database */
@@ -95,4 +102,35 @@ function getPrivileges(userStatus) {
             adminPrivs[i].style.display = 'none';
         }
     } 
+}
+
+/* admin promoting a member to admin status */
+function promoteMember(e) {
+    const promoteEmail = document.getElementById('emailPromote').value;
+
+    const data = {promoteEmail};
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
+
+    fetch('/promoteMember', options);
+
+    alert('member promoted to admin');
+
+    e.preventDefault();
+}
+
+/* admin removing a member from database */
+function removeMember(e) {
+    const removeEmail = document.getElementById('emailRemove').value;
+
+   
+
+
+
+    e.preventDefault();
 }
