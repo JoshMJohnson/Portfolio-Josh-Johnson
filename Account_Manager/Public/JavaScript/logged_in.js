@@ -29,3 +29,39 @@ async function getMembers() {
         cell4.textContent = `${data[i].status}`;
     }
 }
+
+/* retrieves user data when page loads */
+window.onload = function() {
+    var url = document.location.href;
+    var params = url.split('?')[1].split('&');
+    var data = {};
+    var temp;
+
+    for (let i = 0; i < params.length; i++) {
+        temp = params[i].split('=');
+        data[temp[0]] = temp[1];
+    }
+
+    processUserInfo(data.name);
+}
+
+/* processes the user info accordingly based on user info and privileges */
+function processUserInfo(userInfo) {
+    const userData = userInfo.split('%26');
+
+    /* user name */
+    const userNameLocation = document.getElementById('user_id');
+    var userName = userData[0].replace('%20', ' ');
+    
+
+    userNameLocation.innerText = userName;
+
+
+    /* user avatar */
+
+
+    /* user status */
+    const userStatusLocation = document.getElementById('user_priv');
+    userStatusLocation.innerText = userData[2];
+
+}

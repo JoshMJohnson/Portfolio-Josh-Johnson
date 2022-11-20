@@ -54,7 +54,7 @@ db.run (
     );`
 ); */
 
-/* retrieves the fan club members from the database */
+/* retrieves all of the fan club members from the database during logged in process */
 app.get('/members', (request, response) => {
     const sql = `SELECT * FROM members`;
     const sendBack = [];
@@ -73,7 +73,7 @@ app.get('/members', (request, response) => {
     });
 });
 
-/* adds member to the database for fan club members */
+/* adds member to the database for fan club members during create account process */
 app.post('/addMember', (req, res) => {
     const data = req.body;
     const fullName = data.fullName;
@@ -93,5 +93,38 @@ app.post('/addMember', (req, res) => {
             }
 
             console.log("Member added to the fan club database!");
+    });
+});
+
+/* verifies account exists and sends back details of user during login process */
+app.post('/verifyAccount', (req, res) => {
+    const data = req.body;
+    const email = data.email;
+    const password = data.password;
+
+    const sql_query = `SELECT * 
+                       FROM members
+                       WHERE email = '${email}'
+                       AND password = '${password}'`;
+                       
+    /* send user info from database to client side */
+    var userInfo;
+
+    db.all(
+        sql_query, [], (err, rows) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            
+            rows.forEach((row) => {
+                userInfo = row;
+            });
+
+            /* if no user exists in database */
+            if (userInfo == undefined) {
+                res.json(0);
+            } else { /* else user found in database */
+                res.json(userInfo);
+            }
     });
 });
