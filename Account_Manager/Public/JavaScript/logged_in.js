@@ -118,9 +118,7 @@ function promoteMember(e) {
     };
 
     fetch('/promoteMember', options);
-
     alert('member promoted to admin');
-
     e.preventDefault();
 }
 
@@ -128,9 +126,17 @@ function promoteMember(e) {
 function removeMember(e) {
     const removeEmail = document.getElementById('emailRemove').value;
 
-   
+    const data = {removeEmail};
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    };
 
-
+    fetch('/removeMember', options);
+    alert('User removed');
 
     e.preventDefault();
 }

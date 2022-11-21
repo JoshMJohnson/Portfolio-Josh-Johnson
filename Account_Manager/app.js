@@ -150,6 +150,18 @@ app.post('/promoteMember', (req, res) => {
 
 /* remove a member from the database */
 app.post('/removeMember', (req, res) => {
+    const data = req.body;
+    const emailAddress = data.removeEmail;
 
+    const sql_remove = `DELETE FROM members
+                        WHERE email = '${emailAddress}'`;
 
+    db.run(
+        sql_remove, [], (err) => {
+            if (err) {
+                return console.error(err.message);
+            }
+
+            console.log("User removed from database!");
+    });
 });
