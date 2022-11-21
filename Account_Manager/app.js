@@ -55,7 +55,7 @@ db.run (
 ); */
 
 /* retrieves all of the fan club members from the database during logged in process */
-app.get('/members', (request, response) => {
+app.get('/getMembers', (request, response) => {
     const sql = `SELECT * FROM members`;
     const sendBack = [];
 
@@ -164,4 +164,36 @@ app.post('/removeMember', (req, res) => {
 
             console.log("User removed from database!");
     });
+});
+
+/* verifies email address doesn't exist in database already */
+app.post('/checkEmailAddress', (req, res) => {
+    const data = req.body;
+    const email = data.emailAddress;
+
+    const sql_query = `SELECT email
+                       FROM members
+                       WHERE email = '${email}'`;
+
+    /* send user info from database to client side */
+    var userInfo;
+
+    db.all(
+        sql_query, [], (err, rows) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            
+            rows.forEach((row) => {
+                userInfo = row;
+            });
+
+            /* if no user exists in database */
+            if (userInfo == undefined) {
+                res.json(0);
+            } else { /* else user found in database */
+                res.json(1);
+            }
+    });
+
 });

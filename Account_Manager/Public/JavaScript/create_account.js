@@ -33,8 +33,60 @@ function createAccount() {
     }
 
     fetch('/addMember', options);
-    alert("Member was added to the fan club!");
     document.getElementById('create_account').submit();
+}
+
+/* verifies user info is acceptable */
+function acceptableUserInfo() {    
+    /* verifies that account doesn't already exist under provided email address */
+    let emailPromise = new Promise(function(notExists, exists) {
+        let unusedEmail = acceptableEmail(); /* returns email address that already exists; else 0 */
+
+        if (unusedEmail == 0) {
+            notExists();
+        } else {
+            exists();
+        }
+    });
+
+    emailPromise.then(
+        function() {
+            acceptablePassword(); /* verifies password requirements are met */ 
+        },
+        function() {
+            const email = document.getElementById('email').value;
+            errorEmailNotification('Account already exists for address: ' + email);
+        }
+    );   
+}
+
+/* confirms the email address is not already being used */
+async function acceptableEmail() { 
+    const emailAddress = document.getElementById('email').value;
+    const data = {emailAddress};
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    }
+
+    const response = await fetch('/checkEmailAddress', options);
+    const responseData = await response.json();
+    
+    /* if no user exists in database with given info */
+    if (responseData == 0) {
+        return 0;
+    } 
+
+    return 1;
+}
+
+/* provides custom error message for an invalid password */
+function errorEmailNotification(errorMessage) {
+    const emailBox = document.getElementById('email');
+    emailBox.setCustomValidity(errorMessage);
 }
 
 /* confirms that the password given is the same as confirm password value and meets criteria */
@@ -84,6 +136,12 @@ function acceptablePassword() {
     createAccount();
 }
 
+/* provides custom error message for an invalid password */
+function errorPasswordNotification(errorMessage) {
+    const passwordBox = document.getElementById('password');
+    passwordBox.setCustomValidity(errorMessage);
+}
+
 /* password show/hide toggle */
 function showPassword() {
     const showPass = document.getElementById('password');    
@@ -96,10 +154,4 @@ function showPassword() {
         showPass.type = "password";
         showConfirm.type ="password";
     }
-}
-
-/* provides custom error message */
-function errorPasswordNotification(errorMessage) {
-    const passwordBox = document.getElementById('password');
-    passwordBox.setCustomValidity(errorMessage);
 }

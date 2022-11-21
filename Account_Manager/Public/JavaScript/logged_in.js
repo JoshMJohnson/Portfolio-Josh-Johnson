@@ -13,7 +13,7 @@ getMembers();
 
 /* gets a list of all the members currently in the database */
 async function getMembers() {
-    const response = await fetch('/members');
+    const response = await fetch('/getMembers');
     const data = await response.json();
     const members = document.getElementById('club_members');
     
