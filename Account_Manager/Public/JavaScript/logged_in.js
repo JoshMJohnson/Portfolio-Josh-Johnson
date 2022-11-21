@@ -118,7 +118,6 @@ function promoteMember(e) {
     };
 
     fetch('/promoteMember', options);
-    alert('member promoted to admin');
     e.preventDefault();
 }
 
@@ -136,7 +135,5 @@ function removeMember(e) {
     };
 
     fetch('/removeMember', options);
-    alert('User removed');
-
     e.preventDefault();
 }
