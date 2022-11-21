@@ -118,6 +118,7 @@ function promoteMember(e) {
     };
 
     fetch('/promoteMember', options);
+    alert('User is set to admin status!');
     e.preventDefault();
 }
 
@@ -135,5 +136,6 @@ function removeMember(e) {
     };
 
     fetch('/removeMember', options);
+    alert('User removed from the club!');
     e.preventDefault();
 }

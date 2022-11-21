@@ -192,8 +192,7 @@ app.post('/checkEmailAddress', (req, res) => {
             if (userInfo == undefined) {
                 res.json(0);
             } else { /* else user found in database */
-                res.json(1);
+                res.json(userInfo);
             }
     });
-
 });

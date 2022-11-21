@@ -33,35 +33,12 @@ function createAccount() {
     }
 
     fetch('/addMember', options);
+    alert('Account created!');
     document.getElementById('create_account').submit();
 }
 
 /* verifies user info is acceptable */
-function acceptableUserInfo() {    
-    /* verifies that account doesn't already exist under provided email address */
-    let emailPromise = new Promise(function(notExists, exists) {
-        let unusedEmail = acceptableEmail(); /* returns email address that already exists; else 0 */
-
-        if (unusedEmail == 0) {
-            notExists();
-        } else {
-            exists();
-        }
-    });
-
-    emailPromise.then(
-        function() {
-            acceptablePassword(); /* verifies password requirements are met */ 
-        },
-        function() {
-            const email = document.getElementById('email').value;
-            errorEmailNotification('Account already exists for address: ' + email);
-        }
-    );   
-}
-
-/* confirms the email address is not already being used */
-async function acceptableEmail() { 
+async function verifyNewAccount() {
     const emailAddress = document.getElementById('email').value;
     const data = {emailAddress};
     const options = {
@@ -74,23 +51,18 @@ async function acceptableEmail() {
 
     const response = await fetch('/checkEmailAddress', options);
     const responseData = await response.json();
-    
-    /* if no user exists in database with given info */
-    if (responseData == 0) {
-        return 0;
+
+    /* if a user already exists in database with given info */
+    if (responseData != 0) {
+        alert(`Account already exists for address:  ${responseData.email}`);
+        return 1;
     } 
 
-    return 1;
-}
-
-/* provides custom error message for an invalid password */
-function errorEmailNotification(errorMessage) {
-    const emailBox = document.getElementById('email');
-    emailBox.setCustomValidity(errorMessage);
+    return 0;
 }
 
 /* confirms that the password given is the same as confirm password value and meets criteria */
-function acceptablePassword() {
+async function acceptablePassword() {
     let goodCapital = false;
     let goodSpecial = false;
     let goodNumber = false;
@@ -133,7 +105,11 @@ function acceptablePassword() {
         return;
     }
 
-    createAccount();
+    let exists = await verifyNewAccount();
+
+    if (exists == 0) {
+        createAccount();
+    } 
 }
 
 /* provides custom error message for an invalid password */
