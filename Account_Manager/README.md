@@ -15,25 +15,28 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 <!-- project images section -->
 ## Project Images :camera:
 Database Data:<br>
-<img width="500" height="250" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Data.png">
+<img width="500" height="250" alt="Database Data" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Data.png">
 
 Database Structure:<br>
 <img width="500" height="175" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Structure.png">
 
 Login Page:<br>
-<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Login.png">
+<img width="600" height="700" alt="Login Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Login.png">
 
 Create An Account:<br>
 <img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
-Member Logged In:<br>
-<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin.png">
+Member Logged In Part One:<br>
+<img width="600" height="700" alt="Member Logged In Part One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin1.png">
+
+Member Logged In Part Two:<br>
+<img width="600" height="700" alt="Member Logged In Part Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin2.png">
 
 Admin Logged In Part One:<br>
-<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin1.png">
+<img width="600" height="700" alt="Admin Logged In Part One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin1.png">
 
 Admin Logged In Part Two:<br>
-<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin2.png">
+<img width="600" height="700" alt="Admin Logged In Part Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin2.png">
 
 <!-- footer section -->
 :arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
