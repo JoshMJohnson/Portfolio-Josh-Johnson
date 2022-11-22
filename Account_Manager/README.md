@@ -28,8 +28,14 @@ Login Page:<br>
 Create An Account:<br>
 <img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
-Team Arrow Timeline:<br>
-<img width="475" height="700" alt="Team Arrow Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
+Member Logged In:<br>
+<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin.png">
+
+Admin Logged In Part One:<br>
+<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin1.png">
+
+Admin Logged In Part Two:<br>
+<img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin2.png">
 
 <!-- footer section -->
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
