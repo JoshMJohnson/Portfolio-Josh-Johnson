@@ -27,10 +27,10 @@ Create An Account:<br>
 <img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
 Member Logged In:<br>
-<img width="600" height="700" alt="Member Logged In Part One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin1.png">
+<img width="600" height="700" alt="Member Logged In" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin1.png">
 
 Admin Logged In:<br>
-<img width="600" height="700" alt="Admin Logged In Part One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin1.png">
+<img width="600" height="700" alt="Admin Logged In" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin1.png">
 
 Timeline:<br>
 <img width="600" height="700" alt="Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
