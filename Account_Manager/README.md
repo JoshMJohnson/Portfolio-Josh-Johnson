@@ -26,17 +26,14 @@ Login Page:<br>
 Create An Account:<br>
 <img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
 
-Member Logged In Part One:<br>
+Member Logged In:<br>
 <img width="600" height="700" alt="Member Logged In Part One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin1.png">
 
-Member Logged In Part Two:<br>
-<img width="600" height="700" alt="Member Logged In Part Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Member_Loggedin2.png">
-
-Admin Logged In Part One:<br>
+Admin Logged In:<br>
 <img width="600" height="700" alt="Admin Logged In Part One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin1.png">
 
-Admin Logged In Part Two:<br>
-<img width="600" height="700" alt="Admin Logged In Part Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin2.png">
+Timeline:<br>
+<img width="600" height="700" alt="Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
 
 <!-- footer section -->
 :arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
