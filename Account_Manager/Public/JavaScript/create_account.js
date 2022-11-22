@@ -107,7 +107,16 @@ async function acceptablePassword() {
 
     let exists = await verifyNewAccount();
 
-    if (exists == 0) {
+    /* verifies that email address is in correct format of an email address */
+    var validateEmail = (emailVal) => {
+        return emailVal.match(
+          /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        );
+    };
+
+    const emailVal = document.getElementById('email').value;
+
+    if (exists == 0 && validateEmail(emailVal)) {
         createAccount();
     } 
 }
