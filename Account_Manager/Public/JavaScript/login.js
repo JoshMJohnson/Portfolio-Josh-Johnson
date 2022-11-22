@@ -44,6 +44,7 @@ async function verifyAccount(options) {
     } else { /* else user found in database */
         window.location.href = 'logged_in.html?name=' + encodeURIComponent(responseData.name + '&')
                                                       + encodeURIComponent(responseData.avatar + '&')
-                                                      + encodeURIComponent(responseData.status);
+                                                      + encodeURIComponent(responseData.status + '&')
+                                                      + encodeURIComponent(responseData.email);
     }
 }

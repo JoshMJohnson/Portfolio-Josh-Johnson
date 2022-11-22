@@ -9,34 +9,8 @@ removeMemberForm.addEventListener('submit', removeMember);
 const promoteMemberForm = document.getElementById('promote_user');
 promoteMemberForm.addEventListener('submit', promoteMember);
 
+var userEmailAddress;
 getMembers();
-
-/* gets a list of all the members currently in the database */
-async function getMembers() {
-    const response = await fetch('/getMembers');
-    const data = await response.json();
-    const members = document.getElementById('club_members');
-    
-    /* add members from database to the web page */
-    for (let i = 0; i < data.length; i++) {       
-        /* create a row */
-        let row = members.insertRow(1);
-
-        /* identify columns of new row */
-        let cell0 = row.insertCell(0);
-        let cell1 = row.insertCell(1);
-        let cell2 = row.insertCell(2);
-        let cell3 = row.insertCell(3);
-        let cell4 = row.insertCell(4);
-
-        /* fill columns of new row */        
-        cell0.textContent = `${data[i].name}`;
-        cell1.textContent = `${data[i].email}`;
-        cell2.textContent = `${data[i].dob}`;
-        cell3.textContent = `${data[i].phoneNumber}`;
-        cell4.textContent = `${data[i].status}`;
-    }
-}
 
 /* retrieves user data when page loads */
 window.onload = function() {
@@ -90,6 +64,9 @@ function processUserInfo(userInfo) {
     var userStatus = userData[2];
     userStatusLocation.innerText = userStatus;
 
+    /* email address */
+    userEmailAddress = userData[3].replace('%40', '@');
+
     getPrivileges(userStatus);
 }
 
@@ -102,6 +79,33 @@ function getPrivileges(userStatus) {
             adminPrivs[i].style.display = 'none';
         }
     } 
+}
+
+/* gets a list of all the members currently in the database */
+async function getMembers() {
+    const response = await fetch('/getMembers');
+    const data = await response.json();
+    const members = document.getElementById('club_members');
+    
+    /* add members from database to the web page */
+    for (let i = 0; i < data.length; i++) {       
+        /* create a row */
+        let row = members.insertRow(1);
+
+        /* identify columns of new row */
+        let cell0 = row.insertCell(0);
+        let cell1 = row.insertCell(1);
+        let cell2 = row.insertCell(2);
+        let cell3 = row.insertCell(3);
+        let cell4 = row.insertCell(4);
+
+        /* fill columns of new row */        
+        cell0.textContent = `${data[i].name}`;
+        cell1.textContent = `${data[i].email}`;
+        cell2.textContent = `${data[i].dob}`;
+        cell3.textContent = `${data[i].phoneNumber}`;
+        cell4.textContent = `${data[i].status}`;
+    }
 }
 
 /* admin promoting a member to admin status */
@@ -136,6 +140,27 @@ function removeMember(e) {
     };
 
     fetch('/removeMember', options);
-    alert('User removed from the club!');
+    alert('User removed from the fan club!');
     e.preventDefault();
+}
+
+/* deletes user currently logged in */
+function deleteUser() {
+    if (confirm("Are you sure that you want to delete your account?") == true) {
+        const removeEmail = userEmailAddress;
+        const data = {removeEmail};
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+
+        fetch('/removeMember', options);
+        alert('You have been removed from the fan club!');
+    } else {
+        alert("We knew you made a mistake!");
+        return false;
+    }
 }
