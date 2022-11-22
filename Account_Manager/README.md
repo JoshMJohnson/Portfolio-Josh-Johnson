@@ -38,4 +38,4 @@ Admin Logged In Part Two:<br>
 <img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Admin_Loggedin2.png">
 
 <!-- footer section -->
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;:arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
+:arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
