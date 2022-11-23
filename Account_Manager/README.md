@@ -14,6 +14,13 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ---
 <!-- project video section -->
 ## Project Videos 
+Creating An Account:<br>
+
+
+Loggin In And Self Account Deletion:<br>
+
+
+Admin Privileges:<br>
 
 
 ---
