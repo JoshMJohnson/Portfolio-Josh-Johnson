@@ -122,7 +122,7 @@ function promoteMember(e) {
     };
 
     fetch('/promoteMember', options);
-    alert('User is set to admin status!');
+    alert(`Email address ${promoteEmail} is set to admin status!`);
     e.preventDefault();
 }
 
@@ -140,7 +140,7 @@ function removeMember(e) {
     };
 
     fetch('/removeMember', options);
-    alert('User removed from the fan club!');
+    alert(`Email address ${removeEmail} removed from the fan club!`);
     e.preventDefault();
 }
 
