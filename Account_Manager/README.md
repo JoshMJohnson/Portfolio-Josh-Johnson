@@ -12,18 +12,6 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
     
     4.) Operate at that address the same as one would at a website on the browser
 ---
-<!-- project video section -->
-## Project Videos 
-Creating An Account:<br>
-![Creating An Account](https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Videos/Account_Manager_Create_Account.mp4)
-
-Loggin In And Self Account Deletion:<br>
-![caption](link to image / GIF)
-
-Admin Privileges:<br>
-![caption](link to image / GIF)
-
----
 <!-- project images section -->
 ## Project Images :camera:
 Database Data:<br>
