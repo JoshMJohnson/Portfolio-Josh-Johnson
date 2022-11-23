@@ -15,13 +15,13 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 <!-- project video section -->
 ## Project Videos 
 Creating An Account:<br>
-
+![Creating An Account](https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Videos/Account_Manager_Create_Account.mp4)
 
 Loggin In And Self Account Deletion:<br>
-
+![caption](link to image / GIF)
 
 Admin Privileges:<br>
-
+![caption](link to image / GIF)
 
 ---
 <!-- project images section -->
