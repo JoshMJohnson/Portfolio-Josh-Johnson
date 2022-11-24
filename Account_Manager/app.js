@@ -193,7 +193,7 @@ app.post('/removeMember', (req, res) => {
                 return console.error(err.message);
             }
 
-            console.log(`Attempting to remove user with address ${emailAddress} from database`);
+            console.log(`Removed user with address ${emailAddress} from database`);
     });
 });
 
