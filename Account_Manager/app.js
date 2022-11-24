@@ -74,7 +74,7 @@ app.get('/getMembers', (request, response) => {
     });
 });
 
-/* retrieves member data from a requested email address */
+/* retrieves user data from a requested email address */
 app.post('/getSingleUserStatus', (req, res) => {
     const data = req.body;
     const emailAddress = data.emailAddress;
