@@ -3,13 +3,15 @@
  */
 
 /* event listeners for admin forms */
-const removeMemberForm = document.getElementById('remove_user');
-removeMemberForm.addEventListener('submit', removeMember);
+const removeMemberForm = document.getElementById('remove_user_submit_button');
+removeMemberForm.addEventListener('click', removeMember);
 
-const promoteMemberForm = document.getElementById('promote_user');
-promoteMemberForm.addEventListener('submit', promoteMember);
+const promoteMemberForm = document.getElementById('promote_user_submit_button');
+promoteMemberForm.addEventListener('click', promoteMember);
 
+/* global variables */
 var userEmailAddress;
+
 getMembers();
 
 /* retrieves user data when page loads */
@@ -109,10 +111,9 @@ async function getMembers() {
 }
 
 /* admin promoting a member to admin status */
-function promoteMember(e) {
-    const promoteEmail = document.getElementById('emailPromote').value;
-
-    const data = {promoteEmail};
+async function promoteMember(e) {   
+    const emailAddress = document.getElementById('emailPromote').value;
+    const data = {emailAddress};
     const options = {
         method: 'POST',
         headers: {
@@ -121,16 +122,37 @@ function promoteMember(e) {
         body: JSON.stringify(data)
     };
 
+    /* gather email data before promotion */
+    const prevResponse = fetch('/getSingleUserStatus', options).then((response) => response.json());
+
+    /* perform action of promoting user */
     fetch('/promoteMember', options);
-    alert(`Email address ${promoteEmail} is set to admin status!`);
+
+    /* gather email data after promotion */
+    const postResponse = fetch('/getSingleUserStatus', options).then((response) => response.json());
+
+    /* process data from database */
+    const emailPromoteBox = document.getElementById('emailPromote');
+
+    Promise.all([prevResponse, postResponse]).then((responses) => { 
+        if (responses[0] == 0) {
+            emailPromoteBox.setCustomValidity(`no such user exists at ${emailAddress}`);
+            emailPromoteBox.reportValidity();
+        } else if (responses[0] == responses[1]) {
+            emailPromoteBox.setCustomValidity(`${emailAddress} is already an admin`);
+            emailPromoteBox.reportValidity();
+        } else {
+            alert(`promoted member at address ${emailAddress} to admin!`);
+        }
+    });
+    
     e.preventDefault();
 }
 
 /* admin removing a member from database */
 function removeMember(e) {
-    const removeEmail = document.getElementById('emailRemove').value;
-
-    const data = {removeEmail};
+    const emailAddress = document.getElementById('emailRemove').value;
+    const data = {emailAddress};
     const options = {
         method: 'POST',
         headers: {
@@ -139,8 +161,22 @@ function removeMember(e) {
         body: JSON.stringify(data)
     };
 
-    fetch('/removeMember', options);
-    alert(`Email address ${removeEmail} removed from the fan club!`);
+    /* valididates email exists before removal */
+    const prevResponse = fetch('/getSingleUserStatus', options).then((response) => response.json());
+
+    /* process data from database */
+    const emailRemoveBox = document.getElementById('emailRemove');
+
+    Promise.all([prevResponse]).then((responses) => { 
+        if (responses[0] == 0) {
+            emailRemoveBox.setCustomValidity(`no such user exists at ${emailAddress}`);
+            emailRemoveBox.reportValidity();
+        } else {
+            alert(`Removed user at address ${emailAddress} from database`);
+            fetch('/removeMember', options);
+        }
+    });
+
     e.preventDefault();
 }
 

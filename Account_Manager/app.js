@@ -1,6 +1,7 @@
 /* 
  * server side JavaScript for the Account Manager project 
  */
+const { response } = require('express');
 const express = require('express');
 const app = express();
 const port = 4000;
@@ -73,6 +74,36 @@ app.get('/getMembers', (request, response) => {
     });
 });
 
+/* retrieves member data from a requested email address */
+app.post('/getSingleUserStatus', (req, res) => {
+    const data = req.body;
+    const emailAddress = data.emailAddress;
+    const sql = `SELECT status 
+                 FROM members
+                 WHERE email = '${emailAddress}'`;
+
+    let userInfo;
+
+    db.all(
+        sql, [], (err, rows) => {
+            if (err) {
+                return console.error(err.message);
+            }
+            
+            rows.forEach((row) => {
+                userInfo = row;
+            });
+
+
+            /* if no user exists in database */
+            if (userInfo == undefined) {
+                res.json(0);
+            } else { /* else user found in database */
+                res.json(userInfo.status);
+            }
+    });
+});
+
 /* adds member to the database for fan club members during create account process */
 app.post('/addMember', (req, res) => {
     const data = req.body;
@@ -108,7 +139,7 @@ app.post('/verifyAccount', (req, res) => {
                        AND password = '${password}'`;
                        
     /* send user info from database to client side */
-    var userInfo;
+    let userInfo;
 
     db.all(
         sql_query, [], (err, rows) => {
@@ -132,7 +163,7 @@ app.post('/verifyAccount', (req, res) => {
 /* promote a member status user to admin status */
 app.post('/promoteMember', (req, res) => {
     const data = req.body;
-    const emailAddress = data.promoteEmail;
+    const emailAddress = data.emailAddress;
 
     const sql_promote = `UPDATE members
                          SET status = 'admin'
@@ -144,14 +175,14 @@ app.post('/promoteMember', (req, res) => {
                 return console.error(err.message);
             }
 
-            console.log("Member promoted to admin status!");
+            console.log(`Attempted to promote member at email address ${emailAddress} to admin status!`);
     });
 });
 
 /* remove a member from the database */
 app.post('/removeMember', (req, res) => {
     const data = req.body;
-    const emailAddress = data.removeEmail;
+    const emailAddress = data.emailAddress;
 
     const sql_remove = `DELETE FROM members
                         WHERE email = '${emailAddress}'`;
@@ -162,7 +193,7 @@ app.post('/removeMember', (req, res) => {
                 return console.error(err.message);
             }
 
-            console.log("User removed from database!");
+            console.log(`Attempting to remove user with address ${emailAddress} from database`);
     });
 });
 
