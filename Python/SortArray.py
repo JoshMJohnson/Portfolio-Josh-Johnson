@@ -33,9 +33,9 @@ def bubble_sort(array):
 # prints the contents of the given integer array to stdout
 def print_array(array, array_id, ordered, sorting_algorithm):
     if ordered:
-        print("Array with ID %d after %s Sort algorithm applied:" % (array_id, sorting_algorithm), end=" ")
+        print("Array with ID %d after %s Sort algorithm applied:" % (array_id, sorting_algorithm), end=" ") # end parameter prevents new line
     else:
-        print("Array with ID %d before %s Sort algorithm applied:" % (array_id, sorting_algorithm), end=" ")
+        print("Array with ID %d before %s Sort algorithm applied:" % (array_id, sorting_algorithm), end=" ") # end parameter prevents new line
     
     for i in range(len(array)):
         if i == len(array) - 1:
