@@ -24,13 +24,13 @@ All code has been written and reviewed by Josh Johnson.
 ## Algorithms & Basic Concepts :writing_hand:
 | File | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| [sort&lowbar;array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li></ul> | Organize lists of integers in ascending order gathered using different methods |
+| [sort&lowbar;array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [read&lowbar;write&lowbar;file](/C/Read_Write_File.c) | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations in C |
 | [hello&lowbar;world](/C/Hello_World.c) | C | Using the console | Classic &lsquo;hello world&rsquo; program |
-| [SortArray](/Java/SortArray.java) | Java | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Arraylists</li></ul> | Organize lists of integers in ascending order gathered using different methods |
+| [SortArray](/Java/SortArray.java) | Java | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Arraylists</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [ReadWriteFile](/Java/ReadWriteFile.java) | Java | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul>  | Demonstrates basic file operations in Java |
 | [HelloWorld](/Java/HelloWorld.java) | Java | Using the console | Classic &lsquo;hello world&rsquo; program |
-| [sort&lowbar;array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li></ul> | Organize lists of integers in ascending order gathered using different methods |
+| [sort&lowbar;array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [hello&lowbar;world](/JavaScript/hello_world.js) | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
 | [ReadWriteFile](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations in python |
 | [HelloWorld](/Python/HelloWorld.py) | Python | Using the console | Classic &lsquo;hello world&rsquo; program |
@@ -54,7 +54,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Projects In Development :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| TBD | TBD | TBD | TBD |
+| [SortArray](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
