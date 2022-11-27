@@ -11,7 +11,7 @@
 #
 # Created By: Josh Johnson
 
-from os import path
+from os import path # used to get relative path for input text files
 
 # bubble sort algorithm
 def bubble_sort(array):
