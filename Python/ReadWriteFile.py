@@ -4,7 +4,7 @@
 #
 # Created By: Josh Johnson
 
-from os import path # used to get relative path for input text files
+from os import path # used to get relative path for text files
 
 # get current directory location of ReadWriteFile.py
 base_path = path.dirname(__file__)
