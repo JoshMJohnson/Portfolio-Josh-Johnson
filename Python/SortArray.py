@@ -30,6 +30,24 @@ def bubble_sort(array):
         if not swapped:
             return
 
+# selection sort algorithm
+def selection_sort(array):
+    array_size = len(array)
+
+    # traverse through all array elements
+    for i in range(array_size):
+        min_index = i
+
+        # select the minimum element in every iteration
+        for j in range(i + 1, array_size):
+            if array[j] < array[min_index]:
+                min_index = j
+
+         # swapping the elements to sort the array if necessary
+        if array[i] != array[min_index]:
+            (array[i], array[min_index]) = (array[min_index], array[i])
+ 
+
 # prints the contents of the given integer array to stdout
 def print_array(array, array_id, ordered, sorting_algorithm):
     if ordered:
@@ -59,7 +77,11 @@ def main():
 
     # selection sort - size and values are given by program
     array_id += 1
+    arrays[array_id] = [55, 4, 32, 62, -2, 4, 6, 9, 99, 12, -12, -5, 4, 55]
 
+    print_array(arrays[array_id], array_id, False, "Selection")
+    selection_sort(arrays[array_id])
+    print_array(arrays[array_id], array_id, True, "Selection")
 
     
 # begins program by calling the main function
