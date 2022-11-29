@@ -4,7 +4,7 @@
 #
 # Sorting algorithms implemented
 # - Bubble
-# - TODO: Selection
+# - Selection
 # - TODO: Merge
 # - TODO: Insertion
 # - TODO: Quick
@@ -47,7 +47,6 @@ def selection_sort(array):
         if array[i] != array[min_index]:
             (array[i], array[min_index]) = (array[min_index], array[i])
  
-
 # prints the contents of the given integer array to stdout
 def print_array(array, array_id, ordered, sorting_algorithm):
     if ordered:
