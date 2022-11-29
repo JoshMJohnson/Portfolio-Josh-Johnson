@@ -43,16 +43,24 @@ def print_array(array, array_id, ordered, sorting_algorithm):
         else:
             print("%d" % array[i], end=", ")
 
-# main function - controls operations and flow of the program
+# main function - controls flow of the program
 def main():
-    array_id = 1
+    array_id = 0 # array ID tracker
+    arrays = [0] * 5 # multiplied by 5 for number of algorithms implemented initialized to 0
 
-    # applying sorting algorithms
+    # apply sorting algorithms
     # bubble sort - size and values are given by program
     array_one = [3, 66, 45, 23, 9, 0, 11, 2, 7, 49, 21]
-    print_array(array_one, array_id, False, "Bubble")
-    bubble_sort(array_one)
-    print_array(array_one, array_id, True, "Bubble")
+    arrays[array_id] = array_one
+
+    print_array(arrays[array_id], array_id, False, "Bubble")
+    bubble_sort(arrays[array_id])
+    print_array(arrays[array_id], array_id, True, "Bubble")
+
+    # selection sort - size and values are given by program
+    array_id += 1
+
+
     
 # begins program by calling the main function
 main()
