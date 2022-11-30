@@ -12,6 +12,7 @@
 # Created By: Josh Johnson
 
 from os import path # used to get relative path for text files
+import random # used for random value generation
 
 # bubble sort algorithm
 def bubble_sort(array):
@@ -46,13 +47,23 @@ def selection_sort(array):
          # swapping the elements to sort the array if necessary
         if array[i] != array[min_index]:
             (array[i], array[min_index]) = (array[min_index], array[i])
+
+# generates an array with random integers as elements with given array size
+def create_random_array(array_size):
+    array = []
+
+    for _ in range(array_size):
+        element = random.randint(-100, 100) # random value between range; inclusive
+        array.append(element)
+
+    return array
  
 # prints the contents of the given integer array to stdout
 def print_array(array, array_id, ordered, sorting_algorithm):
     if ordered:
-        print("Array with ID %d after %s Sort algorithm applied:" % (array_id, sorting_algorithm), end=" ") # end parameter prevents new line
+        print("Array with ID %d after the %s Sort algorithm is applied:" % (array_id, sorting_algorithm), end=" ") # end parameter prevents new line
     else:
-        print("Array with ID %d before %s Sort algorithm applied:" % (array_id, sorting_algorithm), end=" ") # end parameter prevents new line
+        print("Array with ID %d before the %s Sort algorithm is applied:" % (array_id, sorting_algorithm), end=" ") # end parameter prevents new line
     
     for i in range(len(array)):
         if i == len(array) - 1:
@@ -81,6 +92,12 @@ def main():
     print_array(arrays[array_id], array_id, False, "Selection")
     selection_sort(arrays[array_id])
     print_array(arrays[array_id], array_id, True, "Selection")
+
+    # merge sort - size and values are given by program
+    array_id += 1
+    arrays[array_id] = create_random_array(10)
+
+    print_array(arrays[array_id], array_id, False, "Merge")
 
     
 # begins program by calling the main function
