@@ -5,7 +5,7 @@
 # Sorting algorithms implemented
 # - Bubble
 # - Selection
-# - TODO: Merge
+# - Merge
 # - TODO: Insertion
 # - TODO: Quick
 #
@@ -47,6 +47,59 @@ def selection_sort(array):
          # swapping the elements to sort the array if necessary
         if array[i] != array[min_index]:
             (array[i], array[min_index]) = (array[min_index], array[i])
+
+# merge sort algorithm
+def merge_sort(array, left_index, right_index):
+    if left_index < right_index:
+        middle_index = left_index + (right_index - left_index) // 2 # // results in integer division rather than / being double division
+ 
+        # sort first and second halves of sub arrays
+        merge_sort(array, left_index, middle_index)
+        merge_sort(array, middle_index + 1, right_index)
+        merge(array, left_index, middle_index, right_index)
+
+# merges two subarrays of the array
+def merge(array, left_index, middle_index, right_index):
+    # get sizes of sub arrays
+    subarray1_size = middle_index - left_index + 1
+    subarray2_size = right_index - middle_index
+ 
+    # create temp arrays
+    temp_array1 = [0] * subarray1_size
+    temp_array2 = [0] * subarray2_size
+ 
+    # copy data to temp_array1
+    for i in range(0, subarray1_size):
+        temp_array1[i] = array[left_index + i]
+
+    # copy data to temp_array2
+    for i in range(0, subarray2_size):
+        temp_array2[i] = array[middle_index + 1 + i]
+
+    i, j, k = 0, 0, left_index # multiple variables on the same line
+ 
+    # merge two sorted sub-arrays into one sorted array
+    while i < subarray1_size and j < subarray2_size:
+        if temp_array1[i] <= temp_array2[j]:
+            array[k] = temp_array1[i]
+            i += 1
+        else:
+            array[k] = temp_array2[j]
+            j += 1
+            
+        k += 1
+ 
+    # copy the remaining elements of temp_array1, if there are any
+    while i < subarray1_size:
+        array[k] = temp_array1[i]
+        i += 1
+        k += 1
+ 
+    # copy the remaining elements of temp_array2, if there are any
+    while j < subarray2_size:
+        array[k] = temp_array2[j]
+        j += 1
+        k += 1
 
 # generates an array with random integers as elements with given array size
 def create_random_array(array_size):
@@ -98,6 +151,8 @@ def main():
     arrays[array_id] = create_random_array(10)
 
     print_array(arrays[array_id], array_id, False, "Merge")
+    merge_sort(arrays[array_id], 0, len(arrays[array_id]) - 1)
+    print_array(arrays[array_id], array_id, True, "Merge")
 
     
 # begins program by calling the main function
