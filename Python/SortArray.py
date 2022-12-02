@@ -69,11 +69,11 @@ def merge(array, left_index, middle_index, right_index):
     temp_array2 = [0] * subarray2_size
  
     # copy data to temp_array1
-    for i in range(0, subarray1_size):
+    for i in range(subarray1_size):
         temp_array1[i] = array[left_index + i]
 
     # copy data to temp_array2
-    for i in range(0, subarray2_size):
+    for i in range(subarray2_size):
         temp_array2[i] = array[middle_index + 1 + i]
 
     i, j, k = 0, 0, left_index # multiple variables on the same line
@@ -110,6 +110,19 @@ def create_random_array(array_size):
         array.append(element)
 
     return array
+
+def read_test_file_into_array(file_name):
+    # reading from file
+    base_path = path.dirname(__file__) # get current directory location 
+    file_path = path.abspath(path.join(base_path, "..", "Test_Files", file_name)) # relative path to the test file
+    file1 = open(file_path, "r") # open access to test file
+    data = file1.read() # storing file content
+    file1.close() # closing the file access to test file
+
+    # creating array from content gathered from test file
+    array = [int(i) for i in data.split(' ')] # create array from elements separated by a space in data variable
+    return array
+    
  
 # prints the contents of the given integer array to stdout
 def print_array(array, array_id, ordered, sorting_algorithm):
@@ -153,6 +166,12 @@ def main():
     print_array(arrays[array_id], array_id, False, "Merge")
     merge_sort(arrays[array_id], 0, len(arrays[array_id]) - 1)
     print_array(arrays[array_id], array_id, True, "Merge")
+
+    # insertion sort - array size and values are discovered by reading a file
+    array_id += 1
+    arrays[array_id] = read_test_file_into_array("random_integers_no_duplicates.txt")
+    
+    print_array(arrays[array_id], array_id, False, "Insertion")
 
     
 # begins program by calling the main function
