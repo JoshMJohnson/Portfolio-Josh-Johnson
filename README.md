@@ -34,6 +34,7 @@ All code has been written and reviewed by Josh Johnson.
 | [hello&lowbar;world](/JavaScript/hello_world.js) | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
 | [ReadWriteFile](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
 | [HelloWorld](/Python/HelloWorld.py) | Python | Using the console | Classic &lsquo;hello world&rsquo; program |
+| [SortArray](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 ---
 <!-- test files -->
 ## Test Files :open_file_folder:
@@ -54,7 +55,7 @@ All code has been written and reviewed by Josh Johnson.
 ## Projects In Development :point_up:
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| [SortArray](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
+| TBD | TBD | TBD | TBD |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
