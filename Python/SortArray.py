@@ -7,7 +7,7 @@
 # - Selection
 # - Merge
 # - Insertion
-# - TODO: Quick
+# - Quick
 #
 # Created By: Josh Johnson
 
@@ -115,6 +115,37 @@ def insertion_sort(array):
 
         array[j + 1] = key
 
+# quick sort algorithm
+#   - this implementation utilizes pivot as the last element in the array
+def quick_sort(array, low, high):
+    if low < high:
+        pivot_index = partition(array, low, high)
+ 
+        # recursive call on the left and right of pivot
+        quick_sort(array, low, pivot_index - 1) 
+        quick_sort(array, pivot_index + 1, high) 
+ 
+# finds the partition position
+def partition(array, low, high):
+    pivot = array[high] # set the right-most element as pivot
+    i = low - 1 # pointer for greater element
+ 
+    # traverse through all elements comparing each element with pivot
+    for j in range(low, high):
+        # if element smaller than pivot is found swap it with the greater element pointed by i
+        if array[j] <= pivot:
+            i += 1
+ 
+            # swapping element at i with element at j if necessary
+            if array[i] != array[j]:
+                (array[i], array[j]) = (array[j], array[i])
+ 
+    # swap the pivot element with the greater element specified by i if necessary
+    if array[i + 1] != array[high]:
+        (array[i + 1], array[high]) = (array[high], array[i + 1])
+
+    return i + 1 # position from where partition is done
+ 
 # generates an array with random integers as elements with given array size
 def create_random_array(array_size):
     array = []
@@ -188,6 +219,14 @@ def main():
     print_array(arrays[array_id], array_id, False, "Insertion")
     insertion_sort(arrays[array_id])
     print_array(arrays[array_id], array_id, True, "Insertion")
+
+    # quick sort - array size and values are discovered by reading a file
+    array_id += 1
+    arrays[array_id] = read_test_file_into_array("random_integers_with_duplicates.txt")
+
+    print_array(arrays[array_id], array_id, False, "Quick")
+    quick_sort(arrays[array_id], 0, len(arrays[array_id]) - 1)
+    print_array(arrays[array_id], array_id, True, "Quick")
     
 # begins program by calling the main function
 main()
