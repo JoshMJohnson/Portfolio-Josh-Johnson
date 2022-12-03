@@ -6,7 +6,7 @@
 # - Bubble
 # - Selection
 # - Merge
-# - TODO: Insertion
+# - Insertion
 # - TODO: Quick
 #
 # Created By: Josh Johnson
@@ -101,6 +101,20 @@ def merge(array, left_index, middle_index, right_index):
         j += 1
         k += 1
 
+# insertion sort algorithm
+def insertion_sort(array):
+    for i in range(1, len(array)): 
+        key = array[i]
+ 
+        # move elements of arr[0..i-1], that are greater than key, 
+        # to one position ahead of their current position
+        j = i - 1
+        while j >= 0 and key < array[j]:
+                array[j + 1] = array[j]
+                j -= 1
+
+        array[j + 1] = key
+
 # generates an array with random integers as elements with given array size
 def create_random_array(array_size):
     array = []
@@ -111,6 +125,7 @@ def create_random_array(array_size):
 
     return array
 
+# reads a test file and returns an array of elements gathered by the file separated by a space
 def read_test_file_into_array(file_name):
     # reading from file
     base_path = path.dirname(__file__) # get current directory location 
@@ -122,8 +137,7 @@ def read_test_file_into_array(file_name):
     # creating array from content gathered from test file
     array = [int(i) for i in data.split(' ')] # create array from elements separated by a space in data variable
     return array
-    
- 
+     
 # prints the contents of the given integer array to stdout
 def print_array(array, array_id, ordered, sorting_algorithm):
     if ordered:
@@ -170,9 +184,10 @@ def main():
     # insertion sort - array size and values are discovered by reading a file
     array_id += 1
     arrays[array_id] = read_test_file_into_array("random_integers_no_duplicates.txt")
-    
-    print_array(arrays[array_id], array_id, False, "Insertion")
 
+    print_array(arrays[array_id], array_id, False, "Insertion")
+    insertion_sort(arrays[array_id])
+    print_array(arrays[array_id], array_id, True, "Insertion")
     
 # begins program by calling the main function
 main()
