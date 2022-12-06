@@ -13,7 +13,7 @@ All code has been written and reviewed by Josh Johnson.
 ---
 <!-- completed projects section -->
 ## Completed Projects :thumbsup:
-<img src="/Portfolio_Assets/my_hero_academia" width="250" height="250"
+<img src="/Portfolio_Assets/my_hero_academia.gif" width="250" height="250"
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
 | [Account&lowbar;Manager](/Account_Manager) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Animation</li><li>Tables</li><li>JavaScript Promises</li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Password</li><li>Text</li><li>Date</li><li>Email</li><li>Tel</li><li>Radio</li><li>Image</li></ul></li></ul></li><li>Node JS</li><li>DOM Elements</li><li>Server Side vs. Client Side</li></li><li>Database Management<ul><li>Create Tables</li><li>Retrieving Data</li><li>Inserting Data</li><li>Updating Data</li><li>Removing Data</li></ul></li><li>Image Usage</li><li>Links<ul><li>Relative</li></ul><li>Custom Error Messages</li><li>User Permissions&sol;Restrictions</li></ul> | Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions |
