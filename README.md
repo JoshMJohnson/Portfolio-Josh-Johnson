@@ -57,6 +57,10 @@ All code has been written and reviewed by Josh Johnson.
 ---
 <!-- incompleted Projects section -->
 ## Projects In Development :point_up:
+<p align="center">
+    <img src="/Portfolio_Assets/mr_incredible_coding.gif" width="500" height="250">
+</p>
+
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
 | TBD | TBD | TBD | TBD |
