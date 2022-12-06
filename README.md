@@ -68,4 +68,4 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 <sup>_Projects in development are currently being worked on_</sup>
 
 <!-- footer section -->
-:arrow_up: [Back to top](#portfolio-josh-johnson-open_book) :arrow_up:
+:arrow_up: [Back to top](#open_book-portfolio-josh-johnson-open_book) :arrow_up:
