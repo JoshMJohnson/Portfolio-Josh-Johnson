@@ -1,4 +1,4 @@
-# **Portfolio-Josh-Johnson** :open_book:
+<h1 align="center" style="font-weight: bold">Portfolio-Josh-Johnson :open_book:</h1>
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.
 
 Test files are also included within this repo.
