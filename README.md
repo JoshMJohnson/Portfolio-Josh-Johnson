@@ -25,7 +25,8 @@ All code has been written and reviewed by Josh Johnson.
 | [Ultimate&lowbar;Frisbee&lowbar;Wiki](/Ultimate_Frisbee_Wiki) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Image Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
 ---
 <!-- algorithms & basic concepts section -->
-## Algorithms & Basic Concepts :writing_hand:
+<h2 align="center">Algorithms & Basic Concepts :writing_hand:</h2>
+
 | File | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | [sort&lowbar;array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
@@ -41,7 +42,8 @@ All code has been written and reviewed by Josh Johnson.
 | [HelloWorld](/Python/HelloWorld.py) | Python | Using the console | Classic &lsquo;hello world&rsquo; program |
 ---
 <!-- test files -->
-## Test Files :open_file_folder:
+<h2 align="center">Test Files :open_file_folder:</h2>
+
 | File | File Type | Content |
 | :-----------: | :-----------: | :-----------: |
 | [basic&lowbar;text](/Test_Files/basic_text.txt) | txt | 5 lines with each line stating its relative location in the file |
@@ -56,7 +58,7 @@ All code has been written and reviewed by Josh Johnson.
 | [random&lowbar;integers&lowbar;with&lowbar;duplicates](/Test_Files/random_integers_with_duplicates.txt) | txt | random integer values containing a few duplicate values |
 ---
 <!-- incompleted Projects section -->
-## Projects In Development :point_up:
+<h2 align="center">Projects In Development :point_up:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/mr_incredible_coding.gif" width="500" height="250">
 </p>
