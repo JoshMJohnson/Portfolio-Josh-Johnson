@@ -12,7 +12,7 @@ All code has been written and reviewed by Josh Johnson.
 
 ---
 <!-- completed projects section -->
-## Completed Projects :thumbsup:
+<h2 align="center">Completed Projects :thumbsup:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/my_hero_academia.gif" width="500" height="250">
 </p>
