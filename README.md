@@ -3,14 +3,14 @@ Personal portfolio for Josh Johnson containing projects and demonstrating concep
 Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
 
-[Completed Projects :thumbsup:](#completed-projects-thumbsup)<br>
-[Alogrithms & Basic Concepts :writing_hand:](#algorithms--basic-concepts-writing_hand)<br>
-[Test Files :open_file_folder:](#test-files-open_file_folder)<br>
-[Projects In Development :point_up:](#projects-in-development-point_up)<br>
+[Completed Projects :thumbsup:](#thumbsup-completed-projects-thumbsup)<br>
+[Alogrithms & Basic Concepts :writing_hand:](#writing_hand-algorithms--basic-concepts-writing_hand)<br>
+[Test Files :open_file_folder:](#open_file_folder-test-files-open_file_folder)<br>
+[Projects In Development :point_up:](#point_up-projects-in-development-point_up)<br>
 
 ---
 <!-- completed projects section -->
-<h2 align="center">Completed Projects :thumbsup:</h2>
+<h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/my_hero_academia.gif" width="500" height="250">
 </p>
@@ -23,7 +23,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [Ultimate&lowbar;Frisbee&lowbar;Wiki](/Ultimate_Frisbee_Wiki) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Image Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
 ---
 <!-- algorithms & basic concepts section -->
-<h2 align="center">Algorithms & Basic Concepts :writing_hand:</h2>
+<h2 align="center">:writing_hand: Algorithms & Basic Concepts :writing_hand:</h2>
 
 | File | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
@@ -40,7 +40,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [HelloWorld](/Python/HelloWorld.py) | Python | Using the console | Classic &lsquo;hello world&rsquo; program |
 ---
 <!-- test files -->
-<h2 align="center">Test Files :open_file_folder:</h2>
+<h2 align="center">:open_file_folder: Test Files :open_file_folder:</h2>
 
 | File | File Type | Content |
 | :-----------: | :-----------: | :-----------: |
@@ -56,7 +56,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [random&lowbar;integers&lowbar;with&lowbar;duplicates](/Test_Files/random_integers_with_duplicates.txt) | txt | random integer values containing a few duplicate values |
 ---
 <!-- incompleted Projects section -->
-<h2 align="center">Projects In Development :point_up:</h2>
+<h2 align="center">:point_up: Projects In Development :point_up:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/mr_incredible_coding.gif" width="500" height="250">
 </p>
