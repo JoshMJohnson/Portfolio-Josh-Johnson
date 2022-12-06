@@ -1,4 +1,4 @@
-<h1 align="center" style="font-weight: bold">:open_book: Portfolio-Josh-Johnson :open_book:</h1>
+<h1 align="center" style="font-weight: bold">:open_book: Portfolio Josh Johnson :open_book:</h1>
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
