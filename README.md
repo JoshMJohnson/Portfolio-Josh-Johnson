@@ -13,7 +13,9 @@ All code has been written and reviewed by Josh Johnson.
 ---
 <!-- completed projects section -->
 ## Completed Projects :thumbsup:
-<img src="/Portfolio_Assets/my_hero_academia.gif" width="500" height="250">
+<p align="center">
+    <img src="/Portfolio_Assets/my_hero_academia.gif" width="500" height="250">
+</p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
