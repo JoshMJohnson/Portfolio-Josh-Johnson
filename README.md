@@ -76,5 +76,5 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 <!-- footer section -->
 <div align="center">
-    <a href="#open_book-portfolio-josh-johnson-open_book">:arrow_up: Back to top :arrow_up:</a>
+    <p>:arrow_up: <a href="#open_book-portfolio-josh-johnson-open_book">Back to top</a> :arrow_up:</p>
 </div>
