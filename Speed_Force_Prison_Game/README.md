@@ -70,7 +70,7 @@
 <img width="500" height="350" alt="Final State Four" src="game_progression/10.png">
 
 <img width="500" height="350" alt="Final State Five" src="game_progression/11.png">
-</div>
+</div><br>
 
 <!-- footer section -->
 <div align="center">
