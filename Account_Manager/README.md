@@ -1,5 +1,7 @@
 <h1 align="center">:raising_hand_man: Account Manager :raising_hand_man:</h1>
-Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions
+<p align="center">
+    Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions
+</p>
 
 ---
 <!-- instructions section -->
