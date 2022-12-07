@@ -1,8 +1,8 @@
 <h1 align="center" style="font-weight: bold">:open_book: Portfolio Josh Johnson :open_book:</h1>
+<img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="175" align="right">
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
-<img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="175" align="right" top="-100px">
 
 [Completed Projects :thumbsup:](#thumbsup-completed-projects-thumbsup)<br>
 [Alogrithms & Basic Concepts :writing_hand:](#writing_hand-algorithms--basic-concepts-writing_hand)<br>
