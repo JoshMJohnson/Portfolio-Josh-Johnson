@@ -24,6 +24,9 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 ---
 <!-- algorithms & basic concepts section -->
 <h2 align="center">:writing_hand: Algorithms & Basic Concepts :writing_hand:</h2>
+<p align="center">
+    <img src="/Portfolio_Assets/in_order_tree_traversal.gif" width="500" height="250">
+</p>
 
 | File | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
