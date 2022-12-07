@@ -1,9 +1,9 @@
-# Account Manager :raising_hand_man:
+<h1 align="center">:raising_hand_man: Account Manager :raising_hand_man:</h1>
 Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions
 
 ---
 <!-- instructions section -->
-## Instructions of how to run program :scroll:
+<h2 align="center">:scroll: Instructions of how to run program :scroll:<h2>
     1.) Open command line and traverse to the Account_Manager folder
 
     2.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
@@ -13,7 +13,7 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
     4.) Operate at that address the same as one would at a website on the browser
 ---
 <!-- project images section -->
-## Project Images :camera:
+<h2 align="center">:camera: Project Images :camera:<h2>
 Database Data:<br>
 <img width="500" height="250" alt="Database Data" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Data.png">
 
@@ -38,4 +38,6 @@ Timeline:<br>
 <img width="600" height="700" alt="Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
 
 <!-- footer section -->
-:arrow_up: [Back to top](#account-manager-raising_hand_man) :arrow_up:
+<div align="center">
+    <p>:arrow_up: <a src="#raising_hand_man-account-manager-raising_hand_man">Back to top</a> :arrow_up:</p>
+</div>
