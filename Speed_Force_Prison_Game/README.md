@@ -15,7 +15,7 @@
 <h2 align="center">:chart_with_upwards_trend: Game Progression :chart_with_upwards_trend:</h2>
 <div align="center">
 
-<img width="500" height="350" alt="Progression One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/1.png">
+<img width="500" height="350" alt="Progression One" src="game_progression/1.png">
 
 :arrow_down:
 
