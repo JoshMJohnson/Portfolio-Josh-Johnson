@@ -4,6 +4,7 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ---
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
+
     1.) Open command line and traverse to the Account_Manager folder
 
     2.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
