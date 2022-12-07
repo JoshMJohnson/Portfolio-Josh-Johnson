@@ -12,7 +12,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 <!-- completed projects section -->
 <h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
 <p align="center">
-    <img src="/Portfolio_Assets/my_hero_academia.gif" width="500" height="250">
+    <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
@@ -25,7 +25,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 <!-- algorithms & basic concepts section -->
 <h2 align="center">:writing_hand: Algorithms & Basic Concepts :writing_hand:</h2>
 <p align="center">
-    <img src="/Portfolio_Assets/in_order_tree_traversal.gif" width="500" height="250">
+    <img src="/Portfolio_Assets/in_order_tree_traversal.gif" alt="In Order Tree Traversal" width="500" height="250">
 </p>
 
 | File | Language | Concepts Demonstrated | Description |
@@ -45,7 +45,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 <!-- test files -->
 <h2 align="center">:open_file_folder: Test Files :open_file_folder:</h2>
 <p align="center">
-    <img src="/Portfolio_Assets/file_system.gif" width="500" height="250">
+    <img src="/Portfolio_Assets/file_system.gif" alt="File System Expanding" width="500" height="250">
 </p>
 
 | File | File Type | Content |
@@ -64,7 +64,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 <!-- incompleted Projects section -->
 <h2 align="center">:point_up: Projects In Development :point_up:</h2>
 <p align="center">
-    <img src="/Portfolio_Assets/mr_incredible_coding.gif" width="500" height="250">
+    <img src="/Portfolio_Assets/mr_incredible_coding.gif" alt="Mr Incredible Working Tirelessly" width="500" height="250">
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
