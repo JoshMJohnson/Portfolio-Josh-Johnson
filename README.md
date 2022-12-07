@@ -1,5 +1,6 @@
 <h1 align="center" style="font-weight: bold">:open_book: Portfolio Josh Johnson :open_book:</h1>
-Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
+Personal portfolio for Josh Johnson containing projects and demonstrating concepts.
+
 Test files are also included within this repo.
 <img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="175" align=right>
 All code has been written and reviewed by Josh Johnson.<br><br>
