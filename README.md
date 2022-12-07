@@ -41,6 +41,9 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 ---
 <!-- test files -->
 <h2 align="center">:open_file_folder: Test Files :open_file_folder:</h2>
+<p align="center">
+    <img src="/Portfolio_Assets/file_system.gif" width="500" height="250">
+</p>
 
 | File | File Type | Content |
 | :-----------: | :-----------: | :-----------: |
