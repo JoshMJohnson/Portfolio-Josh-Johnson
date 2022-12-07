@@ -3,8 +3,7 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 
 ---
 <!-- instructions section -->
-<h2 align="center">:scroll: Instructions of how to run program :scroll:<h2>
-<div>
+<h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
     1.) Open command line and traverse to the Account_Manager folder
 
     2.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
@@ -12,10 +11,9 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
     3.) Open web browser and go to localhost:4000 (port 4000 is chosen within the app.js file and is possible to change port address if desired)
     
     4.) Operate at that address the same as one would at a website on the browser
-</div>
 ---
 <!-- project images section -->
-<h2 align="center">:camera: Project Images :camera:<h2>
+<h2 align="center">:camera: Project Images :camera:</h2>
 
 Database Data:<br>
 <img width="500" height="250" alt="Database Data" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Data.png">
