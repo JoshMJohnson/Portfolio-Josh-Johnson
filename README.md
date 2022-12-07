@@ -1,5 +1,5 @@
 <h1 align="center" style="font-weight: bold">:open_book: Portfolio Josh Johnson :open_book:</h1>
-<img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="50%" align="right">
+<img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="75%" align="right">
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
