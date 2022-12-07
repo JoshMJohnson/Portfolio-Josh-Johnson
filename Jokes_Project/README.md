@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/107897805/200720588-2da7f5c6-7be8-49d8
 
 **Hear Jokes Results**<br>
 <img width="600" height="625" alt="Hear Jokes Results" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke2.png">
-</div>
+</div><br>
 
 <!-- footer section -->
 <div align="center">
