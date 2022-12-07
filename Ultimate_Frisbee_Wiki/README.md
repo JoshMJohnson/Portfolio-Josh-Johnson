@@ -48,7 +48,7 @@
 
 <div align="center">
     <img width="600" height="675" alt="Screenshot Nine" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Ultimate_Frisbee_Wiki/Images/project/9.png">
-</div>
+</div><br>
 
 <!-- footer section -->
 <div align="center">
