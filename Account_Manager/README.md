@@ -15,7 +15,7 @@ Allows a user to create&sol;delete accounts and be able to login&sol;logout of s
 ---
 <!-- project images section -->
 <h2 align="center">:camera: Project Images :camera:</h2>
-
+<div align="center">
 Database Data:<br>
 <img width="500" height="250" alt="Database Data" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Database_Data.png">
 
@@ -38,6 +38,7 @@ Admin Logged In:<br>
 
 Timeline:<br>
 <img width="600" height="700" alt="Timeline" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Timeline.png">
+</div>
 
 <!-- footer section -->
 <div align="center">
