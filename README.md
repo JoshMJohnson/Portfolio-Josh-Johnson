@@ -60,11 +60,11 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 <p align="center">
     <img src="/Portfolio_Assets/mr_incredible_coding.gif" width="500" height="250">
 </p>
-
-| Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| TBD | TBD | TBD | TBD |
-
+<p align="center">
+    | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
+    | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
+    | TBD | TBD | TBD | TBD |
+</p>
 <sup>_Projects in development are currently being worked on_</sup>
 
 <!-- footer section -->
