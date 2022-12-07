@@ -25,7 +25,7 @@ Database Structure:<br>
 Login Page:<br>
 <img width="600" height="700" alt="Login Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Login.png">
 
-<img width="600" height="700" src="/Videos/Account_Manager_Login_Short.mp4">
+<img width="600" height="700" src="Videos/Account_Manager_Login_Short.mp4">
 
 Create An Account:<br>
 <img width="600" height="700" alt="Create Account Page" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Account_Manager/Images/Create_Account.png">
