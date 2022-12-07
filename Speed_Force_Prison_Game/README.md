@@ -56,9 +56,11 @@
 :arrow_down:
 
 <img width="400" height="275" alt="Progression Eleven" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/13.png">
+</div>
 
 <h2 align="center">:white_check_mark: Final State :white_check_mark:</h2>
 
+<div align="center">
 <img width="400" height="275" alt="Final State One" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/14.png">
 
 <img width="400" height="275" alt="Final State Two" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Speed_Force_Prison_Game/game_progression/16.png">
