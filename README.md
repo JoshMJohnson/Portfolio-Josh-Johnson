@@ -2,7 +2,6 @@
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 Test files are also included within this repo.
 <img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="250" height="250" align=right>
-<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
 
 [Completed Projects :thumbsup:](#thumbsup-completed-projects-thumbsup)<br>
