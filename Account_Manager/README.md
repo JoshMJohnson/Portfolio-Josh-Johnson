@@ -41,5 +41,5 @@ Timeline:<br>
 
 <!-- footer section -->
 <div align="center">
-    <p>:arrow_up: <a src="#raising_hand_man-account-manager-raising_hand_man">Back to top</a> :arrow_up:</p>
+    <p>:arrow_up: <a href="#raising_hand_man-account-manager-raising_hand_man">Back to top</a> :arrow_up:</p>
 </div>
