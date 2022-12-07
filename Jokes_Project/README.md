@@ -1,6 +1,6 @@
 <h1 align="center">:clown_face: Jokes Project :clown_face:</h1>
 <p align="center">
-    Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from
+    Keeps a database of jokes that users can add jokes to and&sol;or retrieve jokes from
 </p>
 
 ---
