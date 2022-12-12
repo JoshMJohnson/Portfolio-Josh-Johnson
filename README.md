@@ -70,7 +70,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| [Tic&ndash;Tac&ndash;Toe](/TicTacToe_Project) | Python | <ul><li>GUI Interface</li><li>Random Integer Generation</li><li>Timer Usage</li></ul> | Tic&ndash;Tac&ndash;Toe game where the user plays against the program |
+| [Tic&ndash;Tac&ndash;Toe](/TicTacToe) | Python | <ul><li>GUI Interface</li><li>Random Integer Generation</li><li>Timer Usage</li></ul> | Tic&ndash;Tac&ndash;Toe game where the user plays against the program |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
