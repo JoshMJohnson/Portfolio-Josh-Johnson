@@ -12,19 +12,18 @@ window_width = -1 # width of the gui window
 # game details
 stop_game = False
 begin_game = False
-current_player_display = ''
+current_player_display = -1
 
 # player details
 player1_symbol = 'X'
 player2_symbol = 'O'
 player1_name = 'Player One'
-player2_name = 'Player Two'
+player2_name = 'AI'
 current_player = '' # contains the name of the player who has to make the next move in the game
 
 # game board
 states = []
 cells = []
-current_player_display = -1
 playing_board = -1
 
 # adds widgets to the gui
@@ -134,7 +133,7 @@ def start_game():
         tkinter.messagebox.showinfo("Start Game", "You make the first move!")
         current_player = player1_name
     else:
-        tkinter.messagebox.showinfo("Start Game", "You make the second move!")
+        tkinter.messagebox.showinfo("Start Game", "The AI makes the first move!")
         current_player = player2_name
 
     if current_player_display == -1:
