@@ -86,7 +86,7 @@ def create_board(window):
 
     for x in range(3):
         for y in range(3):
-            cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=2, 
+            cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=5, 
                                 bg='lightblue', fg='darkblue', 
                                 activebackground='lightblue', command=lambda xx=x, yy=y : make_move(xx, yy))
             
