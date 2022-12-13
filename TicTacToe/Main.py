@@ -6,6 +6,7 @@ from tkinter import * # used for GUI Interface
 import tkinter.messagebox # pop-up message box
 import random # random number generation
 
+# gui settings
 window = -1 # gui window
 window_width = -1 # width of the gui window
 
@@ -13,13 +14,13 @@ window_width = -1 # width of the gui window
 stop_game = False
 begin_game = False
 current_player_display = -1
+current_player = '' # contains the name of the player who has to make the next move in the game
 
 # player details
 player1_symbol = 'X'
 player2_symbol = 'O'
 player1_name = 'Player One'
 player2_name = 'AI'
-current_player = '' # contains the name of the player who has to make the next move in the game
 
 # game board
 states = []
