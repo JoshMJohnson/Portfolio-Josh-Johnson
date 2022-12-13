@@ -4,13 +4,20 @@
 
 from tkinter import * # used for GUI Interface
 
-window_width = -1 
+window_width = -1 # width of the gui window
 stop_game = False
+
+# player details
 player1_symbol = 'X'
 player2_symbol = 'O'
 player1_name = 'Player One'
 player2_name = 'Player Two'
-current_player = player1_name
+current_player = player1_name # contains the name of the player who has to make the next move in the game
+
+# game board
+states = []
+cells = []
+current_player_display = -1
 
 # adds widgets to the gui
 def add_widgets(window):
@@ -19,6 +26,7 @@ def add_widgets(window):
     title_label.place(anchor=CENTER, relx=.5, rely=.055)
 
     # current player display
+    global current_player_display
     current_player_label = Label(window, text='Current Player:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
     current_player_label.place(x=15, y=85)
     current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
@@ -61,6 +69,9 @@ def create_board(window):
     playing_board.place(in_=window, anchor=CENTER, relx=.5, rely=.5)
 
     # grid cells
+    global cells
+    global states
+
     cells = [
         [0,0,0],
         [0,0,0],
@@ -75,16 +86,30 @@ def create_board(window):
 
     for x in range(3):
         for y in range(3):
-            cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=5, bg='lightblue', activebackground='lightblue', command=lambda r = x, c = y : clicked(r, c))
+            cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=2, 
+                                bg='lightblue', fg='darkblue', 
+                                activebackground='lightblue', command=lambda xx=x, yy=y : make_move(xx, yy))
             
             if (x == 0 and y == 0) or (x == 2 and y == 2):
                 cells[x][y].grid(row=x, column=y, padx=30, pady=30)    
             else:
                 cells[x][y].grid(row=x, column=y)
         
-def clicked(r, c):
-    return
+def make_move(xx, yy):
+    global current_player # allows access to global variable
 
+    if current_player == player1_name and states[xx][yy] == 0 and stop_game == False:
+        cells[xx][yy].config(text="X")
+        states[xx][yy] = 'X'
+        current_player = player2_name
+
+    if current_player == player2_name and states[xx][yy] == 0 and stop_game == False:
+        cells[xx][yy].config(text="O")
+        states[xx][yy] = 'O'
+        current_player = player1_name
+
+    current_player_display.config(text=current_player)
+        
 # starts the game
 def start_game():
     return
