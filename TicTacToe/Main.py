@@ -4,15 +4,25 @@
 
 from tkinter import * # used for GUI Interface
 
-window_width = -1 # window width dimension
+window_width = -1 
 stop_game = False
-player1 = 'X'
+player1_symbol = 'X'
+player2_symbol = 'O'
+player1_name = 'Player One'
+player2_name = 'Player Two'
+current_player = player1_name
 
 # adds widgets to the gui
 def add_widgets(window):
-    # top display
+    # title display
     title_label = Label(window, text='Tic-Tac-Toe', bg='lightblue', fg='darkblue', relief=RAISED, borderwidth=10, font=('Times', 30, 'bold'))
     title_label.place(anchor=CENTER, relx=.5, rely=.055)
+
+    # current player display
+    current_player_label = Label(window, text='Current Player:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
+    current_player_label.place(x=15, y=85)
+    current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
+    current_player_display.place(x=120, y=85)
 
     # bottom menu frame
     bottom_frame = Frame(window, width=window_width, height=100, bg='darkblue')
