@@ -144,6 +144,10 @@ def start_game():
 def restart_game():
     global begin_game
     begin_game = False
+    global current_player
+    current_player = ''
+    global current_player_display
+    current_player_display.config(text=current_player)
 
     tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
 
