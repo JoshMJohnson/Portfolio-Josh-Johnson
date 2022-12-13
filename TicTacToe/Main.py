@@ -65,7 +65,7 @@ def create_board(window):
 
     for x in range(3):
         for y in range(3):
-            cells[x][y] = Button(playing_board, width=15, height=7, bg='lightblue', activebackground='lightblue', command=lambda r = x, c = y : clicked(r, c))
+            cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=5, bg='lightblue', activebackground='lightblue', command=lambda r = x, c = y : clicked(r, c))
             
             if (x == 0 and y == 0) or (x == 2 and y == 2):
                 cells[x][y].grid(row=x, column=y, padx=30, pady=30)    
