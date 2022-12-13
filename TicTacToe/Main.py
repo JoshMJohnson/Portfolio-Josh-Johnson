@@ -137,8 +137,9 @@ def start_game():
         tkinter.messagebox.showinfo("Start Game", "You make the second move!")
         current_player = player2_name
 
-    current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
-    current_player_display.place(x=120, y=85)
+    if current_player_display != '':
+        current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
+        current_player_display.place(x=120, y=85)
 
 # restarts the game
 def restart_game():
@@ -150,22 +151,6 @@ def restart_game():
     current_player_display.config(text=current_player)
 
     tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
-
-    global cells
-    global states
-    global playing_board
-
-    cells = [
-        [0,0,0],
-        [0,0,0],
-        [0,0,0]
-    ]
-
-    states = [
-        [0,0,0],
-        [0,0,0],
-        [0,0,0]
-    ]
 
 
 
