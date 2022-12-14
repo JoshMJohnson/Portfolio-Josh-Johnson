@@ -13,6 +13,9 @@
 
 **Startup**<br>
 <img width="475" height="600" alt="Database Data" src="Images/startup.png">
+
+**Mid-Game**<br>
+<img width="475" height="600" alt="Database Data" src="Images/mid_game.png">
 </div>
 
 <!-- footer section -->
