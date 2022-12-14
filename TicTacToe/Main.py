@@ -145,14 +145,15 @@ def start_game():
 
 # restarts the game
 def restart_game():
-    global current_player
-    global current_player_display
     global begin_game
 
     if not begin_game:
         tkinter.messagebox.showinfo("Restart Game", "Game needs to be started first before you can restart!")
         return
 
+    global current_player
+    global current_player_display
+    
     begin_game = False
     current_player = ''
     tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
