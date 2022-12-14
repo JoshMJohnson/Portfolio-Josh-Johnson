@@ -145,12 +145,16 @@ def start_game():
 
 # restarts the game
 def restart_game():
-    global begin_game
-    begin_game = False
     global current_player
-    current_player = ''
     global current_player_display
+    global begin_game
 
+    if not begin_game:
+        tkinter.messagebox.showinfo("Restart Game", "Game needs to be started first before you can restart!")
+        return
+
+    begin_game = False
+    current_player = ''
     tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
 
     # clear current player display
@@ -172,7 +176,7 @@ def restart_game():
         [0,0,0]
     ]
 
-    return
+    start_game()
 
 # terminates the gui
 def close_gui():
