@@ -17,5 +17,5 @@
 
 <!-- footer section -->
 <div align="center">
-    <p>:arrow_up: <a href="#:space_invader:-tic-tac-toe-:space_invader:">Back to top</a> :arrow_up:</p>
+    <p>:arrow_up: <a href="#space_invader-tic-tac-toe-space_invader">Back to top</a> :arrow_up:</p>
 </div>
