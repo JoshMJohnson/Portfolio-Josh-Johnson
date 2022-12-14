@@ -12,7 +12,7 @@
 <div align="center">
 
 **Startup**<br>
-<img width="600" height="475" alt="Database Data" src="Images/startup.png">
+<img width="475" height="600" alt="Database Data" src="Images/startup.png">
 </div>
 
 <!-- footer section -->
