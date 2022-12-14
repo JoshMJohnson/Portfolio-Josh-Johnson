@@ -106,12 +106,12 @@ def make_move(xx, yy):
         return
 
     if current_player == player1_name and states[xx][yy] == 0 and stop_game == False:
-        cells[xx][yy].config(text="X")
+        cells[xx][yy].config(text='X')
         states[xx][yy] = 'X'
         current_player = player2_name
 
     if current_player == player2_name and states[xx][yy] == 0 and stop_game == False:
-        cells[xx][yy].config(text="O")
+        cells[xx][yy].config(text='O')
         states[xx][yy] = 'O'
         current_player = player1_name
 
@@ -151,12 +151,26 @@ def restart_game():
     current_player = ''
     global current_player_display
 
+    tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
+
+    # clear current player display
     if current_player_display != -1:
         current_player_display.config(text=current_player)
 
-    tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
+    # clear game board
+    global cells
+    global states
 
+    for x in range(3):
+        for y in range(3):
+            if states[x][y] != 0:
+                cells[x][y].config(text='')
 
+    states = [
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]
+    ]
 
     return
 
