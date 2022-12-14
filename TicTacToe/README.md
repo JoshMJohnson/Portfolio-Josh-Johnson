@@ -6,7 +6,10 @@
 ---
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
+    
+    1.) Run the program opening up the GUI (Graphical User Interface)
 
+    2.) Enjoy playing Tic-Tac-Toe against the AI!
 ---
 <h2 align="center">:camera: Project Images :camera:</h2>
 <div align="center">
