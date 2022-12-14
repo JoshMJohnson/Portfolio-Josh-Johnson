@@ -6,10 +6,10 @@
 ---
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
-<p align="center">
-    Open the HTML file named ultimate&lowbar;frisbee.html with your browser
-</p>
 
+    1.) Open the HTML file named ultimate_frisbee.html
+    
+    2.) Program will open with your default browser
 ---
 <!-- project images section -->
 <h2 align="center">:camera: Project Images :camera:</h2>
