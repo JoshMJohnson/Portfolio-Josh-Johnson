@@ -22,25 +22,25 @@
 https://user-images.githubusercontent.com/107897805/200720588-2da7f5c6-7be8-49d8-b06a-7d61253faf84.mp4
 
 **Database Data**<br>
-<img width="600" height="475" alt="Database Data" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/sql_table.png">
+<img width="600" height="475" alt="Database Data" src="Images/sql_table.png">
 
 **Database Structure**<br>
-<img width="600" height="250" alt="Database Structure" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/database_structure.png">
+<img width="600" height="250" alt="Database Structure" src="Images/database_structure.png">
 
 **Homepage**<br>
-<img width="600" height="250" alt="Homepage" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/home_page.png">
+<img width="600" height="250" alt="Homepage" src="Images/home_page.png">
 
 **Add Joke**<br>
-<img width="600" height="475" alt="Add Joke" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/tell_joke.png">
+<img width="600" height="475" alt="Add Joke" src="Images/tell_joke.png">
 
 **Hear Jokes Initial**<br>
-<img width="600" height="450" alt="Hear Jokes Initial" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke.png">
+<img width="600" height="450" alt="Hear Jokes Initial" src="Images/hear_joke.png">
 
 **Hear Jokes Expanded All**<br>
-<img width="600" height="625" alt="Hear Jokes Expanded All" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke3.png">
+<img width="600" height="625" alt="Hear Jokes Expanded All" src="Images/hear_joke3.png">
 
 **Hear Jokes Results**<br>
-<img width="600" height="625" alt="Hear Jokes Results" src="https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/Jokes_Project/Images/hear_joke2.png">
+<img width="600" height="625" alt="Hear Jokes Results" src="Images/hear_joke2.png">
 </div><br>
 
 <!-- footer section -->
