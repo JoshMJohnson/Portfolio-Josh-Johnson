@@ -6,10 +6,10 @@
 ---
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
-<p align="center">
-    Run the executable file named Speed&lowbar;Force&lowbar;Prison&lowbar;Game.exe to start the game. Godspeed!<br>
-</p>
 
+    1.) Run the executable file named Speed_Force_Prison_Game.exe to start the game
+    
+    2.) Godspeed!
 ---
 <!-- project progression images section -->
 <h2 align="center">:chart_with_upwards_trend: Game Progression :chart_with_upwards_trend:</h2>
