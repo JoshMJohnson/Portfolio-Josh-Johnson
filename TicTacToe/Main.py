@@ -38,7 +38,7 @@ def add_widgets():
 
     # current player display
     current_player_label = Label(window, text='Current Player:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
-    current_player_label.place(x=18, y=85)
+    current_player_label.place(x=20, y=85)
 
     # current player symbol
     current_player_symbol_label = Label(window, text='Current Player Symbol:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
@@ -195,7 +195,7 @@ def start_game():
         
     if current_player_display == -1:
         current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
-        current_player_display.place(x=123, y=85)
+        current_player_display.place(x=125, y=85)
         current_player_symbol_display = Label(window, text=current_player_symbol, bg='lightblue', fg='darkblue', font=('Arial', 10))
         current_player_symbol_display.place(x=465, y=85)
     else:
