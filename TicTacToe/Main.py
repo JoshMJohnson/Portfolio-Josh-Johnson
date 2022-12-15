@@ -38,7 +38,7 @@ def add_widgets():
 
     # current player display
     current_player_label = Label(window, text='Current Player:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
-    current_player_label.place(x=15, y=85)
+    current_player_label.place(x=18, y=85)
 
     # current player symbol
     current_player_symbol_label = Label(window, text='Current Player Symbol:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
@@ -97,7 +97,7 @@ def create_board():
 
     for x in range(3):
         for y in range(3):
-            cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=5, bg='lightblue', fg='darkblue', 
+            cells[x][y] = Button(playing_board, width=8, height=4, font=('Sans', 15, 'bold'), relief=RAISED, borderwidth=5, bg='lightblue', fg='darkblue', 
                                 activebackground='lightblue', command=lambda xx=x, yy=y : make_move(xx, yy))
 
             
@@ -195,7 +195,7 @@ def start_game():
         
     if current_player_display == -1:
         current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
-        current_player_display.place(x=120, y=85)
+        current_player_display.place(x=123, y=85)
         current_player_symbol_display = Label(window, text=current_player_symbol, bg='lightblue', fg='darkblue', font=('Arial', 10))
         current_player_symbol_display.place(x=465, y=85)
     else:
@@ -206,6 +206,8 @@ def start_game():
         for x in range(3):
                 for y in range(3):
                     cells[x][y].config(state=NORMAL)
+
+    window.update()
 
     if current_player == player2_name:
         ai_move()
