@@ -15,7 +15,7 @@
 <div align="center">
 
 **Game Walkthrough**<br>
-(https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/TicTacToe/Videos/Tic-Tac-Toe_Demo.mp4)
+https://github.com/JoshMJohnson/Portfolio-Josh-Johnson/blob/main/TicTacToe/Videos/Tic-Tac-Toe_Demo.mp4
 
 **Startup**<br>
 <img width="475" height="600" alt="Database Data" src="Images/startup.png">
