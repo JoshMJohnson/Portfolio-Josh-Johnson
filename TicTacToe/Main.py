@@ -14,7 +14,9 @@ window_width = -1 # width of the gui window
 stop_game = False
 begin_game = False
 current_player_display = -1
-current_player = '' # contains the name of the player who has to make the next move in the game
+current_player = ''
+current_player_symbol_display = -1
+current_player_symbol = ''
 
 # player details
 player1_symbol = 'X'
@@ -34,9 +36,12 @@ def add_widgets():
     title_label.place(anchor=CENTER, relx=.5, rely=.055)
 
     # current player display
-    global current_player_display
     current_player_label = Label(window, text='Current Player:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
     current_player_label.place(x=15, y=85)
+
+    # current player symbol
+    current_player_symbol_label = Label(window, text='Current Player Symbol:', bg='lightblue', fg='darkblue', font=('Arial', 10, 'bold'))
+    current_player_symbol_label.place(x=310, y=85)
 
     # bottom menu frame
     bottom_frame = Frame(window, width=window_width, height=100, bg='darkblue')
@@ -100,7 +105,8 @@ def create_board():
                 cells[x][y].grid(row=x, column=y)
         
 def make_move(xx, yy):
-    global current_player # allows access to global variable
+    global current_player 
+    global current_player_symbol 
 
     if not begin_game:
         return
@@ -109,19 +115,23 @@ def make_move(xx, yy):
         cells[xx][yy].config(text='X')
         states[xx][yy] = 'X'
         current_player = player2_name
+        current_player_symbol = player2_symbol
 
     if current_player == player2_name and states[xx][yy] == 0 and stop_game == False:
         cells[xx][yy].config(text='O')
         states[xx][yy] = 'O'
         current_player = player1_name
+        current_player_symbol = player1_symbol
 
     current_player_display.config(text=current_player)
+    current_player_symbol_display.config(text=current_player_symbol)
         
 # starts the game
 def start_game():
     global begin_game
     global current_player
     global current_player_display
+    global current_player_symbol_display
 
     if begin_game:
         tkinter.messagebox.showinfo("Start Game", "Game is already started!")
@@ -133,15 +143,20 @@ def start_game():
     if num == 1:
         tkinter.messagebox.showinfo("Start Game", "You make the first move!")
         current_player = player1_name
+        current_player_symbol = player1_symbol
     else:
         tkinter.messagebox.showinfo("Start Game", "The AI makes the first move!")
         current_player = player2_name
+        current_player_symbol = player2_symbol
 
     if current_player_display == -1:
         current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
         current_player_display.place(x=120, y=85)
+        current_player_symbol_display = Label(window, text=current_player_symbol, bg='lightblue', fg='darkblue', font=('Arial', 10))
+        current_player_symbol_display.place(x=465, y=85)
     else:
         current_player_display.config(text=current_player)
+        current_player_symbol_display.config(text=current_player_symbol)
 
 # restarts the game
 def restart_game():
@@ -156,11 +171,13 @@ def restart_game():
     
     begin_game = False
     current_player = ''
+    current_player_symbol = ''
     tkinter.messagebox.showinfo("Restart Game", "Game restarted!")
 
     # clear current player display
     if current_player_display != -1:
         current_player_display.config(text=current_player)
+        current_player_symbol_display.config(text=current_player_symbol)
 
     # clear game board
     global cells
