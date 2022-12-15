@@ -15,6 +15,7 @@
 <div align="center">
 
 **Game Walkthrough**<br>
+
 https://user-images.githubusercontent.com/107897805/207785767-2396c47e-cb0b-46bd-b83a-1a6bb614abf7.mp4
 
 **Startup**<br>
