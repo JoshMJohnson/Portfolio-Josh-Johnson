@@ -98,6 +98,8 @@ def create_board():
         for y in range(3):
             cells[x][y] = Button(playing_board, width=14, height=7, relief=RAISED, borderwidth=5, bg='lightblue', fg='darkblue', 
                                 activebackground='lightblue', command=lambda xx=x, yy=y : make_move(xx, yy))
+
+            
             
             if (x == 0 and y == 0) or (x == 2 and y == 2):
                 cells[x][y].grid(row=x, column=y, padx=30, pady=30)    
@@ -111,20 +113,45 @@ def make_move(xx, yy):
     if not begin_game:
         return
 
+    move_made = False
+
     if current_player == player1_name and states[xx][yy] == 0 and stop_game == False:
         cells[xx][yy].config(text='X')
         states[xx][yy] = 'X'
-        current_player = player2_name
-        current_player_symbol = player2_symbol
-
+        move_made = True
+        
     if current_player == player2_name and states[xx][yy] == 0 and stop_game == False:
         cells[xx][yy].config(text='O')
         states[xx][yy] = 'O'
-        current_player = player1_name
-        current_player_symbol = player1_symbol
+        move_made = True
+        
+    if move_made: # if move has been made
+        if not game_over(current_player_symbol): # no winner yet
+            if current_player == player1_name:
+                current_player = player2_name
+                current_player_symbol = player2_symbol
+            else:
+                current_player = player1_name
+                current_player_symbol = player1_symbol
 
-    current_player_display.config(text=current_player)
-    current_player_symbol_display.config(text=current_player_symbol)
+            current_player_display.config(text=current_player)
+            current_player_symbol_display.config(text=current_player_symbol)
+        else: # winner
+            tkinter.messagebox.showinfo("Winner!", "The winner is: " + current_player)
+            for x in range(3):
+                for y in range(3):
+                    cells[x][y].config(state=DISABLED)
+
+# checks to see if there is a winner
+def game_over(player_symbol):
+    return ((states[0][0] == player_symbol and states[0][1] == player_symbol and states[0][2] == player_symbol) or
+            (states[1][0] == player_symbol and states[1][1] == player_symbol and states[1][2] == player_symbol) or
+            (states[2][0] == player_symbol and states[2][1] == player_symbol and states[2][2] == player_symbol) or
+            (states[0][0] == player_symbol and states[1][0] == player_symbol and states[2][0] == player_symbol) or
+            (states[0][1] == player_symbol and states[1][1] == player_symbol and states[2][1] == player_symbol) or
+            (states[0][2] == player_symbol and states[1][2] == player_symbol and states[2][2] == player_symbol) or
+            (states[0][0] == player_symbol and states[1][1] == player_symbol and states[2][2] == player_symbol) or
+            (states[0][2] == player_symbol and states[1][1] == player_symbol and states[2][0] == player_symbol))
         
 # starts the game
 def start_game():
@@ -157,6 +184,11 @@ def start_game():
     else:
         current_player_display.config(text=current_player)
         current_player_symbol_display.config(text=current_player_symbol)
+
+    if states != []:
+        for x in range(3):
+                for y in range(3):
+                    cells[x][y].config(state=NORMAL)
 
 # restarts the game
 def restart_game():
