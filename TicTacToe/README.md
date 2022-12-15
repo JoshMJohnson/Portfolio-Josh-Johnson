@@ -17,8 +17,11 @@
 **Startup**<br>
 <img width="475" height="600" alt="Database Data" src="Images/startup.png">
 
-**Mid-Game**<br>
+**Mid Game**<br>
 <img width="475" height="600" alt="Database Data" src="Images/mid_game.png">
+
+**Game Over**<br>
+<img width="475" height="600" alt="Database Data" src="Images/game_over.png">
 </div>
 
 <!-- footer section -->
