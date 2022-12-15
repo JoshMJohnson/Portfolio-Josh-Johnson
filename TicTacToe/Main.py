@@ -5,6 +5,7 @@
 from tkinter import * # used for GUI Interface
 import tkinter.messagebox # pop-up message box
 import random # random number generation
+import time # used for AI delay
 
 # gui settings
 window = -1 # gui window
@@ -105,7 +106,8 @@ def create_board():
                 cells[x][y].grid(row=x, column=y, padx=30, pady=30)    
             else:
                 cells[x][y].grid(row=x, column=y)
-        
+
+# makes move for player or AI        
 def make_move(xx, yy):
     global current_player 
     global current_player_symbol 
@@ -136,11 +138,26 @@ def make_move(xx, yy):
 
             current_player_display.config(text=current_player)
             current_player_symbol_display.config(text=current_player_symbol)
+            window.update()
+
+            if current_player == player2_name:
+                ai_move()
         else: # winner
             tkinter.messagebox.showinfo("Winner!", "The winner is: " + current_player)
             for x in range(3):
                 for y in range(3):
                     cells[x][y].config(state=DISABLED)
+
+# AI move calculating
+def ai_move():
+    while True:
+        x_value = random.randint(0,2)
+        y_value = random.randint(0,2)
+
+        if states[x_value][y_value] == 0:
+            time.sleep(random.uniform(0.5,2))
+            make_move(x_value, y_value)
+            break
 
 # checks to see if there is a winner
 def game_over(player_symbol):
@@ -175,7 +192,7 @@ def start_game():
         tkinter.messagebox.showinfo("Start Game", "The AI makes the first move!")
         current_player = player2_name
         current_player_symbol = player2_symbol
-
+        
     if current_player_display == -1:
         current_player_display = Label(window, text=current_player, bg='lightblue', fg='darkblue', font=('Arial', 10))
         current_player_display.place(x=120, y=85)
@@ -189,6 +206,9 @@ def start_game():
         for x in range(3):
                 for y in range(3):
                     cells[x][y].config(state=NORMAL)
+
+    if current_player == player2_name:
+        ai_move()
 
 # restarts the game
 def restart_game():
