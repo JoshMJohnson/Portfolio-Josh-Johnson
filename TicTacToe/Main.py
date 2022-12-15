@@ -1,4 +1,4 @@
-# Tic–Tac–Toe game where the user plays against the program
+# Tic–Tac–Toe game where the user plays against the AI
 # 
 # Created By: Josh Johnson
 
@@ -99,8 +99,6 @@ def create_board():
         for y in range(3):
             cells[x][y] = Button(playing_board, width=8, height=4, font=('Sans', 15, 'bold'), relief=RAISED, borderwidth=5, bg='lightblue', fg='darkblue', 
                                 activebackground='lightblue', command=lambda xx=x, yy=y : make_move(xx, yy))
-
-            
             
             if (x == 0 and y == 0) or (x == 2 and y == 2):
                 cells[x][y].grid(row=x, column=y, padx=30, pady=30)    
