@@ -173,13 +173,13 @@ def game_over(player_symbol):
                 is_tie = False 
 
     game_won = ((states[0][0] == player_symbol and states[0][1] == player_symbol and states[0][2] == player_symbol) or
-            (states[1][0] == player_symbol and states[1][1] == player_symbol and states[1][2] == player_symbol) or
-            (states[2][0] == player_symbol and states[2][1] == player_symbol and states[2][2] == player_symbol) or
-            (states[0][0] == player_symbol and states[1][0] == player_symbol and states[2][0] == player_symbol) or
-            (states[0][1] == player_symbol and states[1][1] == player_symbol and states[2][1] == player_symbol) or
-            (states[0][2] == player_symbol and states[1][2] == player_symbol and states[2][2] == player_symbol) or
-            (states[0][0] == player_symbol and states[1][1] == player_symbol and states[2][2] == player_symbol) or
-            (states[0][2] == player_symbol and states[1][1] == player_symbol and states[2][0] == player_symbol))
+                (states[1][0] == player_symbol and states[1][1] == player_symbol and states[1][2] == player_symbol) or
+                (states[2][0] == player_symbol and states[2][1] == player_symbol and states[2][2] == player_symbol) or
+                (states[0][0] == player_symbol and states[1][0] == player_symbol and states[2][0] == player_symbol) or
+                (states[0][1] == player_symbol and states[1][1] == player_symbol and states[2][1] == player_symbol) or
+                (states[0][2] == player_symbol and states[1][2] == player_symbol and states[2][2] == player_symbol) or
+                (states[0][0] == player_symbol and states[1][1] == player_symbol and states[2][2] == player_symbol) or
+                (states[0][2] == player_symbol and states[1][1] == player_symbol and states[2][0] == player_symbol))
 
     if game_won:
         is_tie = False
