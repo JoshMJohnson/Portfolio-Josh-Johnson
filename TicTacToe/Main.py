@@ -171,6 +171,10 @@ def game_over(player_symbol):
         for y in range(3):
             if states[x][y] == 0:
                 is_tie = False 
+                break
+
+        if not is_tie:
+            break
 
     game_won = ((states[0][0] == player_symbol and states[0][1] == player_symbol and states[0][2] == player_symbol) or
                 (states[1][0] == player_symbol and states[1][1] == player_symbol and states[1][2] == player_symbol) or
