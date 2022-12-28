@@ -202,9 +202,9 @@ def start_game():
         return
 
     begin_game = True
-    num = random.randint(0,1)
+    starting_player = random.randint(0,1)
 
-    if num == 1:
+    if starting_player == 1:
         tkinter.messagebox.showinfo("Start Game", "You make the first move!")
         current_player = player1_name
         current_player_symbol = player1_symbol
