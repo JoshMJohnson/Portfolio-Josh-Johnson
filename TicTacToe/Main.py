@@ -195,7 +195,6 @@ def choose_opponent():
 
 # sets up game for oppenent
 def opponent_setup(is_opponent_ai):
-    global opponent_window
     global player2_name
     global opponent_ai
     global begin_game
