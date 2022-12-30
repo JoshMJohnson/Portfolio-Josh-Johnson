@@ -188,8 +188,8 @@ def choose_opponent():
     button_height = 5
 
     # opponent option buttons
-    Button(opponent_frame, cursor="circle", text='AI', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(True)).grid(row=0, column=0, padx=(30,15), pady=30)
-    Button(opponent_frame, cursor="circle", text='Human', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(False)).grid(row=0, column=1, padx=(15, 30), pady=30)
+    Button(opponent_frame, cursor="circle", text='AI', width=button_width, height=button_height, bg='lightblue', fg='darkblue', relief=RAISED, activebackground='lightblue', command=lambda : opponent_setup(True)).grid(row=0, column=0, padx=(30,15), pady=30)
+    Button(opponent_frame, cursor="circle", text='Human', width=button_width, height=button_height, bg='lightblue', fg='darkblue', relief=RAISED, activebackground='lightblue', command=lambda : opponent_setup(False)).grid(row=0, column=1, padx=(15, 30), pady=30)
 
     opponent_window.update()
 
