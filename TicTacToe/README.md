@@ -9,7 +9,7 @@
     
     1.) Run the program opening up the GUI (Graphical User Interface)
 
-    2.) Enjoy playing Tic-Tac-Toe against the AI!
+    2.) Enjoy playing Tic-Tac-Toe
 ---
 <h2 align="center">:camera: Project Images :camera:</h2>
 <div align="center">
