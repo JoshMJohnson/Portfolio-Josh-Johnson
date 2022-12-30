@@ -171,13 +171,17 @@ def choose_opponent():
     global opponent_window
     opponent_window = Tk() # creates window object
     opponent_window.title('Tic-Tac-Toe')
-    opponent_window.geometry('300x200') # width x height
+    opponent_window.geometry('300x250') # width x height
     opponent_window.config(bg='lightblue')
     opponent_window.resizable(False, False)
+
+    # opponent options label
+    opponent_label = Label(opponent_window, text='Choose Opponent', bg='lightblue', fg='darkblue', relief=RAISED, borderwidth=10, font=('Times', 20, 'bold'))
+    opponent_label.place(anchor=CENTER, relx=.5, rely=.175)
     
-    # opponent frame
+    # opponent options frame
     opponent_frame = Frame(opponent_window, width=opponent_window.winfo_width(), height=100, bg='darkblue')
-    opponent_frame.place(in_=opponent_window, anchor=CENTER, relx=.5, rely=.5)
+    opponent_frame.place(in_=opponent_window, anchor=CENTER, relx=.5, rely=.65)
 
     # button dimensions
     button_width = 10
