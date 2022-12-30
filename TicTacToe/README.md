@@ -1,6 +1,6 @@
 <h1 align="center">:space_invader: Tic-Tac-Toe :space_invader:</h1>
 <p align="center">
-    Tic&ndash;Tac&ndash;Toe game where the user plays against the AI
+    Tic&ndash;Tac&ndash;Toe game where the user can play against the AI or another Human player
 </p>
 
 ---
