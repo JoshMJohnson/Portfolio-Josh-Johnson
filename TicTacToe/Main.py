@@ -8,8 +8,9 @@ import random # random number generation
 import time # used for AI delay
 
 # gui settings
-window = -1 # gui window
+window = -1 # main gui window
 window_width = -1 # width of the gui window
+opponent_window = -1 # opponent select window
 
 # game details
 begin_game = False
@@ -23,7 +24,8 @@ current_player_symbol = ''
 player1_symbol = 'X'
 player2_symbol = 'O'
 player1_name = 'Player One'
-player2_name = 'AI'
+player2_name = 'Player Two'
+opponent_ai = -1 # 0 if AI and 1 if human player 
 
 # game board
 states = []
@@ -53,7 +55,7 @@ def add_widgets():
     button_height = 2
 
     # bottom frame buttons
-    Button(bottom_frame, text='Start', width=button_width, height=button_height, command=start_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=0, padx=30, pady=15)
+    Button(bottom_frame, text='Start', width=button_width, height=button_height, command=ready_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=0, padx=30, pady=15)
     Button(bottom_frame, text='Restart', width=button_width, height=button_height, command=restart_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=1)
     Button(bottom_frame, text='Close', width=button_width, height=button_height, command=close_gui, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=2, padx=30)
 
@@ -103,7 +105,7 @@ def create_board():
             if (x == 0 and y == 0) or (x == 2 and y == 2):
                 cells[x][y].grid(row=x, column=y, padx=30, pady=30)    
             else:
-                cells[x][y].grid(row=x, column=y)
+                cells[x][y].grid(row=x, column=y, padx=(4, 4))
 
 # makes move for player or AI        
 def make_move(xx, yy):
@@ -162,6 +164,50 @@ def ai_move():
             make_move(x_value, y_value)
             break
 
+# choose against AI or another player as opponent
+def choose_opponent():
+    window.withdraw() # makes game window invisible
+
+    global opponent_window
+    opponent_window = Tk() # creates window object
+    opponent_window.title('Tic-Tac-Toe')
+    opponent_window.geometry('300x200') # width x height
+    opponent_window.config(bg='lightblue')
+    opponent_window.resizable(False, False)
+    
+    # opponent frame
+    opponent_frame = Frame(opponent_window, width=opponent_window.winfo_width(), height=100, bg='darkblue')
+    opponent_frame.place(in_=opponent_window, anchor=CENTER, relx=.5, rely=.5)
+
+    # button dimensions
+    button_width = 10
+    button_height = 5
+
+    # opponent option buttons
+    Button(opponent_frame, text='AI', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(True)).grid(row=0, column=0, padx=(30,15), pady=30)
+    Button(opponent_frame, text='Human', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(False)).grid(row=0, column=1, padx=(15, 30), pady=30)
+
+    opponent_window.update()
+
+# sets up game for oppenent
+def opponent_setup(is_opponent_ai):
+    global opponent_window
+    global player2_name
+    global opponent_ai
+    global begin_game
+
+    if is_opponent_ai:
+        player2_name = 'AI'
+        opponent_ai = 1
+    else:
+        player2_name = 'Player Two'
+        opponent_ai = 0  
+
+    window.deiconify() # makes game window visible again
+    opponent_window.destroy() # remove the choose opponent window
+    begin_game = True
+    start_game()
+
 # checks to see if there is a winner
 def game_over(player_symbol):
     global is_tie
@@ -189,19 +235,23 @@ def game_over(player_symbol):
         is_tie = False
 
     return game_won
+
+# sets up game once desired to begin a game
+def ready_game():
+    global begin_game
+
+    if begin_game:
+        tkinter.messagebox.showinfo("Start Game", "Game is already started!")
+        return    
+
+    choose_opponent()
         
 # starts the game
 def start_game():
-    global begin_game
     global current_player
     global current_player_display
     global current_player_symbol_display
 
-    if begin_game:
-        tkinter.messagebox.showinfo("Start Game", "Game is already started!")
-        return
-
-    begin_game = True
     starting_player = random.randint(0,1)
 
     if starting_player == 1:
@@ -268,7 +318,7 @@ def restart_game():
         [0,0,0]
     ]
 
-    start_game()
+    ready_game()
 
 # terminates the gui
 def close_gui():
