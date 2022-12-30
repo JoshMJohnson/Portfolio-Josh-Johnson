@@ -22,7 +22,7 @@ https://user-images.githubusercontent.com/107897805/207785767-2396c47e-cb0b-46bd
 <img width="475" height="600" alt="Database Data" src="Images/startup.png">
 
 **Choose Opponent**<br>
-<img width="475" height="600" alt="Database Data" src="Images/choose_opponent.png">
+<img width="290" height="270" alt="Database Data" src="Images/choose_opponent.png">
 
 **Mid Game**<br>
 <img width="475" height="600" alt="Database Data" src="Images/mid_game.png">
