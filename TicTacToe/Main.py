@@ -171,7 +171,7 @@ def choose_opponent():
     global opponent_window
     opponent_window = Tk() # creates window object
     opponent_window.title('Tic-Tac-Toe')
-    opponent_window.geometry('300x250') # width x height
+    opponent_window.geometry('290x270') # width x height
     opponent_window.config(bg='lightblue')
     opponent_window.resizable(False, False)
 
