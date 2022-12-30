@@ -25,7 +25,7 @@ player1_symbol = 'X'
 player2_symbol = 'O'
 player1_name = 'Player One'
 player2_name = 'Player Two'
-opponent_ai = -1 # 0 if AI and 1 if human player 
+opponent_ai = -1 # 1 if AI and 0 if human player 
 
 # game board
 states = []
@@ -140,7 +140,7 @@ def make_move(xx, yy):
             current_player_symbol_display.config(text=current_player_symbol)
             window.update()
 
-            if current_player == player2_name:
+            if current_player == player2_name and opponent_ai == 1:
                 ai_move()
         elif is_tie:
             tkinter.messagebox.showinfo("Game Over!", "It was a tie")
@@ -238,8 +238,6 @@ def game_over(player_symbol):
 
 # sets up game once desired to begin a game
 def ready_game():
-    global begin_game
-
     if begin_game:
         tkinter.messagebox.showinfo("Start Game", "Game is already started!")
         return    
@@ -254,12 +252,20 @@ def start_game():
 
     starting_player = random.randint(0,1)
 
-    if starting_player == 1:
-        tkinter.messagebox.showinfo("Start Game", "You make the first move!")
+    if starting_player == 0:
+        if opponent_ai == 1:
+            tkinter.messagebox.showinfo("Start Game", "You make the first move!")
+        else:
+            tkinter.messagebox.showinfo("Start Game", "Player 1 makes the first move!")
+
         current_player = player1_name
         current_player_symbol = player1_symbol
     else:
-        tkinter.messagebox.showinfo("Start Game", "The AI makes the first move!")
+        if opponent_ai == 1:
+            tkinter.messagebox.showinfo("Start Game", "The AI makes the first move!")
+        else:
+            tkinter.messagebox.showinfo("Start Game", "Player 2 makes the first move!")
+
         current_player = player2_name
         current_player_symbol = player2_symbol
         
@@ -279,7 +285,7 @@ def start_game():
 
     window.update()
 
-    if current_player == player2_name:
+    if current_player == player2_name and opponent_ai == 1:
         ai_move()
 
 # restarts the game
