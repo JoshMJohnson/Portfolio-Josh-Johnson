@@ -55,9 +55,9 @@ def add_widgets():
     button_height = 2
 
     # bottom frame buttons
-    Button(bottom_frame, text='Start', width=button_width, height=button_height, command=ready_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=0, padx=30, pady=15)
-    Button(bottom_frame, text='Restart', width=button_width, height=button_height, command=restart_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=1)
-    Button(bottom_frame, text='Close', width=button_width, height=button_height, command=close_gui, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=2, padx=30)
+    Button(bottom_frame, text='Start', cursor="circle", width=button_width, height=button_height, command=ready_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=0, padx=30, pady=15)
+    Button(bottom_frame, text='Restart', cursor="circle", width=button_width, height=button_height, command=restart_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=1)
+    Button(bottom_frame, text='Close', cursor="circle", width=button_width, height=button_height, command=close_gui, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=2, padx=30)
 
 # creates the gui
 def create_gui():
@@ -99,7 +99,7 @@ def create_board():
 
     for x in range(3):
         for y in range(3):
-            cells[x][y] = Button(playing_board, width=8, height=4, font=('Sans', 15, 'bold'), relief=RAISED, borderwidth=5, bg='lightblue', fg='darkblue', 
+            cells[x][y] = Button(playing_board, cursor="target", width=8, height=4, font=('Sans', 15, 'bold'), relief=RAISED, borderwidth=5, bg='lightblue', fg='darkblue', 
                                 activebackground='lightblue', command=lambda xx=x, yy=y : make_move(xx, yy))
             
             if (x == 0 and y == 0) or (x == 2 and y == 2):
@@ -188,8 +188,8 @@ def choose_opponent():
     button_height = 5
 
     # opponent option buttons
-    Button(opponent_frame, text='AI', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(True)).grid(row=0, column=0, padx=(30,15), pady=30)
-    Button(opponent_frame, text='Human', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(False)).grid(row=0, column=1, padx=(15, 30), pady=30)
+    Button(opponent_frame, cursor="circle", text='AI', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(True)).grid(row=0, column=0, padx=(30,15), pady=30)
+    Button(opponent_frame, cursor="circle", text='Human', width=button_width, height=button_height, bg='lightblue', fg='darkblue', activebackground='lightblue', command=lambda : opponent_setup(False)).grid(row=0, column=1, padx=(15, 30), pady=30)
 
     opponent_window.update()
 
