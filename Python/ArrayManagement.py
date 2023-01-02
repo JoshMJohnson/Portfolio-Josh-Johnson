@@ -37,86 +37,97 @@ array20 = ['Discraft', 'Innova', 'Prodigy', 'Axiom', 'MVP', 'Dynamic', 'Gateway'
 array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 
 # array specifications
-print("Array Specifications:")
+def specifications():
+    print("Array Specifications:")
 
-size_array = len(array17) # returns size of array
-print("len: " + str(size_array))
+    size_array = len(array17) # returns size of array
+    print("len: " + str(size_array))
 
-count_array = array6.count(2) # returns number of occurrences
-print("Count; Occurrences of a Number: " + str(count_array))
+    count_array = array6.count(2) # returns number of occurrences
+    print("Count; Occurrences of a Number: " + str(count_array))
 
-count_array = array19.count("dog") # returns number of occurrences
-print("Count; Occurrences of a String: " + str(count_array), end="\n\n")
+    count_array = array19.count("dog") # returns number of occurrences
+    print("Count; Occurrences of a String: " + str(count_array), end="\n\n")
 
 # insertion
-print("Array Element Insertion:")
+def insertion():
+    print("Array Element Insertion:")
 
-temp_array = array5.copy()
-temp_array.append(10) # inserts element to the end of the array
-print("Append; Number: " + str(temp_array))
+    temp_array = array5.copy()
+    temp_array.append(10) # inserts element to the end of the array
+    print("Append; Number: " + str(temp_array))
 
-temp_array = array16.copy()
-temp_array.append("!") # inserts element to the end of the array
-print("Append; String: " + str(temp_array))
+    temp_array = array16.copy()
+    temp_array.append("!") # inserts element to the end of the array
+    print("Append; String: " + str(temp_array))
 
-temp_array = array17.copy()
-temp_array.insert(1, "amazing") # inserts element at index given; pushes all elements previously at index given and after
-print("Insert: " + str(temp_array))
+    temp_array = array17.copy()
+    temp_array.insert(1, "amazing") # inserts element at index given; pushes all elements previously at index given and after
+    print("Insert: " + str(temp_array))
 
-temp_array1 = array20.copy()
-temp_array2 = array21.copy()
-temp_array1.extend(temp_array2) # adds all elements from parameter array to the end of working array in order
-print("extend: " + str(temp_array1), end="\n\n")
+    temp_array1 = array20.copy()
+    temp_array2 = array21.copy()
+    temp_array1.extend(temp_array2) # adds all elements from parameter array to the end of working array in order
+    print("extend: " + str(temp_array1), end="\n\n")
 
 # deletion
-print("Array Element Deletion:")
+def deletion():
+    print("Array Element Deletion:")
 
-temp_array = array20.copy()
-temp_array.clear() # Removes all elements from the array
-print("Clear: " + str(temp_array))
+    temp_array = array20.copy()
+    temp_array.clear() # Removes all elements from the array
+    print("Clear: " + str(temp_array))
 
-temp_array = array5.copy()
-temp_array.pop() # removes last element
-print("Pop; No Parameter Given: " + str(temp_array))
+    temp_array = array5.copy()
+    temp_array.pop() # removes last element
+    print("Pop; No Parameter Given: " + str(temp_array))
 
-temp_array = array5.copy()
-temp_array.pop(1) # removes at index given and pulls all elements with a higher index than given parameter index
-print("Pop; With Parameter Given: " + str(temp_array))
+    temp_array = array5.copy()
+    temp_array.pop(1) # removes at index given and pulls all elements with a higher index than given parameter index
+    print("Pop; With Parameter Given: " + str(temp_array))
 
-temp_array = array19.copy()
-temp_array.remove('dog') # removes first occurrence of parameter
-print("Remove: " + str(temp_array), end="\n\n")
+    temp_array = array19.copy()
+    temp_array.remove('dog') # removes first occurrence of parameter
+    print("Remove: " + str(temp_array), end="\n\n")
 
 # element locating
-print("Array Element Locating:")
+def locating():
+    print("Array Element Locating:")
 
-index_array = array5.index(3) # returns index value of first occurrence of number parameber
-print("Index; Number: " + str(index_array))
+    index_array = array5.index(3) # returns index value of first occurrence of number parameber
+    print("Index; Number: " + str(index_array))
 
-index_array = array19.index('dog') # returns index value of first occurrence of string parameter
-print("Index; String: " + str(index_array), end="\n\n")
+    index_array = array19.index('dog') # returns index value of first occurrence of string parameter
+    print("Index; String: " + str(index_array), end="\n\n")
 
 # element manipulation
-print("Array Element Manipulation:")
+def manipulation():
+    print("Array Element Manipulation:")
 
-temp_array = array5.copy()
-temp_array.reverse() # reverses the array elements
-print("Reverse: " + str(temp_array))
+    temp_array = array5.copy()
+    temp_array.reverse() # reverses the array elements
+    print("Reverse: " + str(temp_array))
 
-temp_array = array10.copy()
-temp_array.sort() # sorts array in ascending order
-print("Sort: " + str(temp_array))
+    temp_array = array10.copy()
+    temp_array.sort() # sorts array in ascending order
+    print("Sort; Ascending: " + str(temp_array))
 
-temp_array = array4.copy()
-temp_array.sort(reverse=True) # sorts array in descending order
-print("Sort: " + str(temp_array))
+    temp_array = array4.copy()
+    temp_array.sort(reverse=True) # sorts array in descending order
+    print("Sort; Descending: " + str(temp_array))
 
-temp_array = array20.copy()
-temp_array.sort() # alphabetically sorts the array
-print("Sort: " + str(temp_array))
+    temp_array = array20.copy()
+    temp_array.sort() # alphabetically sorts the array
+    print("Sort; Alphabetically: " + str(temp_array))
 
-temp_array = array20.copy()
-def orderByLength(param):
-    return len(param)
-temp_array.sort(key=orderByLength) # sort by string length in ascending length
-print("Sort: " + str(temp_array))
+    temp_array = array20.copy()
+    def orderByLength(param):
+        return len(param)
+    temp_array.sort(key=orderByLength) # sort by string length in ascending length
+    print("Sort; String Length Increasing: " + str(temp_array))
+
+specifications()
+insertion()
+deletion()
+locating()
+manipulation()
