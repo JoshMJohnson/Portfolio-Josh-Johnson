@@ -30,7 +30,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
     <img src="/Portfolio_Assets/in_order_tree_traversal.gif" alt="In Order Tree Traversal" width="500" height="250">
 </p>
 
-| File | Language | Concepts Demonstrated | Description |
+| Algorithm&sol;Concept | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | [Sort Array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/C/Read_Write_File.c) | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
