@@ -46,7 +46,7 @@ count_array = array6.count(2) # returns number of occurences
 print("Count Number: " + str(count_array))
 
 count_array = array19.count("dog") # returns number of occurences
-print("Count Text: " + str(count_array), end="\n\n")
+print("Count String: " + str(count_array), end="\n\n")
 
 # insertion
 print("Element Insertion:")
@@ -57,7 +57,7 @@ print("Append Number: " + str(temp_array))
 
 temp_array = array16.copy()
 temp_array.append("!") # inserts element to the end of the array
-print("Append Text: " + str(temp_array))
+print("Append String: " + str(temp_array))
 
 temp_array = array17.copy()
 temp_array.insert(1, "amazing") # inserts element at index given; pushes all elements previously at index given and after
@@ -90,6 +90,11 @@ print("Remove: " + str(temp_array), end="\n\n")
 # element locating
 print("Element Locating:")
 
+index_array = array5.index(3) # returns index value of first occurrence of number parameber
+print("Index Number: " + str(index_array))
+
+index_array = array19.index('dog') # returns index value of first occurrence of string parameter
+print("Index String: " + str(index_array), end="\n\n")
 
 # element manipulation
 print("Element Manipulation:")
