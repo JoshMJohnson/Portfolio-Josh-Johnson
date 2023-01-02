@@ -75,7 +75,7 @@ def deletion():
     print("Array Element Deletion:")
 
     temp_array = array20.copy()
-    temp_array.clear() # Removes all elements from the array
+    temp_array.clear() # removes all elements from the array
     print("Clear: " + str(temp_array))
 
     temp_array = array5.copy()
