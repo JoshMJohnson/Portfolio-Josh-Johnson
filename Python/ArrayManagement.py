@@ -33,6 +33,8 @@ array16 = ['hello', 'world']
 array17 = ['hello', 'world', 'of', 'coding', '!']
 array18 = ['hello world of coding!']
 array19 = ['dog', 'cat', 'dog', 'dog', 'animal']
+array20 = ['Discraft', 'Innova', 'Prodigy', 'Axiom', 'Dynamic', 'Gateway', 'Latitude 64']
+array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 
 # array specifications
 print("Array Specifications:")
@@ -40,15 +42,31 @@ print("Array Specifications:")
 size_array = len(array17)
 print("len: " + str(size_array))
 
-count_array = array19.count("dog")
-print("Count Text: " + str(count_array))
-
 count_array = array6.count(2)
-print("Count Number: " + str(count_array), end="\n\n")
+print("Count Number: " + str(count_array))
+
+count_array = array19.count("dog")
+print("Count Text: " + str(count_array), end="\n\n")
 
 # insertion
 print("Element Insertion:")
 
+temp_array = array5
+temp_array.append(10)
+print("Append Number: " + str(temp_array))
+
+temp_array = array16
+temp_array.append("!")
+print("Append Text: " + str(temp_array))
+
+temp_array = array17
+temp_array.insert(1, "amazing")
+print("Insert: " + str(temp_array))
+
+temp_array1 = array20
+temp_array2 = array21
+temp_array1.extend(temp_array2)
+print("extend: " + str(temp_array1), end="\n\n")
 
 # deletion
 print("Element Deletion:")
