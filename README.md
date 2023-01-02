@@ -34,16 +34,16 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | [Sort Array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/C/Read_Write_File.c) | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
-| [Hello World](/C/Hello_World.c) | C | Using the console | Classic &lsquo;hello world&rsquo; program |
+| [Hello World](/C/Hello_World.c) | C | <p align='center'>Using the console</p> | Classic &lsquo;hello world&rsquo; program |
 | [Sort Array](/Java/SortArray.java) | Java | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Arraylists</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/Java/ReadWriteFile.java) | Java | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul>  | Demonstrates basic file operations |
-| [Hello World](/Java/HelloWorld.java) | Java | Using the console | Classic &lsquo;hello world&rsquo; program |
+| [Hello World](/Java/HelloWorld.java) | Java | <p align='center'>Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
 | [Sort Array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
-| [Hello World](/JavaScript/hello_world.js) | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
+| [Hello World](/JavaScript/hello_world.js) | JavaScript | <p align='center'>Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
 | [Array Methods](/Python/ArrayMethods.py) | Python | <ul><li>Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
 | [Sort Array](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
-| [Hello World](/Python/HelloWorld.py) | Python | Using the console | Classic &lsquo;hello world&rsquo; program |
+| [Hello World](/Python/HelloWorld.py) | Python | <p align='center'>Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
 ---
 <!-- test files -->
 <h2 align="center">:open_file_folder: Test Files :open_file_folder:</h2>
