@@ -1,4 +1,4 @@
-# Tic–Tac–Toe game where the user plays against the AI
+# Tic–Tac–Toe game where the user plays against the AI or another human player
 # 
 # Created By: Josh Johnson
 
@@ -59,7 +59,7 @@ def add_widgets():
     Button(bottom_frame, text='Restart', cursor="circle", width=button_width, height=button_height, command=restart_game, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=1)
     Button(bottom_frame, text='Close', cursor="circle", width=button_width, height=button_height, command=close_gui, bg='lightblue', fg='darkblue', activebackground='lightblue').grid(row=0, column=2, padx=30)
 
-# creates the gui
+# creates the main gui containing the board
 def create_gui():
     global window
     window = Tk() # creates window object
@@ -75,7 +75,7 @@ def create_gui():
     add_widgets() 
     create_board() 
 
-# creates the tic tac toe board
+# creates the tic-tac-toe board
 def create_board():
     # playing board
     playing_board = Frame(window, width=window_width-30, height=150*3, bg='darkblue')
@@ -107,7 +107,7 @@ def create_board():
             else:
                 cells[x][y].grid(row=x, column=y, padx=(4, 4))
 
-# makes move for player or AI        
+# registers when a move has been made      
 def make_move(xx, yy):
     global current_player 
     global current_player_symbol 
@@ -153,7 +153,7 @@ def make_move(xx, yy):
                 for y in range(3):
                     cells[x][y].config(state=DISABLED)
 
-# AI move calculating
+# AI move calculations
 def ai_move():
     while True:
         x_value = random.randint(0,2)
@@ -164,7 +164,7 @@ def ai_move():
             make_move(x_value, y_value)
             break
 
-# choose against AI or another player as opponent
+# choose opponent to be the AI or another human player
 def choose_opponent():
     window.withdraw() # makes game window invisible
 
@@ -211,7 +211,7 @@ def opponent_setup(is_opponent_ai):
     begin_game = True
     start_game()
 
-# checks to see if there is a winner
+# checks to see if there is a winner or a tie
 def game_over(player_symbol):
     global is_tie
     is_tie = True
@@ -239,7 +239,7 @@ def game_over(player_symbol):
 
     return game_won
 
-# sets up game once desired to begin a game
+# player indicated that they want to start a game
 def ready_game():
     if begin_game:
         tkinter.messagebox.showinfo("Start Game", "Game is already started!")
@@ -247,7 +247,7 @@ def ready_game():
 
     choose_opponent()
         
-# starts the game
+# prepares the game to be played and makes first move if playing against the AI
 def start_game():
     global current_player
     global current_player_display
@@ -291,7 +291,7 @@ def start_game():
     if current_player == player2_name and opponent_ai == 1:
         ai_move()
 
-# restarts the game
+# restart the game
 def restart_game():
     global begin_game
 
@@ -329,7 +329,7 @@ def restart_game():
 
     ready_game()
 
-# terminates the gui
+# terminates the main gui
 def close_gui():
     window.destroy()
 
