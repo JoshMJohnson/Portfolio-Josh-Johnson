@@ -40,6 +40,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [HelloWorld](/Java/HelloWorld.java) | Java | Using the console | Classic &lsquo;hello world&rsquo; program |
 | [sort&lowbar;array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [hello&lowbar;world](/JavaScript/hello_world.js) | JavaScript | Using the console | Classic &lsquo;hello world&rsquo; program |
+| [Array Management](/Python/ArrayManagement.py) | Python | <ul><li>Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
 | [SortArray](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [ReadWriteFile](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
 | [HelloWorld](/Python/HelloWorld.py) | Python | Using the console | Classic &lsquo;hello world&rsquo; program |
@@ -71,7 +72,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| [Array Management](/Python/ArrayManagement.py) | Python | <ul><li>Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
+| TBD | TBD | TBD | TBD |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
