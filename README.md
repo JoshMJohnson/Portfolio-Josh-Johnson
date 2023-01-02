@@ -71,7 +71,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| TBD | TBD | TBD | TBD |
+| [Array Management](/Python/ArrayManagement.py) | Python | <ul><li>Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li></ul>  | Demonstrates array methods |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
