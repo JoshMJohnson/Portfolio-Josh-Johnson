@@ -12,3 +12,8 @@ def hello_world_three(hello, world, part):
 # function calls
 hello_world_two() # first function call
 hello_world_three("Hello", "World!", "Part Three") # second function call
+
+print("Hello", "World", "!", sep=" ")
+print("Hellooo", end=" ")
+print("Worlddd", end=" ")
+print("!!!")
