@@ -38,7 +38,7 @@ array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 
 # array specifications
 def specifications():
-    print("Array Specifications:")
+    print("--- Array Specifications ---")
 
     size_array = len(array17) # returns size of array
     print("len: " + str(size_array))
@@ -51,7 +51,7 @@ def specifications():
 
 # insertion
 def insertion():
-    print("Array Element Insertion:")
+    print("--- Array Element Insertion ---")
 
     temp_array = array5.copy()
     temp_array.append(10) # inserts element to the end of the array
@@ -72,7 +72,7 @@ def insertion():
 
 # deletion
 def deletion():
-    print("Array Element Deletion:")
+    print("--- Array Element Deletion ---")
 
     temp_array = array20.copy()
     temp_array.clear() # removes all elements from the array
@@ -92,7 +92,7 @@ def deletion():
 
 # element locating
 def locating():
-    print("Array Element Locating:")
+    print("--- Array Element Locating ---")
 
     index_array = array5.index(3) # returns index value of first occurrence of number parameber
     print("Index; Number: " + str(index_array))
@@ -102,7 +102,7 @@ def locating():
 
 # element manipulation
 def manipulation():
-    print("Array Element Manipulation:")
+    print("--- Array Element Manipulation ---")
 
     temp_array = array5.copy()
     temp_array.reverse() # reverses the array elements
