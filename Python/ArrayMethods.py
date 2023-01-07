@@ -23,7 +23,7 @@ array8 = [5, 3.6]
 array9 = [-1.7, 0, 6]
 array10 = [6.9, 7.1, -5, 3.7, -9.8] 
 
-# characters arrays
+# string arrays
 array11 = [''] 
 array12 = ['hello']
 array13 = ['Hello World'] 
