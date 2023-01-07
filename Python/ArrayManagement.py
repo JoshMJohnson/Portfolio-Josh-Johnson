@@ -9,7 +9,7 @@
 
 array0 = [] # empty list
 
-# integers lists
+# integer lists
 array1 = [0] 
 array2 = [4, 1] 
 array3 = [-4, 6, 2] 
@@ -17,7 +17,7 @@ array4 = [0, 84, -3, 40, -21, 21]
 array5 = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
 array6 = [2, 4, 3, 2, 4, 2, 2] 
 
-# doubles lists
+# double lists
 array7 = [3.5]
 array8 = [5, 3.6] 
 array9 = [-1.7, 0, 6]
@@ -39,12 +39,15 @@ array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 # object lists
 array22 = [1, 2, 3.0, 4, 'JJ', 6, 'Air Plane']
 
+# boolean lists
+array23 = [True, False]
+
 # list specifications
 def specifications():
     print("--- Array Specifications ---")
 
     # list functions
-    print("List: " + str(array22))
+    print("List: " + str(array23))
 
     size_array = len(array17) # returns size of array
     print("len: " + str(size_array), end="\n\n")
