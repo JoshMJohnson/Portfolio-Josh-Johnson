@@ -36,7 +36,7 @@ array19 = ['dog', 'cat', 'dog', 'dog', 'animal']
 array20 = ['Discraft', 'Innova', 'Prodigy', 'Axiom', 'MVP', 'Dynamic', 'Gateway', 'Latitude 64']
 array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 
-# array specifications
+# list specifications
 def specifications():
     print("--- Array Specifications ---")
 
@@ -44,7 +44,7 @@ def specifications():
     size_array = len(array17) # returns size of array
     print("len: " + str(size_array), end="\n\n")
 
-# insertion
+# list insertion
 def insertion():
     print("--- Array Element Insertion ---")
 
@@ -66,7 +66,7 @@ def insertion():
     temp_array1.extend(temp_array2) # adds all elements from parameter array to the end of working array in order
     print("extend: " + str(temp_array1), end="\n\n")
 
-# deletion
+# list deletion
 def deletion():
     print("--- Array Element Deletion ---")
 
