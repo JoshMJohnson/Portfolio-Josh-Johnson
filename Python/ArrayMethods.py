@@ -7,7 +7,7 @@
 #
 # Created By: Josh Johnson
 
-array0 = [] # empty array; size = 0
+array0 = [] # empty array
 
 # integers arrays
 array1 = [0] 
