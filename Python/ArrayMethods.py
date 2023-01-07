@@ -41,13 +41,7 @@ def specifications():
     print("--- Array Specifications ---")
 
     size_array = len(array17) # returns size of array
-    print("len: " + str(size_array))
-
-    count_array = array6.count(2) # returns number of occurrences
-    print("Count; Occurrences of a Number: " + str(count_array))
-
-    count_array = array19.count("dog") # returns number of occurrences
-    print("Count; Occurrences of a String: " + str(count_array), end="\n\n")
+    print("len: " + str(size_array), end="\n\n")
 
 # insertion
 def insertion():
@@ -98,7 +92,13 @@ def locating():
     print("Index; Number: " + str(index_array))
 
     index_array = array19.index('dog') # returns index value of first occurrence of string parameter
-    print("Index; String: " + str(index_array), end="\n\n")
+    print("Index; String: " + str(index_array))
+
+    count_array = array6.count(2) # returns number of occurrences
+    print("Count; Occurrences of a Number: " + str(count_array))
+
+    count_array = array19.count("dog") # returns number of occurrences
+    print("Count; Occurrences of a String: " + str(count_array), end="\n\n")
 
 # element manipulation
 def manipulation():
