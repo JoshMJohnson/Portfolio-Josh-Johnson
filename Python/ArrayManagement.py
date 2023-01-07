@@ -131,6 +131,7 @@ def manipulation():
     temp_array.sort(key=orderByLength) # sort by string length in ascending length
     print("Sort; String Length Increasing: " + str(temp_array))
 
+# categorized list functions
 specifications()
 insertion()
 deletion()
