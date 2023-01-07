@@ -7,9 +7,9 @@
 #
 # Created By: Josh Johnson
 
-array0 = [] # empty array
+array0 = [] # empty list
 
-# integers arrays
+# integers lists
 array1 = [0] 
 array2 = [4, 1] 
 array3 = [-4, 6, 2] 
@@ -17,13 +17,13 @@ array4 = [0, 84, -3, 40, -21, 21]
 array5 = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
 array6 = [2, 4, 3, 2, 4, 2, 2] 
 
-# doubles arrays
+# doubles lists
 array7 = [3.5]
 array8 = [5, 3.6] 
 array9 = [-1.7, 0, 6]
 array10 = [6.9, 7.1, -5, 3.7, -9.8] 
 
-# string arrays
+# string lists
 array11 = [''] 
 array12 = ['hello']
 array13 = ['Hello World'] 
@@ -36,11 +36,16 @@ array19 = ['dog', 'cat', 'dog', 'dog', 'animal']
 array20 = ['Discraft', 'Innova', 'Prodigy', 'Axiom', 'MVP', 'Dynamic', 'Gateway', 'Latitude 64']
 array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 
+# object lists
+array22 = [1, 2, 3.0, 4, 'JJ', 6, 'Air Plane']
+
 # list specifications
 def specifications():
     print("--- Array Specifications ---")
 
     # list functions
+    print("List: " + str(array22))
+
     size_array = len(array17) # returns size of array
     print("len: " + str(size_array), end="\n\n")
 
