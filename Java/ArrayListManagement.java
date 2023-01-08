@@ -45,7 +45,7 @@ public class ArrayListManagement {
     private ArrayList<String> list19 = new ArrayList<>(Arrays.asList("hello", "world"));
     private ArrayList<String> list20 = new ArrayList<>(Arrays.asList("hello", "world", "of", "coding", "!"));
     private ArrayList<String> list21 = new ArrayList<>(Arrays.asList("hello world of coding!"));
-    private ArrayList<String> list22 = new ArrayList<>(Arrays.asList("dog", "cat", "dog", "dog", "animal"));
+    private ArrayList<String> list22 = new ArrayList<>(Arrays.asList("cat", "dog", "cat", "dog", "dog", "animal"));
     private ArrayList<String> list23 = new ArrayList<>(Arrays.asList("Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"));
     private ArrayList<String> list24 = new ArrayList<>(Arrays.asList("Vikings", "Packers", "Lions", "Bears"));
 
@@ -72,10 +72,13 @@ public class ArrayListManagement {
 
         /* arraylist methods */
         System.out.println("List: " + list26.toString()); /* converts list into a string */
-        System.out.println("Size: " + list5.size()); /* shows number of elements within the list */
 
         Object[] array = list3.toArray(); /* converts an arraylist to an array */
         System.out.println("toArray: " + Arrays.toString(array));
+
+        System.out.println("size: " + list5.size()); /* shows number of elements within the list */
+
+        System.out.println("isEmpty: " + list15.isEmpty()); /* tells if arraylist is empty or not */       
 
         System.out.println();
     }
@@ -87,13 +90,11 @@ public class ArrayListManagement {
         /* arraylist methods */
         ArrayList<Integer> cloneListInt = new ArrayList<>(list5);
         cloneListInt.add(21); /* appends the specified element to the end of the list */
-        System.out.println("Add: " + cloneListInt.toString());
+        System.out.println("add: " + cloneListInt.toString());
 
         ArrayList<Number> cloneListNumber = new ArrayList<>(list12);
         cloneListNumber.add(6, 5); /* enters a value at a given index; pushing all values previously at and after given index */
-        System.out.println("Add; index: " + cloneListNumber.toString());
-
-
+        System.out.println("add; index: " + cloneListNumber.toString());
 
         System.out.println();
     }
@@ -103,6 +104,9 @@ public class ArrayListManagement {
         System.out.println("--- Array Deletion ---");
 
         /* arraylist methods */
+        ArrayList<String> tempArrayString = new ArrayList<>(list21);
+        tempArrayString.clear(); /* removes all of the elements from the list given */
+        System.out.println("clear: " + tempArrayString.toString());
 
         System.out.println();
     }
@@ -112,6 +116,11 @@ public class ArrayListManagement {
         System.out.println("--- Element Locating ---");
 
         /* arraylist methods */
+        System.out.println("contains: " + list19.contains("hello")); /* returns true if list contains the specified element */
+
+        System.out.println("get: " + list4.get(1)); /* returns the element at the specified position in list */
+
+        System.out.println("indexOf: " + list22.indexOf("dog")); /* returns index o first occurrence of specified element in the list; else -1 if not found */
 
         System.out.println();
     }
@@ -121,6 +130,9 @@ public class ArrayListManagement {
         System.out.println("--- Element Manipulation ---");
 
         /* arraylist methods */
+        ArrayList<Character> tempArrayCharacter = new ArrayList<>(list13);
+        tempArrayCharacter.set(2, 'e'); /* replaces value at given index with given value  */
+        System.out.println("set: " + tempArrayCharacter.toString());
 
         System.out.println();
     }
