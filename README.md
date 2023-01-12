@@ -72,7 +72,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| [ArrayList Management](/Java/ArrayListManagement.java) | Java | <ul><li>List Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates arraylist methods |
+| [Arraylist Management](/Java/ArrayListManagement.java) | Java | <ul><li>List Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates arraylist methods |
 
 <sup>_Projects in development are currently being worked on_</sup>
 
