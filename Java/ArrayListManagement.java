@@ -1,11 +1,11 @@
 /*
  * ArrayList Management:
- *  - TO DO: Specifications
- *  - TO DO: Insertion
- *  - TO DO: Deletion
- *  - TO DO: Element Locating
- *  - TO DO: Element Manipulation
- *
+ *  - Specifications
+ *  - Insertion
+ *  - Deletion
+ *  - Element Locating
+ *  - Element Manipulation
+ * 
  * Created By: Josh Johnson
  */
 
@@ -71,7 +71,7 @@ public class ArrayListManagement {
         System.out.println("--- Array Specifications ---");
 
         /* arraylist methods */
-        System.out.println("List: " + list26.toString()); /* converts list into a string */
+        System.out.println("toString: " + list26.toString()); /* converts list into a string */
 
         Object[] array = list3.toArray(); /* converts an arraylist to an array */
         System.out.println("toArray: " + Arrays.toString(array));
@@ -96,6 +96,10 @@ public class ArrayListManagement {
         cloneListNumber.add(6, 5); /* enters a value at a given index; pushing all values previously at and after given index */
         System.out.println("add; index: " + cloneListNumber.toString());
 
+        System.out.println("addAll: ");
+
+        System.out.println("addAll: ");
+
         System.out.println();
     }
 
@@ -107,6 +111,16 @@ public class ArrayListManagement {
         ArrayList<String> tempArrayString = new ArrayList<>(list21);
         tempArrayString.clear(); /* removes all of the elements from the list given */
         System.out.println("clear: " + tempArrayString.toString());
+
+        System.out.println("remove: ");
+
+        System.out.println("removeAll: ");
+
+        System.out.println("removeIf: ");
+
+        System.out.println("removeRange: ");
+
+        System.out.println("retainAll: ");
 
         System.out.println();
     }
@@ -134,6 +148,12 @@ public class ArrayListManagement {
         tempArrayCharacter.set(2, 'e'); /* replaces value at given index with given value  */
         System.out.println("set: " + tempArrayCharacter.toString());
 
-        System.out.println();
+        System.out.println("forEach: ");
+
+        System.out.println("replaceAll: ");
+
+        System.out.println("sort: ");
+
+        System.out.println("subList: ");
     }
 }
