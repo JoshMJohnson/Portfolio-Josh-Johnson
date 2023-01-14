@@ -5,7 +5,7 @@
  *  - Deletion
  *  - Element Locating
  *  - Element Manipulation
- * 
+ *  
  * Created By: Josh Johnson
  */
 
@@ -78,7 +78,13 @@ public class ArrayListManagement {
 
         System.out.println("size: " + list5.size()); /* shows number of elements within the list */
 
-        System.out.println("isEmpty: " + list15.isEmpty()); /* tells if arraylist is empty or not */       
+        System.out.println("isEmpty: " + list15.isEmpty()); /* tells if arraylist is empty or not */     
+        
+        System.out.println("iterator: "); /* returns an iterator over the elements in this list in proper sequence */
+
+        System.out.println("listIterator: "); /* returns a list iterator over the elements in this list (in proper sequence) */
+
+        System.out.println("listIterator; index: "); /* returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list */
 
         System.out.println();
     }
@@ -96,9 +102,9 @@ public class ArrayListManagement {
         cloneListNumber.add(6, 5); /* enters a value at a given index; pushing all values previously at and after given index */
         System.out.println("add; index: " + cloneListNumber.toString());
 
-        System.out.println("addAll: ");
+        System.out.println("addAll: "); /* appends all of the elements to the end of this list */
 
-        System.out.println("addAll: ");
+        System.out.println("addAll; index: "); /* inserts all of the elements into this list, starting at the specified position */
 
         System.out.println();
     }
@@ -112,15 +118,19 @@ public class ArrayListManagement {
         tempArrayString.clear(); /* removes all of the elements from the list given */
         System.out.println("clear: " + tempArrayString.toString());
 
-        System.out.println("remove: ");
+        System.out.println("remove; index: "); /* removes the element at the specified position in this list */
 
-        System.out.println("removeAll: ");
+        System.out.println("remove; value: "); /* removes the first occurrence of the specified element from this list, if it is present */
 
-        System.out.println("removeIf: ");
+        System.out.println("removeAll: "); /* removes from this list all of its elements that are contained in the specified collection */
 
-        System.out.println("removeRange: ");
+        System.out.println("removeIf: "); /* removes all of the elements of this collection that satisfy the given predicate */
 
-        System.out.println("retainAll: ");
+        System.out.println("removeRange: "); /* removes from this list all of the elements whose index is between (first parameter), inclusive, and (second parameter), exclusive */
+
+        System.out.println("retainAll: "); /* retains only the elements in this list that are contained in the specified collection */
+
+        System.out.println("subList: "); /* returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive */
 
         System.out.println();
     }
@@ -136,6 +146,8 @@ public class ArrayListManagement {
 
         System.out.println("indexOf: " + list22.indexOf("dog")); /* returns index o first occurrence of specified element in the list; else -1 if not found */
 
+        System.out.println("lastIndexOf: "); /* returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element */
+
         System.out.println();
     }
 
@@ -148,12 +160,10 @@ public class ArrayListManagement {
         tempArrayCharacter.set(2, 'e'); /* replaces value at given index with given value  */
         System.out.println("set: " + tempArrayCharacter.toString());
 
-        System.out.println("forEach: ");
+        System.out.println("forEach: "); /* performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception */
 
-        System.out.println("replaceAll: ");
+        System.out.println("replaceAll: "); /* replaces each element of this list with the result of applying the operator to that element */
 
-        System.out.println("sort: ");
-
-        System.out.println("subList: ");
+        System.out.println("sort: "); /* sorts this list according to the order induced by the specified Comparator */
     }
 }
