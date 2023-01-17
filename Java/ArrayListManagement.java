@@ -1,18 +1,27 @@
-/*
+/**
  * ArrayList Management:
- *  - Specifications
- *  - Insertion
- *  - Deletion
+ *  - Arraylist Specifications
+ *  - Arraylist Insertion
+ *  - Arraylist Deletion
  *  - Element Locating
  *  - Element Manipulation
  *  
  * Created By: Josh Johnson
  */
 
+ /**
+  * Using Better Comments extension 
+  * 
+  * TODO: To do comment
+  * * This is an important comment which highlights line
+  * ? Question/Double-check comment
+  * ! Incorrect comment
+  */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ArrayListManagement {
+public class ArraylistManagement {
     private ArrayList<Integer> list0 = new ArrayList<>(); /* empty list */
 
     /* integer lists */
@@ -48,6 +57,8 @@ public class ArrayListManagement {
     private ArrayList<String> list22 = new ArrayList<>(Arrays.asList("cat", "dog", "cat", "dog", "dog", "animal"));
     private ArrayList<String> list23 = new ArrayList<>(Arrays.asList("Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"));
     private ArrayList<String> list24 = new ArrayList<>(Arrays.asList("Vikings", "Packers", "Lions", "Bears"));
+    private ArrayList<String> list27 = new ArrayList<>(Arrays.asList("Commander Cody", "Captain Rex", "Echo", "Commander Fox"));
+    private ArrayList<String> list28 = new ArrayList<>(Arrays.asList("Plo koon", "Anakin Skywalker", "Yoda", "Obi-Wan Kenobi"));
 
     /* object lists */
     private ArrayList<Object> list25 = new ArrayList<Object>(Arrays.asList(1, 2, 3.0, 4, "JJ", 6, "Air Plane"));
@@ -56,7 +67,7 @@ public class ArrayListManagement {
     private ArrayList<Boolean> list26 = new ArrayList<Boolean>(Arrays.asList(true, false));
 
     public static void main(String[] args) {
-        ArrayListManagement methods = new ArrayListManagement();
+        ArraylistManagement methods = new ArraylistManagement();
 
         /* categorized arraylist methods */
         methods.specifications();
@@ -66,11 +77,10 @@ public class ArrayListManagement {
         methods.element_manipulation();
     }
 
-    /** list specifications */
+    /** arraylist specifications */
     private void specifications() {
-        System.out.println("--- Array Specifications ---");
+        System.out.println("--- Arraylist Specifications ---");
 
-        /* arraylist methods */
         System.out.println("toString: " + list26.toString()); /* converts list into a string */
 
         Object[] array = list3.toArray(); /* converts an arraylist to an array */
@@ -89,11 +99,10 @@ public class ArrayListManagement {
         System.out.println();
     }
 
-    /** list insertion */
+    /** arraylist insertion */
     private void insertion() {
-        System.out.println("--- Array Insertion ---");
+        System.out.println("--- Arraylist Insertion ---");
 
-        /* arraylist methods */
         ArrayList<Integer> cloneListInt = new ArrayList<>(list5);
         cloneListInt.add(21); /* appends the specified element to the end of the list */
         System.out.println("add: " + cloneListInt.toString());
@@ -102,18 +111,23 @@ public class ArrayListManagement {
         cloneListNumber.add(6, 5); /* enters a value at a given index; pushing all values previously at and after given index */
         System.out.println("add; index: " + cloneListNumber.toString());
 
-        System.out.println("addAll: "); /* appends all of the elements to the end of this list */
+        ArrayList<String> temp1 = new ArrayList<>(list27);
+        ArrayList<String> temp2 = new ArrayList<>(list28);
+        temp1.addAll(temp2); /* appends all of the elements to the end of this list */
+        System.out.println("addAll: " + temp1.toString()); 
 
-        System.out.println("addAll; index: "); /* inserts all of the elements into this list, starting at the specified position */
+        temp1 = new ArrayList<>(list27);
+        temp2 = new ArrayList<>(list28);
+        temp1.addAll(1, temp2); /* inserts all of the elements into this list, starting at the specified position */
+        System.out.println("addAll; index: " + temp1.toString()); 
 
         System.out.println();
     }
 
-    /** list deletion */
+    /** arraylist deletion */
     private void deletion() {
-        System.out.println("--- Array Deletion ---");
+        System.out.println("--- Arraylist Deletion ---");
 
-        /* arraylist methods */
         ArrayList<String> tempArrayString = new ArrayList<>(list21);
         tempArrayString.clear(); /* removes all of the elements from the list given */
         System.out.println("clear: " + tempArrayString.toString());
@@ -139,7 +153,6 @@ public class ArrayListManagement {
     private void element_locating() {
         System.out.println("--- Element Locating ---");
 
-        /* arraylist methods */
         System.out.println("contains: " + list19.contains("hello")); /* returns true if list contains the specified element */
 
         System.out.println("get: " + list4.get(1)); /* returns the element at the specified position in list */
@@ -155,7 +168,6 @@ public class ArrayListManagement {
     private void element_manipulation() {
         System.out.println("--- Element Manipulation ---");
 
-        /* arraylist methods */
         ArrayList<Character> tempArrayCharacter = new ArrayList<>(list13);
         tempArrayCharacter.set(2, 'e'); /* replaces value at given index with given value  */
         System.out.println("set: " + tempArrayCharacter.toString());
