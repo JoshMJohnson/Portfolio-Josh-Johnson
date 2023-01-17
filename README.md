@@ -1,3 +1,4 @@
+<section id="heading">
 <h1 align="center" style="font-weight: bold">:open_book: Portfolio Josh Johnson :open_book:</h1>
 <img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="200px" align="right">
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
@@ -10,7 +11,10 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 [Projects In Development :point_up:](#point_up-projects-in-development-point_up)<br>
 
 ---
+</section>
+
 <!-- completed projects section -->
+<section id="completed-projects">
 <h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
@@ -24,7 +28,10 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [Jokes Project](/Jokes_Project) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQL</li></ul> | <ul><li>Node JS</li><li>Database Management<ul><li>Create Tables</li><li>Retrieving Data</li><li>Inserting Data</li></ul></li><li>DOM Elements</li><li>Buttons</li><li>Links<ul><li>Relative</li></ul></li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Radio</li><li>Text</li><li>Checkbox</li><li>Textarea</li><li>Dropdown Box</li></ul></li></ul></li><li>Client Side vs. Server Side</li></ul> | Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from |
 | [Ultimate Frisbee Wiki](/Ultimate_Frisbee_Wiki) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Image Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
 ---
+</section>
+
 <!-- algorithms & basic concepts section -->
+<section id="algorithms">
 <h2 align="center">:writing_hand: Algorithms & Basic Concepts :writing_hand:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/in_order_tree_traversal.gif" alt="In Order Tree Traversal" width="500" height="250">
@@ -45,7 +52,10 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [Read&sol;Write File](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
 | [Hello World](/Python/HelloWorld.py) | Python | <p align="center">Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
 ---
+</section>
+
 <!-- test files -->
+<section id="test-files">
 <h2 align="center">:open_file_folder: Test Files :open_file_folder:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/file_system.gif" alt="File System Expanding" width="500" height="250">
@@ -64,7 +74,10 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [random&lowbar;integers&lowbar;no&lowbar;duplicates](/Test_Files/random_integers_no_duplicates.txt) | txt | random integer values containing no duplicate values |
 | [random&lowbar;integers&lowbar;with&lowbar;duplicates](/Test_Files/random_integers_with_duplicates.txt) | txt | random integer values containing a few duplicate values |
 ---
-<!-- incompleted Projects section -->
+</section>
+
+<!-- projects in development section -->
+<section id="development-projects">
 <h2 align="center">:point_up: Projects In Development :point_up:</h2>
 <p align="center">
     <img src="/Portfolio_Assets/mr_incredible_coding.gif" alt="Mr Incredible Working Tirelessly" width="500" height="250">
@@ -75,6 +88,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [Arraylist Management](/Java/ArrayListManagement.java) | Java | <ul><li>Better Comments Extension</li><li>Arraylist Specifications</li><li>Arraylist Insertion</li><li>Arraylist Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates arraylist methods |
 
 <sup>_Projects in development are currently being worked on_</sup>
+</section>
 
 <!-- footer section -->
 <div align="center">
