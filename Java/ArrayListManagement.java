@@ -10,16 +10,18 @@
  */
 
  /**
-  * Using Better Comments extension 
+  * Using the Better Comments extension 
   * 
-  * TODO: To do comment
-  * * This is an important comment which highlights line
+  * TODO: A to do comment for future editing
+  * * This is an important comment which highlights the line
   * ? Question/Double-check comment
   * ! Incorrect comment
   */
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.ListIterator;
 
 public class ArraylistManagement {
     private ArrayList<Integer> list0 = new ArrayList<>(); /* empty list */
@@ -77,7 +79,9 @@ public class ArraylistManagement {
         methods.element_manipulation();
     }
 
-    /** arraylist specifications */
+    /** 
+     * * arraylist specifications 
+     */
     private void specifications() {
         System.out.println("--- Arraylist Specifications ---");
 
@@ -90,16 +94,93 @@ public class ArraylistManagement {
 
         System.out.println("isEmpty: " + list15.isEmpty()); /* tells if arraylist is empty or not */     
         
-        System.out.println("iterator: "); /* returns an iterator over the elements in this list in proper sequence */
-
-        System.out.println("listIterator: "); /* returns a list iterator over the elements in this list (in proper sequence) */
-
-        System.out.println("listIterator; index: "); /* returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list */
+        /** 
+         * returns an iterator over the elements in this list in proper sequence
+         * * iterator can traverse list in a forward direction
+         */
+        ArrayList<Number> temp1 = new ArrayList<>(list5);
+        Iterator<Number> iter = temp1.iterator();
+        System.out.print("iterator: "); 
+        while (iter.hasNext()) {
+            System.out.print(iter.next() + " ");
+        }
 
         System.out.println();
+
+        /**
+         *  returns a list iterator over the elements in this list (in proper sequence) 
+         * * listIterator can traverse list in both forward and backward direction
+         */
+        System.out.print("listIterator: "); 
+        ArrayList<Number> temp2 = new ArrayList<>(list5);
+        ListIterator<Number> iter2 = temp2.listIterator();
+        while (iter2.hasNext()) {
+            System.out.print(iter2.next() + " ");
+        }
+        
+        System.out.println();
+
+        /**
+         *  returns a list iterator over the elements in this list (in proper sequence) in reverse order
+         * * listIterator can traverse list in both forward and backward direction
+         */
+        System.out.print("listIterator; reverse: "); 
+        ArrayList<Number> temp3 = new ArrayList<>(list5);
+        ListIterator<Number> iter3 = temp3.listIterator(list5.size());
+        while (iter3.hasPrevious()) {
+            System.out.print(iter3.previous() + " ");
+        }
+        
+        System.out.println();
+
+        /** 
+         * returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list
+         *  * listIterator can traverse list in both forward and backward direction
+         */
+        System.out.print("listIterator; index: "); 
+
+        ArrayList<Number> temp4 = new ArrayList<>(list5);
+        ListIterator<Number> iter4 = temp4.listIterator(3);
+        while (iter4.hasNext()) {
+            System.out.print(iter4.next() + " ");
+        }
+
+        System.out.println();
+
+        /**
+         * returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list; reverse 
+         *  * listIterator can traverse list in both forward and backward direction
+         */
+        System.out.print("listIterator; index - reverse: "); 
+        ArrayList<Number> temp5 = new ArrayList<>(list5);
+        ListIterator<Number> iter5 = temp5.listIterator(3);
+        while (iter5.hasPrevious()) {
+            System.out.print(iter5.previous() + " ");
+        }
+
+        System.out.println();
+
+        /** 
+         * returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list and stops at another index
+         *  * listIterator can traverse list in both forward and backward direction
+         */
+        System.out.print("listIterator; start index - end index: "); 
+
+        ArrayList<Number> temp6 = new ArrayList<>(list5);
+        ListIterator<Number> iter6 = temp6.listIterator(4);
+        int counterTemp = 0;
+        while (iter6.hasNext() && counterTemp < 3) {
+            System.out.print(iter6.next() + " ");
+            counterTemp++;
+        }
+
+        System.out.println("\n");
+
     }
 
-    /** arraylist insertion */
+    /**
+     * * arraylist insertion 
+     */
     private void insertion() {
         System.out.println("--- Arraylist Insertion ---");
 
@@ -124,7 +205,9 @@ public class ArraylistManagement {
         System.out.println();
     }
 
-    /** arraylist deletion */
+    /** 
+     * * arraylist deletion 
+     */
     private void deletion() {
         System.out.println("--- Arraylist Deletion ---");
 
@@ -149,7 +232,9 @@ public class ArraylistManagement {
         System.out.println();
     }
 
-    /** element location */
+    /** 
+     * * element location 
+     */
     private void element_locating() {
         System.out.println("--- Element Locating ---");
 
@@ -159,12 +244,14 @@ public class ArraylistManagement {
 
         System.out.println("indexOf: " + list22.indexOf("dog")); /* returns index o first occurrence of specified element in the list; else -1 if not found */
 
-        System.out.println("lastIndexOf: "); /* returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element */
+        System.out.println("lastIndexOf: " + list22.lastIndexOf("dog")); /* returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element */
 
         System.out.println();
     }
 
-    /** element manipulation */
+    /** 
+     * * element manipulation
+     */
     private void element_manipulation() {
         System.out.println("--- Element Manipulation ---");
 
