@@ -42,6 +42,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [Sort Array](/C/Sort_Array.c) | C | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Pointers</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/C/Read_Write_File.c) | C | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
 | [Hello World](/C/Hello_World.c) | C | <p align="center">Using the console</p> | Classic &lsquo;hello world&rsquo; program |
+| [Arraylist Management](/Java/ArrayListManagement.java) | Java | <ul><li>Better Comments Extension</li><li>Arraylist Specifications</li><li>Arraylist Insertion</li><li>Arraylist Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates arraylist methods |
 | [Sort Array](/Java/SortArray.java) | Java | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Arraylists</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/Java/ReadWriteFile.java) | Java | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul>  | Demonstrates basic file operations |
 | [Hello World](/Java/HelloWorld.java) | Java | <p align="center">Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
@@ -85,7 +86,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| [Arraylist Management](/Java/ArrayListManagement.java) | Java | <ul><li>Better Comments Extension</li><li>Arraylist Specifications</li><li>Arraylist Insertion</li><li>Arraylist Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates arraylist methods |
+| TBD | TBD | TBD  | TBD |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
