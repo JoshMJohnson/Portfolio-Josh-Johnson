@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.List;
 
 public class ArraylistManagement {
     private ArrayList<Integer> list0 = new ArrayList<>(); /* empty list */
@@ -165,8 +166,10 @@ public class ArraylistManagement {
         temp6.removeIf(x -> (x.charAt(0) == 'D'));
         System.out.println("removeIf: " + temp6.toString()); 
 
-        /* removes from this list all of the elements whose index is between (first parameter), inclusive, and (second parameter), exclusive */
-        System.out.println("removeRange: "); 
+        /* returns a sublist from another list whose index is between (first parameter), inclusive, and (second parameter), exclusive */
+        ArrayList<Integer> temp7 = new ArrayList<>(list5);
+        List<Integer> temp8 = temp7.subList(3, 6);
+        System.out.println("subList: " + temp8.toString()); 
 
         /* retains only the elements in this list that are contained in the specified collection */
         System.out.println("retainAll: ");
