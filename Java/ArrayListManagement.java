@@ -166,16 +166,16 @@ public class ArraylistManagement {
         temp6.removeIf(x -> (x.charAt(0) == 'D'));
         System.out.println("removeIf: " + temp6.toString()); 
 
-        /* returns a sublist from another list whose index is between (first parameter), inclusive, and (second parameter), exclusive */
+        /* returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive */
         ArrayList<Integer> temp7 = new ArrayList<>(list5);
         List<Integer> temp8 = temp7.subList(3, 6);
         System.out.println("subList: " + temp8.toString()); 
 
         /* retains only the elements in this list that are contained in the specified collection */
-        System.out.println("retainAll: ");
-
-        /* returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive */
-        System.out.println("subList: "); 
+        ArrayList<String> temp9 = new ArrayList<>(list28);
+        ArrayList<String> temp10 = new ArrayList<>(list29);
+        temp9.retainAll(temp10);
+        System.out.println("retainAll: " + temp9.toString());
 
         System.out.println();
     }
