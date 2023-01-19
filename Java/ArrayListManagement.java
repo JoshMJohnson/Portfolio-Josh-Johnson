@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.List;
+import java.util.Collections;
 
 public class ArraylistManagement {
     private ArrayList<Integer> list0 = new ArrayList<>(); /* empty list */
@@ -58,7 +59,7 @@ public class ArraylistManagement {
     private ArrayList<String> list19 = new ArrayList<>(Arrays.asList("hello", "world"));
     private ArrayList<String> list20 = new ArrayList<>(Arrays.asList("hello", "world", "of", "coding", "!"));
     private ArrayList<String> list21 = new ArrayList<>(Arrays.asList("hello world of coding!"));
-    private ArrayList<String> list22 = new ArrayList<>(Arrays.asList("cat", "dog", "cat", "dog", "dog", "animal"));
+    private ArrayList<String> list22 = new ArrayList<>(Arrays.asList("cat", "dog", "cat", "dog", "dog", "guinea pig", "fish"));
     private ArrayList<String> list23 = new ArrayList<>(Arrays.asList("Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"));
     private ArrayList<String> list24 = new ArrayList<>(Arrays.asList("Vikings", "Packers", "Lions", "Bears"));
     private ArrayList<String> list27 = new ArrayList<>(Arrays.asList("Commander Cody", "Captain Rex", "Echo", "Commander Fox"));
@@ -149,13 +150,7 @@ public class ArraylistManagement {
         /* removes the first occurrence of the specified element from this list, if it is present */
         ArrayList<String> temp2 = new ArrayList<>(list24);
         temp2.remove("Lions");
-        System.out.println("remove; value: " + temp2.toString()); 
-
-        /* removes from this list all of its elements that are contained in the specified collection */
-        ArrayList<String> temp3 = new ArrayList<>(list29);
-        ArrayList<String> temp4 = new ArrayList<>(list28);
-        temp3.removeAll(temp4);
-        System.out.println("removeAll: " + temp3.toString()); 
+        System.out.println("remove; value: " + temp2.toString());  
 
         /* removes all of the elements of this collection that satisfy the given predicate */
         ArrayList<Integer> temp5 = new ArrayList<>(list5);
@@ -165,6 +160,12 @@ public class ArraylistManagement {
         ArrayList<String> temp6 = new ArrayList<>(list23);
         temp6.removeIf(x -> (x.charAt(0) == 'D'));
         System.out.println("removeIf: " + temp6.toString()); 
+
+        /* removes from this list all of its elements that are contained in the specified collection */
+        ArrayList<String> temp3 = new ArrayList<>(list29);
+        ArrayList<String> temp4 = new ArrayList<>(list28);
+        temp3.removeAll(temp4);
+        System.out.println("removeAll: " + temp3.toString());
 
         /* returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive */
         ArrayList<Integer> temp7 = new ArrayList<>(list5);
@@ -209,13 +210,37 @@ public class ArraylistManagement {
         System.out.println("set: " + tempArrayCharacter.toString());
 
         /* performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception */
-        System.out.println("forEach: "); 
+        ArrayList<Integer> temp1 = new ArrayList<>(list5);
+        System.out.print("forEach: "); 
+        temp1.forEach((n) -> System.out.print(n + " ... "));
+        System.out.println();
+        
+        ArrayList<Integer> temp2 = new ArrayList<>(list5);
+        System.out.print("forEach: "); 
+        temp1.forEach((n) -> System.out.print(n*10 + " "));
+        System.out.println();
 
         /* replaces each element of this list with the result of applying the operator to that element */
-        System.out.println("replaceAll: "); 
+        ArrayList<String> temp3 = new ArrayList<>(list22);
+        temp3.replaceAll(n -> n.toUpperCase());
+        System.out.println("replaceAll: " + temp3.toString()); 
+
+        ArrayList<String> temp4 = new ArrayList<>(list22);
+        Collections.replaceAll(temp4, "dog", "best friend");
+        System.out.println("replaceAll: " + temp4.toString()); 
 
         /* sorts this list according to the order induced by the specified Comparator */
-        System.out.println("sort: "); 
+        ArrayList<String> temp5 = new ArrayList<>(list23);
+        Collections.sort(temp5);
+        System.out.println("sort: " + temp5.toString()); 
+
+        ArrayList<Integer> temp6 = new ArrayList<>(list4);
+        Collections.sort(temp6);
+        System.out.println("sort: " + temp6.toString()); 
+
+        ArrayList<Integer> temp7 = new ArrayList<>(list4);
+        Collections.sort(temp7, Collections.reverseOrder());
+        System.out.println("sort: " + temp7.toString()); 
 
         System.out.println();
     }
