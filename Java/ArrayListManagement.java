@@ -19,6 +19,8 @@
   * ! Incorrect comment
   */
 
+// TODO: check comments
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -86,73 +88,83 @@ public class ArraylistManagement {
 
     /* arraylist specifications  */
     private void specifications() {
-        System.out.println("--- Specifications ---");
+        System.out.println("\t\t\t\t\tSPECS");
 
         /* converts list into a string */
+        System.out.println("----------------------------------------------");
         System.out.println("toString: " + list26.toString()); 
 
         /* converts an arraylist to an array */
+        System.out.println("----------------------------------------------");
         Object[] array = list3.toArray(); 
         System.out.println("toArray: " + Arrays.toString(array));
 
         /* shows number of elements within the list */
+        System.out.println("----------------------------------------------");
         System.out.println("size: " + list5.size()); 
 
         /* tells if arraylist is empty or not */  
+        System.out.println("----------------------------------------------");
         System.out.println("isEmpty: " + list15.isEmpty());    
 
-        System.out.println();
+        System.out.println("\n\n**********************************************");
+        System.out.println("**********************************************");
+        System.out.println("**********************************************\n\n");
     }
 
     /* arraylist insertion */
     private void insertion() {
-        System.out.println("--- Insertion ---");
+        System.out.println("\t\t\t\t\tINSERTION");
 
         /* appends the specified element to the end of the list */
+        System.out.println("----------------------------------------------");
         ArrayList<Integer> cloneListInt = new ArrayList<>(list5);
         cloneListInt.add(21); 
         System.out.println("add: " + cloneListInt.toString());
 
-        /* enters a value at a given index; pushing all values previously at and after given index */
         ArrayList<Number> cloneListNumber = new ArrayList<>(list12);
         cloneListNumber.add(6, 5); 
         System.out.println("add; index: " + cloneListNumber.toString());
 
         /* appends all of the elements to the end of this list */
+        System.out.println("----------------------------------------------");
         ArrayList<String> temp1 = new ArrayList<>(list27);
         ArrayList<String> temp2 = new ArrayList<>(list28);
         temp1.addAll(temp2); 
         System.out.println("addAll: " + temp1.toString()); 
 
-        /* inserts all of the elements into this list, starting at the specified position */
         temp1 = new ArrayList<>(list27);
         temp2 = new ArrayList<>(list28);
         temp1.addAll(1, temp2); 
         System.out.println("addAll; index: " + temp1.toString()); 
 
-        System.out.println();
+        System.out.println("\n\n**********************************************");
+        System.out.println("**********************************************");
+        System.out.println("**********************************************\n\n");
     }
 
     /* arraylist deletion */
     private void deletion() {
-        System.out.println("--- Deletion ---");
+        System.out.println("\t\t\t\t\tDELETION");
 
         /* removes all of the elements from the list given */
+        System.out.println("----------------------------------------------");
         ArrayList<String> tempArrayString = new ArrayList<>(list21);
         tempArrayString.clear(); 
         System.out.println("clear: " + tempArrayString.toString());
 
         /* removes the element at the specified position in this list */
+        System.out.println("----------------------------------------------");
         ArrayList<Integer> temp1 = new ArrayList<>(list5);
         temp1.remove(2);
         System.out.println("remove; index: " + temp1.toString()); 
 
-        /* removes the first occurrence of the specified element from this list, if it is present */
         ArrayList<String> temp2 = new ArrayList<>(list24);
         temp2.remove("Lions");
         System.out.println("remove; value: " + temp2.toString());  
 
         /* removes all of the elements of this collection that satisfy the given predicate */
+        System.out.println("----------------------------------------------");
         ArrayList<Integer> temp5 = new ArrayList<>(list5);
         temp5.removeIf(x -> (x % 2 == 0));
         System.out.println("removeIf: " + temp5.toString()); 
@@ -162,54 +174,67 @@ public class ArraylistManagement {
         System.out.println("removeIf: " + temp6.toString()); 
 
         /* removes from this list all of its elements that are contained in the specified collection */
+        System.out.println("----------------------------------------------");
         ArrayList<String> temp3 = new ArrayList<>(list29);
         ArrayList<String> temp4 = new ArrayList<>(list28);
         temp3.removeAll(temp4);
         System.out.println("removeAll: " + temp3.toString());
 
-        /* returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive */
-        ArrayList<Integer> temp7 = new ArrayList<>(list5);
-        List<Integer> temp8 = temp7.subList(3, 6);
-        System.out.println("subList: " + temp8.toString()); 
-
         /* retains only the elements in this list that are contained in the specified collection */
+        System.out.println("----------------------------------------------");
         ArrayList<String> temp9 = new ArrayList<>(list28);
         ArrayList<String> temp10 = new ArrayList<>(list29);
         temp9.retainAll(temp10);
         System.out.println("retainAll: " + temp9.toString());
 
-        System.out.println();
+        /* returns a view of the portion of this list between the specified fromIndex, inclusive, and toIndex, exclusive */
+        System.out.println("----------------------------------------------");
+        ArrayList<Integer> temp7 = new ArrayList<>(list5);
+        List<Integer> temp8 = temp7.subList(3, 6);
+        System.out.println("subList: " + temp8.toString()); 
+
+        System.out.println("\n\n**********************************************");
+        System.out.println("**********************************************");
+        System.out.println("**********************************************\n\n");
     }
 
     /* element location */
     private void element_locating() {
-        System.out.println("--- Element Locating ---");
+        System.out.println("\t\t\t\tELEMENT LOCATING");
 
         /* returns true if list contains the specified element */
+        System.out.println("----------------------------------------------");
         System.out.println("contains: " + list19.contains("hello")); 
 
         /* returns the element at the specified position in list */
+        System.out.println("----------------------------------------------");
         System.out.println("get: " + list4.get(1)); 
 
         /* returns index o first occurrence of specified element in the list; else -1 if not found */
+        System.out.println("----------------------------------------------");
         System.out.println("indexOf: " + list22.indexOf("dog")); 
 
         /* returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element */
+        System.out.println("----------------------------------------------");
         System.out.println("lastIndexOf: " + list22.lastIndexOf("dog")); 
 
-        System.out.println();
+        System.out.println("\n\n**********************************************");
+        System.out.println("**********************************************");
+        System.out.println("**********************************************\n\n");
     }
 
     /* element manipulation */
     private void element_manipulation() {
-        System.out.println("--- Element Manipulation ---");
+        System.out.println("\t\t\tELEMENT MANIPULATION");
 
         /* replaces value at given index with given value  */
+        System.out.println("----------------------------------------------");
         ArrayList<Character> tempArrayCharacter = new ArrayList<>(list13);
         tempArrayCharacter.set(2, 'e'); 
         System.out.println("set: " + tempArrayCharacter.toString());
 
         /* performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception */
+        System.out.println("----------------------------------------------");
         ArrayList<Integer> temp1 = new ArrayList<>(list5);
         System.out.print("forEach: "); 
         temp1.forEach((n) -> System.out.print(n + " ... "));
@@ -221,6 +246,7 @@ public class ArraylistManagement {
         System.out.println();
 
         /* replaces each element of this list with the result of applying the operator to that element */
+        System.out.println("----------------------------------------------");
         ArrayList<String> temp3 = new ArrayList<>(list22);
         temp3.replaceAll(n -> n.toUpperCase());
         System.out.println("replaceAll: " + temp3.toString()); 
@@ -230,6 +256,7 @@ public class ArraylistManagement {
         System.out.println("replaceAll: " + temp4.toString()); 
 
         /* sorts this list according to the order induced by the specified Comparator */
+        System.out.println("----------------------------------------------");
         ArrayList<String> temp5 = new ArrayList<>(list23);
         Collections.sort(temp5);
         System.out.println("sort: " + temp5.toString()); 
@@ -241,18 +268,17 @@ public class ArraylistManagement {
         ArrayList<Integer> temp7 = new ArrayList<>(list4);
         Collections.sort(temp7, Collections.reverseOrder());
         System.out.println("sort: " + temp7.toString()); 
-
-        System.out.println();
     }
 
     /* iterations of arraylists */
     private void iteration() {
-        System.out.println("--- Iteration ---");
+        System.out.println("\t\t\t\t\tITERATION");
 
         /** 
          * returns an iterator over the elements in this list in proper sequence
          * * iterator can traverse list in a forward direction
          */
+        System.out.println("----------------------------------------------");
         ArrayList<Number> temp1 = new ArrayList<>(list5);
         Iterator<Number> iter = temp1.iterator();
         System.out.print("iterator: "); 
@@ -266,6 +292,7 @@ public class ArraylistManagement {
          *  returns a list iterator over the elements in this list (in proper sequence) 
          * * listIterator can traverse list in both forward and backward direction
          */
+        System.out.println("----------------------------------------------");
         System.out.print("listIterator: "); 
         ArrayList<Number> temp2 = new ArrayList<>(list5);
         ListIterator<Number> iter2 = temp2.listIterator();
@@ -329,6 +356,10 @@ public class ArraylistManagement {
             counterTemp++;
         }
 
-        System.out.println("\n");
+        System.out.println();
+
+        System.out.println("\n\n**********************************************");
+        System.out.println("**********************************************");
+        System.out.println("**********************************************\n\n");
     }
 }
