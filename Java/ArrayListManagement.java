@@ -61,7 +61,8 @@ public class ArraylistManagement {
     private ArrayList<String> list23 = new ArrayList<>(Arrays.asList("Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"));
     private ArrayList<String> list24 = new ArrayList<>(Arrays.asList("Vikings", "Packers", "Lions", "Bears"));
     private ArrayList<String> list27 = new ArrayList<>(Arrays.asList("Commander Cody", "Captain Rex", "Echo", "Commander Fox"));
-    private ArrayList<String> list28 = new ArrayList<>(Arrays.asList("Plo koon", "Anakin Skywalker", "Yoda", "Obi-Wan Kenobi"));
+    private ArrayList<String> list28 = new ArrayList<>(Arrays.asList("Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Mace Windu", "Plo koon"));
+    private ArrayList<String> list29 = new ArrayList<>(Arrays.asList("Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Darth Sidious"));
 
     // * object lists 
     private ArrayList<Object> list25 = new ArrayList<Object>(Arrays.asList(1, 2, 3.0, 4, "JJ", 6, "Air Plane"));
@@ -150,10 +151,19 @@ public class ArraylistManagement {
         System.out.println("remove; value: " + temp2.toString()); 
 
         /* removes from this list all of its elements that are contained in the specified collection */
-        System.out.println("removeAll: "); 
+        ArrayList<String> temp3 = new ArrayList<>(list29);
+        ArrayList<String> temp4 = new ArrayList<>(list28);
+        temp3.removeAll(temp4);
+        System.out.println("removeAll: " + temp3.toString()); 
 
         /* removes all of the elements of this collection that satisfy the given predicate */
-        System.out.println("removeIf: "); 
+        ArrayList<Integer> temp5 = new ArrayList<>(list5);
+        temp5.removeIf(x -> (x % 2 == 0));
+        System.out.println("removeIf: " + temp5.toString()); 
+
+        ArrayList<String> temp6 = new ArrayList<>(list23);
+        temp6.removeIf(x -> (x.charAt(0) == 'D'));
+        System.out.println("removeIf: " + temp6.toString()); 
 
         /* removes from this list all of the elements whose index is between (first parameter), inclusive, and (second parameter), exclusive */
         System.out.println("removeRange: "); 
