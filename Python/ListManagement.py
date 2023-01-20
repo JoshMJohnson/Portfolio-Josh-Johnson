@@ -50,7 +50,7 @@ array23 = [True, False]
 
 # list specifications
 def specifications():
-    print("\t\t\tList Specs")
+    print("\t\t\tLIST SPECS")
 
     # returns string value of the list
     print("--------------------------------------")
@@ -69,15 +69,15 @@ def specifications():
     # returns elements in list from specified indices
     print("--------------------------------------")
     range_array = array20[1:3]
-    print("Array Range: " + str(range_array), end="\n\n")
+    print("Array Range: " + str(range_array), end="\n\n\n")
 
     print("**************************************")
     print("**************************************")
-    print("**************************************\n")
+    print("**************************************\n\n")
 
 # list insertion
 def insertion():
-    print("\t\tList Element Insertion")
+    print("\t\tLIST ELEMENT INSERTION")
 
     # adds an element at the end of the list
     print("--------------------------------------")
@@ -100,15 +100,15 @@ def insertion():
     temp_array1 = array20.copy()
     temp_array2 = array21.copy()
     temp_array1.extend(temp_array2)
-    print("extend: " + str(temp_array1), end="\n\n")
+    print("extend: " + str(temp_array1), end="\n\n\n")
 
     print("**************************************")
     print("**************************************")
-    print("**************************************\n")
+    print("**************************************\n\n")
 
 # list deletion
 def deletion():
-    print("\t\tList Element Deletion")
+    print("\t\tLIST ELEMENT DELETION")
 
     # removes all the elements from the list
     print("--------------------------------------")
@@ -130,15 +130,15 @@ def deletion():
     print("--------------------------------------")
     temp_array = array19.copy()
     temp_array.remove('dog') 
-    print("remove: " + str(temp_array), end="\n\n")
+    print("remove: " + str(temp_array), end="\n\n\n")
 
     print("**************************************")
     print("**************************************")
-    print("**************************************\n")
+    print("**************************************\n\n")
 
 # element locating
 def locating():
-    print("\t\tList Element Locating")
+    print("\t\tLIST ELEMENT LOCATING")
 
     # returns the index of the first element with the specified value
     print("--------------------------------------")
@@ -154,15 +154,15 @@ def locating():
     print("count; Occurrences of a Number: " + str(count_array))
 
     count_array = array19.count("dog") 
-    print("count; Occurrences of a String: " + str(count_array), end="\n\n")
+    print("count; Occurrences of a String: " + str(count_array), end="\n\n\n")
 
     print("**************************************")
     print("**************************************")
-    print("**************************************\n")
+    print("**************************************\n\n")
 
 # element manipulation
 def manipulation():
-    print("\tList Element Manipulation")
+    print("\tLIST ELEMENT MANIPULATION")
 
     # reverses the order of the list
     print("--------------------------------------")
