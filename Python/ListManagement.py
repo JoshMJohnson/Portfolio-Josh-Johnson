@@ -64,12 +64,12 @@ def specifications():
     # returns a value of element at given index
     print("--------------------------------------")
     index_value = array20[1]
-    print("index value: " + str(index_value))
+    print("Index Value: " + str(index_value))
 
     # returns elements in list from specified indices
     print("--------------------------------------")
     range_array = array20[1:3]
-    print("array range: " + str(range_array), end="\n\n")
+    print("Array Range: " + str(range_array), end="\n\n")
 
     print("**************************************")
     print("**************************************")
@@ -83,17 +83,17 @@ def insertion():
     print("--------------------------------------")
     temp_array = array5.copy()
     temp_array.append(10)
-    print("Append; Number: " + str(temp_array))
+    print("append; Number: " + str(temp_array))
 
     temp_array = array16.copy()
     temp_array.append("!")
-    print("Append; String: " + str(temp_array))
+    print("append; String: " + str(temp_array))
 
     # adds an element at the specified position
     print("--------------------------------------")
     temp_array = array17.copy()
     temp_array.insert(1, "amazing") 
-    print("Insert: " + str(temp_array))
+    print("insert: " + str(temp_array))
 
     # add the elements of a list (or any iterable), to the end of the current list
     print("--------------------------------------")
@@ -114,23 +114,23 @@ def deletion():
     print("--------------------------------------")
     temp_array = array20.copy()
     temp_array.clear()
-    print("Clear: " + str(temp_array))
+    print("clear: " + str(temp_array))
 
     # removes the element at the specified position
     print("--------------------------------------")
     temp_array = array5.copy()
     temp_array.pop() # removes last element
-    print("Pop; No Parameter Given: " + str(temp_array))
+    print("pop; No Parameter Given: " + str(temp_array))
 
     temp_array = array5.copy()
     temp_array.pop(1) # removes at index given and pulls all elements with a higher index than given parameter index
-    print("Pop; With Parameter Given: " + str(temp_array))
+    print("pop; With Parameter Given: " + str(temp_array))
 
     # removes the first occurrence with the specified value
     print("--------------------------------------")
     temp_array = array19.copy()
     temp_array.remove('dog') 
-    print("Remove: " + str(temp_array), end="\n\n")
+    print("remove: " + str(temp_array), end="\n\n")
 
     print("**************************************")
     print("**************************************")
@@ -143,18 +143,18 @@ def locating():
     # returns the index of the first element with the specified value
     print("--------------------------------------")
     index_array = array5.index(3)
-    print("Index; Number: " + str(index_array))
+    print("index; Number: " + str(index_array))
 
     index_array = array19.index('dog')
-    print("Index; String: " + str(index_array))
+    print("index; String: " + str(index_array))
 
     # returns the number of occurrences of the specified value
     print("--------------------------------------")
     count_array = array6.count(2) 
-    print("Count; Occurrences of a Number: " + str(count_array))
+    print("count; Occurrences of a Number: " + str(count_array))
 
     count_array = array19.count("dog") 
-    print("Count; Occurrences of a String: " + str(count_array), end="\n\n")
+    print("count; Occurrences of a String: " + str(count_array), end="\n\n")
 
     print("**************************************")
     print("**************************************")
@@ -168,27 +168,27 @@ def manipulation():
     print("--------------------------------------")
     temp_array = array5.copy()
     temp_array.reverse()
-    print("Reverse: " + str(temp_array))
+    print("reverse: " + str(temp_array))
 
     # sorts the list
     print("--------------------------------------")
     temp_array = array10.copy()
     temp_array.sort() # sorts array in ascending order
-    print("Sort; Ascending: " + str(temp_array))
+    print("sort; Ascending: " + str(temp_array))
 
     temp_array = array4.copy()
     temp_array.sort(reverse=True) # sorts array in descending order
-    print("Sort; Descending: " + str(temp_array))
+    print("sort; Descending: " + str(temp_array))
 
     temp_array = array20.copy()
     temp_array.sort() # alphabetically sorts the array
-    print("Sort; Alphabetically: " + str(temp_array))
+    print("sort; Alphabetically: " + str(temp_array))
 
     temp_array = array20.copy()
     def orderByLength(param):
         return len(param)
     temp_array.sort(key=orderByLength) # sort by string length in ascending length
-    print("Sort; String Length Increasing: " + str(temp_array))
+    print("sort; String Length Increasing: " + str(temp_array))
 
     # set an element value at given index
     print("--------------------------------------")
