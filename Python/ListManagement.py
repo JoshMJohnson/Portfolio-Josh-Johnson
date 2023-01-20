@@ -1,4 +1,4 @@
-# Array Management:
+# List Management:
 #   - Specifications
 #   - Insertion
 #   - Deletion
