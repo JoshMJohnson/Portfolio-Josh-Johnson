@@ -59,7 +59,17 @@ def specifications():
     # returns size of array; number of elements
     print("--------------------------------------")
     size_array = len(array17) 
-    print("len: " + str(size_array), end="\n\n")
+    print("len: " + str(size_array))
+
+    # returns a value of element at given index
+    print("--------------------------------------")
+    index_value = array20[1]
+    print("index value: " + str(index_value))
+
+    # returns elements in list from specified indices
+    print("--------------------------------------")
+    range_array = array20[1:3]
+    print("array range: " + str(range_array), end="\n\n")
 
     print("**************************************")
     print("**************************************")
@@ -179,6 +189,12 @@ def manipulation():
         return len(param)
     temp_array.sort(key=orderByLength) # sort by string length in ascending length
     print("Sort; String Length Increasing: " + str(temp_array))
+
+    # set an element value at given index
+    print("--------------------------------------")
+    temp_array = array21.copy()
+    temp_array[3] = "Trash"
+    print("Change Element Value: " + str(temp_array))    
 
 # categorized list functions
 specifications()
