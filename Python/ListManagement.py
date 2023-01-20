@@ -54,7 +54,7 @@ def specifications():
 
     # returns string value of the list
     print("--------------------------------------")
-    print("List: " + str(array23))
+    print("String Value of List: " + str(array23))
     
     # returns size of array; number of elements
     print("--------------------------------------")
@@ -69,7 +69,7 @@ def specifications():
     # returns elements in list from specified indices
     print("--------------------------------------")
     range_array = array20[1:3]
-    print("Array Range: " + str(range_array), end="\n\n\n")
+    print("List Index Range: " + str(range_array), end="\n\n\n")
 
     print("**************************************")
     print("**************************************")
@@ -83,11 +83,11 @@ def insertion():
     print("--------------------------------------")
     temp_array = array5.copy()
     temp_array.append(10)
-    print("append; Number: " + str(temp_array))
+    print("append; number: " + str(temp_array))
 
     temp_array = array16.copy()
     temp_array.append("!")
-    print("append; String: " + str(temp_array))
+    print("append; string: " + str(temp_array))
 
     # adds an element at the specified position
     print("--------------------------------------")
@@ -120,11 +120,11 @@ def deletion():
     print("--------------------------------------")
     temp_array = array5.copy()
     temp_array.pop() # removes last element
-    print("pop; No Parameter Given: " + str(temp_array))
+    print("pop; remove last element: " + str(temp_array))
 
     temp_array = array5.copy()
     temp_array.pop(1) # removes at index given and pulls all elements with a higher index than given parameter index
-    print("pop; With Parameter Given: " + str(temp_array))
+    print("pop; remove index element: " + str(temp_array))
 
     # removes the first occurrence with the specified value
     print("--------------------------------------")
@@ -143,18 +143,18 @@ def locating():
     # returns the index of the first element with the specified value
     print("--------------------------------------")
     index_array = array5.index(3)
-    print("index; Number: " + str(index_array))
+    print("index; number: " + str(index_array))
 
     index_array = array19.index('dog')
-    print("index; String: " + str(index_array))
+    print("index; string: " + str(index_array))
 
     # returns the number of occurrences of the specified value
     print("--------------------------------------")
     count_array = array6.count(2) 
-    print("count; Occurrences of a Number: " + str(count_array))
+    print("count; occurrences of a number: " + str(count_array))
 
     count_array = array19.count("dog") 
-    print("count; Occurrences of a String: " + str(count_array), end="\n\n\n")
+    print("count; occurrences of a string: " + str(count_array), end="\n\n\n")
 
     print("**************************************")
     print("**************************************")
@@ -174,27 +174,27 @@ def manipulation():
     print("--------------------------------------")
     temp_array = array10.copy()
     temp_array.sort() # sorts array in ascending order
-    print("sort; Ascending: " + str(temp_array))
+    print("sort; ascending: " + str(temp_array))
 
     temp_array = array4.copy()
     temp_array.sort(reverse=True) # sorts array in descending order
-    print("sort; Descending: " + str(temp_array))
+    print("sort; descending: " + str(temp_array))
 
     temp_array = array20.copy()
     temp_array.sort() # alphabetically sorts the array
-    print("sort; Alphabetically: " + str(temp_array))
+    print("sort; alphabetically: " + str(temp_array))
 
     temp_array = array20.copy()
     def orderByLength(param):
         return len(param)
     temp_array.sort(key=orderByLength) # sort by string length in ascending length
-    print("sort; String Length Increasing: " + str(temp_array))
+    print("sort; string length increasing: " + str(temp_array))
 
     # set an element value at given index
     print("--------------------------------------")
     temp_array = array21.copy()
     temp_array[3] = "Trash"
-    print("Change Element Value: " + str(temp_array))    
+    print("Change Element Value At Index: " + str(temp_array))    
 
 # categorized list functions
 specifications()
