@@ -7,9 +7,15 @@
 #
 # Created By: Josh Johnson
 
-array0 = [] # empty list
+#   Using the Better Comments extension:   
+#   TODO: A to do comment for future editing
+#   * This is an important comment which highlights the line
+#   ? Question/Double-check comment
+#   ! Incorrect comment
 
-# integer lists
+array0 = [] # * empty list
+
+# * integer lists
 array1 = [0] 
 array2 = [4, 1] 
 array3 = [-4, 6, 2] 
@@ -17,13 +23,13 @@ array4 = [0, 84, -3, 40, -21, 21]
 array5 = [1, 2, 3, 4, 5, 6, 7, 8, 9] 
 array6 = [2, 4, 3, 2, 4, 2, 2] 
 
-# double lists
+# * double lists
 array7 = [3.5]
 array8 = [5, 3.6] 
 array9 = [-1.7, 0, 6]
 array10 = [6.9, 7.1, -5, 3.7, -9.8] 
 
-# string lists
+# * string lists
 array11 = [''] 
 array12 = ['hello']
 array13 = ['Hello World'] 
@@ -36,53 +42,72 @@ array19 = ['dog', 'cat', 'dog', 'dog', 'animal']
 array20 = ['Discraft', 'Innova', 'Prodigy', 'Axiom', 'MVP', 'Dynamic', 'Gateway', 'Latitude 64']
 array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
 
-# object lists
+# * object lists
 array22 = [1, 2, 3.0, 4, 'JJ', 6, 'Air Plane']
 
-# boolean lists
+# * boolean lists
 array23 = [True, False]
 
 # list specifications
 def specifications():
-    print("--- Array Specifications ---")
+    print("\t\t\tArray Specs")
 
-    # list functions
+    # returns string value of the list
+    print("--------------------------------------")
     print("List: " + str(array23))
-
-    size_array = len(array17) # returns size of array
+    
+    # returns size of array; number of elements
+    print("--------------------------------------")
+    size_array = len(array17) 
     print("len: " + str(size_array), end="\n\n")
+
+    print("**************************************")
+    print("**************************************")
+    print("**************************************\n")
 
 # list insertion
 def insertion():
-    print("--- Array Element Insertion ---")
+    print("\t\tArray Element Insertion")
 
-    # list functions
+    # adds an element at the end of the list
+    print("--------------------------------------")
     temp_array = array5.copy()
-    temp_array.append(10) # inserts element to the end of the array
+    temp_array.append(10)
     print("Append; Number: " + str(temp_array))
 
     temp_array = array16.copy()
-    temp_array.append("!") # inserts element to the end of the array
+    temp_array.append("!")
     print("Append; String: " + str(temp_array))
 
+    # adds an element at the specified position
+    print("--------------------------------------")
     temp_array = array17.copy()
-    temp_array.insert(1, "amazing") # inserts element at index given; pushes all elements previously at index given and after
+    temp_array.insert(1, "amazing") 
     print("Insert: " + str(temp_array))
 
+    # add the elements of a list (or any iterable), to the end of the current list
+    print("--------------------------------------")
     temp_array1 = array20.copy()
     temp_array2 = array21.copy()
-    temp_array1.extend(temp_array2) # adds all elements from parameter array to the end of working array in order
+    temp_array1.extend(temp_array2)
     print("extend: " + str(temp_array1), end="\n\n")
+
+    print("**************************************")
+    print("**************************************")
+    print("**************************************\n")
 
 # list deletion
 def deletion():
-    print("--- Array Element Deletion ---")
+    print("\t\tArray Element Deletion")
 
-    # list functions
+    # removes all the elements from the list
+    print("--------------------------------------")
     temp_array = array20.copy()
-    temp_array.clear() # removes all elements from the array
+    temp_array.clear()
     print("Clear: " + str(temp_array))
 
+    # removes the element at the specified position
+    print("--------------------------------------")
     temp_array = array5.copy()
     temp_array.pop() # removes last element
     print("Pop; No Parameter Given: " + str(temp_array))
@@ -91,36 +116,52 @@ def deletion():
     temp_array.pop(1) # removes at index given and pulls all elements with a higher index than given parameter index
     print("Pop; With Parameter Given: " + str(temp_array))
 
+    # removes the first occurrence with the specified value
+    print("--------------------------------------")
     temp_array = array19.copy()
-    temp_array.remove('dog') # removes first occurrence of parameter
+    temp_array.remove('dog') 
     print("Remove: " + str(temp_array), end="\n\n")
+
+    print("**************************************")
+    print("**************************************")
+    print("**************************************\n")
 
 # element locating
 def locating():
-    print("--- Array Element Locating ---")
+    print("\t\tArray Element Locating")
 
-    # list functions
-    index_array = array5.index(3) # returns index value of first occurrence of number parameber
+    # returns the index of the first element with the specified value
+    print("--------------------------------------")
+    index_array = array5.index(3)
     print("Index; Number: " + str(index_array))
 
-    index_array = array19.index('dog') # returns index value of first occurrence of string parameter
+    index_array = array19.index('dog')
     print("Index; String: " + str(index_array))
 
-    count_array = array6.count(2) # returns number of occurrences
+    # returns the number of occurrences of the specified value
+    print("--------------------------------------")
+    count_array = array6.count(2) 
     print("Count; Occurrences of a Number: " + str(count_array))
 
-    count_array = array19.count("dog") # returns number of occurrences
+    count_array = array19.count("dog") 
     print("Count; Occurrences of a String: " + str(count_array), end="\n\n")
+
+    print("**************************************")
+    print("**************************************")
+    print("**************************************\n")
 
 # element manipulation
 def manipulation():
-    print("--- Array Element Manipulation ---")
+    print("\tArray Element Manipulation")
 
-    # list functions
+    # reverses the order of the list
+    print("--------------------------------------")
     temp_array = array5.copy()
-    temp_array.reverse() # reverses the array elements
+    temp_array.reverse()
     print("Reverse: " + str(temp_array))
 
+    # sorts the list
+    print("--------------------------------------")
     temp_array = array10.copy()
     temp_array.sort() # sorts array in ascending order
     print("Sort; Ascending: " + str(temp_array))
