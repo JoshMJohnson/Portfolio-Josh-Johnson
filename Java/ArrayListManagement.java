@@ -62,15 +62,15 @@ public class ArraylistManagement {
     private ArrayList<String> list22 = new ArrayList<>(Arrays.asList("cat", "dog", "cat", "dog", "dog", "guinea pig", "fish"));
     private ArrayList<String> list23 = new ArrayList<>(Arrays.asList("Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"));
     private ArrayList<String> list24 = new ArrayList<>(Arrays.asList("Vikings", "Packers", "Lions", "Bears"));
-    private ArrayList<String> list27 = new ArrayList<>(Arrays.asList("Commander Cody", "Captain Rex", "Echo", "Commander Fox"));
-    private ArrayList<String> list28 = new ArrayList<>(Arrays.asList("Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Mace Windu", "Plo koon"));
-    private ArrayList<String> list29 = new ArrayList<>(Arrays.asList("Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Darth Sidious"));
+    private ArrayList<String> list25 = new ArrayList<>(Arrays.asList("Commander Cody", "Captain Rex", "Echo", "Commander Fox"));
+    private ArrayList<String> list26 = new ArrayList<>(Arrays.asList("Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Mace Windu", "Plo koon"));
+    private ArrayList<String> list27 = new ArrayList<>(Arrays.asList("Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Darth Sidious"));
 
     // * object lists 
-    private ArrayList<Object> list25 = new ArrayList<Object>(Arrays.asList(1, 2, 3.0, 4, "JJ", 6, "Air Plane"));
+    private ArrayList<Object> list28 = new ArrayList<Object>(Arrays.asList(1, 2, 3.0, 4, "JJ", 6, "Air Plane"));
 
     // * boolean lists 
-    private ArrayList<Boolean> list26 = new ArrayList<Boolean>(Arrays.asList(true, false));
+    private ArrayList<Boolean> list29 = new ArrayList<Boolean>(Arrays.asList(true, false));
 
     public static void main(String[] args) {
         ArraylistManagement methods = new ArraylistManagement();
@@ -90,7 +90,7 @@ public class ArraylistManagement {
 
         // converts list into a string
         System.out.println("----------------------------------------------");
-        System.out.println("toString: " + list26.toString()); 
+        System.out.println("toString: " + list29.toString()); 
 
         // returns an array containing all of the elements in this list in proper sequence (from first to last element)
         System.out.println("----------------------------------------------");
@@ -126,13 +126,13 @@ public class ArraylistManagement {
 
         // inserts all elements to the list
         System.out.println("----------------------------------------------");
-        ArrayList<String> temp1 = new ArrayList<>(list27);
-        ArrayList<String> temp2 = new ArrayList<>(list28);
+        ArrayList<String> temp1 = new ArrayList<>(list25);
+        ArrayList<String> temp2 = new ArrayList<>(list26);
         temp1.addAll(temp2); 
         System.out.println("addAll: " + temp1.toString()); 
 
-        temp1 = new ArrayList<>(list27);
-        temp2 = new ArrayList<>(list28);
+        temp1 = new ArrayList<>(list25);
+        temp2 = new ArrayList<>(list26);
         temp1.addAll(1, temp2); 
         System.out.println("addAll; index: " + temp1.toString()); 
 
@@ -173,15 +173,15 @@ public class ArraylistManagement {
 
         // removes from this list all of its elements that are contained in the specified collection 
         System.out.println("----------------------------------------------");
-        ArrayList<String> temp3 = new ArrayList<>(list29);
-        ArrayList<String> temp4 = new ArrayList<>(list28);
+        ArrayList<String> temp3 = new ArrayList<>(list27);
+        ArrayList<String> temp4 = new ArrayList<>(list26);
         temp3.removeAll(temp4);
         System.out.println("removeAll: " + temp3.toString());
 
         // retains only the elements in this list that are contained in the specified collection 
         System.out.println("----------------------------------------------");
-        ArrayList<String> temp9 = new ArrayList<>(list28);
-        ArrayList<String> temp10 = new ArrayList<>(list29);
+        ArrayList<String> temp9 = new ArrayList<>(list26);
+        ArrayList<String> temp10 = new ArrayList<>(list27);
         temp9.retainAll(temp10);
         System.out.println("retainAll: " + temp9.toString());
 
