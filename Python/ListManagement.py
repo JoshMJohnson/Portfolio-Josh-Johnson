@@ -50,7 +50,7 @@ array23 = [True, False]
 
 # list specifications
 def specifications():
-    print("\t\t\tLIST SPECS")
+    print("\t\t\t\tSPECS")
 
     # returns string value of the list
     print("--------------------------------------")
@@ -77,7 +77,7 @@ def specifications():
 
 # list insertion
 def insertion():
-    print("\t\tLIST ELEMENT INSERTION")
+    print("\t\t\tELEMENT INSERTION")
 
     # adds an element at the end of the list
     print("--------------------------------------")
@@ -108,7 +108,7 @@ def insertion():
 
 # list deletion
 def deletion():
-    print("\t\tLIST ELEMENT DELETION")
+    print("\t\t\tELEMENT DELETION")
 
     # removes all the elements from the list
     print("--------------------------------------")
@@ -138,7 +138,7 @@ def deletion():
 
 # element locating
 def locating():
-    print("\t\tLIST ELEMENT LOCATING")
+    print("\t\t\tELEMENT LOCATING")
 
     # returns the index of the first element with the specified value
     print("--------------------------------------")
@@ -162,7 +162,7 @@ def locating():
 
 # element manipulation
 def manipulation():
-    print("\tLIST ELEMENT MANIPULATION")
+    print("\t\tELEMENT MANIPULATION")
 
     # reverses the order of the list
     print("--------------------------------------")
