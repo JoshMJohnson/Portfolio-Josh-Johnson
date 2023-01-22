@@ -41,12 +41,13 @@ array18 = ['hello world of coding!']
 array19 = ['dog', 'cat', 'dog', 'dog', 'animal']
 array20 = ['Discraft', 'Innova', 'Prodigy', 'Axiom', 'MVP', 'Dynamic', 'Gateway', 'Latitude 64']
 array21 = ['Vikings', 'Packers', 'Lions', 'Bears']
+array22 = ['Chiefs', 'Chargers', 'Raiders', 'Broncos']
 
 # * object lists
-array22 = [1, 2, 3.0, 4, 'JJ', 6, 'Air Plane']
+array23 = [1, 2, 3.0, 4, 'JJ', 6, 'Air Plane']
 
 # * boolean lists
-array23 = [True, False]
+array24 = [True, False]
 
 # list specifications
 def specifications():
@@ -54,7 +55,7 @@ def specifications():
 
     # returns string value of the list
     print("--------------------------------------")
-    print("String Value of List: " + str(array23))
+    print("String Value of List: " + str(array24))
     
     # returns size of array; number of elements
     print("--------------------------------------")
@@ -94,6 +95,13 @@ def insertion():
     temp_array = array17.copy()
     temp_array.insert(1, "amazing") 
     print("insert: " + str(temp_array))
+
+    # adds all elements from list at index of another list
+    print("--------------------------------------")
+    temp_array = array21.copy()
+    temp_array2 = array22.copy()
+    temp_array[2:2] = temp_array2
+    print("Insert Whole List at Index: " + str(temp_array))
 
     # add the elements of a list (or any iterable), to the end of the current list
     print("--------------------------------------")
