@@ -86,7 +86,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| TBD | TBD | TBD  | TBD |
+| Array Management | JavaScript | <ul><li>Better Comments Extension</li><li>List Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array functions |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
