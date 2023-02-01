@@ -63,3 +63,10 @@ const list28 = [1, 2, 3.0, 4, "JJ", 6, "Air Plane"];
 
 // * boolean lists 
 const list29 = [true, false];
+
+print_stdout(list28);
+
+/* prints to stdout */
+function print_stdout(instance) {
+    console.log(instance)
+}
