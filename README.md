@@ -86,7 +86,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| Array Management | JavaScript | <ul><li>Better Comments Extension</li><li>Array Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
+| [Array Management](/JavaScript/array_management.js) | JavaScript | <ul><li>Better Comments Extension</li><li>Array Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
