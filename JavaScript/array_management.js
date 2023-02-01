@@ -10,7 +10,16 @@
  * Created By: Josh Johnson
  */
 
-const list0 = []; /* empty list */
+/**
+  * Using the Better Comments extension 
+  * 
+  * TODO: A to do comment for future editing
+  * * This is an important comment which highlights the line
+  * ? Question/Double-check comment
+  * ! Incorrect comment
+  */
+
+const list0 = []; // * empty list 
 
 // * integer lists 
 const list1 = [0]; 
