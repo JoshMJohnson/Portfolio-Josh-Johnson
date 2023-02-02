@@ -70,8 +70,7 @@ main();
 function main() {
     /* specifications */
     console.log("\t\t\t\tSpecs");
-    console.log("--------------------------------------");
-    
+    console.log("--------------------------------------");    
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -133,103 +132,143 @@ function create_copy() {
     console.log(temp);
 }
 
-/* concat method */
+/** 
+ * joins arrays and returns an array with the joined arrays
+ */
 function concat() { // TODO 
     
 }
 
-/* copyWithin method */
+/**
+ * copies array elements within the array, to and from specified positions 
+ */
 function copyWithin() { // TODO
 
 }
 
-/* entries method */
+/** 
+ * returns a key/value pair Array Iteration Object
+ */
 function entries() { // TODO
 
 }
 
-/* every method */
+/**
+ * checks if every element in an array pass a test
+ */
 function every() { // TODO
 
 }
 
-/* fill method */
+/** 
+ * fill the elements in an array with a static value
+ */
 function fill() { // TODO
 
 }
 
-/* filter method */
+/**
+ * creates a new array with every element in an array that pass a test
+ */
 function filter() { // TODO
 
 }
 
-/* find method */
+/**
+ * returns the value of the first element in an array that pass a test
+ */
 function find() { // TODO
 
 }
 
-/* findIndex method */
+/**
+ * returns the index of the first element in an array that pass a test
+ */
 function findIndex() { // TODO 
 
 }
 
-/* forEach method */
+/**
+ * calls a function for each array element
+ */
 function forEach() { // TODO
 
 }
 
-/* from method */
+/**
+ * creates an array from an object
+ */
 function from() { // TODO
 
 }
 
-/* includes method */
+/** 
+ * check if an array contains the specified element
+ */
 function includes() { // TODO 
 
 }
 
-/* indexOf method */
+/**
+ * search the array for an element and returns its position
+ */
 function indexOf() { // TODO
 
 }
 
-/* isArray method */
+/**
+ * checks whether an object is an array
+ */
 function isArray() { // TODO
 
 }
 
-/* join method */
+/**
+ * joins all elements of an array into a string
+ */
 function join() {
     let temp = list5.map((x) => x);
     console.log(`join: ${temp.join(" * ")}`);
 }
 
-/* keys method */
+/**
+ * returns a Array Iteration Object, containing the keys of the original array
+ */
 function keys() { // TODO
 
 }
 
-/* lastIndexOf method */
+/**
+ * search the array for an element, starting at the end, and returns its position
+ */
 function lastIndexOf() { // TODO
 
 }
 
-/* length method */
+/**
+ * sets or returns the number of elements in an array
+ */
 function length() { // TODO
 
 }
 
-/* map method */
+/**
+ * creates a new array with the result of calling a function for each array element
+ */
 function map() { // TODO
 
 }
 
-/* prototype */
+/**
+ * allows you to add properties and methods to an Array object
+ */
 function prototype() { // TODO
 
 }
 
-/* pop method */
+/**
+ * removes the last element of an array, and returns that element
+ */
 function pop() {
     let temp = list5.slice();
     let popped_value = temp.pop();
@@ -238,62 +277,86 @@ function pop() {
     console.log(`Popped value from above: ${popped_value}`);
 }
 
-/* push method */
+/**
+ * adds new elements to the end of an array, and returns the new length
+ */
 function push() { // TODO
 
 }
 
-/* reduce method */
+/**
+ * reduce the values of an array to a single value (going left-to-right)
+ */
 function reduce() { // TODO
 
 }
 
-/* reduceRight method */
+/**
+ * reduce the values of an array to a single value (going right-to-left)
+ */
 function reduceRight() { // TODO
 
 }
 
-/* reverse method */
-function reduceRight() { // TODO
+/**
+ * reverses the order of the elements in an array
+ */
+function reverse() { // TODO
 
 }
 
-/* shift method */
+/**
+ * removes the first element of an array, and returns that element
+ */
 function shift() { // TODO
 
 }
 
-/* unshift method */
+/**
+ * adds new elements to the beginning of an array, and returns the new length
+ */
 function unshift() { // TODO
 
 }
 
-/* slice method */
+/**
+ * selects a part of an array, and returns the new array
+ */
 function slice() { // TODO
 
 }
 
-/* some method */
+/**
+ * checks if any of the elements in an array pass a test
+ */
 function some() { // TODO
 
 }
 
-/* sort method */
+/**
+ * sorts the elements of an array
+ */
 function sort() { // TODO
 
 }
 
-/* splice method */
+/**
+ * adds/removes elements from an array
+ */
 function splice() { // TODO
 
 }
 
-/* toString method */
+/**
+ * converts an array to a string, and returns the result
+ */
 function toString() { // TODO
 
 }
 
-/* valueOf method */
+/**
+ * returns the primitive value of an array
+ */
 function valueOf() { // TODO
 
 }
