@@ -1,7 +1,7 @@
 /**
  * Array Management JavaScript:
  *  - Specifications
- *  - Iteration
+ *  - List Manipulation
  *  - Insertion
  *  - Deletion
  *  - Element Locating
@@ -11,13 +11,13 @@
  */
 
 /**
-  * Using the Better Comments extension 
-  * 
-  * TODO: A to do comment for future editing
-  * * This is an important comment which highlights the line
-  * ? Question/Double-check comment
-  * ! Incorrect comment
-  */
+ * Using the Better Comments extension 
+ * 
+ * TODO: A to do comment for future editing
+ * * This is an important comment which highlights the line
+ * ? Question/Double-check comment
+ * ! Incorrect comment
+ */
 
 const list0 = []; // * empty list 
 
@@ -64,9 +64,78 @@ const list28 = [1, 2, 3.0, 4, "JJ", 6, "Air Plane"];
 // * boolean lists 
 const list29 = [true, false];
 
-print_stdout(list28);
+main();
 
-/* prints to stdout */
-function print_stdout(instance) {
-    console.log(instance)
+/* main function */
+function main() {
+    /* specifications */
+    console.log("\t\t\t\tSpecs");
+    console.log("--------------------------------------");
+    temp();
+
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
+
+    /* list manipulation */
+    console.log("\t\t\tList Manipulation");
+    console.log("--------------------------------------");
+    join();
+
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
+
+    /* insertion */
+    console.log("\t\t\t   Insertion");
+    console.log("--------------------------------------");
+
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
+
+    /* deletion */
+    console.log("\t\t\t   Deletion");
+    console.log("--------------------------------------");
+    pop();
+
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
+
+    /* element locating */
+    console.log("\t\t\tElement Locating");
+    console.log("--------------------------------------");
+
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
+
+    /* element manipulation */
+    console.log("\t\t  Element Manipulation");
+    console.log("--------------------------------------");
+}
+
+/* creating a copy of an array */
+function temp() {
+    let temp = list24.slice(); // makes a copy of list
+    process.stdout.write("Temp: ");
+    console.log(temp);
+
+    console.log(`Temp: ${temp}`);
+}
+
+/* join method */
+function join() {
+    let temp = list24.map((x) => x); // makes a copy of list
+    console.log(`join: ${temp.join(" * ")}`);
+}
+
+/* pop method */
+function pop() {
+    let temp = list24.slice();
+    temp.pop();
+    process.stdout.write("pop: ");
+    console.log(temp);
+
 }
