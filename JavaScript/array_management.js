@@ -133,18 +133,167 @@ function create_copy() {
     console.log(temp);
 }
 
+/* concat method */
+function concat() { // TODO 
+    
+}
+
+/* copyWithin method */
+function copyWithin() { // TODO
+
+}
+
+/* entries method */
+function entries() { // TODO
+
+}
+
+/* every method */
+function every() { // TODO
+
+}
+
+/* fill method */
+function fill() { // TODO
+
+}
+
+/* filter method */
+function filter() { // TODO
+
+}
+
+/* find method */
+function find() { // TODO
+
+}
+
+/* findIndex method */
+function findIndex() { // TODO 
+
+}
+
+/* forEach method */
+function forEach() { // TODO
+
+}
+
+/* from method */
+function from() { // TODO
+
+}
+
+/* includes method */
+function includes() { // TODO 
+
+}
+
+/* indexOf method */
+function indexOf() { // TODO
+
+}
+
+/* isArray method */
+function isArray() { // TODO
+
+}
+
 /* join method */
 function join() {
     let temp = list5.map((x) => x);
     console.log(`join: ${temp.join(" * ")}`);
 }
 
+/* keys method */
+function keys() { // TODO
+
+}
+
+/* lastIndexOf method */
+function lastIndexOf() { // TODO
+
+}
+
+/* length method */
+function length() { // TODO
+
+}
+
+/* map method */
+function map() { // TODO
+
+}
+
+/* prototype */
+function prototype() { // TODO
+
+}
+
 /* pop method */
 function pop() {
-    // method 1
     let temp = list5.slice();
     let popped_value = temp.pop();
     process.stdout.write("pop; remove last element: ");
     console.log(temp);
     console.log(`Popped value from above: ${popped_value}`);
+}
+
+/* push method */
+function push() { // TODO
+
+}
+
+/* reduce method */
+function reduce() { // TODO
+
+}
+
+/* reduceRight method */
+function reduceRight() { // TODO
+
+}
+
+/* reverse method */
+function reduceRight() { // TODO
+
+}
+
+/* shift method */
+function shift() { // TODO
+
+}
+
+/* unshift method */
+function unshift() { // TODO
+
+}
+
+/* slice method */
+function slice() { // TODO
+
+}
+
+/* some method */
+function some() { // TODO
+
+}
+
+/* sort method */
+function sort() { // TODO
+
+}
+
+/* splice method */
+function splice() { // TODO
+
+}
+
+/* toString method */
+function toString() { // TODO
+
+}
+
+/* valueOf method */
+function valueOf() { // TODO
+
 }
