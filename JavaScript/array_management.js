@@ -71,7 +71,7 @@ function main() {
     /* specifications */
     console.log("\t\t\t\tSpecs");
     console.log("--------------------------------------");
-    temp();
+    
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -79,6 +79,8 @@ function main() {
 
     /* list manipulation */
     console.log("\t\t\tList Manipulation");
+    console.log("--------------------------------------");
+    create_copy();
     console.log("--------------------------------------");
     join();
 
@@ -117,25 +119,32 @@ function main() {
 }
 
 /* creating a copy of an array */
-function temp() {
-    let temp = list24.slice(); // makes a copy of list
-    process.stdout.write("Temp: ");
+function create_copy() {
+    // method one
+    let temp = list5.slice(); // makes a copy of list
+    process.stdout.write("List Copy: ");
     console.log(temp);
 
-    console.log(`Temp: ${temp}`);
+    console.log(`List Copy: ${temp}`);
+
+    // method two
+    temp = list5.map((x) => x); // makes a copy of list
+    process.stdout.write("List Copy 2: ");
+    console.log(temp);
 }
 
 /* join method */
 function join() {
-    let temp = list24.map((x) => x); // makes a copy of list
+    let temp = list5.map((x) => x);
     console.log(`join: ${temp.join(" * ")}`);
 }
 
 /* pop method */
 function pop() {
-    let temp = list24.slice();
-    temp.pop();
-    process.stdout.write("pop: ");
+    // method 1
+    let temp = list5.slice();
+    let popped_value = temp.pop();
+    process.stdout.write("pop; remove last element: ");
     console.log(temp);
-
+    console.log(`Popped value from above: ${popped_value}`);
 }
