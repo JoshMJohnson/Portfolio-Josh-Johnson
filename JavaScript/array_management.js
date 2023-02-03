@@ -73,7 +73,10 @@ function main() {
     /* specifications */
     console.log("\t\t\t\tSpecs");
     console.log("--------------------------------------");    
-    
+    create_copy();
+    console.log("--------------------------------------"); 
+    length();
+        
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
@@ -81,9 +84,9 @@ function main() {
     /* list manipulation */
     console.log("\t\t\tList Manipulation");
     console.log("--------------------------------------");
-    create_copy();
-    console.log("--------------------------------------");
     join();
+    console.log("--------------------------------------");
+    entries();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -129,10 +132,10 @@ function main() {
 function create_copy() {
     // method one
     let temp = list5.slice(); 
-    process.stdout.write("List Copy: ");
+    process.stdout.write("List Copy 1: ");
     console.log(temp);
 
-    console.log(`List Copy: ${temp}`);
+    console.log(`List Copy 1: ${temp}`);
 
     // method two
     temp = list5.map((x) => x); 
@@ -164,6 +167,7 @@ function concat() {
 
 /**
  * copies array elements within the array, to and from specified positions 
+ * 
  * syntax: array.copyWithin(target, start, end)
  */
 function copyWithin() { 
@@ -183,8 +187,15 @@ function copyWithin() {
 /** 
  * returns a key/value pair Array Iteration Object
  */
-function entries() { // TODO
+function entries() {
+    const temp = list25.slice();
+    const c = temp.entries();
+
     console.log("entries: ");
+
+    for (let x of c) {
+        console.log("\t" + x.toString());
+    }
 }
 
 /**
@@ -282,8 +293,8 @@ function lastIndexOf() { // TODO
 /**
  * sets or returns the number of elements in an array
  */
-function length() { // TODO
-    console.log("length: ");
+function length() { 
+    console.log(`length: ${list5.length}`);
 }
 
 /**
