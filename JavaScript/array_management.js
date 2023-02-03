@@ -135,12 +135,13 @@ function main() {
  * creating a copy of an array 
  */
 function create_copy() {
-    // method one
+    // method one; part A
     let temp = list5.slice(); 
-    process.stdout.write("List Copy 1: ");
+    process.stdout.write("List Copy 1; part A: ");
     console.log(temp);
 
-    console.log(`List Copy 1: ${temp}`);
+    // method one; part B
+    console.log(`List Copy 1; part B: ${temp}`);
 
     // method two
     temp = list5.map((x) => x); 
@@ -197,7 +198,6 @@ function entries() {
     const c = temp.entries();
 
     console.log("entries: ");
-
     for (let x of c) {
         console.log("\t" + x.toString());
     }
@@ -209,7 +209,6 @@ function entries() {
 function every() { 
     // method 1
     let temp = list32.slice();
-    
     let result = temp.every(isPositive);
     function isPositive(num) {
         return num > 0;
@@ -335,8 +334,12 @@ function prototype() { // TODO
 function pop() {
     let temp = list5.slice();
     let popped_value = temp.pop();
+
+    // updated list after value is popped
     process.stdout.write("pop; remove last element: ");
     console.log(temp);
+
+    // value of the element popped from the list
     console.log(`Popped value from above: ${popped_value}`);
 }
 
