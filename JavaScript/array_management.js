@@ -19,6 +19,8 @@
  * ! Incorrect comment
  */
 
+
+// TODO: reorder lists to increasing order
 const list0 = []; // * empty list 
 
 // * integer lists 
@@ -27,6 +29,7 @@ const list2 = [4, 1];
 const list3 = [-4, 6, 2]; 
 const list4 = [0, 84, -3, 40, -21, 21];
 const list5 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+const list32 = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
 const list6 = [2, 4, 3, 2, 4, 2, 2]; 
 const list7 = [1, 2.0, 3, 4, 5.2, 6, 7, 8.5, 9, 10.9, 11]; 
 
@@ -76,6 +79,8 @@ function main() {
     create_copy();
     console.log("--------------------------------------"); 
     length();
+    console.log("--------------------------------------"); 
+    every();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -202,7 +207,14 @@ function entries() {
  * checks if every element in an array pass a test
  */
 function every() { // TODO
-    console.log("every: ");
+    const temp = list32.slice();
+    
+    let result = temp.every(isPositive);
+    function isPositive(num) {
+        return num > 0;
+    }
+
+    console.log(`every: ${result}`);
 }
 
 /** 
