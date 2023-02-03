@@ -54,6 +54,8 @@ const list21 = ["hello world of coding!"];
 const list22 = ["cat", "dog", "cat", "dog", "dog", "guinea pig", "fish"];
 const list23 = ["Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"];
 const list24 = ["Vikings", "Packers", "Lions", "Bears"];
+const list30 = ["Chiefs", "Chargers", "Raiders", "Broncos"];
+const list31 = ["Buccaneers", "Panthers", "Saints", "Falcons"];
 const list25 = ["Commander Cody", "Captain Rex", "Echo", "Commander Fox"];
 const list26 = ["Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Mace Windu", "Plo koon"];
 const list27 = ["Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Darth Sidious"];
@@ -71,7 +73,7 @@ function main() {
     /* specifications */
     console.log("\t\t\t\tSpecs");
     console.log("--------------------------------------");    
-
+    
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
@@ -90,7 +92,10 @@ function main() {
     /* insertion */
     console.log("\t\t\t   Insertion");
     console.log("--------------------------------------");
+    concat();
+    console.log("--------------------------------------");
 
+    
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
@@ -115,6 +120,7 @@ function main() {
     /* element manipulation */
     console.log("\t\t  Element Manipulation");
     console.log("--------------------------------------");
+    copyWithin();
 }
 
 /**
@@ -137,15 +143,41 @@ function create_copy() {
 /** 
  * joins arrays and returns an array with the joined arrays
  */
-function concat() { // TODO 
-    console.log("concat: ");
+function concat() { 
+    // method one; 2 lists
+    let temp1 = list24.slice();
+    let temp2 = list30.slice();
+    let combinedTemps = temp1.concat(temp2);
+
+    process.stdout.write("concat; 2 lists: ");
+    console.log(combinedTemps);
+
+    // method two; 3 lists
+    temp1 = list24.slice();
+    temp2 = list30.slice();
+    let temp3 = list31.slice();
+    combinedTemps = temp1.concat(temp2, temp3);
+
+    process.stdout.write("concat; 3 lists: ");
+    console.log(combinedTemps);
 }
 
 /**
  * copies array elements within the array, to and from specified positions 
+ * syntax: array.copyWithin(target, start, end)
  */
-function copyWithin() { // TODO
-    console.log("copyWithin: ");
+function copyWithin() { 
+    // method 1
+    let temp = list5.slice();
+    temp.copyWithin(2,0);
+    process.stdout.write("copyWithin; 2 parameters: ");
+    console.log(temp);
+
+    // method 2
+    temp = list5.slice();
+    temp.copyWithin(2, 0, 2);
+    process.stdout.write("copyWithin; 3 parameters: ");
+    console.log(temp);
 }
 
 /** 
