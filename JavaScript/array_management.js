@@ -206,14 +206,20 @@ function entries() {
 /**
  * checks if every element in an array pass a test
  */
-function every() { // TODO
-    const temp = list32.slice();
+function every() { 
+    // method 1
+    let temp = list32.slice();
     
     let result = temp.every(isPositive);
     function isPositive(num) {
         return num > 0;
     }
 
+    console.log(`every: ${result}`);
+
+    // method 2
+    temp = list5.slice();
+    result = temp.every((num) => {return num > 0;});
     console.log(`every: ${result}`);
 }
 
