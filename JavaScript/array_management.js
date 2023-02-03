@@ -117,17 +117,19 @@ function main() {
     console.log("--------------------------------------");
 }
 
-/* creating a copy of an array */
+/**
+ * creating a copy of an array 
+ */
 function create_copy() {
     // method one
-    let temp = list5.slice(); // makes a copy of list
+    let temp = list5.slice(); 
     process.stdout.write("List Copy: ");
     console.log(temp);
 
     console.log(`List Copy: ${temp}`);
 
     // method two
-    temp = list5.map((x) => x); // makes a copy of list
+    temp = list5.map((x) => x); 
     process.stdout.write("List Copy 2: ");
     console.log(temp);
 }
@@ -136,91 +138,91 @@ function create_copy() {
  * joins arrays and returns an array with the joined arrays
  */
 function concat() { // TODO 
-    
+    console.log("concat: ");
 }
 
 /**
  * copies array elements within the array, to and from specified positions 
  */
 function copyWithin() { // TODO
-
+    console.log("copyWithin: ");
 }
 
 /** 
  * returns a key/value pair Array Iteration Object
  */
 function entries() { // TODO
-
+    console.log("entries: ");
 }
 
 /**
  * checks if every element in an array pass a test
  */
 function every() { // TODO
-
+    console.log("every: ");
 }
 
 /** 
  * fill the elements in an array with a static value
  */
 function fill() { // TODO
-
+    console.log("fill: ");
 }
 
 /**
  * creates a new array with every element in an array that pass a test
  */
 function filter() { // TODO
-
+    console.log("filter: ");
 }
 
 /**
  * returns the value of the first element in an array that pass a test
  */
 function find() { // TODO
-
+    console.log("find: ");
 }
 
 /**
  * returns the index of the first element in an array that pass a test
  */
 function findIndex() { // TODO 
-
+    console.log("findIndex: ");
 }
 
 /**
  * calls a function for each array element
  */
 function forEach() { // TODO
-
+    console.log("forEach: ");
 }
 
 /**
  * creates an array from an object
  */
 function from() { // TODO
-
+    console.log("from: ");
 }
 
 /** 
  * check if an array contains the specified element
  */
 function includes() { // TODO 
-
+    console.log("includes: ");
 }
 
 /**
  * search the array for an element and returns its position
  */
 function indexOf() { // TODO
-
+    console.log("indexOf: ");
 }
 
 /**
  * checks whether an object is an array
  */
 function isArray() { // TODO
-
+    console.log("isArray: ");
 }
 
 /**
@@ -235,35 +237,35 @@ function join() {
  * returns a Array Iteration Object, containing the keys of the original array
  */
 function keys() { // TODO
-
+    console.log("keys: ");
 }
 
 /**
  * search the array for an element, starting at the end, and returns its position
  */
 function lastIndexOf() { // TODO
-
+    console.log("lastIndexOf: ");
 }
 
 /**
  * sets or returns the number of elements in an array
  */
 function length() { // TODO
-
+    console.log("length: ");
 }
 
 /**
  * creates a new array with the result of calling a function for each array element
  */
 function map() { // TODO
-
+    console.log("map: ");
 }
 
 /**
  * allows you to add properties and methods to an Array object
  */
 function prototype() { // TODO
-
+    console.log("prototype: ");
 }
 
 /**
@@ -281,82 +283,82 @@ function pop() {
  * adds new elements to the end of an array, and returns the new length
  */
 function push() { // TODO
-
+    console.log("push: ");
 }
 
 /**
  * reduce the values of an array to a single value (going left-to-right)
  */
 function reduce() { // TODO
-
+    console.log("reduce: ");
 }
 
 /**
  * reduce the values of an array to a single value (going right-to-left)
  */
 function reduceRight() { // TODO
-
+    console.log("reduceRight: ");
 }
 
 /**
  * reverses the order of the elements in an array
  */
 function reverse() { // TODO
-
+    console.log("reverse: ");
 }
 
 /**
  * removes the first element of an array, and returns that element
  */
 function shift() { // TODO
-
+    console.log("shift: ");
 }
 
 /**
  * adds new elements to the beginning of an array, and returns the new length
  */
 function unshift() { // TODO
-
+    console.log("unshift: ");
 }
 
 /**
  * selects a part of an array, and returns the new array
  */
 function slice() { // TODO
-
+    console.log("slice: ");
 }
 
 /**
  * checks if any of the elements in an array pass a test
  */
 function some() { // TODO
-
+    console.log("some: ");
 }
 
 /**
  * sorts the elements of an array
  */
 function sort() { // TODO
-
+    console.log("sort: ");
 }
 
 /**
  * adds/removes elements from an array
  */
 function splice() { // TODO
-
+    console.log("splice: ");
 }
 
 /**
  * converts an array to a string, and returns the result
  */
 function toString() { // TODO
-
+    console.log("toString: ");
 }
 
 /**
  * returns the primitive value of an array
  */
 function valueOf() { // TODO
-
+    console.log("valueOf: ");
 }
