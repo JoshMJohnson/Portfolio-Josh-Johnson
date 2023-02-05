@@ -81,6 +81,8 @@ function main() {
     length();
     console.log("--------------------------------------"); 
     every();
+    console.log("--------------------------------------"); 
+    filter();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -129,6 +131,8 @@ function main() {
     console.log("\t\t  Element Manipulation");
     console.log("--------------------------------------");
     copyWithin();
+    console.log("--------------------------------------");
+    fill();
 }
 
 /**
@@ -225,15 +229,32 @@ function every() {
 /** 
  * fill the elements in an array with a static value
  */
-function fill() { // TODO
-    console.log("fill: ");
+function fill() { 
+    // method 1; fill all elements with a value
+    let temp = list27.slice();
+    temp.fill("Final 4");
+    process.stdout.write("fill; change all elements: ");
+    console.log(temp);
+
+    // method 2    
+    temp = list27.slice();
+    temp.fill("Jedi", 1, 3);
+    process.stdout.write("fill; change range of elements: ");
+    console.log(temp);
 }
 
 /**
  * creates a new array with every element in an array that pass a test
  */
-function filter() { // TODO
-    console.log("filter: ");
+function filter() {
+    const temp = list3.slice();
+    const qualifiedElementsFromList = temp.filter(allPositive);
+    function allPositive(num) {
+        return num > 0;
+    }
+
+    process.stdout.write("filter: ");
+    console.log(qualifiedElementsFromList);
 }
 
 /**
