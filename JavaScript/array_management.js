@@ -32,6 +32,7 @@ const list5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const list32 = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
 const list6 = [2, 4, 3, 2, 4, 2, 2]; 
 const list7 = [1, 2.0, 3, 4, 5.2, 6, 7, 8.5, 9, 10.9, 11]; 
+const list33 = [123456789];
 
 // * double lists 
 const list8 = [3.5];
@@ -73,7 +74,7 @@ main();
 
 /* main function */
 function main() {
-    /* specifications */
+    // * specifications 
     console.log("\t\t\t\tSpecs");
     console.log("--------------------------------------");    
     create_copy();
@@ -88,7 +89,7 @@ function main() {
     console.log("**************************************");
     console.log("**************************************\n\n");
 
-    /* list manipulation */
+    // * list manipulation
     console.log("\t\t\tList Manipulation");
     console.log("--------------------------------------");
     join();
@@ -96,12 +97,13 @@ function main() {
     entries();
     console.log("--------------------------------------");
     forEach();
+    
 
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
 
-    /* insertion */
+    // * insertion 
     console.log("\t\t\t   Insertion");
     console.log("--------------------------------------");
     concat();
@@ -112,7 +114,7 @@ function main() {
     console.log("**************************************");
     console.log("**************************************\n\n");
 
-    /* deletion */
+    // * deletion 
     console.log("\t\t\t   Deletion");
     console.log("--------------------------------------");
     pop();
@@ -121,23 +123,27 @@ function main() {
     console.log("**************************************");
     console.log("**************************************\n\n");
 
-    /* element locating */
+    // * element locating 
     console.log("\t\t\tElement Locating");
     console.log("--------------------------------------");
     find();
     console.log("--------------------------------------");
     findIndex();
+    console.log("--------------------------------------");
+    includes();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
 
-    /* element manipulation */
+    // * element manipulation
     console.log("\t\t  Element Manipulation");
     console.log("--------------------------------------");
     copyWithin();
     console.log("--------------------------------------");
     fill();
+    console.log("--------------------------------------");
+    from();
 }
 
 /**
@@ -241,7 +247,7 @@ function fill() {
     process.stdout.write("fill; change all elements: ");
     console.log(temp);
 
-    // method 2    
+    // method 2; change range of elements    
     temp = list27.slice();
     temp.fill("Jedi", 1, 3);
     process.stdout.write("fill; change range of elements: ");
@@ -304,15 +310,42 @@ function forEach() {
 /**
  * creates an array from an object
  */
-function from() { // TODO
-    console.log("from: ");
+function from() { 
+    // method 1
+    let temp = list15.slice();
+    let result = Array.from(temp.toString());
+    
+    process.stdout.write("from; 1 parameter: ");
+    console.log(result);
+
+    // method 2
+    temp = list33.slice();
+    result = Array.from(temp.toString(), x => x + x);
+    
+    process.stdout.write("from; 2 parameters: ");
+    console.log(result);
+
+    // method 3
+    temp = list5.slice();
+    result = Array.from(temp, x => x + x);
+    
+    process.stdout.write("from; 2 parameters: ");
+    console.log(result);
 }
 
 /** 
  * check if an array contains the specified element
  */
-function includes() { // TODO 
-    console.log("includes: ");
+function includes() { 
+    // method 1; 1 parameter
+    let temp = list30.slice();
+    let result = temp.includes("Chargers");
+    console.log(`includes; 1 parameter: ${result}`);
+
+    // method 2; 2 parameters - start the search at position given
+    temp = list30.slice();
+    result = temp.includes("Chargers", 2);
+    console.log(`includes; 2 parameters: ${result}`);
 }
 
 /**
