@@ -94,6 +94,8 @@ function main() {
     join();
     console.log("--------------------------------------");
     entries();
+    console.log("--------------------------------------");
+    forEach();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -122,6 +124,9 @@ function main() {
     /* element locating */
     console.log("\t\t\tElement Locating");
     console.log("--------------------------------------");
+    find();
+    console.log("--------------------------------------");
+    findIndex();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -260,22 +265,40 @@ function filter() {
 /**
  * returns the value of the first element in an array that pass a test
  */
-function find() { // TODO
-    console.log("find: ");
+function find() { 
+    const temp = list3.slice();
+    let result = temp.find(firstPositive);
+    function firstPositive(num) {
+        return num > 0;
+    }
+
+    console.log("find: " + result);
 }
 
 /**
  * returns the index of the first element in an array that pass a test
  */
-function findIndex() { // TODO 
-    console.log("findIndex: ");
+function findIndex() {  
+    const temp = list3.slice();
+    let result = temp.findIndex(firstPositive);
+    function firstPositive(num) {
+        return num > 0;
+    }
+
+    console.log("findIndex: " + result);
 }
 
 /**
  * calls a function for each array element
  */
-function forEach() { // TODO
+function forEach() {
     console.log("forEach: ");
+    list24.forEach(printPrefix);
+    function printPrefix(element, index) {
+        console.log(`\telement ${index} : ${element} `);
+    }
+
+    console.log("");
 }
 
 /**
