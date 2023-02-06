@@ -70,6 +70,9 @@ const list28 = [1, 2, 3.0, 4, "JJ", 6, "Air Plane"];
 // * boolean lists 
 const list29 = [true, false];
 
+// * fake lists
+const list99 = "Commander Cody";
+
 main();
 
 /* main function */
@@ -84,6 +87,8 @@ function main() {
     every();
     console.log("--------------------------------------"); 
     filter();
+    console.log("--------------------------------------"); 
+    isArray();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -131,6 +136,8 @@ function main() {
     findIndex();
     console.log("--------------------------------------");
     includes();
+    console.log("--------------------------------------");
+    indexOf();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -351,15 +358,27 @@ function includes() {
 /**
  * search the array for an element and returns its position
  */
-function indexOf() { // TODO
-    console.log("indexOf: ");
+function indexOf() {
+    // method 1; find first index
+    let result = list22.indexOf("dog");
+    console.log(`indexOf; find first index: ${result}`);
+
+    // method 2; start at index given
+    result = list22.indexOf("dog", 3);
+    console.log(`indexOf; start at index given: ${result}`);
 }
 
 /**
  * checks whether an object is an array
  */
-function isArray() { // TODO
-    console.log("isArray: ");
+function isArray() {
+    // returns true
+    let result = Array.isArray(list1);
+    console.log(`isArray: ${result}`);
+
+    // returns false
+    result = Array.isArray(list99);
+    console.log(`isArray: ${result}`);
 }
 
 /**
