@@ -124,6 +124,8 @@ function main() {
     console.log("\t\t\t   Deletion");
     console.log("--------------------------------------");
     pop();
+    console.log("--------------------------------------");
+    shift();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -502,8 +504,12 @@ function reverse() {
 /**
  * removes the first element of an array, and returns that element
  */
-function shift() { // TODO
-    console.log("shift: ");
+function shift() {
+    let temp = list5.slice();
+    let shiftedItem = temp.shift();
+    process.stdout.write("shift: ");
+    console.log(temp);
+    process.stdout.write(`shifted item from above: ${shiftedItem}`);
 }
 
 /**
