@@ -99,10 +99,11 @@ function main() {
     console.log("--------------------------------------");
     join();
     console.log("--------------------------------------");
-    entries();
+    entries();    
     console.log("--------------------------------------");
     forEach();
-    
+    console.log("--------------------------------------");
+    reverse();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -113,7 +114,7 @@ function main() {
     console.log("--------------------------------------");
     concat();
     console.log("--------------------------------------");
-
+    push();
     
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -135,10 +136,12 @@ function main() {
     console.log("--------------------------------------");
     findIndex();
     console.log("--------------------------------------");
+    lastIndexOf();
+    console.log("--------------------------------------");
     includes();
     console.log("--------------------------------------");
     indexOf();
-
+    
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
@@ -151,6 +154,8 @@ function main() {
     fill();
     console.log("--------------------------------------");
     from();
+    console.log("--------------------------------------");
+    map();
 }
 
 /**
@@ -372,11 +377,11 @@ function indexOf() {
  * checks whether an object is an array
  */
 function isArray() {
-    // returns true
+    // example 1
     let result = Array.isArray(list1);
     console.log(`isArray: ${result}`);
 
-    // returns false
+    // example 2
     result = Array.isArray(list99);
     console.log(`isArray: ${result}`);
 }
@@ -399,8 +404,9 @@ function keys() { // TODO
 /**
  * search the array for an element, starting at the end, and returns its position
  */
-function lastIndexOf() { // TODO
-    console.log("lastIndexOf: ");
+function lastIndexOf() {
+    let result = list22.lastIndexOf("dog");
+    console.log(`lastIndexOf: ${result}`);
 }
 
 /**
@@ -413,8 +419,28 @@ function length() {
 /**
  * creates a new array with the result of calling a function for each array element
  */
-function map() { // TODO
-    console.log("map: ");
+function map() {
+    // example 1
+    let result = list5.map(Math.sqrt);
+    process.stdout.write("map; example 1: ");
+    console.log(result);
+
+    // example 2
+    result = list5.map(multTen);
+    function multTen(num) {
+        return num * 10;
+    }
+
+    process.stdout.write("map; example 2: ");
+    console.log(result);
+
+    // example 3
+    result = list5.map(function (num) {
+        return num % 2;
+    });
+
+    process.stdout.write("map; example 3: ");
+    console.log(result);
 }
 
 /**
@@ -442,8 +468,11 @@ function pop() {
 /**
  * adds new elements to the end of an array, and returns the new length
  */
-function push() { // TODO
-    console.log("push: ");
+function push() {
+    let temp = list25.slice();
+    temp.push("Commander Wolffe");
+    process.stdout.write("push: ");
+    console.log(temp);
 }
 
 /**
@@ -463,8 +492,11 @@ function reduceRight() { // TODO
 /**
  * reverses the order of the elements in an array
  */
-function reverse() { // TODO
-    console.log("reverse: ");
+function reverse() {
+    let temp = list5.slice();
+    temp.reverse();
+    process.stdout.write("reverse: ");
+    console.log(temp);
 }
 
 /**
