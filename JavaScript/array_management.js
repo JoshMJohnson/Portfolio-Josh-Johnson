@@ -125,6 +125,8 @@ function main() {
     sort();
     console.log("--------------------------------------");
     prototype();
+    console.log("--------------------------------------");
+    keys();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -407,8 +409,24 @@ function join() {
 /**
  * returns a Array Iteration Object, containing the keys of the original array
  */
-function keys() { // TODO
-    console.log("keys: ");
+function keys() {
+    // example 1; create an Array Iterator object, containing the keys of the array
+    let temp = list24.slice();
+    let keys = temp.keys();
+
+    console.log("keys; array iterator: ");
+    for (let x of keys) {
+        console.log(`\t${x}`);
+    }
+
+    // example 2; using the built in Object.keys() method
+    temp = list24.slice();
+    keys = Object.keys(temp);
+
+    console.log("keys; object.keys: ");
+    for (let x of keys) {
+        console.log(`\t${x}`);
+    }
 }
 
 /**
