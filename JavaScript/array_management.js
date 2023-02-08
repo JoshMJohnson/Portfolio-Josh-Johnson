@@ -85,17 +85,22 @@ function main() {
     console.log("--------------------------------------"); 
     length();
     console.log("--------------------------------------"); 
-    every();
-    console.log("--------------------------------------"); 
     filter();
-    console.log("--------------------------------------"); 
-    isArray();
     console.log("--------------------------------------"); 
     slice();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
+
+    // * list conditions
+    console.log("\t\t\tlist conditions");
+    console.log("--------------------------------------"); 
+    every();
+    console.log("--------------------------------------"); 
+    some();
+    console.log("--------------------------------------"); 
+    isArray();
 
     // * list manipulation
     console.log("\t\t\tList Manipulation");
@@ -241,25 +246,6 @@ function entries() {
     for (let x of c) {
         console.log("\t" + x.toString());
     }
-}
-
-/**
- * checks if every element in an array pass a test
- */
-function every() { 
-    // method 1
-    let temp = list32.slice();
-    let result = temp.every(isPositive);
-    function isPositive(num) {
-        return num > 0;
-    }
-
-    console.log(`every: ${result}`);
-
-    // method 2
-    temp = list5.slice();
-    result = temp.every((num) => {return num > 0;});
-    console.log(`every: ${result}`);
 }
 
 /** 
@@ -554,8 +540,19 @@ function unshift() {
  * selects a part of an array, and returns the new array
  */
 function slice() {
+    // example 1; copy list
     let temp = list5.slice();
-    process.stdout.write("slice: ");
+    process.stdout.write("slice; copy list: ");
+    console.log(temp);
+
+    // example 2; copy range of elements using positive values
+    temp = list5.slice(1, 4);
+    process.stdout.write("slice; copy range of elements using positive values: ");
+    console.log(temp);
+
+    // example 3; copy range of elements using negative values
+    temp = list5.slice(-3, -1);
+    process.stdout.write("slice; copy range of elements using negative values: ");
     console.log(temp);
 }
 
@@ -582,7 +579,25 @@ function splice() {
     temp.splice(2, 3);
     process.stdout.write("splice; removing elements: ");
     console.log(temp);
+}
 
+/**
+ * checks if every element in an array pass a test
+ */
+function every() { 
+    // method 1
+    let temp = list32.slice();
+    let result = temp.every(isPositive);
+    function isPositive(num) {
+        return num > 0;
+    }
+
+    console.log(`every: ${result}`);
+
+    // method 2
+    temp = list5.slice();
+    result = temp.every((num) => {return num > 0;});
+    console.log(`every: ${result}`);
 }
 
 /**
