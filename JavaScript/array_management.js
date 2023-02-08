@@ -115,6 +115,8 @@ function main() {
     concat();
     console.log("--------------------------------------");
     push();
+    console.log("--------------------------------------");
+    unshift();
     
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -453,6 +455,30 @@ function prototype() { // TODO
 }
 
 /**
+ * reduce the values of an array to a single value (going left-to-right)
+ */
+function reduce() { // TODO
+    console.log("reduce: ");
+}
+
+/**
+ * reduce the values of an array to a single value (going right-to-left)
+ */
+function reduceRight() { // TODO
+    console.log("reduceRight: ");
+}
+
+/**
+ * reverses the order of the elements in an array
+ */
+function reverse() {
+    let temp = list5.slice();
+    temp.reverse();
+    process.stdout.write("reverse: ");
+    console.log(temp);
+}
+
+/**
  * removes the last element of an array, and returns that element
  */
 function pop() {
@@ -478,30 +504,6 @@ function push() {
 }
 
 /**
- * reduce the values of an array to a single value (going left-to-right)
- */
-function reduce() { // TODO
-    console.log("reduce: ");
-}
-
-/**
- * reduce the values of an array to a single value (going right-to-left)
- */
-function reduceRight() { // TODO
-    console.log("reduceRight: ");
-}
-
-/**
- * reverses the order of the elements in an array
- */
-function reverse() {
-    let temp = list5.slice();
-    temp.reverse();
-    process.stdout.write("reverse: ");
-    console.log(temp);
-}
-
-/**
  * removes the first element of an array, and returns that element
  */
 function shift() {
@@ -515,8 +517,18 @@ function shift() {
 /**
  * adds new elements to the beginning of an array, and returns the new length
  */
-function unshift() { // TODO
-    console.log("unshift: ");
+function unshift() {
+    // example 1; adding 1 item
+    let temp = list26.slice();
+    temp.unshift("Kit Fisto");
+    process.stdout.write("unshift; add 1 item: ");
+    console.log(temp);
+
+    // example 2; adding multiple items
+    temp = list26.slice();
+    temp.unshift("Kit Fisto", "Shaak Ti", "Qui-Gon Jinn");
+    process.stdout.write("unshift; add multiple items: ");
+    console.log(temp);
 }
 
 /**
