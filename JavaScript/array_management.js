@@ -89,6 +89,8 @@ function main() {
     filter();
     console.log("--------------------------------------"); 
     isArray();
+    console.log("--------------------------------------"); 
+    slice();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -534,8 +536,10 @@ function unshift() {
 /**
  * selects a part of an array, and returns the new array
  */
-function slice() { // TODO
-    console.log("slice: ");
+function slice() {
+    let temp = list5.slice();
+    process.stdout.write("slice: ");
+    console.log(temp);
 }
 
 /**
