@@ -1,6 +1,8 @@
 /**
  * Array Management JavaScript:
  *  - Specifications
+ *  - List Conditions
+ *  - Iteration
  *  - List Manipulation
  *  - Insertion
  *  - Deletion
@@ -19,8 +21,6 @@
  * ! Incorrect comment
  */
 
-
-// TODO: reorder lists to increasing order
 const list0 = []; // * empty list 
 
 // * integer lists 
@@ -86,13 +86,13 @@ function main() {
     console.log("--------------------------------------");    
     create_copy();
     console.log("--------------------------------------"); 
-    filter();
-    console.log("--------------------------------------"); 
-    slice();
-    console.log("--------------------------------------"); 
     toString();
     console.log("--------------------------------------"); 
     valueOf();
+    console.log("--------------------------------------"); 
+    slice();
+    console.log("--------------------------------------"); 
+    filter();
     console.log("--------------------------------------"); 
     reduce();
     console.log("--------------------------------------"); 
@@ -103,20 +103,35 @@ function main() {
     console.log("**************************************\n\n");
 
     // * list conditions
-    console.log("\t\t\tlist conditions");
+    console.log("\t\t\tList Conditions");
     console.log("--------------------------------------"); 
     every();
     console.log("--------------------------------------"); 
     some();
     console.log("--------------------------------------"); 
     isArray();
+    console.log("--------------------------------------");
+    includes();
+
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
+
+    // * iteration
+    console.log("\t\t\tIteration");
+    console.log("--------------------------------------");
+    entries();  
+    console.log("--------------------------------------");
+    keys();
+    
+    console.log("\n\n**************************************");
+    console.log("**************************************");
+    console.log("**************************************\n\n");
 
     // * list manipulation
-    console.log("\t\t\tList Manipulation");
+    console.log("\t\tList Manipulation");
     console.log("--------------------------------------");
-    join();
-    console.log("--------------------------------------");
-    entries();    
+    join();    
     console.log("--------------------------------------");
     forEach();
     console.log("--------------------------------------");
@@ -125,9 +140,7 @@ function main() {
     sort();
     console.log("--------------------------------------");
     prototype();
-    console.log("--------------------------------------");
-    keys();
-
+    
     console.log("\n\n**************************************");
     console.log("**************************************");
     console.log("**************************************\n\n");
@@ -168,8 +181,6 @@ function main() {
     findIndex();
     console.log("--------------------------------------");
     lastIndexOf();
-    console.log("--------------------------------------");
-    includes();
     console.log("--------------------------------------");
     indexOf();
     
@@ -599,7 +610,7 @@ function shift() {
     let shiftedItem = temp.shift();
     process.stdout.write("shift: ");
     console.log(temp);
-    process.stdout.write(`shifted item from above: ${shiftedItem}`);
+    console.log(`shifted item from above: ${shiftedItem}`);
 }
 
 /**
