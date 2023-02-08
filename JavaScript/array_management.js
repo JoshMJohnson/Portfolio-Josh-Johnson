@@ -27,52 +27,53 @@ const list0 = []; // * empty list
 const list1 = [0]; 
 const list2 = [4, 1];
 const list3 = [-4, 6, 2]; 
-const list4 = [0, 84, -3, 40, -21, 21];
-const list5 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; 
-const list98 = [9, 8, 7, 6, 5, 4, 3, 2, 1]; 
-const list32 = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
-const list6 = [2, 4, 3, 2, 4, 2, 2]; 
-const list7 = [1, 2.0, 3, 4, 5.2, 6, 7, 8.5, 9, 10.9, 11]; 
-const list33 = [123456789];
+const list4 = [-4.1, 6.9, 2.4];
+const list5 = [0, 84, -3, 40, -21, 21];
+const list6 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+const list7 = [9, 8, 7, 6, 5, 4, 3, 2, 1]; 
+const list8 = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+const list9 = [2, 4, 3, 2, 4, 2, 2]; 
+const list10 = [1, 2.0, 3, 4, 5.2, 6, 7, 8.5, 9, 10.9, 11]; 
+const list11 = [123456789];
 
 // * double lists 
-const list8 = [3.5];
-const list9 = [5, 3.6, 1.2]; 
-const list10 = [-1.7, 0, 6];
-const list11 = [6.9, 7.1, -5, 3.7, -9.8]; 
+const list12 = [3.5];
+const list13 = [5, 3.6, 1.2]; 
+const list14 = [-1.7, 0, 6];
+const list15 = [6.9, 7.1, -5, 3.7, -9.8]; 
 
 // * number lists
-const list12 = [1, 2.0, 3, 4, 5.5, 6.6, 7, 8, 9.9];
+const list16 = [1, 2.0, 3, 4, 5.5, 6.6, 7, 8, 9.9];
 
 // * character lists 
-const list13 = ['a', 'b', 'c'];
+const list17 = ['a', 'b', 'c'];
 
 // * string lists 
-const list14 = [""]; 
-const list15 = ["hello"];
-const list16 = ["Hello World"];
-const list17 = ["hello world"]; 
-const list18 = ["HELLO WORLD"];
-const list19 = ["hello", "world"];
-const list20 = ["hello", "world", "of", "coding", "!"];
-const list21 = ["hello world of coding!"];
-const list22 = ["cat", "dog", "cat", "dog", "dog", "guinea pig", "fish"];
-const list23 = ["Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"];
-const list24 = ["Vikings", "Packers", "Lions", "Bears"];
-const list30 = ["Chiefs", "Chargers", "Raiders", "Broncos"];
-const list31 = ["Buccaneers", "Panthers", "Saints", "Falcons"];
-const list25 = ["Commander Cody", "Captain Rex", "Echo", "Commander Fox"];
-const list26 = ["Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Mace Windu", "Plo koon"];
-const list27 = ["Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Darth Sidious"];
+const list18 = [""]; 
+const list19 = ["hello"];
+const list20 = ["Hello World"];
+const list21 = ["hello world"]; 
+const list22 = ["HELLO WORLD"];
+const list23 = ["hello", "world"];
+const list24 = ["hello", "world", "of", "coding", "!"];
+const list25 = ["hello world of coding!"];
+const list26 = ["cat", "dog", "cat", "dog", "dog", "guinea pig", "fish"];
+const list27 = ["Discraft", "Innova", "Prodigy", "Axiom", "MVP", "Dynamic", "Gateway", "Latitude 64"];
+const list28 = ["Vikings", "Packers", "Lions", "Bears"];
+const list29 = ["Chiefs", "Chargers", "Raiders", "Broncos"];
+const list30 = ["Buccaneers", "Panthers", "Saints", "Falcons"];
+const list31 = ["Commander Cody", "Captain Rex", "Echo", "Commander Fox"];
+const list32 = ["Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Mace Windu", "Plo koon"];
+const list33 = ["Anakin Skywalker", "Yoda", "Obi-Wan Kenobi", "Darth Sidious"];
 
 // * object lists 
-const list28 = [1, 2, 3.0, 4, "JJ", 6, "Air Plane"];
+const list34 = [1, 2, 3.0, 4, "JJ", 6, "Air Plane"];
 
 // * boolean lists 
-const list29 = [true, false];
+const list35 = [true, false];
 
 // * fake lists
-const list99 = "Commander Cody";
+const list36 = "Commander Cody";
 
 main();
 
@@ -191,7 +192,7 @@ function main() {
  */
 function create_copy() {
     // method one; part A
-    let temp = list5.slice(); 
+    let temp = list6.slice(); 
     process.stdout.write("List Copy 1; part A: ");
     console.log(temp);
 
@@ -199,7 +200,7 @@ function create_copy() {
     console.log(`List Copy 1; part B: ${temp}`);
 
     // method two
-    temp = list5.map((x) => x); 
+    temp = list6.map((x) => x); 
     process.stdout.write("List Copy 2: ");
     console.log(temp);
 }
@@ -209,17 +210,17 @@ function create_copy() {
  */
 function concat() { 
     // method one; 2 lists
-    let temp1 = list24.slice();
-    let temp2 = list30.slice();
+    let temp1 = list28.slice();
+    let temp2 = list29.slice();
     let combinedTemps = temp1.concat(temp2);
 
     process.stdout.write("concat; 2 lists: ");
     console.log(combinedTemps);
 
     // method two; 3 lists
-    temp1 = list24.slice();
-    temp2 = list30.slice();
-    let temp3 = list31.slice();
+    temp1 = list28.slice();
+    temp2 = list29.slice();
+    let temp3 = list30.slice();
     combinedTemps = temp1.concat(temp2, temp3);
 
     process.stdout.write("concat; 3 lists: ");
@@ -233,13 +234,13 @@ function concat() {
  */
 function copyWithin() { 
     // method 1
-    let temp = list5.slice();
+    let temp = list6.slice();
     temp.copyWithin(2,0);
     process.stdout.write("copyWithin; 2 parameters: ");
     console.log(temp);
 
     // method 2
-    temp = list5.slice();
+    temp = list6.slice();
     temp.copyWithin(2, 0, 2);
     process.stdout.write("copyWithin; 3 parameters: ");
     console.log(temp);
@@ -249,7 +250,7 @@ function copyWithin() {
  * returns a key/value pair Array Iteration Object
  */
 function entries() {
-    const temp = list25.slice();
+    const temp = list31.slice();
     const c = temp.entries();
 
     console.log("entries: ");
@@ -263,13 +264,13 @@ function entries() {
  */
 function fill() { 
     // method 1; fill all elements with a value
-    let temp = list27.slice();
+    let temp = list33.slice();
     temp.fill("Final 4");
     process.stdout.write("fill; change all elements: ");
     console.log(temp);
 
     // method 2; change range of elements    
-    temp = list27.slice();
+    temp = list33.slice();
     temp.fill("Jedi", 1, 3);
     process.stdout.write("fill; change range of elements: ");
     console.log(temp);
@@ -320,7 +321,7 @@ function findIndex() {
  */
 function forEach() {
     console.log("forEach: ");
-    list24.forEach(printPrefix);
+    list28.forEach(printPrefix);
     function printPrefix(element, index) {
         console.log(`\telement ${index} : ${element} `);
     }
@@ -333,21 +334,21 @@ function forEach() {
  */
 function from() { 
     // method 1
-    let temp = list15.slice();
+    let temp = list19.slice();
     let result = Array.from(temp.toString());
     
     process.stdout.write("from; 1 parameter: ");
     console.log(result);
 
     // method 2
-    temp = list33.slice();
+    temp = list11.slice();
     result = Array.from(temp.toString(), x => x + x);
     
     process.stdout.write("from; 2 parameters: ");
     console.log(result);
 
     // method 3
-    temp = list5.slice();
+    temp = list6.slice();
     result = Array.from(temp, x => x + x);
     
     process.stdout.write("from; 2 parameters: ");
@@ -359,12 +360,12 @@ function from() {
  */
 function includes() { 
     // method 1; 1 parameter
-    let temp = list30.slice();
+    let temp = list29.slice();
     let result = temp.includes("Chargers");
     console.log(`includes; 1 parameter: ${result}`);
 
     // method 2; 2 parameters - start the search at position given
-    temp = list30.slice();
+    temp = list29.slice();
     result = temp.includes("Chargers", 2);
     console.log(`includes; 2 parameters: ${result}`);
 }
@@ -374,11 +375,11 @@ function includes() {
  */
 function indexOf() {
     // method 1; find first index
-    let result = list22.indexOf("dog");
+    let result = list26.indexOf("dog");
     console.log(`indexOf; find first index: ${result}`);
 
     // method 2; start at index given
-    result = list22.indexOf("dog", 3);
+    result = list26.indexOf("dog", 3);
     console.log(`indexOf; start at index given: ${result}`);
 }
 
@@ -391,7 +392,7 @@ function isArray() {
     console.log(`isArray: ${result}`);
 
     // example 2
-    result = Array.isArray(list99);
+    result = Array.isArray(list36);
     console.log(`isArray: ${result}`);
 }
 
@@ -399,7 +400,7 @@ function isArray() {
  * joins all elements of an array into a string
  */
 function join() {
-    let temp = list5.map((x) => x);
+    let temp = list6.map((x) => x);
     console.log(`join: ${temp.join(" * ")}`);
 }
 
@@ -414,7 +415,7 @@ function keys() { // TODO
  * search the array for an element, starting at the end, and returns its position
  */
 function lastIndexOf() {
-    let result = list22.lastIndexOf("dog");
+    let result = list26.lastIndexOf("dog");
     console.log(`lastIndexOf: ${result}`);
 }
 
@@ -422,7 +423,7 @@ function lastIndexOf() {
  * sets or returns the number of elements in an array
  */
 function length() { 
-    console.log(`length: ${list5.length}`);
+    console.log(`length: ${list6.length}`);
 }
 
 /**
@@ -430,12 +431,12 @@ function length() {
  */
 function map() {
     // example 1
-    let result = list5.map(Math.sqrt);
+    let result = list6.map(Math.sqrt);
     process.stdout.write("map; example 1: ");
     console.log(result);
 
     // example 2
-    result = list5.map(multTen);
+    result = list6.map(multTen);
     function multTen(num) {
         return num * 10;
     }
@@ -444,7 +445,7 @@ function map() {
     console.log(result);
 
     // example 3
-    result = list5.map(function (num) {
+    result = list6.map(function (num) {
         return num % 2;
     });
 
@@ -463,7 +464,7 @@ function prototype() {
         }
     };
 
-    let temp = list20.slice();
+    let temp = list24.slice();
     temp.myUcase();
     process.stdout.write("prototype; method 1: ");
     console.log(temp);
@@ -475,7 +476,7 @@ function prototype() {
         }
     };
 
-    temp = list5.slice();
+    temp = list6.slice();
     temp.squareValues();
     process.stdout.write("prototype; method 2: ");
     console.log(temp);
@@ -495,7 +496,7 @@ function reduce() {
     console.log(`reduce; example 1: ${result}`);
 
     // example 2
-    temp = list9.slice();
+    temp = list13.slice();
     result = temp.reduce(integerSum, 0);
     function integerSum(total, num) {
         return total + Math.floor(num);
@@ -518,7 +519,7 @@ function reduceRight() {
     console.log(`reduceRight; example 1: ${result}`);
 
     // example 2
-    temp = list9.slice();
+    temp = list13.slice();
     result = temp.reduceRight(integerSum, 0);
     function integerSum(total, num) {
         return total + Math.floor(num);
@@ -531,7 +532,7 @@ function reduceRight() {
  * reverses the order of the elements in an array
  */
 function reverse() {
-    let temp = list5.slice();
+    let temp = list6.slice();
     temp.reverse();
     process.stdout.write("reverse: ");
     console.log(temp);
@@ -541,7 +542,7 @@ function reverse() {
  * sorts the elements of an array
  */
 function sort() {
-    let temp = list98.slice();
+    let temp = list7.slice();
     temp.sort();
     process.stdout.write("sort: ");
     console.log(temp);
@@ -551,7 +552,7 @@ function sort() {
  * removes the last element of an array, and returns that element
  */
 function pop() {
-    let temp = list5.slice();
+    let temp = list6.slice();
     let popped_value = temp.pop();
 
     // updated list after value is popped
@@ -566,7 +567,7 @@ function pop() {
  * adds new elements to the end of an array, and returns the new length
  */
 function push() {
-    let temp = list25.slice();
+    let temp = list31.slice();
     temp.push("Commander Wolffe");
     process.stdout.write("push: ");
     console.log(temp);
@@ -576,7 +577,7 @@ function push() {
  * removes the first element of an array, and returns that element
  */
 function shift() {
-    let temp = list5.slice();
+    let temp = list6.slice();
     let shiftedItem = temp.shift();
     process.stdout.write("shift: ");
     console.log(temp);
@@ -588,13 +589,13 @@ function shift() {
  */
 function unshift() {
     // example 1; adding 1 item
-    let temp = list26.slice();
+    let temp = list32.slice();
     temp.unshift("Kit Fisto");
     process.stdout.write("unshift; add 1 item: ");
     console.log(temp);
 
     // example 2; adding multiple items
-    temp = list26.slice();
+    temp = list32.slice();
     temp.unshift("Kit Fisto", "Shaak Ti", "Qui-Gon Jinn");
     process.stdout.write("unshift; add multiple items: ");
     console.log(temp);
@@ -605,17 +606,17 @@ function unshift() {
  */
 function slice() {
     // example 1; copy list
-    let temp = list5.slice();
+    let temp = list6.slice();
     process.stdout.write("slice; copy list: ");
     console.log(temp);
 
     // example 2; copy range of elements using positive values
-    temp = list5.slice(1, 4);
+    temp = list6.slice(1, 4);
     process.stdout.write("slice; copy range of elements using positive values: ");
     console.log(temp);
 
     // example 3; copy range of elements using negative values
-    temp = list5.slice(-3, -1);
+    temp = list6.slice(-3, -1);
     process.stdout.write("slice; copy range of elements using negative values: ");
     console.log(temp);
 }
@@ -629,7 +630,7 @@ function splice() {
      *  - parameters: (starting index, number of elements to remove after insertion, element values to be inserted)
      * 
      */
-    let temp = list5.slice();
+    let temp = list6.slice();
     temp.splice(2, 1, "Hi", "Hello");
     process.stdout.write("splice; adding elements: ");
     console.log(temp);
@@ -639,7 +640,7 @@ function splice() {
      *  - parameters: (starting index to be removed, number of elements to remove)
      * 
      */
-    temp = list5.slice();
+    temp = list6.slice();
     temp.splice(2, 3);
     process.stdout.write("splice; removing elements: ");
     console.log(temp);
@@ -650,7 +651,7 @@ function splice() {
  */
 function every() { 
     // method 1
-    let temp = list32.slice();
+    let temp = list8.slice();
     let result = temp.every(isPositive);
     function isPositive(num) {
         return num > 0;
@@ -659,7 +660,7 @@ function every() {
     console.log(`every: ${result}`);
 
     // method 2
-    temp = list5.slice();
+    temp = list6.slice();
     result = temp.every((num) => {return num > 0;});
     console.log(`every: ${result}`);
 }
@@ -669,7 +670,7 @@ function every() {
  */
 function some() {
     // method 1
-    let temp = list32.slice();
+    let temp = list8.slice();
     let result = temp.some(isPositive);
     function isPositive(num) {
         return num > 0;
@@ -678,7 +679,7 @@ function some() {
     console.log(`some: ${result}`);
 
     // method 2
-    temp = list5.slice();
+    temp = list6.slice();
     result = temp.some((num) => {return num > 0;});
     console.log(`some: ${result}`);
 }
@@ -687,7 +688,7 @@ function some() {
  * converts an array to a string, and returns the result
  */
 function toString() {
-    let temp = list5.slice();
+    let temp = list6.slice();
     temp.toString();
     console.log(`toString: ${temp}`);
 }
@@ -697,5 +698,5 @@ function toString() {
  */
 function valueOf() {
     process.stdout.write("valueOf: ");
-    console.log(list5.valueOf());
+    console.log(list6.valueOf());
 }
