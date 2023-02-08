@@ -94,6 +94,8 @@ function main() {
     valueOf();
     console.log("--------------------------------------"); 
     reduce();
+    console.log("--------------------------------------"); 
+    reduceRight();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -120,6 +122,8 @@ function main() {
     reverse();
     console.log("--------------------------------------");
     sort();
+    console.log("--------------------------------------");
+    prototype();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -451,8 +455,30 @@ function map() {
 /**
  * allows you to add properties and methods to an Array object
  */
-function prototype() { // TODO
-    console.log("prototype: ");
+function prototype() {
+    // method 1
+    Array.prototype.myUcase = function() {
+        for (let i = 0; i < this.length; i++) {
+            this[i] = this[i].toUpperCase();
+        }
+    };
+
+    let temp = list20.slice();
+    temp.myUcase();
+    process.stdout.write("prototype; method 1: ");
+    console.log(temp);
+
+    // method 2
+    Array.prototype.squareValues = function() {
+        for (let i = 0; i < this.length; i++) {
+            this[i] = Math.pow(this[i], 2);
+        }
+    };
+
+    temp = list5.slice();
+    temp.squareValues();
+    process.stdout.write("prototype; method 2: ");
+    console.log(temp);
 }
 
 /**
@@ -481,8 +507,24 @@ function reduce() {
 /**
  * reduce the values of an array to a single value (going right-to-left)
  */
-function reduceRight() { // TODO
-    console.log("reduceRight: ");
+function reduceRight() {
+    // example 1
+    let temp = list3.slice();
+    let result = temp.reduceRight(subtractionFunction);
+    function subtractionFunction(total, num) {
+        return total - num;
+    }
+
+    console.log(`reduceRight; example 1: ${result}`);
+
+    // example 2
+    temp = list9.slice();
+    result = temp.reduceRight(integerSum, 0);
+    function integerSum(total, num) {
+        return total + Math.floor(num);
+    }
+
+    console.log(`reduceRight; example 2: ${result}`);
 }
 
 /**
