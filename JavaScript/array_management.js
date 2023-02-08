@@ -80,14 +80,16 @@ main();
 function main() {
     // * specifications 
     console.log("\t\t\t\tSpecs");
-    console.log("--------------------------------------");    
-    create_copy();
     console.log("--------------------------------------"); 
     length();
+    console.log("--------------------------------------");    
+    create_copy();
     console.log("--------------------------------------"); 
     filter();
     console.log("--------------------------------------"); 
     slice();
+    console.log("--------------------------------------"); 
+    toString();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -603,15 +605,29 @@ function every() {
 /**
  * checks if any of the elements in an array pass a test
  */
-function some() { // TODO
-    console.log("some: ");
+function some() {
+    // method 1
+    let temp = list32.slice();
+    let result = temp.some(isPositive);
+    function isPositive(num) {
+        return num > 0;
+    }
+
+    console.log(`some: ${result}`);
+
+    // method 2
+    temp = list5.slice();
+    result = temp.some((num) => {return num > 0;});
+    console.log(`some: ${result}`);
 }
 
 /**
  * converts an array to a string, and returns the result
  */
-function toString() { // TODO
-    console.log("toString: ");
+function toString() {
+    let temp = list5.slice();
+    temp.toString();
+    console.log(`toString: ${temp}`);
 }
 
 /**
