@@ -122,6 +122,8 @@ function main() {
     push();
     console.log("--------------------------------------");
     unshift();
+    console.log("--------------------------------------");
+    splice();
     
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -133,6 +135,8 @@ function main() {
     pop();
     console.log("--------------------------------------");
     shift();
+    console.log("--------------------------------------");
+    splice();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -556,17 +560,36 @@ function slice() {
 }
 
 /**
+ * adds/removes elements from an array
+ */
+function splice() {
+    /**
+     * method 1; add elements
+     *  - parameters: (starting index, number of elements to remove after insertion, element values to be inserted)
+     * 
+     */
+    let temp = list5.slice();
+    temp.splice(2, 1, "Hi", "Hello");
+    process.stdout.write("splice; adding elements: ");
+    console.log(temp);
+
+    /**
+     *  method 2; remove elements
+     *  - parameters: (starting index to be removed, number of elements to remove)
+     * 
+     */
+    temp = list5.slice();
+    temp.splice(2, 3);
+    process.stdout.write("splice; removing elements: ");
+    console.log(temp);
+
+}
+
+/**
  * checks if any of the elements in an array pass a test
  */
 function some() { // TODO
     console.log("some: ");
-}
-
-/**
- * adds/removes elements from an array
- */
-function splice() { // TODO
-    console.log("splice: ");
 }
 
 /**
