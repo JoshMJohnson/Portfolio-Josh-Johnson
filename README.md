@@ -46,6 +46,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 | [Sort Array](/Java/SortArray.java) | Java | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Arraylists</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/Java/ReadWriteFile.java) | Java | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul>  | Demonstrates basic file operations |
 | [Hello World](/Java/HelloWorld.java) | Java | <p align="center">Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
+| [Array Management](/JavaScript/array_management.js) | JavaScript | <ul><li>Better Comments Extension</li><li>Array Specifications</li><li>List Conditions</li><li>Iteration</li><li>List Manipulation</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
 | [Sort Array](/JavaScript/sort_array.js) | JavaScript | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Hello World](/JavaScript/hello_world.js) | JavaScript | <p align="center">Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
 | [List Management](/Python/ListManagement.py) | Python | <ul><li>Better Comments Extension</li><li>List Specifications</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates list functions |
@@ -86,7 +87,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| [Array Management](/JavaScript/array_management.js) | JavaScript | <ul><li>Better Comments Extension</li><li>Array Specifications</li><li>List Manipulation</li><li>Insertion</li><li>Deletion</li><li>Element Locating</li><li>Element Manipulation</li></ul>  | Demonstrates array methods |
+| TBD | TBD | TBD | TBD |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
