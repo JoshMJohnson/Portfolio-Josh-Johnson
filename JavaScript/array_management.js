@@ -37,7 +37,7 @@ const list33 = [123456789];
 
 // * double lists 
 const list8 = [3.5];
-const list9 = [5, 3.6]; 
+const list9 = [5, 3.6, 1.2]; 
 const list10 = [-1.7, 0, 6];
 const list11 = [6.9, 7.1, -5, 3.7, -9.8]; 
 
@@ -90,6 +90,10 @@ function main() {
     slice();
     console.log("--------------------------------------"); 
     toString();
+    console.log("--------------------------------------"); 
+    valueOf();
+    console.log("--------------------------------------"); 
+    reduce();
         
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -454,8 +458,24 @@ function prototype() { // TODO
 /**
  * reduce the values of an array to a single value (going left-to-right)
  */
-function reduce() { // TODO
-    console.log("reduce: ");
+function reduce() {
+    // example 1
+    let temp = list3.slice();
+    let result = temp.reduce(subtractionFunction);
+    function subtractionFunction(total, num) {
+        return total - num;
+    }
+
+    console.log(`reduce; example 1: ${result}`);
+
+    // example 2
+    temp = list9.slice();
+    result = temp.reduce(integerSum, 0);
+    function integerSum(total, num) {
+        return total + Math.floor(num);
+    }
+
+    console.log(`reduce; example 2: ${result}`);
 }
 
 /**
@@ -633,6 +653,7 @@ function toString() {
 /**
  * returns the primitive value of an array
  */
-function valueOf() { // TODO
-    console.log("valueOf: ");
+function valueOf() {
+    process.stdout.write("valueOf: ");
+    console.log(list5.valueOf());
 }
