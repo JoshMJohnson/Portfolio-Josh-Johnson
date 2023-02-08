@@ -29,6 +29,7 @@ const list2 = [4, 1];
 const list3 = [-4, 6, 2]; 
 const list4 = [0, 84, -3, 40, -21, 21];
 const list5 = [1, 2, 3, 4, 5, 6, 7, 8, 9]; 
+const list98 = [9, 8, 7, 6, 5, 4, 3, 2, 1]; 
 const list32 = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
 const list6 = [2, 4, 3, 2, 4, 2, 2]; 
 const list7 = [1, 2.0, 3, 4, 5.2, 6, 7, 8.5, 9, 10.9, 11]; 
@@ -106,6 +107,8 @@ function main() {
     forEach();
     console.log("--------------------------------------");
     reverse();
+    console.log("--------------------------------------");
+    sort();
 
     console.log("\n\n**************************************");
     console.log("**************************************");
@@ -481,6 +484,16 @@ function reverse() {
 }
 
 /**
+ * sorts the elements of an array
+ */
+function sort() {
+    let temp = list98.slice();
+    temp.sort();
+    process.stdout.write("sort: ");
+    console.log(temp);
+}
+
+/**
  * removes the last element of an array, and returns that element
  */
 function pop() {
@@ -547,13 +560,6 @@ function slice() {
  */
 function some() { // TODO
     console.log("some: ");
-}
-
-/**
- * sorts the elements of an array
- */
-function sort() { // TODO
-    console.log("sort: ");
 }
 
 /**
