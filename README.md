@@ -87,7 +87,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
-| Chess | Python | TBD | TBD |
+| Chess | Python | TBD | Loads up a chess board and allows the game of chess to be played |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
