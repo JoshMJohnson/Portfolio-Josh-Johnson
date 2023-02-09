@@ -41,8 +41,8 @@ class Player:
         self.num_moves_made = 0
 
         # time remaining for player before forfeit due to delay
-        mins, secs = divmod(90*60, 60)
-        self.time_remaining = '{:02d}:{:02d}'.format(mins, secs)
+        mins, secs = divmod(5*60, 60)
+        self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
         time.sleep(1)
 
     def starting_points_calculator(self):
