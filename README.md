@@ -86,7 +86,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | [Chess](/Chess) | Python | <ul><li>Tkinter Library</li><li>Time Library</li></ul> | Loads up a chess board and allows the game of chess to be played |
 
 <sup>_Projects in development are currently being worked on_</sup>
