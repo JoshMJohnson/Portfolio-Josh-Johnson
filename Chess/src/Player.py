@@ -1,11 +1,16 @@
 '''
-Instance for Player One
-
+Instance for players in the game
+---------------------------------------
 Game Time Rules:
-In the case of chess, the World Chess Federation FIDE has a single, 
-classical time control for most of its major events, 90 minutes for 
-the first 40 moves, followed by 30 minutes for the rest of the game, 
-with an addition of 30 seconds per move starting from move one.
+
+Time controls are displayed in an "X|Y" format 
+    - The first number refers to the number of minutes each player has on game start
+    - The second number refers to the seconds of increment per move 
+        - Increment is how many seconds are added to the clock for each move that is played. 
+
+For example, a 3|0 time control refers to a game where each player receives three minutes to 
+complete the game with no increment per move, while a 5|5 time control refers to a game where 
+each player receives five minutes and gains five seconds per move for the increment.
 '''
 
 import time # time access and conversions
@@ -36,7 +41,7 @@ class Player:
         self.num_moves_made = 0
 
         # time remaining for player before forfeit due to delay
-        mins, secs = divmod(90, 60)
+        mins, secs = divmod(90*60, 60)
         self.time_remaining = '{:02d}:{:02d}'.format(mins, secs)
         time.sleep(1)
 
