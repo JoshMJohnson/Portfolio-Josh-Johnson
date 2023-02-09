@@ -1,4 +1,0 @@
-'''
-Instance for Player Two
-'''
-
