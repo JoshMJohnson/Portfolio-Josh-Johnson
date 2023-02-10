@@ -1,5 +1,5 @@
 '''
-Instance for players in the game
+Instance class for players in the game
 ---------------------------------------
 Game Time Rules:
 
@@ -15,6 +15,7 @@ each player receives five minutes and gains five seconds per move for the increm
 
 import time # time access and conversions
 
+# contains an instance of a player
 class Player:
     # player state
     color = -1
@@ -45,6 +46,7 @@ class Player:
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
         time.sleep(1)
 
+    # calculates the total amount of points a player has at the start of the game
     def starting_points_calculator(self):
         # piece point values
         pawn_value = 1
@@ -87,7 +89,6 @@ class Player:
     def player_time_remaining(self):
         return self.time_remaining
 
-
 # ! testing purposes below
 obj = Player(1)
 print('color: ' + obj.player_color())
@@ -95,3 +96,4 @@ print('points_remaining: ' + str(obj.player_points_remaining()))
 print('points_taken: ' + str(obj.player_points_taken()))
 print('num_moves_made: ' + str(obj.player_moves_made()))
 print('time_remaining: ' + str(obj.player_time_remaining()))
+
