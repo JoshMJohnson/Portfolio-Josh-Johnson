@@ -8,7 +8,7 @@ Created By: Josh Johnson
 
 # pre-made classes
 import random # implements pseudo-random number generators for various distributions
-import pygame
+import pygame # gui for python game
 from os import path # used to get relative path for the project
 
 # build classes
@@ -19,14 +19,12 @@ WIDTH = 400 # game board width
 HEIGHT = 400 # game board height
 DIMENSION = 8 # 8x8 board
 TILE_SIZE = WIDTH // DIMENSION # size of a square (tile) on the gui
-
+PIECE_IMAGES = {} # holds the locations of all the chess piece images
 MAX_FPS = 15 # for animations
-IMAGES = {}
 
 # global dictionary of images
 def load_images(set):
-    # finds relative path for the project
-    base_path = path.dirname(__file__)
+    base_path = path.dirname(__file__) # finds relative path for the project
 
     # determines the piece set
     piece_set = ""
@@ -40,7 +38,7 @@ def load_images(set):
     # loads the piece set
     pieces = ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook", "black_pawn"]
     for piece in pieces:
-        IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/Piece_Sets/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
+        PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/Piece_Sets/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
     
 # main function; driver for the code
 def main():
