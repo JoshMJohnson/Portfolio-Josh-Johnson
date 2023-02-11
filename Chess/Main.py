@@ -1,17 +1,17 @@
 '''
 Driver file
 
-Loads up a chess board showing the user, and handles user input
+Loads up a chess board to display for the user, and handles user input
 
 Created By: Josh Johnson
 '''
 
-# pre-made classes
+# python libraries
 import random # implements pseudo-random number generators for various distributions
 import pygame # gui for python game
 from os import path # used to get absolute path for the project
 
-# built classes
+# project classes
 import BoardState
 
 # creating the game board

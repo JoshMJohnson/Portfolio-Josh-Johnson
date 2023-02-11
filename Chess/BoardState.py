@@ -1,12 +1,11 @@
 '''
-Keeps track of the board state and determains valid moves.
+Keeps track of the board state and determains valid moves
 
 Keeps a move log for the game
 '''
 
-from tkinter import * # used for GUI Interface
-
 class BoardState():
+    # constructor for the class BoardState
     def __init__(self):
         # game state
         self.current_player_white = True
