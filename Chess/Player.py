@@ -15,7 +15,9 @@ each player receives five minutes and gains five seconds per move for the increm
 
 import time # time access and conversions
 
-# contains an instance of a player
+'''
+contains an instance of a player
+'''
 class Player:
     # player state
     color = -1
@@ -24,7 +26,9 @@ class Player:
     num_moves_made = -1
     time_remaining = -1
 
-    # constructor
+    '''
+    constructor
+    '''
     def __init__(self, player):
         # color that the player controls
         if player == 1:
@@ -46,7 +50,9 @@ class Player:
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
         time.sleep(1)
 
-    # calculates the total amount of points a player has at the start of the game
+    '''
+    calculates the total amount of points a player has at the start of the game
+    '''
     def starting_points_calculator(self):
         # piece point values
         pawn_value = 1
@@ -69,23 +75,33 @@ class Player:
                     + (num_rooks * rook_value) 
                     + (num_queens * queen_value))
 
-    # getter function for the player color variable
+    '''
+    getter function for the player color variable
+    '''
     def player_color(self):
         return self.color
     
-    # getter function for the points remaining for player
+    '''
+    getter function for the points remaining for player
+    '''
     def player_points_remaining(self):
         return self.points_remaining
 
-    # getter function for the points player has taken from opponent
+    '''
+    getter function for the points player has taken from opponent
+    '''
     def player_points_taken(self):
         return self.points_taken
 
-    # getter function for the number of moves player has made so far
+    '''
+    getter function for the number of moves player has made so far
+    '''
     def player_moves_made(self):
         return self.num_moves_made
 
-    # getter function for time remaining for player
+    '''
+    getter function for time remaining for player
+    '''
     def player_time_remaining(self):
         return self.time_remaining
 

@@ -12,7 +12,8 @@ import pygame # gui for python game
 from os import path # used to get absolute path for the project
 
 # project classes
-import BoardState
+import GameState
+import Moves
 
 # creating the game board
 WIDTH = 400 # game board width
@@ -51,28 +52,52 @@ def main():
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     clock = pygame.time.Clock()
     screen.fill(pygame.Color("white"))
-    board_state = BoardState.BoardState()
-    print(board_state.board)
+    game_state = GameState.GameState()
+    print(game_state.board)
     load_images(1) # TODO change parameter for each set chosen; 1, 2, or 3
     running = True
+
+    tile_selected = () # keeps track of the last tile clicked by the user
+    player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
 
     # actions to perform for an active game
     while running:
         # quit application
         for e in pygame.event.get():
-            if e.type == pygame.QUIT:
+            if e.type == pygame.QUIT: # if closed the application
                 running = False
+            elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
+                location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1
+                col = location[0] // TILE_SIZE 
+                row = location[1] // TILE_SIZE
+                
+                if tile_selected == (row, col): # if user clicked same tile twice in a row
+                    tile_selected == () # deselect
+                    player_clickes == [] # clear player clicks
+                else: # else; 2 different tiles clicked in order
+                    tile_selected = (row, col)
+                    player_clickes.append(tile_selected)
+                
+                if len(player_clickes) == 2: # if second tile was clicked that was different than the first
+                    move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
+                    print(move.get_chess_notation())
+                    game_state.make_move(move)
+
+                    # resets user input clicks
+                    tile_selected = () 
+                    player_clickes = []
+
         
-        drawGameState(screen, board_state) 
+        drawGameState(screen, game_state) 
         clock.tick(MAX_FPS)
         pygame.display.flip()
 
 ''' 
 creates all graphics of the game 
 '''
-def drawGameState(screen, board_state):
+def drawGameState(screen, game_state):
     drawBoard(screen) 
-    drawPieces(screen, board_state.board) 
+    drawPieces(screen, game_state.board) 
 
 ''' 
 draws the squares on the board; top left square is always light
@@ -97,7 +122,7 @@ def drawPieces(screen, board):
         for col in range(DIMENSION):
             piece = board[row][col]
 
-            # if not an empty tile
+            # if not an empty tile; has a piece on the tile 
             if piece != "--":
                 screen.blit(PIECE_IMAGES[piece], pygame.Rect(col*TILE_SIZE, row*TILE_SIZE, TILE_SIZE, TILE_SIZE))
 
