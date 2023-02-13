@@ -15,18 +15,26 @@ from os import path # used to get absolute path for the project
 import GameState
 import Moves
 
-# creating the game board
-WIDTH = 400 # game board width
-HEIGHT = 400 # game board height
+# game board settings
+BOARD_WIDTH = 400 # game board width
+BOARD_HEIGHT = 400 # game board height
 DIMENSION = 8 # 8x8 board
-TILE_SIZE = WIDTH // DIMENSION # size of a square (tile) on the gui
+TILE_SIZE = BOARD_WIDTH // DIMENSION # size of a square (tile) on the gui
 PIECE_IMAGES = {} # holds the locations of all the chess piece images
 MAX_FPS = 15 # for animations
 
 # window settings
-WINDOW_WIDTH = WIDTH + 300
-WINDOW_HEIGHT = HEIGHT + 200
+WINDOW_WIDTH = BOARD_WIDTH + 300
+WINDOW_HEIGHT = BOARD_HEIGHT + 200
 BOARD_GAP = 25 # spacing the board is from the edge of the window
+
+# game log settings
+FRAME_GAP = 25
+frame_width = WINDOW_WIDTH - BOARD_WIDTH - BOARD_GAP - (FRAME_GAP * 2)
+frame_height = WINDOW_HEIGHT - (FRAME_GAP * 2)
+frame_starting_x_coordinate = BOARD_WIDTH + BOARD_GAP + FRAME_GAP
+frame_starting_y_coordinate = FRAME_GAP
+game_log = []
 
 '''
 global dictionary of images
@@ -64,9 +72,9 @@ def main():
     # TODO heading above game board
 
 
-    # TODO game log display
-
-
+    # TODO game log
+    pygame.draw.rect(screen, "white", pygame.Rect(frame_starting_x_coordinate, frame_starting_y_coordinate, frame_width, frame_height))
+        
     # game board
     game_state = GameState.GameState()
     load_images(1) # TODO change parameter for each set chosen; 1, 2, or 3
@@ -84,7 +92,7 @@ def main():
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
                 col = (location[0] - BOARD_GAP) // TILE_SIZE 
-                row = (location[1] - (WINDOW_HEIGHT - HEIGHT - BOARD_GAP)) // TILE_SIZE
+                row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - BOARD_GAP)) // TILE_SIZE
                                 
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
@@ -98,27 +106,29 @@ def main():
                         move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
                         print(move.get_chess_notation()) # ! used for testing purposes
                         game_state.make_move(move)
+                        game_log.append(move.get_chess_notation())
 
                         # resets user input clicks
                         tile_selected = () 
                         player_clickes = []
 
         
-        drawGameState(screen, game_state) 
+        display_game_log(screen)
+        draw_game_state(screen, game_state) 
         clock.tick(MAX_FPS)
         pygame.display.flip()
 
 ''' 
 creates all graphics of the game 
 '''
-def drawGameState(screen, game_state):
-    drawBoard(screen) 
-    drawPieces(screen, game_state.board) 
+def draw_game_state(screen, game_state):
+    draw_board(screen) 
+    draw_pieces(screen, game_state.board) 
 
 ''' 
 draws the squares on the board; top left square is always light
 '''
-def drawBoard(screen):
+def draw_board(screen):
     # chess sets
     colors = [pygame.Color("white"), pygame.Color("grey")] # set 1
     # TODO set 2
@@ -128,19 +138,26 @@ def drawBoard(screen):
     for row in range(DIMENSION):
         for col in range(DIMENSION):
             color = colors[((row + col) % 2)]
-            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - HEIGHT - 25, TILE_SIZE, TILE_SIZE))
+            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - 25, TILE_SIZE, TILE_SIZE))
 
 '''
 draw pieces on top of the board
 '''
-def drawPieces(screen, board):
+def draw_pieces(screen, board):
     for row in range(DIMENSION):
         for col in range(DIMENSION):
             piece = board[row][col]
 
             # if not an empty tile; has a piece on the tile 
             if piece != "--":
-                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - HEIGHT - 25, TILE_SIZE, TILE_SIZE))
+                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - 25, TILE_SIZE, TILE_SIZE))
+
+'''
+display game log in panel 
+'''
+def display_game_log(screen): # TODO make scrollable game log
+    pass
+
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
