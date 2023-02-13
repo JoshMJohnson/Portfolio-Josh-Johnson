@@ -25,7 +25,8 @@ MAX_FPS = 15 # for animations
 
 # window settings
 WINDOW_WIDTH = WIDTH + 300
-WINDOW_HEIGHT = HEIGHT + 300
+WINDOW_HEIGHT = HEIGHT + 200
+BOARD_GAP = 25 # spacing the board is from the edge of the window
 
 '''
 global dictionary of images
@@ -75,8 +76,8 @@ def main():
                 running = False
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
-                col = (location[0] - 25) // TILE_SIZE 
-                row = (location[1] - 275) // TILE_SIZE
+                col = (location[0] - BOARD_GAP) // TILE_SIZE 
+                row = (location[1] - (WINDOW_HEIGHT - HEIGHT - BOARD_GAP)) // TILE_SIZE
                                 
                 if tile_selected == (row, col): # if user clicked same tile twice in a row
                     tile_selected == () # deselect
