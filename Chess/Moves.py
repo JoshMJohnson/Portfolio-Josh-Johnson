@@ -27,7 +27,7 @@ class Moves():
     returns the chess notation of a potential move
     '''
     def get_chess_notation(self): # TODO proper chess notation has first letter of piece in front of notation
-        return self.get_rank_file_pair(self.start_row, self.start_col) + self.get_rank_file_pair(self.end_row, self.end_col)
+        return self.get_rank_file_pair(self.start_row, self.start_col) + " -> " + self.get_rank_file_pair(self.end_row, self.end_col)
 
     '''
     returns the chess notation of a tile on the game board
