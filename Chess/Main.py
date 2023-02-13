@@ -26,15 +26,20 @@ MAX_FPS = 15 # for animations
 # window settings
 WINDOW_WIDTH = BOARD_WIDTH + 300
 WINDOW_HEIGHT = BOARD_HEIGHT + 200
-BOARD_GAP = 25 # spacing the board is from the edge of the window
+GAP = 25 # spacing the board is from the edge of the window
 
 # game log settings
-FRAME_GAP = 25
-frame_width = WINDOW_WIDTH - BOARD_WIDTH - BOARD_GAP - (FRAME_GAP * 2)
-frame_height = WINDOW_HEIGHT - (FRAME_GAP * 2)
-frame_starting_x_coordinate = BOARD_WIDTH + BOARD_GAP + FRAME_GAP
-frame_starting_y_coordinate = FRAME_GAP
+log_frame_width = WINDOW_WIDTH - BOARD_WIDTH - GAP - (GAP * 2)
+log_frame_height = WINDOW_HEIGHT - (GAP * 2)
+log_frame_starting_x_coordinate = BOARD_WIDTH + GAP + GAP
+log_frame_starting_y_coordinate = GAP
 game_log = []
+
+# heading panel settings
+heading_width = BOARD_WIDTH
+heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
+heading_starting_x_coordinate = GAP
+heading_starting_y_coordinate = GAP
 
 '''
 global dictionary of images
@@ -70,10 +75,10 @@ def main():
 
     # * prepare game on load up of program
     # TODO heading above game board
+    pygame.draw.rect(screen, "white", pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate, heading_width, heading_height))
 
-
-    # TODO game log
-    pygame.draw.rect(screen, "white", pygame.Rect(frame_starting_x_coordinate, frame_starting_y_coordinate, frame_width, frame_height))
+    # prepare game log panel
+    pygame.draw.rect(screen, "white", pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
         
     # game board
     game_state = GameState.GameState()
@@ -91,8 +96,8 @@ def main():
                 running = False
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
-                col = (location[0] - BOARD_GAP) // TILE_SIZE 
-                row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - BOARD_GAP)) // TILE_SIZE
+                col = (location[0] - GAP) // TILE_SIZE 
+                row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - GAP)) // TILE_SIZE
                                 
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
