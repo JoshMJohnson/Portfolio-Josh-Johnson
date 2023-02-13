@@ -53,33 +53,40 @@ def load_images(set):
 main function
 '''
 def main():
-    # initialize pygame
+    # * initialize pygame
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     clock = pygame.time.Clock()
+    pygame.display.set_caption("Lets Play Chess!")
     screen.fill(pygame.Color("light grey"))
 
-    # prepare game on load up of program
+    # * prepare game on load up of program
+    # TODO heading above game board
+
+
+    # TODO game log display
+
+
+    # game board
     game_state = GameState.GameState()
     load_images(1) # TODO change parameter for each set chosen; 1, 2, or 3
-    running = True
-    print(game_state.board) # ! used for testing purposes
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
 
-    # actions to perform for an active game
+    running = True
+
+    # * actions to perform for an active game
     while running:
-        # quit application
-        for e in pygame.event.get():
-            if e.type == pygame.QUIT: # if closed the application
+        for e in pygame.event.get(): # handles triggered events by user
+            if e.type == pygame.QUIT: # quit application
                 running = False
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
                 col = (location[0] - BOARD_GAP) // TILE_SIZE 
                 row = (location[1] - (WINDOW_HEIGHT - HEIGHT - BOARD_GAP)) // TILE_SIZE
                                 
-                if col >= 0 and col <= 7 and row >= 0 and row <= 7:
+                if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
                         tile_selected == () # deselect
                         player_clickes == [] # clear player clicks
