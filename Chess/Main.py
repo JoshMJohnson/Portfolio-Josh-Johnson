@@ -79,21 +79,22 @@ def main():
                 col = (location[0] - BOARD_GAP) // TILE_SIZE 
                 row = (location[1] - (WINDOW_HEIGHT - HEIGHT - BOARD_GAP)) // TILE_SIZE
                                 
-                if tile_selected == (row, col): # if user clicked same tile twice in a row
-                    tile_selected == () # deselect
-                    player_clickes == [] # clear player clicks
-                else: # else; 2 different tiles clicked in order
-                    tile_selected = (row, col)
-                    player_clickes.append(tile_selected)
-                
-                if len(player_clickes) == 2: # if second tile was clicked that was different than the first
-                    move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
-                    print(move.get_chess_notation()) # ! used for testing purposes
-                    game_state.make_move(move)
+                if col >= 0 and col <= 7 and row >= 0 and row <= 7:
+                    if tile_selected == (row, col): # if user clicked same tile twice in a row
+                        tile_selected == () # deselect
+                        player_clickes == [] # clear player clicks
+                    else: # else; 2 different tiles clicked in order
+                        tile_selected = (row, col)
+                        player_clickes.append(tile_selected)
+                    
+                    if len(player_clickes) == 2: # if second tile was clicked that was different than the first
+                        move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
+                        print(move.get_chess_notation()) # ! used for testing purposes
+                        game_state.make_move(move)
 
-                    # resets user input clicks
-                    tile_selected = () 
-                    player_clickes = []
+                        # resets user input clicks
+                        tile_selected = () 
+                        player_clickes = []
 
         
         drawGameState(screen, game_state) 
