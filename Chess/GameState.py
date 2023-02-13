@@ -3,7 +3,6 @@ Keeps track of the board state and determains valid moves
 
 Keeps a move log for the game
 '''
-
 class GameState():
     # constructor for the class GameState
     def __init__(self):

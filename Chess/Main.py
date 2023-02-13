@@ -23,6 +23,10 @@ TILE_SIZE = WIDTH // DIMENSION # size of a square (tile) on the gui
 PIECE_IMAGES = {} # holds the locations of all the chess piece images
 MAX_FPS = 15 # for animations
 
+# window settings
+WINDOW_WIDTH = WIDTH + 300
+WINDOW_HEIGHT = HEIGHT + 300
+
 '''
 global dictionary of images
 '''
@@ -43,19 +47,22 @@ def load_images(set):
                 "white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook", "white_pawn"]
     for piece in pieces:
         PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/Piece_Sets/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
-    
+
 '''
-main function; driver for the code
+main function
 '''
 def main():
+    # initialize pygame
     pygame.init()
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     clock = pygame.time.Clock()
-    screen.fill(pygame.Color("white"))
+    screen.fill(pygame.Color("light grey"))
+
+    # prepare game on load up of program
     game_state = GameState.GameState()
-    print(game_state.board)
     load_images(1) # TODO change parameter for each set chosen; 1, 2, or 3
     running = True
+    print(game_state.board) # ! used for testing purposes
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
@@ -67,10 +74,10 @@ def main():
             if e.type == pygame.QUIT: # if closed the application
                 running = False
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
-                location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1
-                col = location[0] // TILE_SIZE 
-                row = location[1] // TILE_SIZE
-                
+                location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
+                col = (location[0] - 25) // TILE_SIZE 
+                row = (location[1] - 275) // TILE_SIZE
+                                
                 if tile_selected == (row, col): # if user clicked same tile twice in a row
                     tile_selected == () # deselect
                     player_clickes == [] # clear player clicks
@@ -80,7 +87,7 @@ def main():
                 
                 if len(player_clickes) == 2: # if second tile was clicked that was different than the first
                     move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
-                    print(move.get_chess_notation())
+                    print(move.get_chess_notation()) # ! used for testing purposes
                     game_state.make_move(move)
 
                     # resets user input clicks
@@ -112,7 +119,7 @@ def drawBoard(screen):
     for row in range(DIMENSION):
         for col in range(DIMENSION):
             color = colors[((row + col) % 2)]
-            pygame.draw.rect(screen, color, pygame.Rect(col*TILE_SIZE, row*TILE_SIZE, TILE_SIZE, TILE_SIZE))
+            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - HEIGHT - 25, TILE_SIZE, TILE_SIZE))
 
 '''
 draw pieces on top of the board
@@ -124,7 +131,7 @@ def drawPieces(screen, board):
 
             # if not an empty tile; has a piece on the tile 
             if piece != "--":
-                screen.blit(PIECE_IMAGES[piece], pygame.Rect(col*TILE_SIZE, row*TILE_SIZE, TILE_SIZE, TILE_SIZE))
+                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - HEIGHT - 25, TILE_SIZE, TILE_SIZE))
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
