@@ -87,7 +87,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| [Chess](/Chess) | Python | <ul><li>Instances</li><li>Class Interactions</li><li>File Location By Absolute Pathing</li><li>Python Libraries<ul><li>Pygame</li><li>Random</li><li>Time</li><li>OS</li></ul></li></ul> | Loads up a chess board and allows the game of chess to be played |
+| [Chess](/Chess) | Python | <ul><li>Instances</li><li>Mouse Coordinates</li><li>Class Interactions</li><li>File Location By Absolute Pathing</li><li>Python Libraries<ul><li>Pygame</li><li>Random</li><li>Time</li><li>OS</li></ul></li></ul> | Loads up a chess board and allows the game of chess to be played |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
