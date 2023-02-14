@@ -43,32 +43,9 @@ heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
 heading_starting_x_coordinate = GAP
 heading_starting_y_coordinate = GAP
 
-'''
-draws the ranks and files of the game board
-'''
-def draw_ranks_files(screen, background_color): 
-    if chess_set == 1: # chess set 1
-        font_color = 'black'
-    elif chess_set == 2: # TODO chess set 1
-        font_color = ''
-    else: # TODO chess set 1
-        font_color = ''
-
-    rank_file_font = pygame.font.SysFont('monospace', 16)
-    starting_file_value = 65 # ascii value of 'A'
-    
-    for col in range(DIMENSION): # draws the file (column) identifiers for the chess board
-        pygame.draw.rect(screen, background_color, pygame.Rect((col * TILE_SIZE) + (TILE_SIZE / 2) + GAP, WINDOW_HEIGHT - (GAP / 2), GAP / 2, GAP / 2))
-        col_label = rank_file_font.render(chr(starting_file_value), True, font_color)
-        file_label_rect = col_label.get_rect(center=((TILE_SIZE * col) + (TILE_SIZE / 2) + GAP, WINDOW_HEIGHT - (GAP / 2))) # TODO might do same thing as 2 lines up
-        screen.blit(col_label, file_label_rect)
-        starting_file_value += 1 # assign file ascii value to be equal to the next column
-
-    for row in range(DIMENSION): # draws the rank (row) identifiers for the chess board
-        pygame.draw.rect(screen, background_color, pygame.Rect(GAP / 2, (row * TILE_SIZE) + WINDOW_HEIGHT - GAP - (TILE_SIZE / 2), GAP / 2, GAP / 2))
-        row_label = rank_file_font.render(str(row + 1), True, font_color)
-        rank_label_rect = row_label.get_rect(center=(GAP / 2, WINDOW_HEIGHT - GAP - (TILE_SIZE * row) - (TILE_SIZE / 2))) # TODO might do same thing as 2 lines up
-        screen.blit(row_label, rank_label_rect)
+# initialize players
+player_one = Player.Player(1)
+player_two = Player.Player(2)    
 
 '''
 loads the desired chess set
@@ -107,16 +84,62 @@ def load_chess_set(screen):
 
     # * heading above game board
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate, heading_width, heading_height))
+
+    # display the title
     title_font = pygame.font.SysFont('monospace', 32, 'bold')
     title_label = title_font.render("The Game of Chess", True, font_color)
-    title_rect = title_label.get_rect(center=(heading_width / 2 + GAP, GAP + 30))
+    title_rect = title_label.get_rect(center=(heading_width / 2 + heading_starting_x_coordinate, heading_starting_y_coordinate + GAP))
     screen.blit(title_label, title_rect)
+
+    # display the initial player settings in the heading
+    heading_font = pygame.font.SysFont('monospace', 12)
+
+    #  player one
+    # create player labels
+    player_color1_label = heading_font.render("Player : ", True, font_color)
+    player_points_taken1_label = heading_font.render("Points Taken : ", True, font_color)
+    player_time_remaining1_label = heading_font.render("Time Remaining : ", True, font_color)
+    
+    # display player labels
+    screen.blit(player_color1_label, (heading_starting_x_coordinate + (GAP / 2), heading_starting_y_coordinate + (GAP * 2)))
+    screen.blit(player_points_taken1_label, (heading_starting_x_coordinate + (GAP / 2), heading_starting_y_coordinate + (GAP * 3)))
+    screen.blit(player_time_remaining1_label, (heading_starting_x_coordinate + (GAP / 2), heading_starting_y_coordinate + (GAP * 4)))    
+
+    # player two
+    # create player labels
+    player_color2_label = heading_font.render(" : Player", True, font_color)
+    player_points_taken2_label = heading_font.render(" : Points Taken", True, font_color)
+    player_time_remaining2_label = heading_font.render(" : Time Remaining", True, font_color)
+    
+    # display player labels
+    player_color2_label_rect = player_color2_label.get_rect(topright=(heading_starting_x_coordinate + heading_width - (GAP / 2), heading_starting_y_coordinate + (GAP * 2)))
+    player_points_taken2_label_rect = player_points_taken2_label.get_rect(topright=(heading_starting_x_coordinate + heading_width - (GAP / 2), heading_starting_y_coordinate + (GAP * 3)))
+    player_time_remaining2_label_rect = player_time_remaining2_label.get_rect(topright=(heading_starting_x_coordinate + heading_width - (GAP / 2), heading_starting_y_coordinate + (GAP * 4)))
+    
+    # insert into heading
+    screen.blit(player_color2_label, player_color2_label_rect)
+    screen.blit(player_points_taken2_label, player_points_taken2_label_rect)
+    screen.blit(player_time_remaining2_label, player_time_remaining2_label_rect) 
 
     # * prepare game log panel
     pygame.draw.rect(screen, game_log_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
     # * load and draw the ranks and files for the board (numbers and letters on the sides of the board identifying tiles)
-    draw_ranks_files(screen, background_color)
+    rank_file_font = pygame.font.SysFont('monospace', 16)
+    starting_file_value = 65 # ascii value of 'A'
+    
+    for col in range(DIMENSION): # draws the file (column) identifiers for the chess board
+        pygame.draw.rect(screen, background_color, pygame.Rect((col * TILE_SIZE) + (TILE_SIZE / 2) + GAP, WINDOW_HEIGHT - (GAP / 2), GAP / 2, GAP / 2))
+        col_label = rank_file_font.render(chr(starting_file_value), True, font_color)
+        file_label_rect = col_label.get_rect(center=((TILE_SIZE * col) + (TILE_SIZE / 2) + GAP, WINDOW_HEIGHT - (GAP / 2))) 
+        screen.blit(col_label, file_label_rect)
+        starting_file_value += 1 # assign file ascii value to be equal to the next column
+
+    for row in range(DIMENSION): # draws the rank (row) identifiers for the chess board
+        pygame.draw.rect(screen, background_color, pygame.Rect(GAP / 2, (row * TILE_SIZE) + WINDOW_HEIGHT - GAP - (TILE_SIZE / 2), GAP / 2, GAP / 2))
+        row_label = rank_file_font.render(str(row + 1), True, font_color)
+        rank_label_rect = row_label.get_rect(center=(GAP / 2, WINDOW_HEIGHT - GAP - (TILE_SIZE * row) - (TILE_SIZE / 2)))
+        screen.blit(row_label, rank_label_rect)
 
 '''
 main function
@@ -127,14 +150,8 @@ def main():
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     clock = pygame.time.Clock()
     pygame.display.set_caption("Lets Play Chess!")
-
-    # initialize players
-    player_one = Player.Player(1)
-    player_two = Player.Player(2)
-    print("Player1: " + player_one.color)
-    print("Player2: " + player_two.color)
             
-    # initialize game board
+    # display game board with initial set theme
     game_state = GameState.GameState()
     load_chess_set(screen) 
 
@@ -217,6 +234,18 @@ def draw_pieces(screen, board):
             # if not an empty tile; has a piece on the tile 
             if piece != "--":
                 screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + GAP, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - GAP, TILE_SIZE, TILE_SIZE))
+
+'''
+displays the player values in the header
+'''
+def display_player_values():
+    # TODO player one values
+
+
+    # TODO player two values
+
+
+    pass
 
 '''
 display game log in panel 
