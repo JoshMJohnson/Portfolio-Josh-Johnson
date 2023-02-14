@@ -14,6 +14,7 @@ from os import path # used to get absolute path for the project
 # project classes
 import GameState
 import Moves
+import Player
 
 # game board settings
 BOARD_WIDTH = 400 # game board width
@@ -121,13 +122,19 @@ def load_chess_set(screen):
 main function
 '''
 def main():
-    # * initialize pygame
+    # * initialize game
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     clock = pygame.time.Clock()
     pygame.display.set_caption("Lets Play Chess!")
+
+    # initialize players
+    player_one = Player.Player(1)
+    player_two = Player.Player(2)
+    print("Player1: " + player_one.color)
+    print("Player2: " + player_two.color)
             
-    # game board
+    # initialize game board
     game_state = GameState.GameState()
     load_chess_set(screen) 
 

@@ -68,12 +68,3 @@ class Player:
                     + (num_knights * knight_value) 
                     + (num_rooks * rook_value) 
                     + (num_queens * queen_value))
-
-# ! testing purposes below
-obj = Player(1)
-print('color: ' + obj.color)
-print('points_remaining: ' + str(obj.points_remaining))
-print('points_taken: ' + str(obj.points_taken))
-print('num_moves_made: ' + str(obj.num_moves_made))
-print('time_remaining: ' + str(obj.time_remaining))
-
