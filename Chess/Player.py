@@ -19,15 +19,8 @@ import time # time access and conversions
 contains an instance of a player
 '''
 class Player:
-    # player state
-    color = -1
-    points_remaining = -1
-    points_taken = -1
-    num_moves_made = -1
-    time_remaining = -1
-
     '''
-    constructor
+    constructor for the Player class
     '''
     def __init__(self, player):
         # color that the player controls
@@ -46,7 +39,8 @@ class Player:
         self.num_moves_made = 0
 
         # time remaining for player before forfeit due to delay
-        mins, secs = divmod(5*60, 60)
+        mins_allowed = 5
+        mins, secs = divmod(mins_allowed * 60, 60)
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
         time.sleep(1)
 
@@ -75,41 +69,11 @@ class Player:
                     + (num_rooks * rook_value) 
                     + (num_queens * queen_value))
 
-    '''
-    getter function for the player color variable
-    '''
-    def player_color(self):
-        return self.color
-    
-    '''
-    getter function for the points remaining for player
-    '''
-    def player_points_remaining(self):
-        return self.points_remaining
-
-    '''
-    getter function for the points player has taken from opponent
-    '''
-    def player_points_taken(self):
-        return self.points_taken
-
-    '''
-    getter function for the number of moves player has made so far
-    '''
-    def player_moves_made(self):
-        return self.num_moves_made
-
-    '''
-    getter function for time remaining for player
-    '''
-    def player_time_remaining(self):
-        return self.time_remaining
-
 # ! testing purposes below
 obj = Player(1)
-print('color: ' + obj.player_color())
-print('points_remaining: ' + str(obj.player_points_remaining()))
-print('points_taken: ' + str(obj.player_points_taken()))
-print('num_moves_made: ' + str(obj.player_moves_made()))
-print('time_remaining: ' + str(obj.player_time_remaining()))
+print('color: ' + obj.color)
+print('points_remaining: ' + str(obj.points_remaining))
+print('points_taken: ' + str(obj.points_taken))
+print('num_moves_made: ' + str(obj.num_moves_made))
+print('time_remaining: ' + str(obj.time_remaining))
 
