@@ -43,6 +43,33 @@ heading_starting_x_coordinate = GAP
 heading_starting_y_coordinate = GAP
 
 '''
+draws the ranks and files of the game board
+'''
+def draw_ranks_files(screen, background_color): 
+    if chess_set == 1: # chess set 1
+        font_color = 'black'
+    elif chess_set == 2: # TODO chess set 1
+        font_color = ''
+    else: # TODO chess set 1
+        font_color = ''
+
+    rank_file_font = pygame.font.SysFont('monospace', 16)
+    starting_file_value = 65 # ascii value of 'A'
+    
+    for col in range(DIMENSION): # draws the file (column) identifiers for the chess board
+        pygame.draw.rect(screen, background_color, pygame.Rect((col * TILE_SIZE) + (TILE_SIZE / 2) + GAP, WINDOW_HEIGHT - (GAP / 2), GAP / 2, GAP / 2))
+        col_label = rank_file_font.render(chr(starting_file_value), True, font_color)
+        file_label_rect = col_label.get_rect(center=((TILE_SIZE * col) + (TILE_SIZE / 2) + GAP, WINDOW_HEIGHT - (GAP / 2))) # TODO might do same thing as 2 lines up
+        screen.blit(col_label, file_label_rect)
+        starting_file_value += 1 # assign file ascii value to be equal to the next column
+
+    for row in range(DIMENSION): # draws the rank (row) identifiers for the chess board
+        pygame.draw.rect(screen, background_color, pygame.Rect(GAP / 2, (row * TILE_SIZE) + WINDOW_HEIGHT - GAP - (TILE_SIZE / 2), GAP / 2, GAP / 2))
+        row_label = rank_file_font.render(str(row + 1), True, font_color)
+        rank_label_rect = row_label.get_rect(center=(GAP / 2, WINDOW_HEIGHT - GAP - (TILE_SIZE * row) - (TILE_SIZE / 2))) # TODO might do same thing as 2 lines up
+        screen.blit(row_label, rank_label_rect)
+
+'''
 loads the desired chess set
 '''
 def load_chess_set(screen):
@@ -87,6 +114,9 @@ def load_chess_set(screen):
     # * prepare game log panel
     pygame.draw.rect(screen, game_log_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
+    # * load and draw the ranks and files for the board (numbers and letters on the sides of the board identifying tiles)
+    draw_ranks_files(screen, background_color)
+
 '''
 main function
 '''
@@ -100,7 +130,6 @@ def main():
     # game board
     game_state = GameState.GameState()
     load_chess_set(screen) 
-    draw_ranks_files(screen)
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
@@ -168,7 +197,7 @@ def draw_board_tiles(screen):
     for row in range(DIMENSION):
         for col in range(DIMENSION):
             color = tile_colors[((row + col) % 2)]
-            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - 25, TILE_SIZE, TILE_SIZE))
+            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + GAP, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - GAP, TILE_SIZE, TILE_SIZE))
 
 '''
 draw pieces on top of the board
@@ -180,13 +209,7 @@ def draw_pieces(screen, board):
 
             # if not an empty tile; has a piece on the tile 
             if piece != "--":
-                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + 25, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - 25, TILE_SIZE, TILE_SIZE))
-
-'''
-draws the ranks and files of the game board
-'''
-def draw_ranks_files(screen): # TODO 
-    pass
+                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + GAP, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - GAP, TILE_SIZE, TILE_SIZE))
 
 '''
 display game log in panel 
