@@ -74,8 +74,12 @@ def main():
     screen.fill(pygame.Color("light grey"))
 
     # * prepare game on load up of program
-    # TODO heading above game board
+    # heading above game board
     pygame.draw.rect(screen, "white", pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate, heading_width, heading_height))
+    title_font = pygame.font.SysFont('monospace', 32, 'bold')
+    title_label = title_font.render("The Game of Chess", True, 'black')
+    title_rect = title_label.get_rect(center=(heading_width / 2 + GAP, GAP + 30))
+    screen.blit(title_label, title_rect)
 
     # prepare game log panel
     pygame.draw.rect(screen, "white", pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
