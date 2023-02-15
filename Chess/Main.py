@@ -247,7 +247,7 @@ def update_player_points(screen, player):
 
     if player.color == 'white': # player one
         # turn previous value invisible
-        player_points_taken1_value_label = heading_font.render(str(player.points_taken), True, heading_background_color, heading_background_color)
+        player_points_taken1_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
         player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
         screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
 
@@ -257,7 +257,7 @@ def update_player_points(screen, player):
         screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
     else: # player two 
         # turn previous value invisible
-        player_points_taken2_value_label = heading_font.render(str(player.points_taken), True, heading_background_color, heading_background_color)
+        player_points_taken2_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
         screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
 
         # display new value of player score
@@ -314,7 +314,7 @@ def draw_pieces(screen, board):
 '''
 creates 3 buttons for the different themes (chess sets)
 '''
-def create_set_buttons(): # TODO
+def create_theme_buttons(screen): # TODO
     pass
 
 '''
