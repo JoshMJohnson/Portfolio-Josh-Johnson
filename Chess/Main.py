@@ -42,6 +42,8 @@ heading_width = BOARD_WIDTH
 heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
 heading_starting_x_coordinate = GAP
 heading_starting_y_coordinate = GAP
+font_color = 'black' # color of the font; initialized as the color 'black'
+heading_background_color = 'white' # heading background color; initialized as the color 'white'
 
 # initialize players
 player_one = Player.Player(1)
@@ -82,7 +84,7 @@ def load_chess_set(screen):
     # * loads set background    
     screen.fill(pygame.Color(background_color))
 
-    # * heading above game board
+    # * display heading initial content
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate, heading_width, heading_height))
 
     # display the title
@@ -111,7 +113,7 @@ def load_chess_set(screen):
     player_points_taken2_label = heading_font.render(" : Points Taken", True, font_color)
     player_time_remaining2_label = heading_font.render(" : Time Remaining", True, font_color)
     
-    # display player labels
+    # create player label rectangles
     player_color2_label_rect = player_color2_label.get_rect(topright=(heading_starting_x_coordinate + heading_width - (GAP / 2), heading_starting_y_coordinate + (GAP * 2)))
     player_points_taken2_label_rect = player_points_taken2_label.get_rect(topright=(heading_starting_x_coordinate + heading_width - (GAP / 2), heading_starting_y_coordinate + (GAP * 3)))
     player_time_remaining2_label_rect = player_time_remaining2_label.get_rect(topright=(heading_starting_x_coordinate + heading_width - (GAP / 2), heading_starting_y_coordinate + (GAP * 4)))
@@ -142,6 +144,39 @@ def load_chess_set(screen):
         screen.blit(row_label, rank_label_rect)
 
 '''
+displays the initial player values in the header
+'''
+def display_player_values(screen):
+    heading_font = pygame.font.SysFont('monospace', 12, italic=True)
+
+    # * player one values
+    # create player value labels
+    player_color1_value_label = heading_font.render(str(player_one.color), True, font_color)
+    player_points_taken1_value_label = heading_font.render(str(player_one.points_taken), True, font_color)
+    player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
+
+    # create player value label rectangles
+    player_color1_value_label_rect = player_color1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 2)))
+    player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
+    player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
+    
+    # display player value labels
+    screen.blit(player_color1_value_label, player_color1_value_label_rect)
+    screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+    screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
+
+    # * player two values
+    # create player value labels
+    player_color2_value_label = heading_font.render(str(player_two.color), True, font_color)
+    player_points_taken2_value_label = heading_font.render(str(player_two.points_taken), True, font_color)
+    player_time_remaining2_value_label = heading_font.render(str(player_two.time_remaining), True, font_color)
+
+    # display player value labels
+    screen.blit(player_color2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2)))
+    screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
+    screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))  
+
+'''
 main function
 '''
 def main():
@@ -154,6 +189,7 @@ def main():
     # display game board with initial set theme
     game_state = GameState.GameState()
     load_chess_set(screen) 
+    display_player_values(screen)
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
@@ -184,15 +220,55 @@ def main():
                         game_state.make_move(move)
                         game_log.append(move.get_chess_notation())
 
+                        # update player points and switches current player
+                        if player_one.current_player:
+                            update_player_points(screen, player_one)
+                            player_one.current_player = False
+                            player_two.current_player = True
+                        else:
+                            update_player_points(screen, player_two)
+                            player_one.current_player = True
+                            player_two.current_player = False
+
                         # resets user input clicks
                         tile_selected = () 
                         player_clickes = []
 
-        
         display_game_log(screen)
         draw_game_state(screen, game_state) 
         clock.tick(MAX_FPS)
         pygame.display.flip()
+
+'''
+updates the player points
+'''
+def update_player_points(screen, player):  
+    heading_font = pygame.font.SysFont('monospace', 12, italic=True)
+
+    if player.color == 'white': # player one
+        # turn previous value invisible
+        player_points_taken1_value_label = heading_font.render(str(player.points_taken), True, heading_background_color, heading_background_color)
+        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
+        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+
+        # display new value of player score
+        player_points_taken1_value_label = heading_font.render(str(player.points_taken), True, font_color)
+        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
+        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+    else: # player two 
+        # turn previous value invisible
+        player_points_taken2_value_label = heading_font.render(str(player.points_taken), True, heading_background_color, heading_background_color)
+        screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
+
+        # display new value of player score
+        player_points_taken2_value_label = heading_font.render(str(player.points_taken), True, font_color)
+        screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
+        
+'''
+updates the player game time left
+'''
+def update_player_game_time(): # TODO
+    pass
 
 ''' 
 creates all graphics of the game 
@@ -200,7 +276,7 @@ creates all graphics of the game
 def draw_game_state(screen, game_state):
     draw_board_tiles(screen) 
     draw_pieces(screen, game_state.board) 
-
+    
 ''' 
 draws the squares on the game board; top left square is always light
 '''
@@ -236,15 +312,9 @@ def draw_pieces(screen, board):
                 screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + GAP, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - GAP, TILE_SIZE, TILE_SIZE))
 
 '''
-displays the player values in the header
+creates 3 buttons for the different themes (chess sets)
 '''
-def display_player_values():
-    # TODO player one values
-
-
-    # TODO player two values
-
-
+def create_set_buttons(): # TODO
     pass
 
 '''

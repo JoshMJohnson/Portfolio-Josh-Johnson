@@ -26,8 +26,10 @@ class Player:
         # color that the player controls
         if player == 1:
             self.color = 'white'
+            self.current_player = True
         else:
             self.color = 'black'
+            self.current_player = False
 
         # points remaining for player
         self.points_remaining = self.starting_points_calculator()
