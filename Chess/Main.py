@@ -62,7 +62,7 @@ def load_chess_set(screen):
         heading_background_color = 'white'
         font_color = 'black'
         game_log_background_color = 'white'
-    elif chess_set == 2: # TODO chess set 2
+    elif chess_set == 2: # chess set 2
         piece_set = "Set2"
         background_color = pygame.Color(222,184,135)
         heading_background_color = pygame.Color(255,228,196)
@@ -287,11 +287,11 @@ def draw_board_tiles(screen):
     if chess_set == 1: # chess set 1
         tile_color1 = 'white'
         tile_color2 = 'grey'
-    elif chess_set == 2: # TODO chess set 2
-        tile_color1 = 'white'
+    elif chess_set == 2: # chess set 2
+        tile_color1 = pygame.Color(255,228,196)
         tile_color2 = pygame.Color(139,69,19)
     else: # TODO chess set 3
-        tile_color1 = ''
+        tile_color1 = 'white'
         tile_color2 = ''
 
     tile_colors = [pygame.Color(tile_color1), pygame.Color(tile_color2)]
