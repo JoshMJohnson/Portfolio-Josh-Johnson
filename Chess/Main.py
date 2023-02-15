@@ -23,7 +23,7 @@ DIMENSION = 8 # 8x8 board
 TILE_SIZE = BOARD_WIDTH // DIMENSION # size of a square (tile) on the gui
 MAX_FPS = 15 # for animations
 PIECE_IMAGES = {} # global dictionary of chess piece images
-chess_set = 1 # indicates which chess set to use; default is set 1
+chess_set = 2 # indicates which chess set to use; default is set 1
 
 # window settings
 WINDOW_WIDTH = BOARD_WIDTH + 300
@@ -42,8 +42,8 @@ heading_width = BOARD_WIDTH
 heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
 heading_starting_x_coordinate = GAP
 heading_starting_y_coordinate = GAP
-font_color = 'black' # color of the font; initialized as the color 'black'
-heading_background_color = 'white' # heading background color; initialized as the color 'white'
+font_color = '' # color of the font; initialized as the color 'black'
+heading_background_color = '' # heading background color; initialized as the color 'white'
 
 # initialize players
 player_one = Player.Player(1)
@@ -53,6 +53,9 @@ player_two = Player.Player(2)
 loads the desired chess set
 '''
 def load_chess_set(screen):
+    global font_color
+    global heading_background_color
+
     if chess_set == 1: # chess set 1
         piece_set = "Set1"
         background_color = 'light grey'
@@ -61,10 +64,10 @@ def load_chess_set(screen):
         game_log_background_color = 'white'
     elif chess_set == 2: # TODO chess set 2
         piece_set = "Set2"
-        background_color = ''
-        heading_background_color = ''
-        font_color = ''
-        game_log_background_color = ''
+        background_color = pygame.Color(222,184,135)
+        heading_background_color = pygame.Color(255,228,196)
+        font_color = pygame.Color(139,69,19)
+        game_log_background_color = heading_background_color
     else: # TODO chess set 3
         piece_set = "Set3"
         background_color = ''
@@ -285,8 +288,8 @@ def draw_board_tiles(screen):
         tile_color1 = 'white'
         tile_color2 = 'grey'
     elif chess_set == 2: # TODO chess set 2
-        tile_color1 = ''
-        tile_color2 = ''
+        tile_color1 = 'white'
+        tile_color2 = pygame.Color(139,69,19)
     else: # TODO chess set 3
         tile_color1 = ''
         tile_color2 = ''
