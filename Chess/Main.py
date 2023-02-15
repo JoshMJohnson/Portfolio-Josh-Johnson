@@ -23,7 +23,7 @@ DIMENSION = 8 # 8x8 board
 TILE_SIZE = BOARD_WIDTH // DIMENSION # size of a square (tile) on the gui
 MAX_FPS = 15 # for animations
 PIECE_IMAGES = {} # global dictionary of chess piece images
-chess_set = 2 # indicates which chess set to use; default is set 1
+chess_set = 1 # indicates which chess set to use; default is set 1
 
 # window settings
 WINDOW_WIDTH = BOARD_WIDTH + 300
@@ -289,7 +289,7 @@ def draw_board_tiles(screen):
         tile_color2 = 'grey'
     elif chess_set == 2: # chess set 2
         tile_color1 = pygame.Color(255,228,196)
-        tile_color2 = pygame.Color(139,69,19)
+        tile_color2 = pygame.Color(210,105,30)
     else: # TODO chess set 3
         tile_color1 = 'white'
         tile_color2 = ''
