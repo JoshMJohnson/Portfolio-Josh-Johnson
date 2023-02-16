@@ -72,12 +72,12 @@ def load_chess_set(screen):
         heading_background_color = pygame.Color(255,228,196)
         font_color = pygame.Color(139,69,19)
         game_log_background_color = heading_background_color
-    else: # TODO chess set 3
+    else: # chess set 3
         piece_set = "Set3"
-        background_color = ''
-        heading_background_color = ''
-        font_color = ''
-        game_log_background_color = ''
+        background_color = 'light grey'
+        heading_background_color = 'black'
+        font_color = 'white'
+        game_log_background_color = heading_background_color
 
     # * load chess pieces
     base_path = path.dirname(__file__) # finds absolute path for the project
@@ -261,11 +261,11 @@ def run_game(screen, clock):
                     chess_set = 2
                     game_log = []
                     open_theme()                    
-                # elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
-                #         and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # TODO else if theme 3 is selected
-                #     chess_set = 3
-                #     game_log = []
-                #     open_theme()  
+                elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # else if theme 3 is selected
+                    chess_set = 3
+                    game_log = []
+                    open_theme()  
 
         display_game_log(screen)
         draw_game_state(screen, game_state) 
@@ -333,9 +333,9 @@ def draw_board_tiles(screen):
     elif chess_set == 2: # chess set 2
         tile_color1 = pygame.Color(255,228,196)
         tile_color2 = pygame.Color(210,105,30)
-    else: # TODO chess set 3
-        tile_color1 = ''
-        tile_color2 = ''
+    else: # chess set 3
+        tile_color1 = 'white'
+        tile_color2 = 'black'
 
     tile_colors = [pygame.Color(tile_color1), pygame.Color(tile_color2)]
 
@@ -362,8 +362,8 @@ creates 3 buttons for the different themes (chess sets)
 '''
 def create_theme_buttons(screen):
     # theme button one
-    color1 = 'light grey'
-    color2 = 'black'    
+    color1 = pygame.Color(105,105,105)
+    color2 = pygame.Color(36, 15, 15)  
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
 
@@ -374,11 +374,11 @@ def create_theme_buttons(screen):
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
 
 
-    # TODO theme button three 
-    # color1 = ''
-    # color2 = ''    
-    # pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
-    # pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
+    # theme button three 
+    color1 = 'light grey'
+    color2 = pygame.Color(36, 15, 15)    
+    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
+    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
 
     pygame.display.update()
 
