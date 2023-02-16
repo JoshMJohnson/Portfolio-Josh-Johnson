@@ -201,6 +201,7 @@ loads the game with the chess set theme and runs the game
 '''
 def run_game(screen, clock):
     global chess_set
+    global game_log
 
     game_state = GameState.GameState()
     load_chess_set(screen) 
@@ -253,12 +254,13 @@ def run_game(screen, clock):
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # TODO else if theme 1 is selected
                     chess_set = 1
+                    game_log = []
                     open_theme()
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # TODO else if theme 2 is selected
                     chess_set = 2
-                    open_theme()
-                    
+                    game_log = []
+                    open_theme()                    
                 # elif : # TODO else if theme 3 is selected                
                 #     pass
 
