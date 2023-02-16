@@ -45,6 +45,10 @@ heading_starting_y_coordinate = GAP
 font_color = '' # color of the font; initialized as the color 'black'
 heading_background_color = '' # heading background color; initialized as the color 'white'
 
+# buttons in heading
+button_width = 8
+button_height = 16
+
 # initialize players
 player_one = Player.Player(1)
 player_two = Player.Player(2)    
@@ -190,9 +194,18 @@ def main():
     pygame.display.set_caption("Lets Play Chess!")
             
     # display game board with initial set theme
+    run_game(screen, clock)
+
+'''
+loads the game with the chess set theme and runs the game
+'''
+def run_game(screen, clock):
+    global chess_set
+
     game_state = GameState.GameState()
     load_chess_set(screen) 
     display_player_values(screen)
+    create_theme_buttons(screen)
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
@@ -204,6 +217,7 @@ def main():
         for e in pygame.event.get(): # handles triggered events by user
             if e.type == pygame.QUIT: # quit application
                 running = False
+                exit()
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
                 col = (location[0] - GAP) // TILE_SIZE 
@@ -235,12 +249,36 @@ def main():
 
                         # resets user input clicks
                         tile_selected = () 
-                        player_clickes = []
+                        player_clickes = []    
+                elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # TODO else if theme 1 is selected
+                    chess_set = 1
+                    open_theme()
+                elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # TODO else if theme 2 is selected
+                    chess_set = 2
+                    open_theme()
+                    
+                # elif : # TODO else if theme 3 is selected                
+                #     pass
 
         display_game_log(screen)
         draw_game_state(screen, game_state) 
         clock.tick(MAX_FPS)
         pygame.display.flip()
+
+'''
+
+'''
+def open_theme():
+    pygame.quit() # close previous window
+
+    # * open new window with updated theme settings
+    pygame.init()
+    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+    clock = pygame.time.Clock()
+    pygame.display.set_caption("Lets Play Chess!")
+    run_game(screen, clock)    
 
 '''
 updates the player points
@@ -317,8 +355,27 @@ def draw_pieces(screen, board):
 '''
 creates 3 buttons for the different themes (chess sets)
 '''
-def create_theme_buttons(screen): # TODO
-    pass
+def create_theme_buttons(screen):
+    # theme button one
+    color1 = 'light grey'
+    color2 = 'black'    
+    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
+    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
+
+    # theme button two
+    color1 = pygame.Color(222,184,135)
+    color2 = pygame.Color(210,105,30)  
+    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
+    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
+
+
+    # TODO theme button three 
+    # color1 = 'light grey'
+    # color2 = 'black'    
+    # pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
+    # pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
+
+    pygame.display.update()
 
 '''
 display game log in panel 
