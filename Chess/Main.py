@@ -252,17 +252,20 @@ def run_game(screen, clock):
                         tile_selected = () 
                         player_clickes = []    
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
-                        and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # TODO else if theme 1 is selected
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
                     chess_set = 1
                     game_log = []
                     open_theme()
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
-                        and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # TODO else if theme 2 is selected
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # else if theme 2 is selected
                     chess_set = 2
                     game_log = []
                     open_theme()                    
-                # elif : # TODO else if theme 3 is selected                
-                #     pass
+                # elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
+                #         and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # TODO else if theme 3 is selected
+                #     chess_set = 3
+                #     game_log = []
+                #     open_theme()  
 
         display_game_log(screen)
         draw_game_state(screen, game_state) 
@@ -331,7 +334,7 @@ def draw_board_tiles(screen):
         tile_color1 = pygame.Color(255,228,196)
         tile_color2 = pygame.Color(210,105,30)
     else: # TODO chess set 3
-        tile_color1 = 'white'
+        tile_color1 = ''
         tile_color2 = ''
 
     tile_colors = [pygame.Color(tile_color1), pygame.Color(tile_color2)]
@@ -372,10 +375,10 @@ def create_theme_buttons(screen):
 
 
     # TODO theme button three 
-    # color1 = 'light grey'
-    # color2 = 'black'    
-    # pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
-    # pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
+    # color1 = ''
+    # color2 = ''    
+    # pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
+    # pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
 
     pygame.display.update()
 
