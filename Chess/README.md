@@ -9,7 +9,7 @@
     
     1.) 
 ---
-<h2 align="center">:camera: Themes &lpar;Chess Sets&rpar; :camera:</h2>
+<h2 align="center">:camera: Chess Sets :camera:</h2>
 <div align="center">
 
 **Theme 1**<br>
