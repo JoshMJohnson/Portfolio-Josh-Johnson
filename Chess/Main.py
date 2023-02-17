@@ -74,7 +74,7 @@ def load_chess_set(screen):
         game_log_background_color = heading_background_color
     else: # chess set 3
         piece_set = "Set3"
-        background_color = 'light grey'
+        background_color = pygame.Color(51,51,51)
         heading_background_color = 'black'
         font_color = 'white'
         game_log_background_color = heading_background_color
