@@ -13,13 +13,13 @@
 <div align="center">
 
 **Theme 1**<br>
-<!-- <img width="475" height="600" alt="Database Data" src=""> -->
+<img width="475" height="600" alt="Database Data" src="Project_Images/Theme_One.png">
 
 **Theme 2**<br>
-<!-- <img width="290" height="270" alt="Database Data" src=""> -->
+<img width="290" height="270" alt="Database Data" src="Project_Images/Theme_Two.png">
 
 **Theme 3**<br>
-<!-- <img width="475" height="600" alt="Database Data" src=""> -->
+<img width="475" height="600" alt="Database Data" src="Project_Images/Theme_Three.png">
 </div>
 
 <!-- footer section -->
