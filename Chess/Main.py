@@ -248,6 +248,9 @@ def run_game(screen, clock):
                             player_one.current_player = True
                             player_two.current_player = False
 
+                        # displays move within the move log on the window
+                        display_game_log(screen)
+
                         # resets user input clicks
                         tile_selected = () 
                         player_clickes = []    
@@ -267,7 +270,6 @@ def run_game(screen, clock):
                     game_log = []
                     open_theme()  
 
-        display_game_log(screen)
         draw_game_state(screen, game_state) 
         clock.tick(MAX_FPS)
         pygame.display.flip()
@@ -385,8 +387,28 @@ def create_theme_buttons(screen):
 '''
 display game log in panel 
 '''
-def display_game_log(screen): # TODO make a scrollable game log
-    pass
+def display_game_log(screen): # TODO make a scrollable game log that fades out at the bottom when out of space
+    # colors over the previous heading with a new blank template
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
+
+    # places most recent moves in the begining of the list
+    game_log_rev_order = game_log.copy()
+    game_log_rev_order.reverse()
+
+    # sets the font style and size of game log content
+    heading_font = pygame.font.SysFont('monospace', 16)
+
+    # displays moves within the game log section; more recent moves placed above previous moves
+    for move in range(len(game_log_rev_order)):
+        # x, y coordinates of the log geting made
+        y_location = log_frame_starting_y_coordinate + GAP + (move * GAP)
+        x_location = log_frame_starting_x_coordinate + (log_frame_width / 2) 
+
+        # display move in the log frame
+        log_move = heading_font.render(game_log_rev_order[move], True, font_color)
+        log_move_rect = log_move.get_rect(center=(x_location, y_location))
+        screen.blit(log_move, log_move_rect)
+
 
 
 # convension for calling the main function; useful for running as a script
