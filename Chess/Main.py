@@ -394,22 +394,41 @@ def display_game_log(screen): # TODO make a scrollable game log that fades out a
     # places most recent moves in the begining of the list
     game_log_rev_order = game_log.copy()
     game_log_rev_order.reverse()
-
-    # sets the font style and size of game log content
-    heading_font = pygame.font.SysFont('monospace', 16)
-
+    
+    heading_font = pygame.font.SysFont('monospace', 16) # sets the font style and size of game log content
+    
     # displays moves within the game log section; more recent moves placed above previous moves
     for move in range(len(game_log_rev_order)):
+        alpha = 255 # determines the transparency of the logged move 
+
         # x, y coordinates of the log geting made
         y_location = log_frame_starting_y_coordinate + GAP + (move * GAP)
         x_location = log_frame_starting_x_coordinate + (log_frame_width / 2) 
 
-        # display move in the log frame
+        # creates the label for the move to be logged
         log_move = heading_font.render(game_log_rev_order[move], True, font_color)
         log_move_rect = log_move.get_rect(center=(x_location, y_location))
+
+        # have logged items fade out if running out of space at the bottom of the frame
+        if y_location <= WINDOW_HEIGHT - (GAP * 8): 
+            screen.blit(log_move, log_move_rect)
+        elif y_location > WINDOW_HEIGHT - (GAP * 8) and y_location <= WINDOW_HEIGHT - (GAP * 7):
+            alpha = alpha * 0.85
+        elif y_location > WINDOW_HEIGHT - (GAP * 7) and y_location <= WINDOW_HEIGHT - (GAP * 6):
+            alpha = alpha * 0.7
+        elif y_location > WINDOW_HEIGHT - (GAP * 6) and y_location <= WINDOW_HEIGHT - (GAP * 5):
+            alpha = alpha * 0.55
+        elif y_location > WINDOW_HEIGHT - (GAP * 5) and y_location <= WINDOW_HEIGHT - (GAP * 4):
+            alpha = alpha * 0.4
+        elif y_location > WINDOW_HEIGHT - (GAP * 4) and y_location <= WINDOW_HEIGHT - (GAP * 3):
+            alpha = alpha * 0.25
+        elif y_location > WINDOW_HEIGHT - (GAP * 3) and y_location <= WINDOW_HEIGHT - (GAP * 2):
+            alpha = alpha * 0.10
+        else:
+            break
+
+        log_move.set_alpha(alpha)
         screen.blit(log_move, log_move_rect)
-
-
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
