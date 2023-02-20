@@ -3,12 +3,13 @@ Keeps track of the board state and determains valid moves
 
 Keeps a move log for the game
 '''
+
 class GameState():
     # constructor for the class GameState
     def __init__(self):
         # game state
         self.current_player_white = True
-        self.moveLog = []
+        self.move_log = []
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
@@ -28,5 +29,15 @@ class GameState():
     def make_move(self, move):
         self.board[move.start_row][move.start_col] = "--"
         self.board[move.end_row][move.end_col] = move.starting_piece
-        self.moveLog.append(move)
+        self.move_log.append(move)
         self.current_player_white = not self.current_player_white
+
+    '''
+    undo last move made
+    '''
+    def undo_move(self):
+        if len(self.move_log) != 0: # if at least one move has been made
+            move = self.move_log.pop()
+            self.board[move.start_row][move.start_col] = move.starting_piece
+            self.board[move.end_row][move.end_col] = move.ending_piece
+            self.current_player_white = not self.current_player_white

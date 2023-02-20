@@ -10,6 +10,7 @@ Created By: Josh Johnson
 import random # implements pseudo-random number generators for various distributions
 import pygame # gui for python game
 from os import path # used to get absolute path for the project
+import threading
 
 # project classes
 import GameState
@@ -51,7 +52,7 @@ button_height = 16
 
 # initialize players
 player_one = Player.Player(1)
-player_two = Player.Player(2)    
+player_two = Player.Player(2)
 
 '''
 loads the desired chess set
@@ -269,8 +270,16 @@ def run_game(screen, clock):
                     chess_set = 3
                     game_log = []
                     open_theme()  
+            elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
+                if e.key == pygame.K_u: # undo move and update game log
+                    game_state.undo_move()
+                    game_log.pop()
+                    display_game_log(screen)
+
+
 
         draw_game_state(screen, game_state) 
+        update_player_game_time(screen)
         clock.tick(MAX_FPS)
         pygame.display.flip()
 
@@ -315,8 +324,38 @@ def update_player_points(screen, player):
 '''
 updates the player game time left
 '''
-def update_player_game_time(): # TODO
-    pass
+def update_player_game_time(screen):
+    heading_font = pygame.font.SysFont('monospace', 12, italic=True)
+
+    if player_one.current_player: # if whites players move
+        # TODO starts/stops player timer
+        # player_one.continue_timer()
+        # player_two.pause_timer()
+        # player_one.is_player_out_of_time()
+
+        
+
+
+        # turns old player time value invisible
+        player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
+        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+
+        # writes new player time
+        player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
+        player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
+        screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
+    else: # TODO else black players move
+        pass
+
+    
+
+    # # * player two values
+    # # create player value labels
+    # player_time_remaining2_value_label = heading_font.render(str(player_two.player_mins), True, font_color)
+
+    # # display player value labels
+    # screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4))) 
 
 ''' 
 creates all graphics of the game 
