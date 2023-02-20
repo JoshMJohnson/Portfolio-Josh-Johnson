@@ -272,11 +272,10 @@ def run_game(screen, clock):
                     open_theme()  
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
-                    game_state.undo_move()
-                    game_log.pop()
-                    display_game_log(screen)
-
-
+                    if len(game_log) != 0:
+                        game_state.undo_move()
+                        game_log.pop()
+                        display_game_log(screen)
 
         draw_game_state(screen, game_state) 
         update_player_game_time(screen)
