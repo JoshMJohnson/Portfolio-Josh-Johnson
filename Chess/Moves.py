@@ -22,6 +22,19 @@ class Moves():
         # starting and ending index locations within the board array
         self.starting_piece = board[self.start_row][self.start_col]
         self.ending_piece = board[self.end_row][self.end_col]
+        
+        # unique move ID
+        self.move_id = self.start_row * 1000 + self.start_col * 100 + self.end_row * 10 + self.end_col
+
+    '''
+    override the equals method
+    '''
+    def __eq__(self, other):
+        if isinstance(other, Moves):
+            return self.move_id == other.move_id
+        
+        return False
+
 
     '''
     returns the chess notation of a potential move

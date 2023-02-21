@@ -205,6 +205,9 @@ def run_game(screen, clock):
     global game_log
 
     game_state = GameState.GameState()
+    valid_moves = game_state.get_valid_moves() # gets all valid moves a player could make
+    move_made = False
+
     load_chess_set(screen) 
     display_player_values(screen)
     create_theme_buttons(screen)
@@ -235,22 +238,24 @@ def run_game(screen, clock):
                     
                     if len(player_clickes) == 2: # if second tile was clicked that was different than the first
                         move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
-                        print(move.get_chess_notation()) # ! used for testing purposes
-                        game_state.make_move(move)
-                        game_log.append(move.get_chess_notation())
 
-                        # update player points and switches current player
-                        if player_one.current_player:
-                            update_player_points(screen, player_one)
-                            player_one.current_player = False
-                            player_two.current_player = True
-                        else:
-                            update_player_points(screen, player_two)
-                            player_one.current_player = True
-                            player_two.current_player = False
+                        if move in valid_moves:
+                            game_state.make_move(move)
+                            game_log.append(move.get_chess_notation())
+                            move_made = True
 
-                        # displays move within the move log on the window
-                        display_game_log(screen)
+                            # update player points and switches current player
+                            if player_one.current_player:
+                                update_player_points(screen, player_one)
+                                player_one.current_player = False
+                                player_two.current_player = True
+                            else:
+                                update_player_points(screen, player_two)
+                                player_one.current_player = True
+                                player_two.current_player = False
+
+                            # displays move within the move log on the window
+                            display_game_log(screen)
 
                         # resets user input clicks
                         tile_selected = () 
@@ -276,6 +281,11 @@ def run_game(screen, clock):
                         game_state.undo_move()
                         game_log.pop()
                         display_game_log(screen)
+                        move_made = True
+
+        if move_made: # if a move was made; get a new list of valid moves for the next move
+            valid_moves = game_state.get_valid_moves()
+            move_made = False
 
         draw_game_state(screen, game_state) 
         update_player_game_time(screen)
