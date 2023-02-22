@@ -61,15 +61,15 @@ class GameState():
                 if ("white" in self.board[row][col] and self.current_player_white) or ("black" in self.board[row][col] and not self.current_player_white): # if piece on tile belongs to the current player
                     if "pawn" in self.board[row][col]: # pawn moves
                         self.get_pawn_moves(row, col, possible_moves)
-                    if "rook" in self.board[row][col]: # rook moves
+                    elif "rook" in self.board[row][col]: # rook moves
                         self.get_rook_moves(row, col, possible_moves)
-                    if "knight" in self.board[row][col]: # knight moves
+                    elif "knight" in self.board[row][col]: # knight moves
                         self.get_knight_moves(row, col, possible_moves)
-                    if "bishop" in self.board[row][col]: # bishop moves
+                    elif "bishop" in self.board[row][col]: # bishop moves
                         self.get_bishop_moves(row, col, possible_moves)
-                    if "queen" in self.board[row][col]: # queen moves
+                    elif "queen" in self.board[row][col]: # queen moves
                         self.get_queen_moves(row, col, possible_moves)
-                    if "king" in self.board[row][col]: # king moves
+                    elif "king" in self.board[row][col]: # king moves
                         self.get_king_moves(row, col, possible_moves)
                     
         return possible_moves

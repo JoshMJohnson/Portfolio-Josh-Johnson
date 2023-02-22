@@ -46,6 +46,13 @@ heading_starting_y_coordinate = GAP
 font_color = '' # color of the font; initialized as the color 'black'
 heading_background_color = '' # heading background color; initialized as the color 'white'
 
+# current player symbol
+active_symbol_size = 5
+symbol_location_adjustment = heading_width / 5
+active1_symbol_xlocation = heading_starting_x_coordinate + symbol_location_adjustment
+active2_symbol_xlocation = heading_starting_x_coordinate + heading_width - symbol_location_adjustment
+active_symbol_ylocation = heading_starting_y_coordinate + 57
+
 # buttons in heading
 button_width = 8
 button_height = 16
@@ -66,19 +73,19 @@ def load_chess_set(screen):
         background_color = 'light grey'
         heading_background_color = 'white'
         font_color = 'black'
-        game_log_background_color = 'white'
     elif chess_set == 2: # chess set 2
         piece_set = "Set2"
         background_color = pygame.Color(222,184,135)
         heading_background_color = pygame.Color(255,228,196)
         font_color = pygame.Color(139,69,19)
-        game_log_background_color = heading_background_color
+        
     else: # chess set 3
         piece_set = "Set3"
         background_color = pygame.Color(51,51,51)
         heading_background_color = 'black'
         font_color = 'white'
-        game_log_background_color = heading_background_color
+
+    game_log_background_color = heading_background_color
 
     # * load chess pieces
     base_path = path.dirname(__file__) # finds absolute path for the project
@@ -131,6 +138,9 @@ def load_chess_set(screen):
     screen.blit(player_points_taken2_label, player_points_taken2_label_rect)
     screen.blit(player_time_remaining2_label, player_time_remaining2_label_rect) 
 
+    # current player symbol; player one symbol = active
+    pygame.draw.circle(screen, font_color, (active1_symbol_xlocation, active_symbol_ylocation), active_symbol_size)
+    
     # * prepare game log panel
     pygame.draw.rect(screen, game_log_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
@@ -183,7 +193,7 @@ def display_player_values(screen):
     screen.blit(player_color2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2)))
     screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
     screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))  
-
+        
 '''
 main function
 '''
@@ -285,6 +295,7 @@ def run_game(screen, clock):
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
             valid_moves = game_state.get_valid_moves()
+            update_current_player_symbol(screen)
             move_made = False
 
         draw_game_state(screen, game_state) 
@@ -365,6 +376,17 @@ def update_player_game_time(screen):
 
     # # display player value labels
     # screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4))) 
+
+'''
+current player symbol change
+'''
+def update_current_player_symbol(screen): # TODO
+    if player_one.current_player: # if current player needs to be white
+        pygame.draw.circle(screen, font_color, (active1_symbol_xlocation, active_symbol_ylocation), active_symbol_size) # player 1
+        pygame.draw.circle(screen, heading_background_color, (active2_symbol_xlocation, active_symbol_ylocation), active_symbol_size) # player 2
+    else: # else current player needs to be black
+        pygame.draw.circle(screen, heading_background_color, (active1_symbol_xlocation, active_symbol_ylocation), active_symbol_size) # player 1
+        pygame.draw.circle(screen, font_color, (active2_symbol_xlocation, active_symbol_ylocation), active_symbol_size) # player 2
 
 ''' 
 creates all graphics of the game 
