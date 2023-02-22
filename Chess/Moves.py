@@ -35,7 +35,6 @@ class Moves():
         
         return False
 
-
     '''
     returns the chess notation of a potential move
     '''

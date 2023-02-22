@@ -115,29 +115,84 @@ class GameState():
     '''
     get all rook moves for the rook located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_rook_moves(self, row, col, moves): # TODO 
-        pass
+    def get_rook_moves(self, row, col, possible_moves): # TODO 
+        opponent_color = "black" if self.current_player_white else "white"
+        temp_row = row
+        temp_col = col
+        
+        # moving upward
+        while temp_row > 0: # continue to check upward until off board or block incountered
+            temp_row -= 1
+            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+                break
+            else: # else tile above ovserving tile is occupied by own piece
+                break
+
+        temp_row = row
+        temp_col = col
+
+        # moving downward
+        while temp_row < 7: # continue to check downward until off board or block incountered
+            temp_row += 1
+            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+                break
+            else: # else tile above ovserving tile is occupied by own piece
+                break
+
+        temp_row = row
+        temp_col = col
+
+        # moving left
+        while temp_col > 0: # continue to check left until off board or block incountered
+            temp_col -= 1
+            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+                break
+            else: # else tile above ovserving tile is occupied by own piece
+                break
+
+        temp_row = row
+        temp_col = col
+
+        # moving right
+        while temp_col < 7: # continue to check right until off board or block incountered
+            temp_col += 1
+            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
+                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+                break
+            else: # else tile above ovserving tile is occupied by own piece
+                break
 
     '''
     get all knight moves for the knight located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_knight_moves(self, row, col, moves): # TODO 
+    def get_knight_moves(self, row, col, possible_moves): # TODO 
         pass
 
     '''
     get all bishop moves for the bishop located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_bishop_moves(self, row, col, moves): # TODO 
+    def get_bishop_moves(self, row, col, possible_moves): # TODO 
         pass
 
     '''
     get all queen moves for the queen located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_queen_moves(self, row, col, moves): # TODO 
+    def get_queen_moves(self, row, col, possible_moves): # TODO 
         pass
 
     '''
     get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_king_moves(self, row, col, moves): # TODO 
+    def get_king_moves(self, row, col, possible_moves): # TODO 
         pass

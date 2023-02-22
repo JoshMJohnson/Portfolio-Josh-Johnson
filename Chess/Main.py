@@ -17,7 +17,7 @@ import GameState
 import Moves
 import Player
 
-# game board settings
+# game board settings; part 1
 BOARD_WIDTH = 400 # game board width
 BOARD_HEIGHT = 400 # game board height
 DIMENSION = 8 # 8x8 board
@@ -25,6 +25,7 @@ TILE_SIZE = BOARD_WIDTH // DIMENSION # size of a square (tile) on the gui
 MAX_FPS = 15 # for animations
 PIECE_IMAGES = {} # global dictionary of chess piece images
 chess_set = 1 # indicates which chess set to use; default is set 1
+highlighted_tile_color = '' # color for when a tile has been selected for starting location of a piece
 
 # window settings
 WINDOW_WIDTH = BOARD_WIDTH + 300
@@ -61,29 +62,36 @@ button_height = 16
 player_one = Player.Player(1)
 player_two = Player.Player(2)
 
+# game board settings; part 2
+game_board_starting_x_coordinate = GAP
+game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
+
 '''
 loads the desired chess set
 '''
 def load_chess_set(screen):
     global font_color
     global heading_background_color
+    global highlighted_tile_color
 
     if chess_set == 1: # chess set 1
         piece_set = "Set1"
         background_color = 'light grey'
         heading_background_color = 'white'
         font_color = 'black'
+        highlighted_tile_color = pygame.Color(105,105,105)
     elif chess_set == 2: # chess set 2
         piece_set = "Set2"
         background_color = pygame.Color(222,184,135)
         heading_background_color = pygame.Color(255,228,196)
         font_color = pygame.Color(139,69,19)
-        
+        highlighted_tile_color = pygame.Color(255,165,0)
     else: # chess set 3
         piece_set = "Set3"
         background_color = pygame.Color(51,51,51)
         heading_background_color = 'black'
         font_color = 'white'
+        highlighted_tile_color = pygame.Color(192,192,192)
 
     game_log_background_color = heading_background_color
 
@@ -248,13 +256,32 @@ def run_game(screen, clock):
                             move_made = True
 
                             update_current_player(screen)
-
-                            # displays move within the move log on the window
                             display_game_log(screen)
 
                         # resets user input clicks
                         tile_selected = () 
                         player_clickes = []    
+                    else: # TODO starting tile selected; highlight tile
+                        line_thickness = 10 # border thickness of highlighted tile
+
+                        # tile location data
+                        left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
+                        right_x_loc = left_x_loc + TILE_SIZE
+                        top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
+                        bottom_y_loc = top_y_loc + TILE_SIZE
+
+                        # top line
+                        # pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (right_x_loc, top_y_loc), line_thickness)
+
+                        # bottom line
+
+
+                        # left line
+
+
+                        # right line
+
+                        
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
                     chess_set = 1
@@ -415,7 +442,7 @@ def draw_board_tiles(screen):
     for row in range(DIMENSION):
         for col in range(DIMENSION):
             color = tile_colors[((row + col) % 2)]
-            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + GAP, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - GAP, TILE_SIZE, TILE_SIZE))
+            pygame.draw.rect(screen, color, pygame.Rect((col * TILE_SIZE) + game_board_starting_x_coordinate, (row * TILE_SIZE) + game_board_starting_y_coordinate, TILE_SIZE, TILE_SIZE))
 
 '''
 draw pieces on top of the board
@@ -427,7 +454,7 @@ def draw_pieces(screen, board):
 
             # if not an empty tile; has a piece on the tile 
             if piece != "--":
-                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + GAP, (row * TILE_SIZE) + WINDOW_HEIGHT - BOARD_HEIGHT - GAP, TILE_SIZE, TILE_SIZE))
+                screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + game_board_starting_x_coordinate, (row * TILE_SIZE) + game_board_starting_y_coordinate, TILE_SIZE, TILE_SIZE))
 
 '''
 creates 3 buttons for the different themes (chess sets)
