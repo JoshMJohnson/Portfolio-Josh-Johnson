@@ -254,15 +254,7 @@ def run_game(screen, clock):
                             game_log.append(move.get_chess_notation())
                             move_made = True
 
-                            # update player points and switches current player
-                            if player_one.current_player:
-                                update_player_points(screen, player_one)
-                                player_one.current_player = False
-                                player_two.current_player = True
-                            else:
-                                update_player_points(screen, player_two)
-                                player_one.current_player = True
-                                player_two.current_player = False
+                            update_current_player(screen)
 
                             # displays move within the move log on the window
                             display_game_log(screen)
@@ -291,6 +283,7 @@ def run_game(screen, clock):
                         game_state.undo_move()
                         game_log.pop()
                         display_game_log(screen)
+                        update_current_player(screen)
                         move_made = True
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
@@ -315,6 +308,19 @@ def open_theme():
     clock = pygame.time.Clock()
     pygame.display.set_caption("Lets Play Chess!")
     run_game(screen, clock)    
+
+'''
+updates the current player in the game
+'''
+def update_current_player(screen):
+    if player_one.current_player:
+        update_player_points(screen, player_one)
+        player_one.current_player = False
+        player_two.current_player = True
+    else:
+        update_player_points(screen, player_two)
+        player_one.current_player = True
+        player_two.current_player = False
 
 '''
 updates the player points
