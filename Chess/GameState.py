@@ -45,13 +45,13 @@ class GameState():
             self.current_player_white = not self.current_player_white
 
     '''
-    identifies all moves while considering checks
+    identifies all potential moves while considering checks
     '''
     def get_valid_moves(self):
         return self.get_all_possible_moves() # ! place holder while implementing all possible moves
 
     '''
-    identifies all moves without considering checks
+    identifies all potential moves without considering checks
     '''
     def get_all_possible_moves(self):
         possible_moves = []
@@ -75,48 +75,69 @@ class GameState():
         return possible_moves
 
     '''
-    get all pawn moves for the pawn located at specified tile and add moves to the list of possible moves
+    get all pawn moves for the pawn located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_pawn_moves(self, row, col, possible_moves): 
+    def get_pawn_moves(self, row, col, possible_moves): # TODO transform pawns into any piece desired if reached end of board
         if self.current_player_white: # if it is whites turn
+            # moving forward
             if self.board[row - 1][col] == "--": # if tile in-front of pawn is open
                 possible_moves.append(Moves.Moves((row, col), (row - 1, col), self.board))
 
                 if row == 6 and self.board[row - 2][col] == "--": # if pawn hasn't been moved yet - ability to move two tiles
                     possible_moves.append(Moves.Moves((row, col), (row - 2, col), self.board))
-        else: # TODO else blacks turn
+
+            # capturing pieces
+            if col - 1 >= 0: # protects pawn from moving off the game board to the left
+                if "black" in self.board[row - 1][col - 1]: # if opponent piece can be captured up and to the left of pawn
+                    possible_moves.append(Moves.Moves((row, col), (row - 1, col - 1), self.board))
+
+            if col + 1 <= 7: # protects pawn from moving off the game board to the right
+                if "black" in self.board[row - 1][col + 1]: # if opponent piece can be captured up and to the right of pawn
+                    possible_moves.append(Moves.Moves((row, col), (row - 1, col + 1), self.board))        
+                
+        else: # else blacks turn
+            # moving forward
             if self.board[row + 1][col] == "--": # if tile in-front of pawn is open
                 possible_moves.append(Moves.Moves((row, col), (row + 1, col), self.board))
 
                 if row == 1 and self.board[row + 2][col] == "--": # if pawn hasn't been moved yet - ability to move two tiles
                     possible_moves.append(Moves.Moves((row, col), (row + 2, col), self.board))
 
+            # capturing pieces
+            if col - 1 >= 0: # protects pawn from moving off the game board to the left
+                if "white" in self.board[row + 1][col - 1]: # if opponent piece can be captured up and to the left of pawn
+                    possible_moves.append(Moves.Moves((row, col), (row + 1, col - 1), self.board))
+
+            if col + 1 <= 7: # protects pawn from moving off the game board to the right
+                if "white" in self.board[row + 1][col + 1]: # if opponent piece can be captured up and to the right of pawn
+                    possible_moves.append(Moves.Moves((row, col), (row + 1, col + 1), self.board)) 
+
     '''
-    get all rook moves for the pawn located at specified tile and add moves to the list of possible moves
+    get all rook moves for the rook located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
     def get_rook_moves(self, row, col, moves): # TODO 
         pass
 
     '''
-    get all knight moves for the pawn located at specified tile and add moves to the list of possible moves
+    get all knight moves for the knight located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
     def get_knight_moves(self, row, col, moves): # TODO 
         pass
 
     '''
-    get all bishop moves for the pawn located at specified tile and add moves to the list of possible moves
+    get all bishop moves for the bishop located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
     def get_bishop_moves(self, row, col, moves): # TODO 
         pass
 
     '''
-    get all queen moves for the pawn located at specified tile and add moves to the list of possible moves
+    get all queen moves for the queen located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
     def get_queen_moves(self, row, col, moves): # TODO 
         pass
 
     '''
-    get all king moves for the pawn located at specified tile and add moves to the list of possible moves
+    get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
     def get_king_moves(self, row, col, moves): # TODO 
         pass
