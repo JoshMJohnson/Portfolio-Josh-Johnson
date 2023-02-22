@@ -198,14 +198,7 @@ def display_player_values(screen):
 main function
 '''
 def main():
-    # * initialize game
-    pygame.init()
-    screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-    clock = pygame.time.Clock()
-    pygame.display.set_caption("Lets Play Chess!")
-            
-    # display game board with initial set theme
-    run_game(screen, clock)
+    open_new_window()
 
 '''
 loads the game with the chess set theme and runs the game
@@ -266,17 +259,20 @@ def run_game(screen, clock):
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
                     chess_set = 1
                     game_log = []
-                    open_theme()
+                    pygame.quit() # close previous window
+                    open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # else if theme 2 is selected
                     chess_set = 2
                     game_log = []
-                    open_theme()                    
+                    pygame.quit() # close previous window
+                    open_new_window()                    
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # else if theme 3 is selected
                     chess_set = 3
                     game_log = []
-                    open_theme()  
+                    pygame.quit() # close previous window
+                    open_new_window()  
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -297,11 +293,9 @@ def run_game(screen, clock):
         pygame.display.flip()
 
 '''
-
+opens a new window
 '''
-def open_theme():
-    pygame.quit() # close previous window
-
+def open_new_window():
     # * open new window with updated theme settings
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
