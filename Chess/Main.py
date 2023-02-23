@@ -25,7 +25,14 @@ TILE_SIZE = BOARD_WIDTH // DIMENSION # size of a square (tile) on the gui
 MAX_FPS = 15 # for animations
 PIECE_IMAGES = {} # global dictionary of chess piece images
 chess_set = 1 # indicates which chess set to use; default is set 1
+
+# tile selected to move - indicate selected
 highlighted_tile_color = '' # color for when a tile has been selected for starting location of a piece
+highlighted_tile = False
+left_x_loc = -1
+right_x_loc = -1
+top_y_loc = -1
+bottom_y_loc = -1
 
 # window settings
 WINDOW_WIDTH = BOARD_WIDTH + 300
@@ -91,7 +98,7 @@ def load_chess_set(screen):
         background_color = pygame.Color(51,51,51)
         heading_background_color = 'black'
         font_color = 'white'
-        highlighted_tile_color = pygame.Color(192,192,192)
+        highlighted_tile_color = pygame.Color(112,128,144)
 
     game_log_background_color = heading_background_color
 
@@ -214,6 +221,11 @@ loads the game with the chess set theme and runs the game
 def run_game(screen, clock):
     global chess_set
     global game_log
+    global highlighted_tile
+    global left_x_loc
+    global right_x_loc
+    global top_y_loc
+    global bottom_y_loc
 
     game_state = GameState.GameState()
     valid_moves = game_state.get_valid_moves() # gets all valid moves a player could make
@@ -224,7 +236,7 @@ def run_game(screen, clock):
     create_theme_buttons(screen)
 
     tile_selected = () # keeps track of the last tile clicked by the user
-    player_clickes = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
+    player_clicks = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
 
     running = True
 
@@ -242,13 +254,13 @@ def run_game(screen, clock):
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
                         tile_selected == () # deselect
-                        player_clickes == [] # clear player clicks
+                        player_clicks == [] # clear player clicks
                     else: # else; 2 different tiles clicked in order
                         tile_selected = (row, col)
-                        player_clickes.append(tile_selected)
+                        player_clicks.append(tile_selected)
                     
-                    if len(player_clickes) == 2: # if second tile was clicked that was different than the first
-                        move = Moves.Moves(player_clickes[0], player_clickes[1], game_state.board)
+                    if len(player_clicks) == 2: # if second tile was clicked that was different than the first
+                        move = Moves.Moves(player_clicks[0], player_clicks[1], game_state.board)
 
                         if move in valid_moves:
                             game_state.make_move(move)
@@ -259,45 +271,36 @@ def run_game(screen, clock):
                             display_game_log(screen)
 
                         # resets user input clicks
+                        highlighted_tile = False
                         tile_selected = () 
-                        player_clickes = []    
-                    else: # TODO starting tile selected; highlight tile
-                        line_thickness = 10 # border thickness of highlighted tile
+                        player_clicks = []          
+                    else: # TODO selected starting tile location 
+                        highlighted_tile = True
 
                         # tile location data
                         left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
                         right_x_loc = left_x_loc + TILE_SIZE
                         top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
-                        bottom_y_loc = top_y_loc + TILE_SIZE
-
-                        # top line
-                        # pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (right_x_loc, top_y_loc), line_thickness)
-
-                        # bottom line
-
-
-                        # left line
-
-
-                        # right line
-
-                        
+                        bottom_y_loc = top_y_loc + TILE_SIZE                                       
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
                     chess_set = 1
                     game_log = []
+                    highlighted_tile = False
                     pygame.quit() # close previous window
                     open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # else if theme 2 is selected
                     chess_set = 2
                     game_log = []
+                    highlighted_tile = False
                     pygame.quit() # close previous window
                     open_new_window()                    
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # else if theme 3 is selected
                     chess_set = 3
                     game_log = []
+                    highlighted_tile = False
                     pygame.quit() # close previous window
                     open_new_window()  
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
@@ -371,7 +374,7 @@ def update_player_points(screen, player):
 '''
 updates the player game time left
 '''
-def update_player_game_time(screen):
+def update_player_game_time(screen): # TODO
     heading_font = pygame.font.SysFont('monospace', 12, italic=True)
 
     if player_one.current_player: # if whites players move
@@ -407,7 +410,7 @@ def update_player_game_time(screen):
 '''
 current player symbol change
 '''
-def update_current_player_symbol(screen): # TODO
+def update_current_player_symbol(screen):
     if player_one.current_player: # if current player needs to be white
         pygame.draw.circle(screen, font_color, (active1_symbol_xlocation, active_symbol_ylocation), active_symbol_size) # player 1
         pygame.draw.circle(screen, heading_background_color, (active2_symbol_xlocation, active_symbol_ylocation), active_symbol_size) # player 2
@@ -421,6 +424,9 @@ creates all graphics of the game
 def draw_game_state(screen, game_state):
     draw_board_tiles(screen) 
     draw_pieces(screen, game_state.board) 
+
+    if highlighted_tile: # if a starting tile is indicated
+        draw_selected_tile_indicator(screen)
     
 ''' 
 draws the squares on the game board; top left square is always light
@@ -457,6 +463,24 @@ def draw_pieces(screen, board):
                 screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + game_board_starting_x_coordinate, (row * TILE_SIZE) + game_board_starting_y_coordinate, TILE_SIZE, TILE_SIZE))
 
 '''
+indicates a highlighted tile
+'''
+def draw_selected_tile_indicator(screen):
+    line_thickness = 5 # border thickness of highlighted tile
+
+    # top line
+    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (right_x_loc, top_y_loc), line_thickness)
+
+    # bottom line
+    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, bottom_y_loc), (right_x_loc, bottom_y_loc), line_thickness)
+
+    # left line
+    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (left_x_loc, bottom_y_loc), line_thickness)
+
+    # right line
+    pygame.draw.line(screen, highlighted_tile_color, (right_x_loc, top_y_loc), (right_x_loc, bottom_y_loc), line_thickness)
+
+'''
 creates 3 buttons for the different themes (chess sets)
 '''
 def create_theme_buttons(screen):
@@ -484,7 +508,7 @@ def create_theme_buttons(screen):
 '''
 display game log in panel 
 '''
-def display_game_log(screen): # TODO make a scrollable game log that fades out at the bottom when out of space
+def display_game_log(screen): # TODO add piece type in front of tile locations to show proper chess game log notation
     # colors over the previous heading with a new blank template
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
