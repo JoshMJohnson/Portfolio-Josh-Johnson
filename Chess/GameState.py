@@ -209,8 +209,9 @@ class GameState():
     '''
     get all queen moves for the queen located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_queen_moves(self, row, col, possible_moves): # TODO 
-        pass
+    def get_queen_moves(self, row, col, possible_moves): 
+        self.get_rook_moves(row, col, possible_moves)
+        self.get_bishop_moves(row, col, possible_moves)
 
     '''
     get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
