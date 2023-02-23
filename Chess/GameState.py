@@ -157,8 +157,44 @@ class GameState():
     '''
     get all knight moves for the knight located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_knight_moves(self, row, col, possible_moves): # TODO 
-        pass
+    def get_knight_moves(self, row, col, possible_moves): 
+        ally_color = "white" if self.current_player_white else "black"
+        
+        if row - 1 > 0: # if two tile spaces up is not off the game board
+            if col > 0: # if one tile space to the left is not off the game board
+                if not ally_color in self.board[row - 2][col - 1]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row - 2, col - 1), self.board)) #  * up-up-left move action
+
+            if col < 7: # if one tile space to the right is not off the game board
+                if not ally_color in self.board[row - 2][col + 1]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row - 2, col + 1), self.board)) # * up-up-right move action       
+        
+        if row + 1 < 7: # if two tile spaces down is not off the game board
+            if col > 0: # if one tile space to the left is not off the game board
+                if not ally_color in self.board[row + 2][col - 1]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row + 2, col - 1), self.board)) # * down-down-left move action
+
+            if col < 7: # if one tile space to the right is not off the game board
+                if not ally_color in self.board[row + 2][col + 1]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row + 2, col + 1), self.board)) # * down-down-right move action
+                
+        if col - 1 > 0: # if two tile spaces left is not off the game board
+            if row > 0: # if one tile space up is not off the game board
+                if not ally_color in self.board[row - 1][col - 2]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row - 1, col - 2), self.board)) # * left-left-up move action
+
+            if row < 7: # if one tile space down is not off the game board
+                if not ally_color in self.board[row + 1][col - 2]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row + 1, col - 2), self.board)) # * left-left-down move action
+        
+        if col + 1 < 7: # if two tile spaces right is not off the game board
+            if row > 0: # if one tile space up is not off the game board
+                if not ally_color in self.board[row - 1][col + 2]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row - 1, col + 2), self.board)) # * right-right-up move action
+
+            if row < 7: # if one tile space down is not off the game board
+                if not ally_color in self.board[row + 1][col + 2]: # if not an ally piece in desired tile location
+                    possible_moves.append(Moves.Moves((row, col), (row + 1, col + 2), self.board)) # * right-right-down move action
 
     '''
     get all bishop moves for the bishop located at a specified tile passing through as a parameter and add moves to the list of possible moves
@@ -216,7 +252,7 @@ class GameState():
     '''
     get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_king_moves(self, row, col, possible_moves): # TODO 
+    def get_king_moves(self, row, col, possible_moves):  
         ally_color = "white" if self.current_player_white else "black"
 
         # moving up
