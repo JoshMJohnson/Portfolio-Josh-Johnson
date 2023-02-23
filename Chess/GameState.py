@@ -115,63 +115,56 @@ class GameState():
     '''
     get all rook moves for the rook located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_rook_moves(self, row, col, possible_moves): # TODO 
+    def get_rook_moves(self, row, col, possible_moves): 
         opponent_color = "black" if self.current_player_white else "white"
+
         temp_row = row
         temp_col = col
+        keep_going = True
         
         # moving upward
-        while temp_row > 0: # continue to check upward until off board or block incountered
+        while temp_row > 0 and keep_going: # continue to check upward until off board or block incountered
             temp_row -= 1
-            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-                break
-            else: # else tile above ovserving tile is occupied by own piece
-                break
+            keep_going = self.rook_helper(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         temp_row = row
         temp_col = col
+        keep_going = True
 
         # moving downward
-        while temp_row < 7: # continue to check downward until off board or block incountered
+        while temp_row < 7 and keep_going: # continue to check downward until off board or block incountered
             temp_row += 1
-            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-                break
-            else: # else tile above ovserving tile is occupied by own piece
-                break
+            keep_going = self.rook_helper(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         temp_row = row
         temp_col = col
+        keep_going = True
 
         # moving left
-        while temp_col > 0: # continue to check left until off board or block incountered
+        while temp_col > 0 and keep_going: # continue to check left until off board or block incountered
             temp_col -= 1
-            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-                break
-            else: # else tile above ovserving tile is occupied by own piece
-                break
+            keep_going = self.rook_helper(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         temp_row = row
         temp_col = col
+        keep_going = True
 
         # moving right
-        while temp_col < 7: # continue to check right until off board or block incountered
+        while temp_col < 7 and keep_going: # continue to check right until off board or block incountered
             temp_col += 1
-            if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-            elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
-                possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
-                break
-            else: # else tile above ovserving tile is occupied by own piece
-                break
+            keep_going = self.rook_helper(row, col, temp_row, temp_col, possible_moves, opponent_color)
+
+    '''
+    rook helper function
+    '''
+    def rook_helper(self, row, col, temp_row, temp_col, possible_moves, opponent_color):
+        if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
+            possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+            return True
+        elif opponent_color in self.board[temp_row][temp_col]: # else if tile above observing tile is occupied by an enemy piece
+            possible_moves.append(Moves.Moves((row, col), (temp_row, temp_col), self.board))
+        
+        return False
 
     '''
     get all knight moves for the knight located at a specified tile passing through as a parameter and add moves to the list of possible moves
