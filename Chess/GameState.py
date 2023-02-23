@@ -217,7 +217,47 @@ class GameState():
     get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
     def get_king_moves(self, row, col, possible_moves): # TODO 
-        pass
+        ally_color = "white" if self.current_player_white else "black"
+
+        # moving up
+        if row > 0: # if not on the top row of the game board
+            if not ally_color in self.board[row - 1][col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row - 1, col), self.board))
+
+        # moving up-left
+        if row > 0 and col > 0: # if not on the top row or furthest left column of the game board
+            if not ally_color in self.board[row - 1][col - 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row - 1, col - 1), self.board))
+
+        # moving up-right
+        if row > 0 and col < 7: # if not on the top row or furthest right column of the game board
+            if not ally_color in self.board[row - 1][col + 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row - 1, col + 1), self.board))
+
+        # moving down
+        if row < 7: # if not on the bottom row of the game board
+            if not ally_color in self.board[row + 1][col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row + 1, col), self.board))
+
+        # moving down-left
+        if row < 7 and col > 0: # if not on the bottom row or furthest left column of the game board
+            if not ally_color in self.board[row + 1][col - 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row + 1, col - 1), self.board))
+
+        # moving down-right
+        if row < 7 and col < 7: # if not on the bottom row or furthest right column of the game board
+            if not ally_color in self.board[row + 1][col + 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row + 1, col + 1), self.board))
+
+        # moving left
+        if col > 0: # if not on the furthest left column of the game board
+            if not ally_color in self.board[row][col - 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row, col - 1), self.board))
+
+        # moving right
+        if col < 7: # if not on the furthest right column of the game board
+            if not ally_color in self.board[row][col + 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+                possible_moves.append(Moves.Moves((row, col), (row, col + 1), self.board))
 
     '''
     assists in checking tile status
