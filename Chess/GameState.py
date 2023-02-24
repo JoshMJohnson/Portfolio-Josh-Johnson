@@ -6,11 +6,7 @@ Keeps a move log for the game
 
 import Main
 import Moves
-from Chess_Pieces import Bishop
-from Chess_Pieces import Knight
-from Chess_Pieces import Pawn
-from Chess_Pieces import Queen
-from Chess_Pieces import Rook
+import Chess_Pieces
 
 class GameState():
     # constructor for the class GameState
@@ -42,16 +38,41 @@ class GameState():
         opponent_color = player_two.color if player_one.current_player else player_one.color
         
         if opponent_color in move.ending_piece: # if capturing an opponent piece
-            if "pawn" in move.ending_piece: # TODO if caputuring a pawn
-                pass
-            if "rook" in move.ending_piece: # TODO if caputuring a rook
-                pass
-            if "knight" in move.ending_piece: # TODO if caputuring a knight
-                pass
-            if "bishop" in move.ending_piece: # TODO if caputuring a bishop
-                pass
-            if "queen" in move.ending_piece: # TODO if caputuring a queen
-                pass
+            if "pawn" in move.ending_piece:
+                pawn = Chess_Pieces.Pawn()
+
+                if player_one.current_player: # if white is capturing a black piece
+                    player_one.points_taken += pawn.point_value
+                else: # else black is capturing a white piece
+                    player_two.points_taken += pawn.point_value
+            if "rook" in move.ending_piece: # if caputuring a rook
+                rook = Chess_Pieces.Rook
+
+                if player_one.current_player: # if white is capturing a black piece
+                    player_one.points_taken += rook.point_value
+                else: # else black is capturing a white piece
+                    player_two.points_taken += rook.point_value
+            if "knight" in move.ending_piece: # if caputuring a knight
+                knight = Chess_Pieces.Knight()
+
+                if player_one.current_player: # if white is capturing a black piece
+                    player_one.points_taken += knight.point_value
+                else: # else black is capturing a white piece
+                    player_two.points_taken += knight.point_value
+            if "bishop" in move.ending_piece: # if caputuring a bishop
+                bishop = Chess_Pieces.Bishop()
+
+                if player_one.current_player: # if white is capturing a black piece
+                    player_one.points_taken += bishop.point_value
+                else: # else black is capturing a white piece
+                    player_two.points_taken += bishop.point_value
+            if "queen" in move.ending_piece: # if caputuring a queen
+                queen = Chess_Pieces.Queen()
+
+                if player_one.current_player: # if white is capturing a black piece
+                    player_one.points_taken += queen.point_value
+                else: # else black is capturing a white piece
+                    player_two.points_taken += queen.point_value
 
         # update game state
         self.move_log.append(move)
@@ -59,7 +80,7 @@ class GameState():
     '''
     undo last move made
     '''
-    def undo_move(self, player_one, player_two):
+    def undo_move(self, player_one, player_two): # TODO adjust for points
         if len(self.move_log) != 0: # if at least one move has been made
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece

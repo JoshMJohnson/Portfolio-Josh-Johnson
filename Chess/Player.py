@@ -13,7 +13,11 @@ complete the game with no increment per move, while a 5|5 time control refers to
 each player receives five minutes and gains five seconds per move for the increment.
 '''
 
+# import python libraries
 import time # time access and conversions
+
+# import custom classes
+import Chess_Pieces
 
 '''
 contains an instance of a player
@@ -52,26 +56,17 @@ class Player:
     calculates the total amount of points a player has at the start of the game
     '''
     def starting_points_calculator(self):
-        # piece point values
-        pawn_value = 1
-        bishop_value = 3
-        knight_value = 3
-        rook_value = 5
-        queen_value = 9
+        pawn = Chess_Pieces.Pawn()
+        bishop = Chess_Pieces.Bishop()
+        knight = Chess_Pieces.Knight()
+        rook = Chess_Pieces.Rook()
+        queen = Chess_Pieces.Queen()
 
-        # num of each piece
-        num_pawns = 8
-        num_bishops = 2
-        num_knights = 2
-        num_rooks = 2
-        num_queens = 1
-
-        # point calculations
-        return ((num_pawns * pawn_value) 
-                    + (num_bishops * bishop_value) 
-                    + (num_knights * knight_value) 
-                    + (num_rooks * rook_value) 
-                    + (num_queens * queen_value))
+        return ((pawn.starting_amount * pawn.point_value) 
+                    + (bishop.starting_amount * bishop.point_value) 
+                    + (knight.starting_amount * knight.point_value) 
+                    + (rook.starting_amount * rook.point_value) 
+                    + (queen.starting_amount * queen.point_value))
 
     '''
     continues the player timer

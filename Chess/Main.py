@@ -226,6 +226,8 @@ def run_game(screen, clock):
     global right_x_loc
     global top_y_loc
     global bottom_y_loc
+    global player_one
+    global player_two
 
     game_state = GameState.GameState()
     valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
@@ -287,6 +289,8 @@ def run_game(screen, clock):
                     chess_set = 1
                     game_log = []
                     highlighted_tile = False
+                    player_one = Player.Player(1)
+                    player_two = Player.Player(2)
                     pygame.quit() # close previous window
                     open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
@@ -294,6 +298,8 @@ def run_game(screen, clock):
                     chess_set = 2
                     game_log = []
                     highlighted_tile = False
+                    player_one = Player.Player(1)
+                    player_two = Player.Player(2)
                     pygame.quit() # close previous window
                     open_new_window()                    
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
@@ -301,6 +307,8 @@ def run_game(screen, clock):
                     chess_set = 3
                     game_log = []
                     highlighted_tile = False
+                    player_one = Player.Player(1)
+                    player_two = Player.Player(2)
                     pygame.quit() # close previous window
                     open_new_window()  
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
