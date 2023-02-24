@@ -92,13 +92,13 @@ def load_chess_set(screen):
         background_color = pygame.Color(222,184,135)
         heading_background_color = pygame.Color(255,228,196)
         font_color = pygame.Color(139,69,19)
-        highlighted_tile_color = pygame.Color(255,165,0)
+        highlighted_tile_color = 'black'
     else: # chess set 3
         piece_set = "Set3"
         background_color = pygame.Color(51,51,51)
         heading_background_color = 'black'
         font_color = 'white'
-        highlighted_tile_color = pygame.Color(112,128,144)
+        highlighted_tile_color = pygame.Color(0, 191, 255)
 
     game_log_background_color = heading_background_color
 
@@ -228,7 +228,7 @@ def run_game(screen, clock):
     global bottom_y_loc
 
     game_state = GameState.GameState()
-    valid_moves = game_state.get_valid_moves() # gets all valid moves a player could make
+    valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
     move_made = False
 
     load_chess_set(screen) 
@@ -259,11 +259,11 @@ def run_game(screen, clock):
                         tile_selected = (row, col)
                         player_clicks.append(tile_selected)
                     
-                    if len(player_clicks) == 2: # if second tile was clicked that was different than the first
-                        move = Moves.Moves(player_clicks[0], player_clicks[1], game_state.board)
+                    if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
+                        move = Moves.Moves(player_clicks[0], player_clicks[1], game_state.board) 
 
                         if move in valid_moves:
-                            game_state.make_move(move)
+                            game_state.make_move(move, player_one, player_two)
                             game_log.append(move.get_chess_notation())
                             move_made = True
 
@@ -274,7 +274,7 @@ def run_game(screen, clock):
                         highlighted_tile = False
                         tile_selected = () 
                         player_clicks = []          
-                    else: # TODO selected starting tile location 
+                    else: # if a tile has been selected indicating a starting location for a possible move
                         highlighted_tile = True
 
                         # tile location data
@@ -306,14 +306,14 @@ def run_game(screen, clock):
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
-                        game_state.undo_move()
+                        game_state.undo_move(player_one, player_two)
                         game_log.pop()
                         display_game_log(screen)
                         update_current_player(screen)
                         move_made = True
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
-            valid_moves = game_state.get_valid_moves()
+            valid_moves = game_state.get_valid_moves(player_one, player_two)
             update_current_player_symbol(screen)
             move_made = False
 
@@ -466,7 +466,7 @@ def draw_pieces(screen, board):
 indicates a highlighted tile
 '''
 def draw_selected_tile_indicator(screen):
-    line_thickness = 5 # border thickness of highlighted tile
+    line_thickness = 2 # border thickness of highlighted tile
 
     # top line
     pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (right_x_loc, top_y_loc), line_thickness)

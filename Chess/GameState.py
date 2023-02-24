@@ -4,7 +4,13 @@ Keeps track of the board state and determains valid moves
 Keeps a move log for the game
 '''
 
+import Main
 import Moves
+from Chess_Pieces import Bishop
+from Chess_Pieces import Knight
+from Chess_Pieces import Pawn
+from Chess_Pieces import Queen
+from Chess_Pieces import Rook
 
 class GameState():
     # constructor for the class GameState
@@ -28,16 +34,34 @@ class GameState():
     '''
     makes a move on the game board
     '''
-    def make_move(self, move):
+    def make_move(self, move, player_one, player_two): # TODO update player points when a piece has been taken from opponent
+        # perform move
         self.board[move.start_row][move.start_col] = "--"
         self.board[move.end_row][move.end_col] = move.starting_piece
+
+        # update player point if a piece has been captured in move
+        opponent_color = "black" if self.current_player_white else "white"
+        
+        if opponent_color in move.ending_piece: # if capturing an opponent piece
+            if "pawn" in move.ending_piece: # TODO if caputuring a pawn
+                pass
+            if "rook" in move.ending_piece: # TODO if caputuring a rook
+                pass
+            if "knight" in move.ending_piece: # TODO if caputuring a knight
+                pass
+            if "bishop" in move.ending_piece: # TODO if caputuring a bishop
+                pass
+            if "queen" in move.ending_piece: # TODO if caputuring a queen
+                pass
+
+        # update game state
         self.move_log.append(move)
         self.current_player_white = not self.current_player_white
 
     '''
     undo last move made
     '''
-    def undo_move(self):
+    def undo_move(self, player_one, player_two):
         if len(self.move_log) != 0: # if at least one move has been made
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece
@@ -47,37 +71,37 @@ class GameState():
     '''
     identifies all potential moves while considering checks
     '''
-    def get_valid_moves(self):
-        return self.get_all_possible_moves() # ! place holder while implementing all possible moves
+    def get_valid_moves(self, player_one, player_two):
+        return self.get_all_possible_moves(player_one, player_two) # ! place holder while implementing all possible moves
 
     '''
     identifies all potential moves without considering checks
     '''
-    def get_all_possible_moves(self):
+    def get_all_possible_moves(self, player_one, player_two):
         possible_moves = []
 
         for row in range(len(self.board)):
             for col in range(len(self.board[row])):
                 if ("white" in self.board[row][col] and self.current_player_white) or ("black" in self.board[row][col] and not self.current_player_white): # if piece on tile belongs to the current player
                     if "pawn" in self.board[row][col]: # pawn moves
-                        self.get_pawn_moves(row, col, possible_moves)
+                        self.get_pawn_moves(row, col, possible_moves, player_one, player_two)
                     elif "rook" in self.board[row][col]: # rook moves
-                        self.get_rook_moves(row, col, possible_moves)
+                        self.get_rook_moves(row, col, possible_moves, player_one, player_two)
                     elif "knight" in self.board[row][col]: # knight moves
-                        self.get_knight_moves(row, col, possible_moves)
+                        self.get_knight_moves(row, col, possible_moves, player_one, player_two)
                     elif "bishop" in self.board[row][col]: # bishop moves
-                        self.get_bishop_moves(row, col, possible_moves)
+                        self.get_bishop_moves(row, col, possible_moves, player_one, player_two)
                     elif "queen" in self.board[row][col]: # queen moves
-                        self.get_queen_moves(row, col, possible_moves)
+                        self.get_queen_moves(row, col, possible_moves, player_one, player_two)
                     elif "king" in self.board[row][col]: # king moves
-                        self.get_king_moves(row, col, possible_moves)
+                        self.get_king_moves(row, col, possible_moves, player_one, player_two)
                     
         return possible_moves
 
     '''
     get all pawn moves for the pawn located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_pawn_moves(self, row, col, possible_moves): # TODO transform pawns into any piece desired if reached end of board
+    def get_pawn_moves(self, row, col, possible_moves, player_one, player_two): # TODO transform pawns into any piece desired if reached end of board
         if self.current_player_white: # if it is whites turn
             # moving forward
             if self.board[row - 1][col] == "--": # if tile in-front of pawn is open
@@ -115,7 +139,7 @@ class GameState():
     '''
     get all rook moves for the rook located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_rook_moves(self, row, col, possible_moves): 
+    def get_rook_moves(self, row, col, possible_moves, player_one, player_two): 
         opponent_color = "black" if self.current_player_white else "white"
 
         temp_row = row
@@ -157,7 +181,7 @@ class GameState():
     '''
     get all knight moves for the knight located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_knight_moves(self, row, col, possible_moves): 
+    def get_knight_moves(self, row, col, possible_moves, player_one, player_two): 
         ally_color = "white" if self.current_player_white else "black"
         
         if row - 1 > 0: # if two tile spaces up is not off the game board
@@ -199,7 +223,7 @@ class GameState():
     '''
     get all bishop moves for the bishop located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_bishop_moves(self, row, col, possible_moves):  
+    def get_bishop_moves(self, row, col, possible_moves, player_one, player_two):  
         opponent_color = "black" if self.current_player_white else "white"
 
         temp_row = row
@@ -245,14 +269,14 @@ class GameState():
     '''
     get all queen moves for the queen located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_queen_moves(self, row, col, possible_moves): 
-        self.get_rook_moves(row, col, possible_moves)
-        self.get_bishop_moves(row, col, possible_moves)
+    def get_queen_moves(self, row, col, possible_moves, player_one, player_two): 
+        self.get_rook_moves(row, col, possible_moves, player_one, player_two)
+        self.get_bishop_moves(row, col, possible_moves, player_one, player_two)
 
     '''
     get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_king_moves(self, row, col, possible_moves):  
+    def get_king_moves(self, row, col, possible_moves, player_one, player_two):  
         ally_color = "white" if self.current_player_white else "black"
 
         # moving up
