@@ -109,7 +109,7 @@ def load_chess_set(screen):
                 "white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook", "white_pawn"]
     
     for piece in pieces:
-        PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/Piece_Sets/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
+        PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
 
     # * loads set background    
     screen.fill(pygame.Color(background_color))
