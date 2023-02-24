@@ -80,7 +80,7 @@ class GameState():
     '''
     undo last move made
     '''
-    def undo_move(self, player_one, player_two): # TODO adjust for points
+    def undo_move(self, player_one, player_two):
         if len(self.move_log) != 0: # if at least one move has been made
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece
@@ -176,8 +176,7 @@ class GameState():
             if col + 1 <= 7: # protects pawn from moving off the game board to the right
                 if "black" in self.board[row - 1][col + 1]: # if opponent piece can be captured up and to the right of pawn
                     possible_moves.append(Moves.Moves((row, col), (row - 1, col + 1), self.board))        
-                
-        else: # else blacks turn
+        elif player_two: # else blacks turn
             # moving forward
             if self.board[row + 1][col] == "--": # if tile in-front of pawn is open
                 possible_moves.append(Moves.Moves((row, col), (row + 1, col), self.board))
