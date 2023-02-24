@@ -12,8 +12,7 @@ from os import path # used to get absolute path for the project
 import threading # ? possible solution for two different player game times running at the same time
 
 # project classes
-import GameState
-import Moves
+import GameEngine
 import Player
 
 # game board settings - part 1
@@ -229,7 +228,7 @@ def run_game(screen, clock):
     global player_one
     global player_two
 
-    game_state = GameState.GameState()
+    game_state = GameEngine.GameState()
     valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
     move_made = False
 
@@ -266,7 +265,7 @@ def run_game(screen, clock):
                         player_clicks.append(tile_selected)
                     
                         if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
-                            move = Moves.Moves(player_clicks[0], player_clicks[1], game_state.board) 
+                            move = GameEngine.Moves(player_clicks[0], player_clicks[1], game_state.board) 
 
                             if move in valid_moves:
                                 game_state.make_move(move, player_one, player_two)
