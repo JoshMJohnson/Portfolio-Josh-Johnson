@@ -1,12 +1,13 @@
 '''
-Keeps track of the board state and determains valid moves
-
-Keeps a move log for the game
+Controls the available actions that a player can do regarding the chess game board
 '''
 
 # custom classes
 import Chess_Pieces
 
+'''
+Keeps track of the board state and determains valid moves a player can make
+'''
 class GameState():
     '''
     constructor for the class GameState
@@ -388,7 +389,7 @@ class GameState():
         return False
     
 '''
-Keeps a log of the moves made by the player and performs such action
+Helps keep a game log of moves
 '''
 class Moves():
     # hash table - map dictionaries cooresponding a chess board tile representation with an array representation

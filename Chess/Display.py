@@ -1,7 +1,7 @@
 '''
 Driver file
 
-Loads up a chess board to display for the user, and handles user input
+Controls the visual aspects when running the program, and handles user input
 
 Created By: Josh Johnson
 '''
