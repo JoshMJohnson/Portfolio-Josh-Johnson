@@ -4,14 +4,15 @@ Keeps track of the board state and determains valid moves
 Keeps a move log for the game
 '''
 
-import Display
+# custom classes
 import Moves
 import Chess_Pieces
 
 class GameState():
-    # constructor for the class GameState
+    '''
+    constructor for the class GameState
+    '''
     def __init__(self):
-        # game state
         self.move_log = []
 
         # initialized board so white is on bottom and black pieces are on top
@@ -30,13 +31,12 @@ class GameState():
     makes a move on the game board
     '''
     def make_move(self, move, player_one, player_two):
-        # perform move
+        # * perform move
         self.board[move.start_row][move.start_col] = "--"
         self.board[move.end_row][move.end_col] = move.starting_piece
 
-        # update player point if a piece has been captured in move
+        # * update player points if a piece has been captured in move
         opponent_color = player_two.color if player_one.current_player else player_one.color
-        
         if opponent_color in move.ending_piece: # if capturing an opponent piece
             if "pawn" in move.ending_piece:
                 pawn = Chess_Pieces.Pawn()
@@ -74,7 +74,7 @@ class GameState():
                 else: # else black is capturing a white piece
                     player_two.points_taken += queen.point_value
 
-        # update game state
+        # * update game log
         self.move_log.append(move)
 
     '''
@@ -82,13 +82,13 @@ class GameState():
     '''
     def undo_move(self, player_one, player_two):
         if len(self.move_log) != 0: # if at least one move has been made
+            # * perform action of undo move
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece
             self.board[move.end_row][move.end_col] = move.ending_piece
 
-            # update player point if a piece had been captured in move - needs to be undone
+            # * update player points if a piece had been captured in move - needs to be undone
             ally_color = player_one.color if player_one.current_player else player_two.color
-            
             if ally_color in move.ending_piece: # if capturing an opponent piece
                 if "pawn" in move.ending_piece:
                     pawn = Chess_Pieces.Pawn()
@@ -138,9 +138,9 @@ class GameState():
     def get_all_possible_moves(self, player_one, player_two):
         possible_moves = []
 
-        for row in range(len(self.board)):
-            for col in range(len(self.board[row])):
-                if ("white" in self.board[row][col] and player_one.current_player) or ("black" in self.board[row][col] and player_two.current_player): # if piece on tile belongs to the current player
+        for row in range(len(self.board)): # goes through the game board row tiles
+            for col in range(len(self.board[row])): # goes through the game board column tiles
+                if ("white" in self.board[row][col] and player_one.current_player) or ("black" in self.board[row][col] and player_two.current_player): # if a tile has a chess piece on it belonging to the current player
                     if "pawn" in self.board[row][col]: # pawn moves
                         self.get_pawn_moves(row, col, possible_moves, player_one, player_two)
                     elif "rook" in self.board[row][col]: # rook moves
@@ -161,14 +161,14 @@ class GameState():
     '''
     def get_pawn_moves(self, row, col, possible_moves, player_one, player_two): # TODO transform pawns into any piece desired if reached end of board
         if player_one.current_player: # if it is whites turn
-            # moving forward
+            # * moving forward
             if self.board[row - 1][col] == "--": # if tile in-front of pawn is open
                 possible_moves.append(Moves.Moves((row, col), (row - 1, col), self.board))
 
                 if row == 6 and self.board[row - 2][col] == "--": # if pawn hasn't been moved yet - ability to move two tiles
                     possible_moves.append(Moves.Moves((row, col), (row - 2, col), self.board))
 
-            # capturing pieces
+            # * capturing pieces
             if col - 1 >= 0: # protects pawn from moving off the game board to the left
                 if "black" in self.board[row - 1][col - 1]: # if opponent piece can be captured up and to the left of pawn
                     possible_moves.append(Moves.Moves((row, col), (row - 1, col - 1), self.board))
@@ -177,14 +177,14 @@ class GameState():
                 if "black" in self.board[row - 1][col + 1]: # if opponent piece can be captured up and to the right of pawn
                     possible_moves.append(Moves.Moves((row, col), (row - 1, col + 1), self.board))        
         elif player_two: # else blacks turn
-            # moving forward
+            # * moving forward
             if self.board[row + 1][col] == "--": # if tile in-front of pawn is open
                 possible_moves.append(Moves.Moves((row, col), (row + 1, col), self.board))
 
                 if row == 1 and self.board[row + 2][col] == "--": # if pawn hasn't been moved yet - ability to move two tiles
                     possible_moves.append(Moves.Moves((row, col), (row + 2, col), self.board))
 
-            # capturing pieces
+            # * capturing pieces
             if col - 1 >= 0: # protects pawn from moving off the game board to the left
                 if "white" in self.board[row + 1][col - 1]: # if opponent piece can be captured up and to the left of pawn
                     possible_moves.append(Moves.Moves((row, col), (row + 1, col - 1), self.board))
@@ -203,7 +203,7 @@ class GameState():
         temp_col = col
         keep_going = True
         
-        # moving upward
+        # * moving upward
         while temp_row > 0 and keep_going: # continue to check upward until off board or block incountered
             temp_row -= 1
             keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
@@ -212,7 +212,7 @@ class GameState():
         temp_col = col
         keep_going = True
 
-        # moving downward
+        # * moving downward
         while temp_row < 7 and keep_going: # continue to check downward until off board or block incountered
             temp_row += 1
             keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
@@ -221,7 +221,7 @@ class GameState():
         temp_col = col
         keep_going = True
 
-        # moving left
+        # * moving left
         while temp_col > 0 and keep_going: # continue to check left until off board or block incountered
             temp_col -= 1
             keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
@@ -230,7 +230,7 @@ class GameState():
         temp_col = col
         keep_going = True
 
-        # moving right
+        # * moving right
         while temp_col < 7 and keep_going: # continue to check right until off board or block incountered
             temp_col += 1
             keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
@@ -287,7 +287,7 @@ class GameState():
         temp_col = col
         keep_going = True
         
-        # moving up-right
+        # * moving up-right direction
         while temp_row > 0 and temp_col < 7 and keep_going: # continue to check upward and to the right until off board or block incountered
             temp_row -= 1
             temp_col += 1
@@ -297,7 +297,7 @@ class GameState():
         temp_col = col
         keep_going = True
 
-        # moving up-left
+        # * moving up-left direction
         while temp_row > 0 and temp_col > 0 and keep_going: # continue to check upward and to the left until off board or block incountered
             temp_row -= 1
             temp_col -= 1
@@ -307,7 +307,7 @@ class GameState():
         temp_col = col
         keep_going = True
 
-        # moving down-right
+        # * moving down-right direction
         while temp_row < 7 and temp_col < 7 and keep_going: # continue to check down and to the left until off board or block incountered
             temp_row += 1
             temp_col += 1
@@ -317,7 +317,7 @@ class GameState():
         temp_col = col
         keep_going = True
 
-        # moving down-left
+        # * moving down-left direction
         while temp_row < 7 and temp_col > 0 and keep_going: # continue to check down and to the right until off board or block incountered
             temp_row += 1
             temp_col -= 1
@@ -336,42 +336,42 @@ class GameState():
     def get_king_moves(self, row, col, possible_moves, player_one, player_two):  
         ally_color = player_one.color if player_one.current_player else player_two.color
 
-        # moving up
+        # * moving up
         if row > 0: # if not on the top row of the game board
             if not ally_color in self.board[row - 1][col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row - 1, col), self.board))
 
-        # moving up-left
+        # * moving up-left
         if row > 0 and col > 0: # if not on the top row or furthest left column of the game board
             if not ally_color in self.board[row - 1][col - 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row - 1, col - 1), self.board))
 
-        # moving up-right
+        # * moving up-right
         if row > 0 and col < 7: # if not on the top row or furthest right column of the game board
             if not ally_color in self.board[row - 1][col + 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row - 1, col + 1), self.board))
 
-        # moving down
+        # * moving down
         if row < 7: # if not on the bottom row of the game board
             if not ally_color in self.board[row + 1][col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row + 1, col), self.board))
 
-        # moving down-left
+        # * moving down-left
         if row < 7 and col > 0: # if not on the bottom row or furthest left column of the game board
             if not ally_color in self.board[row + 1][col - 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row + 1, col - 1), self.board))
 
-        # moving down-right
+        # * moving down-right
         if row < 7 and col < 7: # if not on the bottom row or furthest right column of the game board
             if not ally_color in self.board[row + 1][col + 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row + 1, col + 1), self.board))
 
-        # moving left
+        # * moving left
         if col > 0: # if not on the furthest left column of the game board
             if not ally_color in self.board[row][col - 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row, col - 1), self.board))
 
-        # moving right
+        # * moving right
         if col < 7: # if not on the furthest right column of the game board
             if not ally_color in self.board[row][col + 1]: # if not an ally piece; is open tile or an opponent piece occupying desired location
                 possible_moves.append(Moves.Moves((row, col), (row, col + 1), self.board))

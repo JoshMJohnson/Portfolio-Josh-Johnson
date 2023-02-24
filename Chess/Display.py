@@ -7,17 +7,16 @@ Created By: Josh Johnson
 '''
 
 # python libraries
-import random # implements pseudo-random number generators for various distributions
 import pygame # gui for python game
 from os import path # used to get absolute path for the project
-import threading
+import threading # ? possible solution for two different player game times running at the same time
 
 # project classes
 import GameState
 import Moves
 import Player
 
-# game board settings; part 1
+# game board settings - part 1
 BOARD_WIDTH = 400 # game board width
 BOARD_HEIGHT = 400 # game board height
 DIMENSION = 8 # 8x8 board
@@ -26,8 +25,8 @@ MAX_FPS = 15 # for animations
 PIECE_IMAGES = {} # global dictionary of chess piece images
 chess_set = 1 # indicates which chess set to use; default is set 1
 
-# tile selected to move - indicate selected
-highlighted_tile_color = '' # color for when a tile has been selected for starting location of a piece
+# tile selected to move - indicate selected tile
+highlighted_tile_color = '' 
 highlighted_tile = False
 left_x_loc = -1
 right_x_loc = -1
@@ -51,8 +50,8 @@ heading_width = BOARD_WIDTH
 heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
 heading_starting_x_coordinate = GAP
 heading_starting_y_coordinate = GAP
-font_color = '' # color of the font; initialized as the color 'black'
-heading_background_color = '' # heading background color; initialized as the color 'white'
+font_color = '' 
+heading_background_color = ''
 
 # current player symbol
 active_symbol_size = 5
@@ -69,7 +68,7 @@ button_height = 16
 player_one = Player.Player(1)
 player_two = Player.Player(2)
 
-# game board settings; part 2
+# game board settings - part 2
 game_board_starting_x_coordinate = GAP
 game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
 
@@ -81,6 +80,7 @@ def load_chess_set(screen):
     global heading_background_color
     global highlighted_tile_color
 
+    # * chess theme settings
     if chess_set == 1: # chess set 1
         piece_set = "Set1"
         background_color = 'light grey'
@@ -239,7 +239,6 @@ def run_game(screen, clock):
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clicks = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
-
     running = True
 
     # * actions to perform for an active game
@@ -296,7 +295,7 @@ def run_game(screen, clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
-                    pygame.quit() # close previous window
+                    pygame.quit() # close current window
                     open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # else if theme 2 is selected
@@ -305,7 +304,7 @@ def run_game(screen, clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
-                    pygame.quit() # close previous window
+                    pygame.quit() # close current window
                     open_new_window()                    
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # else if theme 3 is selected
@@ -314,7 +313,7 @@ def run_game(screen, clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
-                    pygame.quit() # close previous window
+                    pygame.quit() # close current window
                     open_new_window()  
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
@@ -353,11 +352,9 @@ def update_current_player(screen):
     update_player_points(screen)
 
     if player_one.current_player:
-        # update_player_points(screen, player_one)
         player_one.current_player = False
         player_two.current_player = True
     else:
-        # update_player_points(screen, player_two)
         player_one.current_player = True
         player_two.current_player = False
 
@@ -367,7 +364,7 @@ updates the player points
 def update_player_points(screen):  
     heading_font = pygame.font.SysFont('monospace', 12, italic=True)
 
-    # player one
+    # * player one
     # turn previous value invisible 
     player_points_taken1_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
     player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
@@ -378,7 +375,7 @@ def update_player_points(screen):
     player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
     screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
 
-    # player two
+    # * player two
     # turn previous value invisible 
     player_points_taken2_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
     screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
@@ -441,7 +438,7 @@ def draw_game_state(screen, game_state):
     draw_board_tiles(screen) 
     draw_pieces(screen, game_state.board) 
 
-    if highlighted_tile: # if a starting tile is indicated
+    if highlighted_tile: # if a starting tile has been selected
         draw_selected_tile_indicator(screen)
     
 ''' 
@@ -500,20 +497,20 @@ def draw_selected_tile_indicator(screen):
 creates 3 buttons for the different themes (chess sets)
 '''
 def create_theme_buttons(screen):
-    # theme button one
+    # theme one button
     color1 = pygame.Color(105,105,105)
     color2 = pygame.Color(36, 15, 15)  
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
 
-    # theme button two
+    # theme two button
     color1 = pygame.Color(222,184,135)
     color2 = pygame.Color(210,105,30)  
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
 
 
-    # theme button three 
+    # theme three button 
     color1 = 'light grey'
     color2 = pygame.Color(36, 15, 15)    
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))

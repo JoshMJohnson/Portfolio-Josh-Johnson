@@ -13,10 +13,10 @@ complete the game with no increment per move, while a 5|5 time control refers to
 each player receives five minutes and gains five seconds per move for the increment.
 '''
 
-# import python libraries
+# python libraries
 import time # time access and conversions
 
-# import custom classes
+# custom classes
 import Chess_Pieces
 
 '''

@@ -2,7 +2,7 @@
 Keeps a log of the moves made by the player and performs such action
 '''
 class Moves():
-    # map dictionaries cooresponding a chess board tile representation with an array representation
+    # hash table - map dictionaries cooresponding a chess board tile representation with an array representation
     # file = column and rank = row on a chess board
     ranks_to_rows = {"1":7, "2":6, "3":5, "4":4, "5":3, "6":2, "7":1, "8":0} # cooresponds chess board rows with coding indices
     rows_to_ranks = {x : y for y, x in ranks_to_rows.items()} # swaps the keys with the values of those keys
