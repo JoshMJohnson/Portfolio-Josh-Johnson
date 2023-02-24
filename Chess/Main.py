@@ -307,9 +307,9 @@ def run_game(screen, clock):
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
                         game_state.undo_move(player_one, player_two)
+                        update_current_player(screen)
                         game_log.pop()
                         display_game_log(screen)
-                        update_current_player(screen)
                         move_made = True
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
