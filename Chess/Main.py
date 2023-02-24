@@ -279,9 +279,9 @@ def run_game(screen, clock):
 
                         # tile location data
                         left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
-                        right_x_loc = left_x_loc + TILE_SIZE
+                        right_x_loc = left_x_loc + TILE_SIZE - 2
                         top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
-                        bottom_y_loc = top_y_loc + TILE_SIZE                                       
+                        bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
                     chess_set = 1
