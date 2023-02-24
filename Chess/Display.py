@@ -253,7 +253,6 @@ def run_game(screen, clock):
                 col = (location[0] - GAP) // TILE_SIZE 
                 row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - GAP)) // TILE_SIZE
                                 
-                # ! selected tile doesnt unselect on clicking same tile
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
                         tile_selected == () # deselect
