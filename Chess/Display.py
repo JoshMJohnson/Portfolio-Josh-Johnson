@@ -253,37 +253,43 @@ def run_game(screen, clock):
                 col = (location[0] - GAP) // TILE_SIZE 
                 row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - GAP)) // TILE_SIZE
                                 
+                # ! selected tile doesnt unselect on clicking same tile
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
                         tile_selected == () # deselect
                         player_clicks == [] # clear player clicks
+
+                        if highlighted_tile:
+                            highlighted_tile = False
+                        else:
+                            highlighted_tile = True
                     else: # else; 2 different tiles clicked in order
                         tile_selected = (row, col)
                         player_clicks.append(tile_selected)
                     
-                    if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
-                        move = Moves.Moves(player_clicks[0], player_clicks[1], game_state.board) 
+                        if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
+                            move = Moves.Moves(player_clicks[0], player_clicks[1], game_state.board) 
 
-                        if move in valid_moves:
-                            game_state.make_move(move, player_one, player_two)
-                            game_log.append(move.get_chess_notation())
-                            move_made = True
+                            if move in valid_moves:
+                                game_state.make_move(move, player_one, player_two)
+                                game_log.append(move.get_chess_notation())
+                                move_made = True
 
-                            update_current_player(screen)
-                            display_game_log(screen)
+                                update_current_player(screen)
+                                display_game_log(screen)
 
-                        # resets user input clicks
-                        highlighted_tile = False
-                        tile_selected = () 
-                        player_clicks = []          
-                    else: # if a tile has been selected indicating a starting location for a possible move
-                        highlighted_tile = True
+                            # resets user input clicks
+                            highlighted_tile = False
+                            tile_selected = () 
+                            player_clicks = []          
+                        else: # if a tile has been selected indicating a starting location for a possible move
+                            highlighted_tile = True
 
-                        # tile location data
-                        left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
-                        right_x_loc = left_x_loc + TILE_SIZE - 2
-                        top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
-                        bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
+                            # tile location data
+                            left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
+                            right_x_loc = left_x_loc + TILE_SIZE - 2
+                            top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
+                            bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
                 elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
                     chess_set = 1

@@ -4,7 +4,7 @@ Keeps track of the board state and determains valid moves
 Keeps a move log for the game
 '''
 
-import Main
+import Display
 import Moves
 import Chess_Pieces
 
