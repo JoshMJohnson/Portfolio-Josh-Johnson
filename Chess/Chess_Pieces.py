@@ -16,7 +16,6 @@ class Pawn:
 '''
 Instance for the chess piece 'Bishop'
 '''
-
 class Bishop:
     '''
     constructor for the Pawn class
@@ -28,7 +27,6 @@ class Bishop:
 '''
 Instance for the chess piece 'Knight'
 '''
-
 class Knight:
     '''
     constructor for the Pawn class
@@ -40,7 +38,6 @@ class Knight:
 '''
 Instance for the chess piece 'Rook'
 '''
-
 class Rook:
     '''
     constructor for the Pawn class
@@ -52,7 +49,6 @@ class Rook:
 '''
 Instance for the chess piece 'Queen'
 '''
-
 class Queen:
     '''
     constructor for the Pawn class

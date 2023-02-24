@@ -29,7 +29,7 @@ class GameState():
     '''
     makes a move on the game board
     '''
-    def make_move(self, move, player_one, player_two): # TODO update player points when a piece has been taken from opponent
+    def make_move(self, move, player_one, player_two):
         # perform move
         self.board[move.start_row][move.start_col] = "--"
         self.board[move.end_row][move.end_col] = move.starting_piece
@@ -85,6 +85,46 @@ class GameState():
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece
             self.board[move.end_row][move.end_col] = move.ending_piece
+
+            # update player point if a piece had been captured in move - needs to be undone
+            ally_color = player_one.color if player_one.current_player else player_two.color
+            
+            if ally_color in move.ending_piece: # if capturing an opponent piece
+                if "pawn" in move.ending_piece:
+                    pawn = Chess_Pieces.Pawn()
+
+                    if player_one.current_player: # if white is capturing a black piece
+                        player_two.points_taken -= pawn.point_value
+                    else: # else black is capturing a white piece
+                        player_one.points_taken -= pawn.point_value
+                if "rook" in move.ending_piece: # if caputuring a rook
+                    rook = Chess_Pieces.Rook
+
+                    if player_one.current_player: # if white is capturing a black piece
+                        player_two.points_taken -= rook.point_value
+                    else: # else black is capturing a white piece
+                        player_one.points_taken -= rook.point_value
+                if "knight" in move.ending_piece: # if caputuring a knight
+                    knight = Chess_Pieces.Knight()
+
+                    if player_one.current_player: # if white is capturing a black piece
+                        player_two.points_taken -= knight.point_value
+                    else: # else black is capturing a white piece
+                        player_one.points_taken -= knight.point_value
+                if "bishop" in move.ending_piece: # if caputuring a bishop
+                    bishop = Chess_Pieces.Bishop()
+
+                    if player_one.current_player: # if white is capturing a black piece
+                        player_two.points_taken -= bishop.point_value
+                    else: # else black is capturing a white piece
+                        player_one.points_taken -= bishop.point_value
+                if "queen" in move.ending_piece: # if caputuring a queen
+                    queen = Chess_Pieces.Queen()
+
+                    if player_one.current_player: # if white is capturing a black piece
+                        player_two.points_taken -= queen.point_value
+                    else: # else black is capturing a white piece
+                        player_one.points_taken -= queen.point_value
 
     '''
     identifies all potential moves while considering checks

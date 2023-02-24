@@ -345,39 +345,42 @@ def open_new_window():
 updates the current player in the game
 '''
 def update_current_player(screen):
+    update_player_points(screen)
+
     if player_one.current_player:
-        update_player_points(screen, player_one)
+        # update_player_points(screen, player_one)
         player_one.current_player = False
         player_two.current_player = True
     else:
-        update_player_points(screen, player_two)
+        # update_player_points(screen, player_two)
         player_one.current_player = True
         player_two.current_player = False
 
 '''
 updates the player points
 '''
-def update_player_points(screen, player):  
+def update_player_points(screen):  
     heading_font = pygame.font.SysFont('monospace', 12, italic=True)
 
-    if player.color == 'white': # player one
-        # turn previous value invisible
-        player_points_taken1_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
-        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
-        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+    # player one
+    # turn previous value invisible 
+    player_points_taken1_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
+    player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
+    screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
 
-        # display new value of player score
-        player_points_taken1_value_label = heading_font.render(str(player.points_taken), True, font_color)
-        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
-        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
-    else: # player two 
-        # turn previous value invisible
-        player_points_taken2_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
-        screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
+    # display new value of player score
+    player_points_taken1_value_label = heading_font.render(str(player_one.points_taken), True, font_color)
+    player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 3)))
+    screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
 
-        # display new value of player score
-        player_points_taken2_value_label = heading_font.render(str(player.points_taken), True, font_color)
-        screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
+    # player two
+    # turn previous value invisible 
+    player_points_taken2_value_label = heading_font.render(str(39), True, heading_background_color, heading_background_color)
+    screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
+
+    # display new value of player score
+    player_points_taken2_value_label = heading_font.render(str(player_two.points_taken), True, font_color)
+    screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
         
 '''
 updates the player game time left
