@@ -3,56 +3,57 @@ Holds the point values of all the chess pieces in the game of chess
 '''
 
 '''
-Instance for the chess piece 'Pawn'
+Class for the chess piece 'Pawn'
 '''
 class Pawn:
-    '''
-    constructor for the Pawn class
-    '''
     def __init__(self):
         self.point_value = 1 # point value of piece
         self.starting_amount = 8 # number of starting pieces on the board
 
 '''
-Instance for the chess piece 'Bishop'
+Class for the chess piece 'Bishop'
 '''
 class Bishop:
-    '''
-    constructor for the Pawn class
-    '''
     def __init__(self):
         self.point_value = 3 # point value of piece
         self.starting_amount = 2 # number of starting pieces on the board
 
 '''
-Instance for the chess piece 'Knight'
+Class for the chess piece 'Knight'
 '''
 class Knight:
-    '''
-    constructor for the Pawn class
-    '''
     def __init__(self):
         self.point_value = 3 # point value of piece
         self.starting_amount = 2 # number of starting pieces on the board
 
 '''
-Instance for the chess piece 'Rook'
+Class for the chess piece 'Rook'
 '''
 class Rook:
-    '''
-    constructor for the Pawn class
-    '''
     def __init__(self):
         self.point_value = 5 # point value of piece
         self.starting_amount = 2 # number of starting pieces on the board
 
 '''
-Instance for the chess piece 'Queen'
+Class for the chess piece 'Queen'
 '''
 class Queen:
-    '''
-    constructor for the Pawn class
-    '''
     def __init__(self):
         self.point_value = 9 # point value of piece
         self.starting_amount = 1 # number of starting pieces on the board
+
+'''
+Class for the chess piece 'King'
+'''
+class King:
+    def __init__(self, white_player):
+        self.in_check = False # king is currently in check
+        self.pins = [] # ally pieces that are preventing a check and therefore cannot be moved
+        self.checks = [] # contains the pieces putting the player in check
+
+        # contains the current position of the king (row, column)
+        if white_player: # white player
+            self.current_position = (7, 4)
+        else: # black player
+            self.current_position = (0, 4)
+            
