@@ -14,6 +14,8 @@ class GameState():
     '''
     def __init__(self):
         self.move_log = []
+        self.white_king = Chess_Pieces.King(True) # initialize white players king
+        self.black_king = Chess_Pieces.King(False) # initialize black players king
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
@@ -34,6 +36,18 @@ class GameState():
         # * perform move
         self.board[move.start_row][move.start_col] = "--"
         self.board[move.end_row][move.end_col] = move.starting_piece
+
+        if "king" in move.starting_piece: # if the king was moved
+            if player_one.current_player: # if white player made the move
+                self.white_king.current_position = (move.end_row, move.end_col)
+            else: # else black player made the move
+                self.black_king.current_position = (move.end_row, move.end_col)
+
+        # sets previous players king status to be not in check
+        if player_one.current_player:
+            self.white_king.in_check = False
+        else:
+            self.black_king.in_check = False
 
         # * update player points if a piece has been captured in move
         opponent_color = player_two.color if player_one.current_player else player_one.color
@@ -87,6 +101,12 @@ class GameState():
             self.board[move.start_row][move.start_col] = move.starting_piece
             self.board[move.end_row][move.end_col] = move.ending_piece
 
+            # * update kings position
+            if "king" in move.starting_piece and player_one.current_player: # if white king has been moved
+                self.white_king.current_position = (move.start_row, move.start_col)
+            else: # else black king has been moved
+                self.black_king.current_position = (move.start_row, move.start_col)
+
             # * update player points if a piece had been captured in move - needs to be undone
             ally_color = player_one.color if player_one.current_player else player_two.color
             if ally_color in move.ending_piece: # if capturing an opponent piece
@@ -129,8 +149,120 @@ class GameState():
     '''
     identifies all potential moves while considering checks
     '''
-    def get_valid_moves(self, player_one, player_two):
+    def get_valid_moves(self, player_one, player_two): # TODO 10:30
+        moves = []
+
+        
+
         return self.get_all_possible_moves(player_one, player_two) # ! place holder while implementing all possible moves
+
+    '''
+    retrieves the current player kings pin pieces and check pieces
+    '''
+    def pins_checks(self, player_one, player_two): # TODO check king moving too close to opponent king illegal move    
+        pins = [] # ally pieces that are preventing a check and therefore cannot be moved
+        checks = [] # contains the pieces putting the player in check
+
+        if player_one.current_player: # if white players turn
+            ally_color = player_one.color
+            opponent_color = player_two.color
+            ally_king_row = self.white_king.current_position[0]
+            ally_king_col = self.white_king.current_position[1]
+        else: # else black players turn
+            ally_color = player_two.color
+            opponent_color = player_one.color
+            ally_king_row = self.black_king.current_position[0]
+            ally_king_col = self.black_king.current_position[1]
+
+        # * checks tiles in all directions
+        # moving upward vertically 
+        possible_pin = () 
+        row_direction = -1
+        col_direction = 0
+        temp_row = ally_king_row
+        temp_col = ally_king_col
+        
+        while temp_row > 0: # continue to check upward until off board or block incountered
+            temp_row -= 1
+            keep_going = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)            
+    
+        # moving downward vertically
+        possible_pin = () 
+        row_direction = 1
+        col_direction = 0
+        temp_row = ally_king_row
+        temp_col = ally_king_col
+        
+        while temp_row < 7 and keep_going: # continue to check downward until off board or block incountered
+            temp_row += 1
+            keep_going = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+
+        # moving left horizontally
+        possible_pin = () 
+        row_direction = 0
+        col_direction = -1
+        temp_row = ally_king_row
+        temp_col = ally_king_col
+        
+        while temp_col > 0 and keep_going: # continue to check downward until off board or block incountered
+            temp_col -= 1
+            keep_going = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+        
+        # moving right horizontally
+        possible_pin = () 
+        row_direction = 0
+        col_direction = 1
+        temp_row = ally_king_row
+        temp_col = ally_king_col
+        
+        while temp_col < 7 and keep_going: # continue to check downward until off board or block incountered
+            temp_col += 1
+            keep_going = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+                
+        # TODO moving up-right direction
+        # TODO moving up-left direction
+        # TODO moving down-right direction
+        # TODO moving down-left direction
+
+        # TODO check for knight checks 20:16 part 7 video
+
+    '''
+    checks vertically and horizonally tiles for checks and pins
+    '''
+    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col):
+        if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
+            if possible_pin == (): # if first allied piece - potential pin
+                possible_pin = (temp_row, temp_col, row_direction, col_direction)
+            else: # else second allied piece in the line - no pin; no check possible in this direction
+                return False
+        elif opponent_color in self.board[temp_row][temp_col]: # else if enemy piece is located on tile under check
+            piece_type = self.board[temp_row, temp_row].split('_', 1) # get piece specs separated by the '_'
+            piece_type = piece_type[1] # gets the name of the piece
+
+            if piece_type == "rook" or piece_type == "queen": # if a rook or a queen found in tile
+                if len(possible_pin) == 0: # if piece at current tile location is in direct line of king
+                    checks.append((temp_row, temp_col, row_direction, col_direction))
+
+                    if ally_color == "white": # if white player is in check
+                        self.white_king.in_check = True
+                    else: # else black player is in check
+                        self.black_king.in_check = True
+
+                    return False
+                else: # if an ally piece is in-between found opponent piece at current tile - pin exists
+                    pins.append(possible_pin)
+                    return False
+            else: # enemy piece found besides rook and queen - protected in that direction from checks
+                return False
+
+        return True
+    
+    '''
+    checks diagonal tiles for checks and pins
+    '''
+    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): # TODO
+        pass
+
 
     '''
     identifies all potential moves without considering checks
@@ -199,41 +331,37 @@ class GameState():
     def get_rook_moves(self, row, col, possible_moves, player_one, player_two): 
         opponent_color = player_two.color if player_one.current_player else player_one.color
 
+        # * moving upward
         temp_row = row
         temp_col = col
-        keep_going = True
-        
-        # * moving upward
+        keep_going = True                
         while temp_row > 0 and keep_going: # continue to check upward until off board or block incountered
             temp_row -= 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
-
-        temp_row = row
-        temp_col = col
-        keep_going = True
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         # * moving downward
+        temp_row = row
+        temp_col = col
+        keep_going = True        
         while temp_row < 7 and keep_going: # continue to check downward until off board or block incountered
             temp_row += 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
-
-        temp_row = row
-        temp_col = col
-        keep_going = True
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         # * moving left
-        while temp_col > 0 and keep_going: # continue to check left until off board or block incountered
-            temp_col -= 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
-
         temp_row = row
         temp_col = col
-        keep_going = True
+        keep_going = True        
+        while temp_col > 0 and keep_going: # continue to check left until off board or block incountered
+            temp_col -= 1
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         # * moving right
+        temp_row = row
+        temp_col = col
+        keep_going = True        
         while temp_col < 7 and keep_going: # continue to check right until off board or block incountered
             temp_col += 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
     '''
     get all knight moves for the knight located at a specified tile passing through as a parameter and add moves to the list of possible moves
@@ -283,45 +411,41 @@ class GameState():
     def get_bishop_moves(self, row, col, possible_moves, player_one, player_two):  
         opponent_color = player_two.color if player_one.current_player else player_one.color
 
+        # * moving up-right direction
         temp_row = row
         temp_col = col
-        keep_going = True
-        
-        # * moving up-right direction
+        keep_going = True                
         while temp_row > 0 and temp_col < 7 and keep_going: # continue to check upward and to the right until off board or block incountered
             temp_row -= 1
             temp_col += 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
-
-        temp_row = row
-        temp_col = col
-        keep_going = True
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         # * moving up-left direction
+        temp_row = row
+        temp_col = col
+        keep_going = True        
         while temp_row > 0 and temp_col > 0 and keep_going: # continue to check upward and to the left until off board or block incountered
             temp_row -= 1
             temp_col -= 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
-
-        temp_row = row
-        temp_col = col
-        keep_going = True
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
         # * moving down-right direction
+        temp_row = row
+        temp_col = col
+        keep_going = True        
         while temp_row < 7 and temp_col < 7 and keep_going: # continue to check down and to the left until off board or block incountered
             temp_row += 1
             temp_col += 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
+        # * moving down-left direction
         temp_row = row
         temp_col = col
         keep_going = True
-
-        # * moving down-left direction
         while temp_row < 7 and temp_col > 0 and keep_going: # continue to check down and to the right until off board or block incountered
             temp_row += 1
             temp_col -= 1
-            keep_going = self.tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
+            keep_going = self.sequence_tile_checker(row, col, temp_row, temp_col, possible_moves, opponent_color)
 
     '''
     get all queen moves for the queen located at a specified tile passing through as a parameter and add moves to the list of possible moves
@@ -379,7 +503,7 @@ class GameState():
     '''
     assists in checking tile status
     '''
-    def tile_checker(self, row, col, temp_row, temp_col, possible_moves, opponent_color):
+    def sequence_tile_checker(self, row, col, temp_row, temp_col, possible_moves, opponent_color):
         if self.board[temp_row][temp_col] == "--": # if open tile above currently observing tile
             possible_moves.append(Moves((row, col), (temp_row, temp_col), self.board))
             return True
