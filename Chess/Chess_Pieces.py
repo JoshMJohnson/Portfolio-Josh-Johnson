@@ -47,9 +47,7 @@ Class for the chess piece 'King'
 '''
 class King:
     def __init__(self, white_player):
-        self.in_check = False # king is currently in check
-        self.pins = [] # ally pieces that are preventing a check and therefore cannot be moved
-        self.checks = [] # contains the pieces putting the player in check
+        self.in_check = False
 
         # contains the current position of the king (row, column)
         if white_player: # white player
