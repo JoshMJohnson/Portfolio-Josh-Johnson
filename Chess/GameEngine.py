@@ -387,7 +387,7 @@ class GameState():
             else: # else second allied piece in the line - no pin; no check possible in this direction
                 return False
         elif opponent_color in self.board[temp_row][temp_col]: # else if enemy piece is located on tile under check
-            piece_type = self.board[temp_row, temp_col].split('_', 1) # get piece specs separated by the '_'
+            piece_type = self.board[temp_row][temp_col].split('_', 1) # get piece specs separated by the '_'
             piece_type = piece_type[1] # gets the name of the piece
 
             if piece_type == "pawn": # handling case when pawn causes check
