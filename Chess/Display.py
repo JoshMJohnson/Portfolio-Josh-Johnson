@@ -272,7 +272,7 @@ def run_game(screen, clock):
                                 game_log.append(move.get_chess_notation())
                                 move_made = True
 
-                                update_current_player(screen)
+                                update_player_points(screen)
                                 display_game_log(screen)
 
                             # resets user input clicks
@@ -318,7 +318,7 @@ def run_game(screen, clock):
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
                         game_state.undo_move(player_one, player_two)
-                        update_current_player(screen)
+                        update_player_points(screen)
                         game_log.pop()
                         display_game_log(screen)
                         move_made = True
@@ -343,19 +343,6 @@ def open_new_window():
     clock = pygame.time.Clock()
     pygame.display.set_caption("Lets Play Chess!")
     run_game(screen, clock)    
-
-'''
-updates the current player in the game
-'''
-def update_current_player(screen):
-    update_player_points(screen)
-
-    if player_one.current_player:
-        player_one.current_player = False
-        player_two.current_player = True
-    else:
-        player_one.current_player = True
-        player_two.current_player = False
 
 '''
 updates the player points

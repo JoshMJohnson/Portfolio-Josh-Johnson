@@ -43,12 +43,6 @@ class GameState():
             else: # else black player made the move
                 self.black_king.current_position = (move.end_row, move.end_col)
 
-        # sets previous players king status to be not in check
-        if player_one.current_player:
-            self.white_king.in_check = False
-        else:
-            self.black_king.in_check = False
-
         # * update player points if a piece has been captured in move
         opponent_color = player_two.color if player_one.current_player else player_one.color
         if opponent_color in move.ending_piece: # if capturing an opponent piece
@@ -91,6 +85,16 @@ class GameState():
         # * update game log
         self.move_log.append(move)
 
+        # * adjust current player
+        if player_one.current_player: # if white player
+            self.white_king.in_check = False
+            player_one.current_player = False
+            player_two.current_player = True
+        else: # else black player
+            self.black_king.in_check = False
+            player_two.current_player = False
+            player_one.current_player = True
+
     '''
     undo last move made
     '''
@@ -101,11 +105,12 @@ class GameState():
             self.board[move.start_row][move.start_col] = move.starting_piece
             self.board[move.end_row][move.end_col] = move.ending_piece
 
-            # * update kings position
-            if "king" in move.starting_piece and player_one.current_player: # if white king has been moved
-                self.white_king.current_position = (move.start_row, move.start_col)
-            else: # else black king has been moved
-                self.black_king.current_position = (move.start_row, move.start_col)
+            # update kings position
+            if "king" in move.starting_piece: # if the king was moved last turn
+                if player_one.current_player: # if black players king was moved in previous move
+                    self.black_king.current_position = (move.start_row, move.start_col)
+                else: # else white players king was moved in previous move
+                    self.white_king.current_position = (move.start_row, move.start_col)
 
             # * update player points if a piece had been captured in move - needs to be undone
             ally_color = player_one.color if player_one.current_player else player_two.color
@@ -146,11 +151,23 @@ class GameState():
                     else: # else black is capturing a white piece
                         player_one.points_taken -= queen.point_value
 
+            # TODO * resets previous players check status
+            if player_one.current_player: # if current player was white
+                self.white_king.in_check = False
+                player_one.current_player = False
+                player_two.current_player = True
+            else: # else current player was black
+                self.black_king.in_check = False
+                player_two.current_player = False
+                player_one.current_player = True             
+            
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)           
+
     '''
     identifies all potential moves while considering checks
     '''
     def get_valid_moves(self, player_one, player_two): # TODO 22:26 
-        self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
+        self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) 
 
         # gets current players king position and status
         if player_one.current_player: # if white players turn
@@ -166,19 +183,19 @@ class GameState():
 
         if in_check: # if current player is in check
             print("check")
-            if len(self.check_locations) == 1: # TODO if only one piece is causing check
-                moves = self.get_all_possible_moves(player_one, player_two)
+            # if len(self.check_locations) == 1: # TODO if only one piece is causing check
+            #     moves = self.get_all_possible_moves(player_one, player_two)
 
-                check = self.check_locations[0]
-                check_row = check[0]
-                check_col = check[1]
-                piece_checking = self.board[check_row][check_col]
-
-
+            #     check = self.check_locations[0]
+            #     check_row = check[0]
+            #     check_col = check[1]
+            #     piece_checking = self.board[check_row][check_col]
 
 
-            else: # multiple ways the king is in check; king must move
-                self.get_king_moves(king_row, king_col, moves, player_one, player_two)
+
+
+            # else: # multiple ways the king is in check; king must move
+            #     self.get_king_moves(king_row, king_col, moves, player_one, player_two)
         else: # if current player is not in check
             print("no check")
             moves = self.get_all_possible_moves(player_one, player_two) 
