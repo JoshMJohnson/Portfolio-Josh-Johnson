@@ -95,8 +95,6 @@ class GameState():
             player_two.current_player = False
             player_one.current_player = True
 
-        print("-------------------------------")
-
     '''
     undo last move made
     '''
@@ -180,10 +178,6 @@ class GameState():
             king_row = self.black_king.current_position[0]
             king_col = self.black_king.current_position[1]
             in_check = self.black_king.in_check
-
-        print("pins: " + str(self.pin_locations)) # !
-        print("checks: " + str(self.check_locations)) # !
-        print("in_check: " + str(in_check) + " - " + str(player_one.current_player)) # ! true = white player
 
         moves = []
 
