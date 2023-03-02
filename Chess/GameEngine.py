@@ -151,7 +151,7 @@ class GameState():
                     else: # else black is capturing a white piece
                         player_one.points_taken -= queen.point_value
 
-            # TODO * resets previous players check status
+            # * resets previous players check status
             if player_one.current_player: # if current player was white
                 self.white_king.in_check = False
                 player_one.current_player = False
@@ -166,7 +166,7 @@ class GameState():
     '''
     identifies all potential moves while considering checks
     '''
-    def get_valid_moves(self, player_one, player_two): # TODO 22:26 
+    def get_valid_moves(self, player_one, player_two): 
         self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) 
 
         # gets current players king position and status
@@ -183,7 +183,7 @@ class GameState():
 
         if in_check: # if current player is in check
             print("check")
-            # if len(self.check_locations) == 1: # TODO if only one piece is causing check
+            # if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
             #     moves = self.get_all_possible_moves(player_one, player_two)
 
             #     check = self.check_locations[0]
@@ -689,7 +689,7 @@ class GameState():
             else: # else current player is black
                 self.black_king.current_position = (temp_row, temp_col)
 
-            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) # ? may not need return values
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) 
 
             if ally_color == player_one.color: # if current player is white
                 if not self.white_king.in_check: # if this move doesnt put own king in check; is legal move
