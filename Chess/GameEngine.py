@@ -95,6 +95,8 @@ class GameState():
             player_two.current_player = False
             player_one.current_player = True
 
+        print("--------------------------")
+
     '''
     undo last move made
     '''
@@ -183,6 +185,8 @@ class GameState():
 
         if in_check: # if current player is in check
             print("CHECK")
+            print("check locations: " + str(self.check_locations))
+            print("pin locations: " + str(self.pin_locations))
             # if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
             #     moves = self.get_all_possible_moves(player_one, player_two)
 
@@ -198,6 +202,8 @@ class GameState():
             #     self.get_king_moves(king_row, king_col, moves, player_one, player_two)
         else: # if current player is not in check
             print("NO CHECK")
+            print("check locations: " + str(self.check_locations))
+            print("pin locations: " + str(self.pin_locations))
             moves = self.get_all_possible_moves(player_one, player_two) 
 
         return moves
@@ -321,45 +327,78 @@ class GameState():
             temp_row += 1
             keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
 
-        # ! * check for knight checks    
-        # king_row_location = self.white_king.current_position[0] if player_one.current_player else self.black_king.current_position[0]
-        # king_col_location = self.white_king.current_position[1] if player_one.current_player else self.black_king.current_position[1]
-
-        # if king_row_location - 1 > 0: # if two tile spaces up is not off the game board
-        #     if king_col_location > 0: # if one tile space to the left is not off the game board
-        #         if not ally_color in self.board[king_row_location - 2][king_col_location - 1]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location - 2, king_col_location - 1, -2, -1)) # * up-up-left location
-
-        #     if king_col_location < 7: # if one tile space to the right is not off the game board
-        #         if not ally_color in self.board[king_row_location - 2][king_col_location + 1]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location - 2, king_col_location + 1, -2, 1)) # * up-up-right location 
-        
-        # if king_row_location + 1 < 7: # if two tile spaces down is not off the game board
-        #     if king_col_location > 0: # if one tile space to the left is not off the game board
-        #         if not ally_color in self.board[king_row_location + 2][king_col_location - 1]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location + 2, king_col_location - 1, 2, -1)) # * down-down-left location 
-
-        #     if king_col_location < 7: # if one tile space to the right is not off the game board
-        #         if not ally_color in self.board[king_row_location + 2][king_col_location + 1]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location + 2, king_col_location + 1, 2, 1)) # * down-down-right location 
+        # * check for knight checks 
+        if (ally_king_row - 2 >= 0) and (ally_king_col - 1 >= 0): # if not off board
+            if ("knight" in self.board[ally_king_row - 2][ally_king_col - 1]) and (opponent_color in self.board[ally_king_row - 2][ally_king_col - 1]): # * up-up-left location
+                checks.append((ally_king_row - 2, ally_king_col - 1, -2, -1)) 
                 
-        # if king_col_location - 1 > 0: # if two tile spaces left is not off the game board
-        #     if king_row_location > 0: # if one tile space up is not off the game board
-        #         if not ally_color in self.board[king_row_location - 1][king_col_location - 2]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location - 1, king_col_location - 2, -1, -2)) # * left-left-up location 
-
-        #     if king_row_location < 7: # if one tile space down is not off the game board
-        #         if not ally_color in self.board[king_row_location + 1][king_col_location - 2]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location + 1, king_col_location - 2, 1, -2)) # * left-left-down location 
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
         
-        # if king_col_location + 1 < 7: # if two tile spaces right is not off the game board
-        #     if king_row_location > 0: # if one tile space up is not off the game board
-        #         if not ally_color in self.board[king_row_location - 1][king_col_location + 2]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location - 1, king_col_location + 2, -1, 2)) # * right-right-up location 
+        if (ally_king_row - 2 >= 0) and (ally_king_col - 1 <= 7): # if not off board                
+            if ("knight" in self.board[ally_king_row - 2][ally_king_col + 1]) and (opponent_color in self.board[ally_king_row - 2][ally_king_col + 1]): # * up-up-right location 
+                checks.append((ally_king_row - 2, ally_king_col + 1, -2, 1)) 
 
-        #     if king_row_location < 7: # if one tile space down is not off the game board
-        #         if not ally_color in self.board[king_row_location + 1][king_col_location + 2]: # if not an ally piece in desired tile location
-        #             checks.append((king_row_location + 1, king_col_location + 2, 1, 2)) # * right-right-down location 
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
+        
+        if (ally_king_row + 2 <= 7) and (ally_king_col - 1 >= 0): # if not off board        
+            if ("knight" in self.board[ally_king_row + 2][ally_king_col - 1]) and (opponent_color in self.board[ally_king_row + 2][ally_king_col - 1]): # * down-down-left location 
+                checks.append((ally_king_row + 2, ally_king_col - 1, 2, -1)) 
+
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
+        
+        if (ally_king_row + 2 <= 7) and (ally_king_col + 1 <= 7): # if not off board        
+            if ("knight" in self.board[ally_king_row + 2][ally_king_col + 1]) and (opponent_color in self.board[ally_king_row + 2][ally_king_col + 1]): # * down-down-right location 
+                checks.append((ally_king_row + 2, ally_king_col + 1, 2, 1)) 
+
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
+        
+        if (ally_king_row - 1 >= 0) and (ally_king_col - 2 >= 0): # if not off board
+            if ("knight" in self.board[ally_king_row - 1][ally_king_col - 2]) and (opponent_color in self.board[ally_king_row - 1][ally_king_col - 2]):  # * left-left-up location 
+                checks.append((ally_king_row - 1, ally_king_col - 2, -1, -2)) 
+
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
+        
+        if (ally_king_row + 1 <= 7) and (ally_king_col - 2 >= 0): # if not off board        
+            if ("knight" in self.board[ally_king_row + 1][ally_king_col - 2]) and (opponent_color in self.board[ally_king_row + 1][ally_king_col - 2]): # * left-left-down location 
+                checks.append((ally_king_row + 1, ally_king_col - 2, 1, -2)) 
+
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
+        
+        if (ally_king_row - 1 >= 0) and (ally_king_col + 2 <= 7): #  if not off board        
+            if ("knight" in self.board[ally_king_row - 1][ally_king_col + 2]) and (opponent_color in self.board[ally_king_row - 1][ally_king_col + 2]): # * right-right-up location 
+                checks.append((ally_king_row - 1, ally_king_col + 2, -1, 2)) 
+
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
+        
+        if (ally_king_row + 1 <= 7) and (ally_king_col + 2 <= 7): # if not off board        
+            if ("knight" in self.board[ally_king_row + 1][ally_king_col + 2]) and (opponent_color in self.board[ally_king_row + 1][ally_king_col + 2]): # * right-right-down location 
+                checks.append((ally_king_row + 1, ally_king_col + 2, 1, 2)) 
+
+                if ally_color == "white": # if white player is in check
+                    self.white_king.in_check = True
+                else: # else black player is in check
+                    self.black_king.in_check = True
 
         return pins, checks
 
