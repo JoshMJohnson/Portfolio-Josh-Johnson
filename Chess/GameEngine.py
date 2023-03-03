@@ -405,7 +405,7 @@ class GameState():
     '''
     checks vertically and horizonally tiles for checks and pins
     '''
-    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): # !
+    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): 
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
@@ -436,7 +436,7 @@ class GameState():
     '''
     checks diagonal tiles for checks and pins
     '''
-    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): # !
+    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col):
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
