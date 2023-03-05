@@ -28,18 +28,18 @@ class GameState():
         #     ["--", "--", "--", "--", "--", "--", "--", "--"],
         #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
         #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-
+        
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_queen", "black_pawn", "black_pawn", "black_pawn"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_knight", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
             ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-
         
+
     '''
     makes a move on the game board
     '''
@@ -199,22 +199,46 @@ class GameState():
             print("CHECK")
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
-            if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
+            if len(self.check_locations) == 1: # TODO if only one piece is causing check
                 print("single check locations")
                 
                 moves = self.get_all_possible_moves(player_one, player_two) 
+                valid_moves = []
 
                 # gather data about the piece that is causing the check on the player
                 check = self.check_locations[0] 
                 check_row = check[0] # row of the piece that is causing a check
                 check_col = check[1] # column of the piece that is causing a check
-                row_direction_relative_from_king = check[2] # row adjustment in direction from the king position
-                col_direction_relative_from_king = check[3] # column adjustment in direction from the king position
-                piece_checking = self.board[check_row][check_col] # name of the piece that is causing a check
+                row_direction_relative_from_king = check[2] # row adjustment in direction from the king position # ? maybe delete the direction move variables from checks.append(); not necessary
+                col_direction_relative_from_king = check[3] # column adjustment in direction from the king position # ? maybe delete the direction move variables from checks.append(); not necessary
+                piece_causing_check = self.board[check_row][check_col] # name of the piece that is causing a check
+                tile_causing_check = (check_row, check_col)
 
+                if "knight" in piece_causing_check: # * if the knight piece is causing check
+                    for move in moves: # loop through the list of valid moves
+                        if tile_causing_check == move.ending_tile: # if a move in possible moves has an ending location of this knight causing check
+                            valid_moves.append(move)
+                    
+                    self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two)
 
+                if "rook" in piece_causing_check or "queen" in piece_causing_check: # TODO * if rook or queen is causing check; vertical/horizontal
+                    pass               
 
+                if "bishop" in piece_causing_check or "queen" in piece_causing_check: # TODO * if bishop or queen is causing check; diagnol
+                    pass 
 
+                if "rook" in piece_causing_check or "queen" in piece_causing_check: # TODO * if rook or queen is causing check; vertical/horizontal
+                    pass
+
+                if "pawn" in piece_causing_check: # TODO * if a pawn is causing check
+                    ally_color = player_one.color if player_one.current_player else player_two.color
+
+                    if ally_color == player_one.color: # if current player in check is white
+                        pass
+                    else: # else current playe in check is black
+                        pass
+
+                return [i for i in valid_moves if i in moves]
             else: # multiple ways the king is in check; king must move
                 print("multiple check locations")
                 self.get_king_moves(king_row, king_col, moves, player_one, player_two)
@@ -223,6 +247,8 @@ class GameState():
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
             moves = self.get_all_possible_moves(player_one, player_two) 
+
+            # TODO cant move pins
 
         return moves
 
@@ -793,6 +819,8 @@ class Moves():
         self.start_col = starting_tile[1]
         self.end_row = ending_tile[0]
         self.end_col = ending_tile[1]
+        self.starting_tile = (self.start_row, self.start_col)
+        self.ending_tile = (self.end_row, self.end_col)
 
         # starting and ending index locations within the board array
         self.starting_piece = board[self.start_row][self.start_col]
