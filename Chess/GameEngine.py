@@ -31,7 +31,7 @@ class GameState():
 
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_rook", "white_pawn", "black_pawn", "black_pawn"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_queen", "black_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
@@ -39,6 +39,7 @@ class GameState():
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
             ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
 
+        
     '''
     makes a move on the game board
     '''
@@ -199,13 +200,17 @@ class GameState():
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
             if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
-                print("single check location")
-                moves = self.get_all_possible_moves(player_one, player_two)
+                print("single check locations")
+                
+                moves = self.get_all_possible_moves(player_one, player_two) 
 
-                # check = self.check_locations[0] # !
-                # check_row = check[0]
-                # check_col = check[1]
-                # piece_checking = self.board[check_row][check_col]
+                # gather data about the piece that is causing the check on the player
+                check = self.check_locations[0] 
+                check_row = check[0] # row of the piece that is causing a check
+                check_col = check[1] # column of the piece that is causing a check
+                row_direction_relative_from_king = check[2] # row adjustment in direction from the king position
+                col_direction_relative_from_king = check[3] # column adjustment in direction from the king position
+                piece_checking = self.board[check_row][check_col] # name of the piece that is causing a check
 
 
 
@@ -753,6 +758,8 @@ class GameState():
                     possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board))
 
                 self.black_king.current_position = (king_row, king_col) 
+            
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
 
     '''
     assists in checking tile status
