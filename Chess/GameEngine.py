@@ -31,7 +31,7 @@ class GameState():
 
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_queen", "white_pawn", "black_pawn", "black_pawn"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_rook", "white_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
@@ -64,7 +64,7 @@ class GameState():
                 else: # else black is capturing a white piece
                     player_two.points_taken += pawn.point_value
             if "rook" in move.ending_piece: # if caputuring a rook
-                rook = Chess_Pieces.Rook
+                rook = Chess_Pieces.Rook()
 
                 if player_one.current_player: # if white is capturing a black piece
                     player_one.points_taken += rook.point_value
@@ -135,7 +135,7 @@ class GameState():
                     else: # else black is capturing a white piece
                         player_one.points_taken -= pawn.point_value
                 if "rook" in move.ending_piece: # if caputuring a rook
-                    rook = Chess_Pieces.Rook
+                    rook = Chess_Pieces.Rook()
 
                     if player_one.current_player: # if white is capturing a black piece
                         player_two.points_taken -= rook.point_value
@@ -199,22 +199,20 @@ class GameState():
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
             if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
-                print("1 check location")
+                print("single check location")
                 moves = self.get_all_possible_moves(player_one, player_two)
 
-                check = self.check_locations[0]
-                check_row = check[0]
-                check_col = check[1]
-                piece_checking = self.board[check_row][check_col]
+                # check = self.check_locations[0] # !
+                # check_row = check[0]
+                # check_col = check[1]
+                # piece_checking = self.board[check_row][check_col]
 
 
 
 
-            else: # TODO multiple ways the king is in check; king must move
+            else: # multiple ways the king is in check; king must move
                 print("multiple check locations")
-                print("king moves before: " + str(moves))
                 self.get_king_moves(king_row, king_col, moves, player_one, player_two)
-                print("king moves after: " + str(moves))
         else: # if current player is not in check
             print("NO CHECK")
             print("check locations: " + str(self.check_locations))
