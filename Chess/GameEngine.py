@@ -19,9 +19,19 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
+        # self.board = [
+        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
+        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_queen", "white_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
@@ -163,7 +173,8 @@ class GameState():
                 player_two.current_player = False
                 player_one.current_player = True             
             
-            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)           
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)      
+            print("--------------------------")     
 
     '''
     identifies all potential moves while considering checks
@@ -187,19 +198,23 @@ class GameState():
             print("CHECK")
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
-            # if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
-            #     moves = self.get_all_possible_moves(player_one, player_two)
+            if len(self.check_locations) == 1: # TODO if only one piece is causing check 22:26 
+                print("1 check location")
+                moves = self.get_all_possible_moves(player_one, player_two)
 
-            #     check = self.check_locations[0]
-            #     check_row = check[0]
-            #     check_col = check[1]
-            #     piece_checking = self.board[check_row][check_col]
+                check = self.check_locations[0]
+                check_row = check[0]
+                check_col = check[1]
+                piece_checking = self.board[check_row][check_col]
 
 
 
 
-            # else: # multiple ways the king is in check; king must move
-            #     self.get_king_moves(king_row, king_col, moves, player_one, player_two)
+            else: # TODO multiple ways the king is in check; king must move
+                print("multiple check locations")
+                print("king moves before: " + str(moves))
+                self.get_king_moves(king_row, king_col, moves, player_one, player_two)
+                print("king moves after: " + str(moves))
         else: # if current player is not in check
             print("NO CHECK")
             print("check locations: " + str(self.check_locations))
@@ -667,79 +682,79 @@ class GameState():
     '''
     get all king moves for the king located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_king_moves(self, row, col, possible_moves, player_one, player_two):
+    def get_king_moves(self, king_row, king_col, possible_moves, player_one, player_two): 
         # * moving up
-        if row > 0: # if not on the top row of the game board
-            temp_row = row - 1
-            temp_col = col
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_row > 0: # if not on the top row of the game board
+            temp_row = king_row - 1
+            temp_col = king_col
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving up-left
-        if row > 0 and col > 0: # if not on the top row or furthest left column of the game board
-            temp_row = row - 1
-            temp_col = col - 1
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_row > 0 and king_col > 0: # if not on the top row or furthest left column of the game board
+            temp_row = king_row - 1
+            temp_col = king_col - 1
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving up-right
-        if row > 0 and col < 7: # if not on the top row or furthest right column of the game board
-            temp_row = row - 1
-            temp_col = col + 1
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_row > 0 and king_col < 7: # if not on the top row or furthest right column of the game board
+            temp_row = king_row - 1
+            temp_col = king_col + 1
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving down
-        if row < 7: # if not on the bottom row of the game board
-            temp_row = row + 1
-            temp_col = col 
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_row < 7: # if not on the bottom row of the game board
+            temp_row = king_row + 1
+            temp_col = king_col 
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving down-left
-        if row < 7 and col > 0: # if not on the bottom row or furthest left column of the game board
-            temp_row = row + 1
-            temp_col = col - 1
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_row < 7 and king_col > 0: # if not on the bottom row or furthest left column of the game board
+            temp_row = king_row + 1
+            temp_col = king_col - 1
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving down-right
-        if row < 7 and col < 7: # if not on the bottom row or furthest right column of the game board
-            temp_row = row + 1
-            temp_col = col + 1
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_row < 7 and king_col < 7: # if not on the bottom row or furthest right column of the game board
+            temp_row = king_row + 1
+            temp_col = king_col + 1
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving left
-        if col > 0: # if not on the furthest left column of the game board
-            temp_row = row 
-            temp_col = col - 1
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_col > 0: # if not on the furthest left column of the game board
+            temp_row = king_row 
+            temp_col = king_col - 1
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
         # * moving right
-        if col < 7: # if not on the furthest right column of the game board
-            temp_row = row 
-            temp_col = col + 1
-            self.valid_king_move(row, col, temp_row, temp_col, possible_moves, player_one, player_two)
+        if king_col < 7: # if not on the furthest right column of the game board
+            temp_row = king_row 
+            temp_col = king_col + 1
+            self.valid_king_move(king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two)
 
     '''
     checks if potential move will put king in check; if not then adds to list of possible moves for the king
     '''
-    def valid_king_move(self, row, col, temp_row, temp_col, possible_moves, player_one, player_two):
+    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two):
         ally_color = player_one.color if player_one.current_player else player_two.color
 
         if not ally_color in self.board[temp_row][temp_col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
-            if ally_color ==  player_one.color: # if current player is white
+            if ally_color == player_one.color: # if current player is white
                 self.white_king.current_position = (temp_row, temp_col)
             else: # else current player is black
                 self.black_king.current_position = (temp_row, temp_col)
 
-            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) 
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
 
             if ally_color == player_one.color: # if current player is white
-                if not self.white_king.in_check: # if this move doesnt put own king in check; is legal move
-                    possible_moves.append(Moves((row, col), (temp_row, temp_col), self.board))
+                if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move
+                    possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board))
                     
-                self.white_king.current_position = (row, col)
+                self.white_king.current_position = (king_row, king_col)
             else: # else current player is black
-                if not self.black_king.in_check: # if this move doesnt put own king in check; is legal move
-                    possible_moves.append(Moves((row, col), (temp_row, temp_col), self.board))
+                if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move 
+                    possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board))
 
-                self.black_king.current_position = (row, col) 
+                self.black_king.current_position = (king_row, king_col) 
 
     '''
     assists in checking tile status
