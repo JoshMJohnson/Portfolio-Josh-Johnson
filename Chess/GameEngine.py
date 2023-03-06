@@ -30,14 +30,14 @@ class GameState():
         #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
         
         self.board = [
-            ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "white_knight", "black_pawn"],
+            ["black_rook", "black_knight", "black_bishop", "black_queen", "--", "black_bishop", "black_knight", "black_rook"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "black_king", "--", "--", "--"],
+            ["--", "--", "--", "white_queen", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-            ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+            ["white_rook", "--", "--", "--", "white_king", "--", "--", "white_rook"]]
         
 
     '''
@@ -199,7 +199,7 @@ class GameState():
             print("CHECK")
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
-            if len(self.check_locations) == 1: # TODO if only one piece is causing check
+            if len(self.check_locations) == 1: # if only one piece is causing check
                 print("single check locations")
                 
                 moves = self.get_all_possible_moves(player_one, player_two) 
@@ -211,34 +211,68 @@ class GameState():
                 check_col = check[1] # column of the piece that is causing a check
                 row_direction_relative_from_king = check[2] # row adjustment of piece from the position of the king  
                 col_direction_relative_from_king = check[3] # column adjustment of piece from the position of the king 
+
                 piece_causing_check = self.board[check_row][check_col] # name of the piece that is causing a check
-                tile_causing_check = (check_row, check_col)
+                tile_causing_check = (check_row, check_col) # tile ID of the piece causing a check
 
                 if "knight" in piece_causing_check: # * if the knight piece is causing check
-                    for move in moves: # loop through the list of valid moves
+                    for move in moves: # loop through the list of possible moves
                         if tile_causing_check == move.ending_tile: # if a move in possible moves has an ending location of this knight causing check
                             valid_moves.append(move)
             
+                temp_row = king_row # sets king row as a temp variable for looping
+                temp_col = king_col # sets king column as a temp variable for looping
+                
                 # * direction of check relative of king current position
-                if row_direction_relative_from_king == -1 and col_direction_relative_from_king == 0: # TODO if piece north of king is causing check
-                    pass
-                elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 0: # TODO else if piece south of king is causing check
-                    pass
-                elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == -1: # TODO else if piece west of king is causing check
-                    pass
-                elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == 1: # TODO else if piece east of king is causing check
-                    pass
-                elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == -1: # TODO else if piece north-west of king is causing check
-                    pass
-                elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == 1: # TODO else if piece north-east of king is causing check
-                    pass
-                elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == -1: # TODO else if piece south-west of king is causing check
-                    pass
-                elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 1: # TODO else if piece south-east of king is causing check
-                    pass                
+                if row_direction_relative_from_king == -1 and col_direction_relative_from_king == 0: # if piece north of king is causing check
+                    while temp_row >= check_row: # continue checking tiles in-between the king and the piece causing check
+                        temp_row -= 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 0: # else if piece south of king is causing check
+                    while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
+                        temp_row += 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == -1: # else if piece west of king is causing check
+                    while temp_col >= check_col: # continue checking tiles in-between the king and the piece causing check
+                        temp_col -= 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == 1: # else if piece east of king is causing check
+                    while temp_col <= check_col: # continue checking tiles in-between the king and the piece causing check
+                        temp_col += 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == -1: # else if piece north-west of king is causing check
+                    while temp_row >= check_row: # continue checking tiles in-between the king and the piece causing check
+                        temp_row -= 1
+                        temp_col -= 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == 1: # else if piece north-east of king is causing check
+                    while temp_col <= check_col: # continue checking tiles in-between the king and the piece causing check
+                        temp_row -= 1
+                        temp_col += 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == -1: # else if piece south-west of king is causing check
+                    while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
+                        temp_row += 1
+                        temp_col -= 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves) 
+                elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 1: # else if piece south-east of king is causing check
+                    while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
+                        temp_row += 1
+                        temp_col += 1
+
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
 
                 self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two)
 
+                print("valid moves: " + str([i for i in valid_moves if i in moves]))
+                
                 return [i for i in valid_moves if i in moves]
             else: # multiple ways the king is in check; king must move
                 print("multiple check locations")
@@ -251,7 +285,17 @@ class GameState():
 
             # TODO cant move pins
 
+        print("valid moves: " + str(moves))
         return moves
+
+    def check_valid_move(self, temp_row, temp_col, moves, valid_moves):
+        for move in moves: # loop through the list of possible moves
+            if move.ending_tile == (temp_row, temp_col): # if a possible move has an ending location of the current checking tile
+                for pin in self.pin_locations: # loop through the list of all pin pieces
+                    if move.starting_tile == pin: # if not a pin piece
+                        valid_moves.append(move)
+
+                valid_moves.append(move)
 
     '''
     retrieves the current player kings pin pieces and check pieces
@@ -764,7 +808,7 @@ class GameState():
     '''
     checks if potential move will put king in check; if not then adds to list of possible moves for the king
     '''
-    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two):
+    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two): # ! king can still move in a straight line away from checking location and remain in check
         ally_color = player_one.color if player_one.current_player else player_two.color
 
         if not ally_color in self.board[temp_row][temp_col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
@@ -776,6 +820,7 @@ class GameState():
             self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
 
             if ally_color == player_one.color: # if current player is white
+                print("king location: " + str(king_row) + ", " + str(king_col))
                 if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move
                     possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board))
                     
