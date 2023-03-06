@@ -1,6 +1,6 @@
 <h1 align="center">:chess_pawn: Chess :chess_pawn:</h1>
 <p align="center">
-    Custom made chess game that can be played on 3 different themes, or chess sets
+    Custom made chess game that can be played on 3 different chess sets
 </p>
 
 ---
