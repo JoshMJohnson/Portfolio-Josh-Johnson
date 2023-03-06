@@ -19,27 +19,16 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
-        # self.board = [
-        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-        
         self.board = [
-            ["black_rook", "black_knight", "black_bishop", "black_queen", "--", "black_bishop", "black_knight", "black_rook"],
+            ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
             ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "black_king", "--", "--", "--"],
-            ["--", "--", "--", "white_queen", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-            ["white_rook", "--", "--", "--", "white_king", "--", "--", "white_rook"]]
+            ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
         
-
     '''
     makes a move on the game board
     '''
@@ -195,11 +184,11 @@ class GameState():
 
         moves = []
 
-        if in_check: # if current player is in check
+        if in_check: # if current player is in check # TODO cant move a pinned piece
             print("CHECK")
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
-            if len(self.check_locations) == 1: # if only one piece is causing check
+            if len(self.check_locations) == 1: # if only one piece is causing check # ! king doesnt move when in check
                 print("single check locations")
                 
                 moves = self.get_all_possible_moves(player_one, player_two) 
@@ -271,10 +260,10 @@ class GameState():
 
                 self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two)
 
-                print("valid moves: " + str([i for i in valid_moves if i in moves]))
+                print("num valid moves: " + str(len(valid_moves)))
                 
                 return [i for i in valid_moves if i in moves]
-            else: # multiple ways the king is in check; king must move
+            else: # multiple ways the king is in check; king must move # ! king doesnt move when in check
                 print("multiple check locations")
                 self.get_king_moves(king_row, king_col, moves, player_one, player_two)
         else: # if current player is not in check
@@ -282,10 +271,16 @@ class GameState():
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
             moves = self.get_all_possible_moves(player_one, player_two) 
-
+            
             # TODO cant move pins
+            # valid_moves = []
+            # for move in moves: # loop through the list of possible moves
+            #     for pin in self.pin_locations: # loop through the list of current pins
+            #         pin_tile_location = (pin[0], pin[1])
+            #         if pin_tile_location == move.starting_tile: # if a move in moves does not involve moving a piece that is pinned; then add to list of valid moves
+            #             print("removing a move")
+            #             moves.remove(move)
 
-        print("valid moves: " + str(moves))
         return moves
 
     def check_valid_move(self, temp_row, temp_col, moves, valid_moves):
@@ -300,7 +295,7 @@ class GameState():
     '''
     retrieves the current player kings pin pieces and check pieces
     '''
-    def pins_checks(self, player_one, player_two):
+    def pins_checks(self, player_one, player_two): 
         pins = [] # ally pieces that are preventing a check and therefore cannot be moved
         checks = [] # contains the pieces putting the player in check
 
@@ -500,7 +495,7 @@ class GameState():
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
             else: # else second allied piece in the line - no pin; no check possible in this direction
                 return False, possible_pin
-        elif opponent_color in self.board[temp_row][temp_col]: # else if enemy piece is located on tile under check
+        elif opponent_color in self.board[temp_row][temp_col]: # else if enemy piece is located on tile under check 
             piece_type = self.board[temp_row][temp_col].split('_', 1) # get piece specs separated by the '_'
             piece_type = piece_type[1] # gets the name of the piece
 
@@ -514,7 +509,7 @@ class GameState():
                         self.black_king.in_check = True
 
                     return False, possible_pin
-                else: # if an ally piece is in-between found opponent piece at current tile - pin exists
+                else: # if an ally piece is in-between found opponent piece at current tile - pin exists 
                     pins.append(possible_pin)
                     return False, possible_pin
             else: # enemy piece found besides rook and queen - protected in that direction from checks
@@ -525,7 +520,7 @@ class GameState():
     '''
     checks diagonal tiles for checks and pins
     '''
-    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col):
+    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): 
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
@@ -808,7 +803,7 @@ class GameState():
     '''
     checks if potential move will put king in check; if not then adds to list of possible moves for the king
     '''
-    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two): # ! king can still move in a straight line away from checking location and remain in check
+    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two): 
         ally_color = player_one.color if player_one.current_player else player_two.color
 
         if not ally_color in self.board[temp_row][temp_col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
@@ -820,14 +815,13 @@ class GameState():
             self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
 
             if ally_color == player_one.color: # if current player is white
-                print("king location: " + str(king_row) + ", " + str(king_col))
-                if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move
-                    possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board))
+                if not self.white_king.in_check: # if this move doesnt put own king in check; is legal move
+                    possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board)) 
                     
                 self.white_king.current_position = (king_row, king_col)
             else: # else current player is black
-                if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move 
-                    possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board))
+                if not self.black_king.in_check: # if this move doesnt put own king in check; is legal move 
+                    possible_moves.append(Moves((king_row, king_col), (temp_row, temp_col), self.board)) 
 
                 self.black_king.current_position = (king_row, king_col) 
             
