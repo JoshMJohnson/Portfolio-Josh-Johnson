@@ -7,8 +7,7 @@
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
     
-    1.) The Driver file is named Main.
-    Run Main.py to open up the GUI (Graphical User Interface)
+    1.) The Driver file is named Main. Run Main.py to open up the GUI (Graphical User Interface)
 
     2.) Enjoy playing Tic-Tac-Toe
 ---
