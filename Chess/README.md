@@ -6,8 +6,10 @@
 ---
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
-<p align='center'>The driver file is the python file named Display. Run Display.py to start the program</p>
+    
+    1.) The driver file is the python file named Display. Run Display.py to open up the GUI (Graphical User Interface)
 
+    2.) Enjoy playing Chess
 ---
 <h2 align="center">:camera: Chess Sets :camera:</h2>
 <div align="center">
