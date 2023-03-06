@@ -6,7 +6,7 @@
 ---
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
-<p align='center'>Driver file is named Display.py. Run Display.py to open gui and run the program of chess</p>
+<p align='center'>Driver file is named Display.py. Run Display.py to run the program</p>
 
 ---
 <h2 align="center">:camera: Chess Sets :camera:</h2>
