@@ -280,15 +280,44 @@ class GameState():
             pins = self.pin_locations
             moves = self.get_all_possible_moves(player_one, player_two) 
 
-            # deny ability to move pin pieces
-            for pin in pins: # loop through the list of all pin pieces
-                pin_row = pin[0]
-                pin_col = pin[1]
-                pin_tile = (pin_row, pin_col)
-                print("pin_tile: " + str(pin_tile))
-                moves = [move for move in moves if move.starting_tile != pin_tile]
+            # restrict movement of pinned pieces
+            for pin in pins: # loop through the list of all pinned pieces 
+                moves = [move for move in moves if not self.restrict_pins(move, pin)]
 
         return moves
+    
+    '''
+    restricts movement of a pin piece
+    '''
+    def restrict_pins(self, move, pin):
+        pin_tile = (pin[0], pin[1])
+        pin_row_direction = pin[2]
+        pin_col_direction = pin[3]
+
+        if move.starting_tile == pin_tile: # finds pinned piece
+            move_row_adjustment = move.end_row - move.start_row
+            move_col_adjustment = move.end_col - move.start_col
+
+            if move_row_adjustment > 0 and move_col_adjustment == 0 and pin_row_direction == 1 and pin_col_direction == 0: # if check is down vertically relative from the king
+                return False
+            if move_row_adjustment < 0 and move_col_adjustment == 0 and pin_row_direction == -1 and pin_col_direction == 0: # if check is up vertically relative from the king
+                return False
+            if move_row_adjustment == 0 and move_col_adjustment < 0 and pin_row_direction == 0 and pin_col_direction == -1: # if check is left horizontally relative from the king
+                return False
+            if move_row_adjustment == 0 and move_col_adjustment > 0 and pin_row_direction == 0 and pin_col_direction == 1: #  if check is right horizontally relative from the king
+                return False
+            if move_row_adjustment < 0 and move_col_adjustment > 0 and pin_row_direction == -1 and pin_col_direction == 1: # if check is up-right diagonally relative from the king
+                return False
+            if move_row_adjustment < 0 and move_col_adjustment < 0 and pin_row_direction == -1 and pin_col_direction == -1: # if check is up-left diagonally relative from the king
+                return False
+            if move_row_adjustment > 0 and move_col_adjustment > 0 and pin_row_direction == 1 and pin_col_direction == 1: # if check is down-right diagonally relative from the king
+                return False
+            if move_row_adjustment > 0 and move_col_adjustment < 0 and pin_row_direction == 1 and pin_col_direction == -1: # if check is down-left diagonally relative from the king
+                return False
+            
+            return True
+        
+        return False
 
     '''
     checks if a move can capture a piece that is causing check and is not a pin piece
