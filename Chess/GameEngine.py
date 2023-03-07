@@ -31,9 +31,9 @@ class GameState():
 
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "--", "--", "black_pawn", "black_pawn"],
-            ["--", "--", "--", "--", "black_pawn", "--", "--", "--"],
-            ["--", "white_bishop", "--", "--", "white_queen", "--", "--", "--"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "--", "black_pawn", "black_pawn", "black_pawn"],
+            ["--", "--", "--", "--", "white_queen", "--", "--", "--"],
+            ["--", "white_bishop", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
@@ -213,7 +213,7 @@ class GameState():
                 piece_causing_check = self.board[check_row][check_col] # name of the piece that is causing a check
                 tile_causing_check = (check_row, check_col) # tile ID of the piece causing a check
 
-                moves = self.get_all_possible_moves(player_one, player_two) # ! buggy when checking piece is touching king; 1 move isnt valid but appear to be with another piece
+                moves = self.get_all_possible_moves(player_one, player_two) 
                 valid_moves = []
 
                 if "knight" in piece_causing_check: # * if the knight piece is causing check
@@ -332,8 +332,8 @@ class GameState():
             elif move_row_adjustment > 0 and move_col_adjustment < 0 and pin_row_direction == 1 and pin_col_direction == -1: # if check is down-left diagonally relative from the king
                 return False
             
-            # TODO pinned pieces cannot block checks
-            
+            # TODO pinned pieces cannot move to handle a check
+
 
             
             return True
