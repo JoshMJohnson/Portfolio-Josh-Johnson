@@ -19,11 +19,21 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
+        # self.board = [
+        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
+        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "--", "--", "black_pawn", "black_pawn"],
+            ["--", "--", "--", "--", "black_pawn", "--", "--", "--"],
+            ["--", "white_bishop", "--", "--", "white_queen", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
@@ -158,10 +168,12 @@ class GameState():
                 self.white_king.in_check = False
                 player_one.current_player = False
                 player_two.current_player = True
+                player_one.player_lost = False
             else: # else current player was black
                 self.black_king.in_check = False
                 player_two.current_player = False
-                player_one.current_player = True             
+                player_one.current_player = True    
+                player_two.player_lost = False         
             
             print("--------------------------")     
 
@@ -183,17 +195,15 @@ class GameState():
 
         moves = []
 
-        if in_check: # if current player is in check # TODO cant move a pinned piece
+        if in_check: # if current player is in check
             print("CHECK")
             print("check locations: " + str(self.check_locations))
             print("pin locations: " + str(self.pin_locations))
             if len(self.check_locations) == 1: # if only one piece is causing check 
                 print("single check locations")
                 
-                valid_moves = []
-
                 # gather data about the piece that is causing the check on the player
-                print("num check locations: " + str(len(self.check_locations)))
+                pins = self.pin_locations
                 check = self.check_locations[0] 
                 check_row = check[0] # row of the piece that is causing a check
                 check_col = check[1] # column of the piece that is causing a check
@@ -203,9 +213,8 @@ class GameState():
                 piece_causing_check = self.board[check_row][check_col] # name of the piece that is causing a check
                 tile_causing_check = (check_row, check_col) # tile ID of the piece causing a check
 
-                
-
                 moves = self.get_all_possible_moves(player_one, player_two) # ! buggy when checking piece is touching king; 1 move isnt valid but appear to be with another piece
+                valid_moves = []
 
                 if "knight" in piece_causing_check: # * if the knight piece is causing check
                     for move in moves: # loop through the list of possible moves
@@ -220,46 +229,50 @@ class GameState():
                     while temp_row >= check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row -= 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 0: # else if piece south of king is causing check
                     while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row += 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == -1: # else if piece west of king is causing check
                     while temp_col >= check_col: # continue checking tiles in-between the king and the piece causing check
                         temp_col -= 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == 1: # else if piece east of king is causing check
                     while temp_col <= check_col: # continue checking tiles in-between the king and the piece causing check
                         temp_col += 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == -1: # else if piece north-west of king is causing check
                     while temp_row >= check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row -= 1
                         temp_col -= 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == 1: # else if piece north-east of king is causing check
                     while temp_col <= check_col: # continue checking tiles in-between the king and the piece causing check
                         temp_row -= 1
                         temp_col += 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == -1: # else if piece south-west of king is causing check
                     while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row += 1
                         temp_col -= 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves) 
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins) 
                 elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 1: # else if piece south-east of king is causing check
                     while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row += 1
                         temp_col += 1
 
-                        self.check_valid_move(temp_row, temp_col, moves, valid_moves)
+                        self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
+
+                # restrict movement of pinned pieces 
+                for pin in pins: # loop through the list of all pinned pieces 
+                    moves = [move for move in moves if not self.restrict_pins(move, pin)]
 
                 self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two)
 
@@ -267,7 +280,13 @@ class GameState():
                 print("num valid moves: " + str(len(valid_moves)))
                 for v in valid_moves:
                     print("valid moves: " + str(v.starting_tile) + ", " + str(v.ending_tile))
-                #! testing                
+                #! testing        
+                
+                if len(valid_moves) == 0: # if player is in checkmate
+                    if player_one.current_player: # if white players turn
+                        player_one.player_lost = True
+                    else: # else if black players turn
+                        player_two.player_lost = True
                 
                 return valid_moves
             else: # multiple ways the king is in check; king must move 
@@ -275,8 +294,6 @@ class GameState():
                 self.get_king_moves(king_row, king_col, moves, player_one, player_two)
         else: # if current player is not in check
             print("NO CHECK")
-            print("check locations: " + str(self.check_locations))
-            print("pin locations: " + str(self.pin_locations))
             pins = self.pin_locations
             moves = self.get_all_possible_moves(player_one, player_two) 
 
@@ -300,20 +317,24 @@ class GameState():
 
             if move_row_adjustment > 0 and move_col_adjustment == 0 and pin_row_direction == 1 and pin_col_direction == 0: # if check is down vertically relative from the king
                 return False
-            if move_row_adjustment < 0 and move_col_adjustment == 0 and pin_row_direction == -1 and pin_col_direction == 0: # if check is up vertically relative from the king
+            elif move_row_adjustment < 0 and move_col_adjustment == 0 and pin_row_direction == -1 and pin_col_direction == 0: # if check is up vertically relative from the king
                 return False
-            if move_row_adjustment == 0 and move_col_adjustment < 0 and pin_row_direction == 0 and pin_col_direction == -1: # if check is left horizontally relative from the king
+            elif move_row_adjustment == 0 and move_col_adjustment < 0 and pin_row_direction == 0 and pin_col_direction == -1: # if check is left horizontally relative from the king
                 return False
-            if move_row_adjustment == 0 and move_col_adjustment > 0 and pin_row_direction == 0 and pin_col_direction == 1: #  if check is right horizontally relative from the king
+            elif move_row_adjustment == 0 and move_col_adjustment > 0 and pin_row_direction == 0 and pin_col_direction == 1: #  if check is right horizontally relative from the king
                 return False
-            if move_row_adjustment < 0 and move_col_adjustment > 0 and pin_row_direction == -1 and pin_col_direction == 1: # if check is up-right diagonally relative from the king
+            elif move_row_adjustment < 0 and move_col_adjustment > 0 and pin_row_direction == -1 and pin_col_direction == 1: # if check is up-right diagonally relative from the king
                 return False
-            if move_row_adjustment < 0 and move_col_adjustment < 0 and pin_row_direction == -1 and pin_col_direction == -1: # if check is up-left diagonally relative from the king
+            elif move_row_adjustment < 0 and move_col_adjustment < 0 and pin_row_direction == -1 and pin_col_direction == -1: # if check is up-left diagonally relative from the king
                 return False
-            if move_row_adjustment > 0 and move_col_adjustment > 0 and pin_row_direction == 1 and pin_col_direction == 1: # if check is down-right diagonally relative from the king
+            elif move_row_adjustment > 0 and move_col_adjustment > 0 and pin_row_direction == 1 and pin_col_direction == 1: # if check is down-right diagonally relative from the king
                 return False
-            if move_row_adjustment > 0 and move_col_adjustment < 0 and pin_row_direction == 1 and pin_col_direction == -1: # if check is down-left diagonally relative from the king
+            elif move_row_adjustment > 0 and move_col_adjustment < 0 and pin_row_direction == 1 and pin_col_direction == -1: # if check is down-left diagonally relative from the king
                 return False
+            
+            # TODO pinned pieces cannot block checks
+            
+
             
             return True
         
@@ -322,10 +343,10 @@ class GameState():
     '''
     checks if a move can capture a piece that is causing check and is not a pin piece
     '''
-    def check_valid_move(self, temp_row, temp_col, moves, valid_moves):
+    def check_valid_move(self, temp_row, temp_col, moves, valid_moves, pins):
         for move in moves: # loop through the list of possible moves
             if move.ending_tile == (temp_row, temp_col): # if a possible move has an ending location of the current checking tile
-                for pin in self.pin_locations: # loop through the list of all pin pieces
+                for pin in pins: # loop through the list of all pin pieces
                     if move.starting_tile == pin: # if not a pin piece
                         valid_moves.append(move)
 
