@@ -325,6 +325,10 @@ def run_game(screen, clock):
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
             valid_moves = game_state.get_valid_moves(player_one, player_two)
+
+            if len(valid_moves) == 0:
+                game_over()
+            
             update_current_player_symbol(screen)
             move_made = False
 
@@ -343,6 +347,17 @@ def open_new_window():
     clock = pygame.time.Clock()
     pygame.display.set_caption("Lets Play Chess!")
     run_game(screen, clock)    
+
+'''
+handle checkmate and stalemate
+'''
+def game_over(): # TODO display checkmate/stalemate for player to see
+    if player_one.current_player and player_one.player_lost: # if player 1 in checkmate
+        print("player 1 in checkmate")
+    elif player_two.current_player and player_two.player_lost: # else if player 2 in checkmate
+        print("player 2 in checkmate")
+    else: # else stalemate
+        print("stalemate")
 
 '''
 updates the player points

@@ -277,6 +277,12 @@ class GameState():
                 return valid_moves
             else: # multiple ways the king is in check; king must move 
                 self.get_king_moves(king_row, king_col, moves, player_one, player_two)
+
+                if len(moves) == 0: # if player is in checkmate
+                    if player_one.current_player: # if white players turn
+                        player_one.player_lost = True
+                    else: # else if black players turn
+                        player_two.player_lost = True
         else: # if current player is not in check
             print("NO CHECK")
             pins = self.pin_locations
