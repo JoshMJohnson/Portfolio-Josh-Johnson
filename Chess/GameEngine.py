@@ -272,9 +272,9 @@ class GameState():
 
                 # restrict movement of pinned pieces 
                 for pin in pins: # loop through the list of all pinned pieces 
-                    moves = [move for move in moves if not self.restrict_pins(move, pin)]
+                    valid_moves = [move for move in valid_moves if not self.restrict_pins(move, pin)]
 
-                self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two)
+                self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two) # gets valid king moves
 
                 #! testing
                 print("num valid moves: " + str(len(valid_moves)))
@@ -304,7 +304,7 @@ class GameState():
         return moves
     
     '''
-    restricts movement of a pin piece
+    restricts movement of a pinned piece
     '''
     def restrict_pins(self, move, pin):
         pin_tile = (pin[0], pin[1])
@@ -331,13 +331,8 @@ class GameState():
                 return False
             elif move_row_adjustment > 0 and move_col_adjustment < 0 and pin_row_direction == 1 and pin_col_direction == -1: # if check is down-left diagonally relative from the king
                 return False
-            
-            # TODO pinned pieces cannot move to handle a check
-
-
-            
+                              
             return True
-        
         return False
 
     '''
