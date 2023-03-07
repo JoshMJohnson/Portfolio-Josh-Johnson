@@ -19,21 +19,11 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
-        # self.board = [
-        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-
         self.board = [
             ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "--", "black_pawn", "black_pawn", "black_pawn"],
-            ["--", "--", "--", "--", "white_queen", "--", "--", "--"],
-            ["--", "white_bishop", "--", "--", "--", "--", "--", "--"],
+            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
@@ -197,11 +187,7 @@ class GameState():
 
         if in_check: # if current player is in check
             print("CHECK")
-            print("check locations: " + str(self.check_locations))
-            print("pin locations: " + str(self.pin_locations))
-            if len(self.check_locations) == 1: # if only one piece is causing check 
-                print("single check locations")
-                
+            if len(self.check_locations) == 1: # if only one piece is causing check # ! buggy with pawns and knights (possibly others too) being able to move illegally when checking piece is located on a tile touching king
                 # gather data about the piece that is causing the check on the player
                 pins = self.pin_locations
                 check = self.check_locations[0] 
@@ -290,7 +276,6 @@ class GameState():
                 
                 return valid_moves
             else: # multiple ways the king is in check; king must move 
-                print("multiple check locations")
                 self.get_king_moves(king_row, king_col, moves, player_one, player_two)
         else: # if current player is not in check
             print("NO CHECK")
@@ -300,6 +285,12 @@ class GameState():
             # restrict movement of pinned pieces
             for pin in pins: # loop through the list of all pinned pieces 
                 moves = [move for move in moves if not self.restrict_pins(move, pin)]
+
+        #! testing
+        print("num valid moves: " + str(len(moves)))
+        for v in moves:
+            print("valid moves: " + str(v.starting_tile) + ", " + str(v.ending_tile))
+        #! testing 
 
         return moves
     
