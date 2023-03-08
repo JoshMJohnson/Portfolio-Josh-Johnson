@@ -28,7 +28,7 @@ class GameState():
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
             ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-        
+
     '''
     makes a move on the game board
     '''
@@ -187,7 +187,7 @@ class GameState():
 
         if in_check: # if current player is in check
             print("CHECK")
-            if len(self.check_locations) == 1: # if only one piece is causing check # ! buggy with pawns and knights (possibly others too) being able to move illegally when checking piece is located on a tile touching king
+            if len(self.check_locations) == 1: # if only one piece is causing check 
                 # gather data about the piece that is causing the check on the player
                 pins = self.pin_locations
                 check = self.check_locations[0] 
@@ -210,47 +210,47 @@ class GameState():
                 temp_row = king_row # sets king row as a temp variable for looping
                 temp_col = king_col # sets king column as a temp variable for looping
                 
-                # * direction of check relative of king current position
+                # * direction of check relative of king current position 
                 if row_direction_relative_from_king == -1 and col_direction_relative_from_king == 0: # if piece north of king is causing check
-                    while temp_row >= check_row: # continue checking tiles in-between the king and the piece causing check
+                    while temp_row > check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row -= 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 0: # else if piece south of king is causing check
-                    while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
+                    while temp_row < check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row += 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == -1: # else if piece west of king is causing check
-                    while temp_col >= check_col: # continue checking tiles in-between the king and the piece causing check
+                    while temp_col > check_col: # continue checking tiles in-between the king and the piece causing check
                         temp_col -= 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 0 and col_direction_relative_from_king == 1: # else if piece east of king is causing check
-                    while temp_col <= check_col: # continue checking tiles in-between the king and the piece causing check
+                    while temp_col < check_col: # continue checking tiles in-between the king and the piece causing check
                         temp_col += 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == -1: # else if piece north-west of king is causing check
-                    while temp_row >= check_row: # continue checking tiles in-between the king and the piece causing check
+                    while temp_row > check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row -= 1
                         temp_col -= 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == -1 and col_direction_relative_from_king == 1: # else if piece north-east of king is causing check
-                    while temp_col <= check_col: # continue checking tiles in-between the king and the piece causing check
+                    while temp_col < check_col: # continue checking tiles in-between the king and the piece causing check
                         temp_row -= 1
                         temp_col += 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins)
                 elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == -1: # else if piece south-west of king is causing check
-                    while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
+                    while temp_row < check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row += 1
                         temp_col -= 1
 
                         self.check_valid_move(temp_row, temp_col, moves, valid_moves, pins) 
                 elif row_direction_relative_from_king == 1 and col_direction_relative_from_king == 1: # else if piece south-east of king is causing check
-                    while temp_row <= check_row: # continue checking tiles in-between the king and the piece causing check
+                    while temp_row < check_row: # continue checking tiles in-between the king and the piece causing check
                         temp_row += 1
                         temp_col += 1
 
@@ -335,7 +335,7 @@ class GameState():
     '''
     checks if a move can capture a piece that is causing check and is not a pin piece
     '''
-    def check_valid_move(self, temp_row, temp_col, moves, valid_moves, pins):
+    def check_valid_move(self, temp_row, temp_col, moves, valid_moves, pins): 
         for move in moves: # loop through the list of possible moves
             if move.ending_tile == (temp_row, temp_col): # if a possible move has an ending location of the current checking tile
                 for pin in pins: # loop through the list of all pin pieces
@@ -572,7 +572,7 @@ class GameState():
     '''
     checks diagonal tiles for checks and pins
     '''
-    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): 
+    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col):
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
