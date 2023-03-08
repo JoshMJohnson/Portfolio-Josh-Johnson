@@ -522,7 +522,7 @@ def create_theme_buttons(screen):
 '''
 display game log in panel 
 '''
-def display_game_log(screen): # TODO add piece type in front of tile locations to show proper chess game log notation
+def display_game_log(screen): # TODO add piece type in front of move logged to show proper chess game log notation
     # colors over the previous heading with a new blank template
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
