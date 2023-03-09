@@ -362,8 +362,8 @@ class GameState():
             ally_king_row = self.black_king.current_position[0]
             ally_king_col = self.black_king.current_position[1]
 
-        # * checks tiles in all directions
-        # moving upward vertically 
+        # * checks tiles in all directions 
+        # moving upward vertically
         possible_pin = () 
         row_direction = -1
         col_direction = 0
@@ -372,8 +372,9 @@ class GameState():
         keep_going = True
         
         while temp_row > 0 and keep_going: # continue to check until off board or block incountered
-            temp_row -= 1
-            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)    
+            temp_row += row_direction
+            temp_col += col_direction
+            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col) 
             
         # moving downward vertically
         possible_pin = () 
@@ -384,7 +385,8 @@ class GameState():
         keep_going = True
         
         while temp_row < 7 and keep_going: # continue to check until off board or block incountered
-            temp_row += 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
 
         # moving left horizontally
@@ -396,7 +398,8 @@ class GameState():
         keep_going = True
         
         while temp_col > 0 and keep_going: # continue to check until off board or block incountered
-            temp_col -= 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
         
         # moving right horizontally
@@ -408,7 +411,8 @@ class GameState():
         keep_going = True
         
         while temp_col < 7 and keep_going: # continue to check until off board or block incountered
-            temp_col += 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
                 
         # moving up-right direction
@@ -420,8 +424,8 @@ class GameState():
         keep_going = True
         
         while temp_row > 0 and temp_col < 7 and keep_going: # continue to check until off board or block incountered
-            temp_col += 1
-            temp_row -= 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
 
         # moving up-left direction
@@ -433,8 +437,8 @@ class GameState():
         keep_going = True
         
         while temp_row > 0 and temp_col > 0 and keep_going: # continue to check until off board or block incountered
-            temp_col -= 1
-            temp_row -= 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
 
         # moving down-right direction
@@ -446,8 +450,8 @@ class GameState():
         keep_going = True
         
         while temp_row < 7 and temp_col < 7 and keep_going: # continue to check until off board or block incountered
-            temp_col += 1
-            temp_row += 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
 
         # moving down-left direction
@@ -459,8 +463,8 @@ class GameState():
         keep_going = True
         
         while temp_row < 7 and temp_col > 0 and keep_going: # continue to check until off board or block incountered
-            temp_col -= 1
-            temp_row += 1
+            temp_row += row_direction
+            temp_col += col_direction
             keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
 
         # * check for knight checks 
@@ -566,13 +570,13 @@ class GameState():
                     return False, possible_pin
             else: # enemy piece found besides rook and queen - protected in that direction from checks
                 return False, possible_pin
-
+        
         return True, possible_pin
     
     '''
     checks diagonal tiles for checks and pins
     '''
-    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col):
+    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): 
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
@@ -855,14 +859,23 @@ class GameState():
     '''
     checks if potential move will put king in check; if not then adds to list of possible moves for the king
     '''
-    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two): # ! king can move in a line opposite direction of check; should be illegal but currently is allowed
+    def valid_king_move(self, king_row, king_col, temp_row, temp_col, possible_moves, player_one, player_two):
         ally_color = player_one.color if player_one.current_player else player_two.color
 
         if not ally_color in self.board[temp_row][temp_col]: # if not an ally piece; is open tile or an opponent piece occupying desired location
+            ending_tile_status = self.board[temp_row][temp_col]
+
             if ally_color == player_one.color: # if current player is white
+                # temp move king on board to check for checks
                 self.white_king.current_position = (temp_row, temp_col)
+                self.board[king_row][king_col] = "--"
+                self.board[temp_row][temp_col] = "white_king"
+
             else: # else current player is black
+                # temp move king on board to check for checks
                 self.black_king.current_position = (temp_row, temp_col)
+                self.board[king_row][king_col] = "--"
+                self.board[temp_row][temp_col] = "black_king"
 
             self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
 
@@ -872,14 +885,21 @@ class GameState():
                     if add_move not in possible_moves:
                         possible_moves.append(add_move) 
                     
+                # put king back after checking an available move
                 self.white_king.current_position = (king_row, king_col)
+                self.board[king_row][king_col] = "white_king"
+                self.board[temp_row][temp_col] = ending_tile_status
+                
             else: # else current player is black
                 if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move 
                     add_move = Moves((king_row, king_col), (temp_row, temp_col), self.board)
                     if add_move not in possible_moves:
                         possible_moves.append(add_move) 
 
+                # put king back after checking an available move
                 self.black_king.current_position = (king_row, king_col) 
+                self.board[king_row][king_col] = "black_king"
+                self.board[temp_row][temp_col] = ending_tile_status
             
     '''
     assists in checking tile status
