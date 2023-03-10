@@ -154,7 +154,7 @@ class GameState():
                             self.board[0][0] = "black_rook" # setting rook back to original tile
                 else: # else white players king was moved in previous move
                     self.white_king.current_position = (move.start_row, move.start_col) 
-
+                    
                     # sets status of king has_moved to False if applicable
                     for i in range(len(self.move_log)): # loops through the move log
                         if self.move_log[i].starting_tile == (7, 4): # if a move in the log starting tile matched kings starting position
@@ -162,7 +162,6 @@ class GameState():
 
                         if i == len(self.move_log) - 1: # if gone through entire list and no king movement found
                             self.white_king.has_moved = False
-
                     if col_adjustment > 1 or col_adjustment < -1: # if king has moved 2 spaces indicating a castle move
                         # move rook back as well as the king
                         if col_adjustment > 1: # if king moved to the right
@@ -353,7 +352,6 @@ class GameState():
             # add castle moves when legal to the list of valid moves
             if player_one.current_player: # if whites turn
                 if self.white_king.has_moved == False: # if the king has not moved yet
-                    print("white")
                     self.castling(moves, player_one, player_two)
             else: # else black players turn
                 if self.black_king.has_moved == False: # if the king has not moved yet
@@ -987,14 +985,11 @@ class GameState():
                     self.valid_king_move(self.white_king.current_position[0], self.white_king.current_position[1], self.white_king.current_position[0], self.white_king.current_position[1] - 1, king_castle_temp, player_one, player_two)
                     self.valid_king_move(self.white_king.current_position[0], self.white_king.current_position[1], self.white_king.current_position[0], self.white_king.current_position[1] - 2, king_castle_temp, player_one, player_two)
 
-                    print("valid moves length: " + str(len(king_castle_temp)))
                     if len(king_castle_temp) == 2:
                         king_row = self.white_king.current_position[0]
                         king_col = self.white_king.current_position[1]
                         add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
                         moves.append(add_move)
-                    else:
-                        print("would be check")
 
                 # castling right direction
                 rook_has_moved = False
