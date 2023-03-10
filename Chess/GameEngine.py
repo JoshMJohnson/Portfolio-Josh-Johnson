@@ -19,25 +19,15 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
-        # self.board = [
-        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
-        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-
         self.board = [
-            ["black_rook", "--", "--", "--", "black_king", "--", "--", "black_rook"],
+            ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
             ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-            ["white_rook", "--", "--", "--", "white_king", "--", "--", "white_rook"]]
+            ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
     
     '''
     makes a move on the game board
@@ -134,7 +124,7 @@ class GameState():
     '''
     undo last move made
     '''
-    def undo_move(self, player_one, player_two): 
+    def undo_move(self, player_one, player_two):
         if len(self.move_log) != 0: # if at least one move has been made
             # * perform action of undo move
             move = self.move_log.pop()
@@ -363,10 +353,11 @@ class GameState():
             # add castle moves when legal to the list of valid moves
             if player_one.current_player: # if whites turn
                 if self.white_king.has_moved == False: # if the king has not moved yet
-                    self.castling(moves, player_one)
+                    print("white")
+                    self.castling(moves, player_one, player_two)
             else: # else black players turn
                 if self.black_king.has_moved == False: # if the king has not moved yet
-                    self.castling(moves, player_one)
+                    self.castling(moves, player_one, player_two)
 
         #! testing
         print("num valid moves: " + str(len(moves)))
@@ -977,11 +968,10 @@ class GameState():
                 self.board[king_row][king_col] = "black_king"
                 self.board[temp_row][temp_col] = ending_tile_status
             
-
     '''
     adds castling to valid moves where legal
     '''
-    def castling(self, moves, player_one): # TODO cant castle through or during a check
+    def castling(self, moves, player_one, player_two):
         if player_one.current_player: # if current player is white
             if self.white_king.has_moved == False: # if the white king has not moved yet
                 # castling left direction
@@ -992,10 +982,19 @@ class GameState():
                         break
                         
                 if not rook_has_moved: # if the rook hasn't moved yet
-                    king_row = self.white_king.current_position[0]
-                    king_col = self.white_king.current_position[1]
-                    add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
-                    moves.append(add_move)
+                    # if not castling through check
+                    king_castle_temp = []
+                    self.valid_king_move(self.white_king.current_position[0], self.white_king.current_position[1], self.white_king.current_position[0], self.white_king.current_position[1] - 1, king_castle_temp, player_one, player_two)
+                    self.valid_king_move(self.white_king.current_position[0], self.white_king.current_position[1], self.white_king.current_position[0], self.white_king.current_position[1] - 2, king_castle_temp, player_one, player_two)
+
+                    print("valid moves length: " + str(len(king_castle_temp)))
+                    if len(king_castle_temp) == 2:
+                        king_row = self.white_king.current_position[0]
+                        king_col = self.white_king.current_position[1]
+                        add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
+                        moves.append(add_move)
+                    else:
+                        print("would be check")
 
                 # castling right direction
                 rook_has_moved = False
@@ -1005,10 +1004,16 @@ class GameState():
                         break
                         
                 if not rook_has_moved: # if the rook hasn't moved yet
-                    king_row = self.white_king.current_position[0]
-                    king_col = self.white_king.current_position[1]
-                    add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
-                    moves.append(add_move)
+                    # if not castling through check
+                    king_castle_temp = []
+                    self.valid_king_move(self.white_king.current_position[0], self.white_king.current_position[1], self.white_king.current_position[0], self.white_king.current_position[1] + 1, king_castle_temp, player_one, player_two)
+                    self.valid_king_move(self.white_king.current_position[0], self.white_king.current_position[1], self.white_king.current_position[0], self.white_king.current_position[1] + 2, king_castle_temp, player_one, player_two)
+
+                    if len(king_castle_temp) == 2:
+                        king_row = self.white_king.current_position[0]
+                        king_col = self.white_king.current_position[1]
+                        add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
+                        moves.append(add_move)
         else: # else current player is black
             if self.black_king.has_moved == False: # if the white king has not moved yet
                 # castling left direction
@@ -1019,11 +1024,16 @@ class GameState():
                         break
                         
                 if not rook_has_moved: # if the rook hasn't moved yet
-                    king_row = self.black_king.current_position[0]
-                    king_col = self.black_king.current_position[1]
-                    add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
-                    moves.append(add_move)
-                    
+                    # if not castling through check
+                    king_castle_temp = []
+                    self.valid_king_move(self.black_king.current_position[0], self.black_king.current_position[1], self.black_king.current_position[0], self.black_king.current_position[1] - 1, king_castle_temp, player_one, player_two)
+                    self.valid_king_move(self.black_king.current_position[0], self.black_king.current_position[1], self.black_king.current_position[0], self.black_king.current_position[1] - 2, king_castle_temp, player_one, player_two)
+
+                    if len(king_castle_temp) == 2:
+                        king_row = self.black_king.current_position[0]
+                        king_col = self.black_king.current_position[1]
+                        add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
+                        moves.append(add_move)
 
                 # castling right direction
                 rook_has_moved = False
@@ -1033,10 +1043,16 @@ class GameState():
                         break
                         
                 if not rook_has_moved: # if the rook hasn't moved yet
-                    king_row = self.black_king.current_position[0]
-                    king_col = self.black_king.current_position[1]
-                    add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
-                    moves.append(add_move)
+                    # if not castling through check
+                    king_castle_temp = []
+                    self.valid_king_move(self.black_king.current_position[0], self.black_king.current_position[1], self.black_king.current_position[0], self.black_king.current_position[1] + 1, king_castle_temp, player_one, player_two)
+                    self.valid_king_move(self.black_king.current_position[0], self.black_king.current_position[1], self.black_king.current_position[0], self.black_king.current_position[1] + 2, king_castle_temp, player_one, player_two)
+
+                    if len(king_castle_temp) == 2:
+                        king_row = self.black_king.current_position[0]
+                        king_col = self.black_king.current_position[1]
+                        add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
+                        moves.append(add_move)
 
     '''
     assists in checking tile status
