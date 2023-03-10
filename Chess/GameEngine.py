@@ -19,16 +19,26 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
+        # self.board = [
+        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
+        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+
         self.board = [
-            ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+            ["black_rook", "--", "--", "--", "black_king", "--", "--", "black_rook"],
             ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-            ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
-
+            ["white_rook", "--", "--", "--", "white_king", "--", "--", "white_rook"]]
+    
     '''
     makes a move on the game board
     '''
@@ -38,11 +48,35 @@ class GameState():
         self.board[move.end_row][move.end_col] = move.starting_piece
 
         if "king" in move.starting_piece: # if the king was moved
+            col_adjustment = move.end_col - move.start_col
+
             if player_one.current_player: # if white player made the move
+                self.white_king.has_moved = True
                 self.white_king.current_position = (move.end_row, move.end_col)
+
+                # if white king is castling
+                if col_adjustment > 1 or col_adjustment < -1: # if king has moved 2 spaces indicating a castle move
+                    # move rook as well as the king
+                    if col_adjustment > 1: # if king moved to the right
+                        self.board[7][7] = "--" # set rook space to open tile
+                        self.board[7][move.end_col - 1] = "white_rook" # setting rook back to original tile
+                    else: # else king moved to the left
+                        self.board[7][0] = "--" # set rook space to open tile
+                        self.board[7][move.end_col + 1] = "white_rook" # setting rook back to original tile
             else: # else black player made the move
+                self.black_king.has_moved = True
                 self.black_king.current_position = (move.end_row, move.end_col)
 
+                # if black king is castling
+                if col_adjustment > 1 or col_adjustment < -1: # if king has moved 2 spaces indicating a castle move
+                    # move rook as well as the king
+                    if col_adjustment > 1: # if king moved to the right
+                        self.board[0][7] = "--" # set rook space to open tile
+                        self.board[0][move.end_col - 1] = "black_rook" # setting rook back to original tile
+                    else: # else king moved to the left
+                        self.board[0][0] = "--" # set rook space to open tile
+                        self.board[0][move.end_col + 1] = "black_rook" # setting rook back to original tile
+                        
         # * update player points if a piece has been captured in move
         opponent_color = player_two.color if player_one.current_player else player_one.color
         if opponent_color in move.ending_piece: # if capturing an opponent piece
@@ -100,19 +134,53 @@ class GameState():
     '''
     undo last move made
     '''
-    def undo_move(self, player_one, player_two):
+    def undo_move(self, player_one, player_two): 
         if len(self.move_log) != 0: # if at least one move has been made
             # * perform action of undo move
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece
             self.board[move.end_row][move.end_col] = move.ending_piece
+        
+            # * update kings position and status
+            if "king" in move.starting_piece: # if the king was moved last turn 
+                col_adjustment = move.end_col - move.start_col
+                if player_one.current_player: # if black players king was moved in previous move 
+                    self.black_king.current_position = (move.start_row, move.start_col) 
 
-            # update kings position
-            if "king" in move.starting_piece: # if the king was moved last turn
-                if player_one.current_player: # if black players king was moved in previous move
-                    self.black_king.current_position = (move.start_row, move.start_col)
+                    # sets status of king has_moved to False if applicable
+                    for i in range(len(self.move_log)): # loops through the move log
+                        if self.move_log[i].starting_tile == (0, 4): # if a move in the log starting tile matched kings starting position
+                            break
+
+                        if i == len(self.move_log) - 1: # if gone through entire list and no king movement found
+                            self.black_king.has_moved = False
+                    if col_adjustment > 1 or col_adjustment < -1: # if king has moved 2 spaces indicating a castle move
+                        # move rook back as well as the king
+                        if col_adjustment > 1: # if king moved to the right
+                            self.board[0][5] = "--" # set rook space to open tile 
+                            self.board[0][7] = "black_rook" # setting rook back to original tile
+                        else: # else king moved to the left
+                            self.board[0][3] = "--" # set rook space to open tile
+                            self.board[0][0] = "black_rook" # setting rook back to original tile
                 else: # else white players king was moved in previous move
-                    self.white_king.current_position = (move.start_row, move.start_col)
+                    self.white_king.current_position = (move.start_row, move.start_col) 
+
+                    # sets status of king has_moved to False if applicable
+                    for i in range(len(self.move_log)): # loops through the move log
+                        if self.move_log[i].starting_tile == (7, 4): # if a move in the log starting tile matched kings starting position
+                            break
+
+                        if i == len(self.move_log) - 1: # if gone through entire list and no king movement found
+                            self.white_king.has_moved = False
+
+                    if col_adjustment > 1 or col_adjustment < -1: # if king has moved 2 spaces indicating a castle move
+                        # move rook back as well as the king
+                        if col_adjustment > 1: # if king moved to the right
+                            self.board[7][5] = "--" # set rook space to open tile 
+                            self.board[7][7] = "white_rook" # setting rook back to original tile
+                        else: # else king moved to the left
+                            self.board[7][3] = "--" # set rook space to open tile
+                            self.board[7][0] = "white_rook" # setting rook back to original tile
 
             # * update player points if a piece had been captured in move - needs to be undone
             ally_color = player_one.color if player_one.current_player else player_two.color
@@ -291,6 +359,14 @@ class GameState():
             # restrict movement of pinned pieces
             for pin in pins: # loop through the list of all pinned pieces 
                 moves = [move for move in moves if not self.restrict_pins(move, pin)]
+
+            # add castle moves when legal to the list of valid moves
+            if player_one.current_player: # if whites turn
+                if self.white_king.has_moved == False: # if the king has not moved yet
+                    self.castling(moves, player_one)
+            else: # else black players turn
+                if self.black_king.has_moved == False: # if the king has not moved yet
+                    self.castling(moves, player_one)
 
         #! testing
         print("num valid moves: " + str(len(moves)))
@@ -901,6 +977,67 @@ class GameState():
                 self.board[king_row][king_col] = "black_king"
                 self.board[temp_row][temp_col] = ending_tile_status
             
+
+    '''
+    adds castling to valid moves where legal
+    '''
+    def castling(self, moves, player_one): # TODO cant castle through or during a check
+        if player_one.current_player: # if current player is white
+            if self.white_king.has_moved == False: # if the white king has not moved yet
+                # castling left direction
+                rook_has_moved = False
+                for move in range(len(self.move_log)): # loops through the move log
+                    if self.move_log[move].starting_tile == (7, 0): # if a move in the log starting tile matched rook starting position
+                        rook_has_moved = True
+                        break
+                        
+                if not rook_has_moved: # if the rook hasn't moved yet
+                    king_row = self.white_king.current_position[0]
+                    king_col = self.white_king.current_position[1]
+                    add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
+                    moves.append(add_move)
+
+                # castling right direction
+                rook_has_moved = False
+                for move in range(len(self.move_log)): # loops through the move log
+                    if self.move_log[move].starting_tile == (7, 7): # if a move in the log starting tile matched rook starting position
+                        rook_has_moved = True
+                        break
+                        
+                if not rook_has_moved: # if the rook hasn't moved yet
+                    king_row = self.white_king.current_position[0]
+                    king_col = self.white_king.current_position[1]
+                    add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
+                    moves.append(add_move)
+        else: # else current player is black
+            if self.black_king.has_moved == False: # if the white king has not moved yet
+                # castling left direction
+                rook_has_moved = False
+                for move in range(len(self.move_log)): # loops through the move log
+                    if self.move_log[move].starting_tile == (0, 0): # if a move in the log starting tile matched rook starting position
+                        rook_has_moved = True
+                        break
+                        
+                if not rook_has_moved: # if the rook hasn't moved yet
+                    king_row = self.black_king.current_position[0]
+                    king_col = self.black_king.current_position[1]
+                    add_move = Moves((king_row, king_col), (king_row, king_col - 2), self.board)
+                    moves.append(add_move)
+                    
+
+                # castling right direction
+                rook_has_moved = False
+                for move in range(len(self.move_log)): # loops through the move log
+                    if self.move_log[move].starting_tile == (0, 7): # if a move in the log starting tile matched rook starting position
+                        rook_has_moved = True
+                        break
+                        
+                if not rook_has_moved: # if the rook hasn't moved yet
+                    king_row = self.black_king.current_position[0]
+                    king_col = self.black_king.current_position[1]
+                    add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
+                    moves.append(add_move)
+
     '''
     assists in checking tile status
     '''

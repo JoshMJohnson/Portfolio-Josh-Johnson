@@ -48,6 +48,7 @@ Class for the chess piece 'King'
 class King:
     def __init__(self, white_player):
         self.in_check = False
+        self.has_moved = False
 
         # contains the current position of the king (row, column)
         if white_player: # white player
