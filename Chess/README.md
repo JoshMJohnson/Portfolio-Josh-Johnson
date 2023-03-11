@@ -12,8 +12,11 @@
     2.) Enjoy playing Chess
 ---
 <h2 align='center'>Program Additions Since Executable Created</h2>
+
+<p align='center'>
 - [ ] not implemented 
 - [x] implemented
+</p>
 
 - [ ] Clickable Help button; shortend game log length and put button on bottom right of gui
     - [ ] Defines the game of chess and how to play
