@@ -20,7 +20,6 @@
     * How to restart a new game
     * How to change themes
     * How to undo a move
-    
 * Provide 3 premade options before game start for the time allowed for each player
 * Add piece type in front of move logged to show proper chess game log notation
 * Clickable button that has a pop-up that displays the available moves (valid_moves)
