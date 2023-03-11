@@ -12,9 +12,10 @@
     2.) Enjoy playing Chess
 ---
 <h2 align='center'>:point_up: Program Additions Since Executable Created :point_up:</h2>
-
+|
 - [ ] not implemented 
 - [x] implemented
+|
 
 <br>
 
