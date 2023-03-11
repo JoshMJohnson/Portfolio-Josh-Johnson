@@ -13,25 +13,25 @@
 ---
 <h2 align='center'>Program Additions Since Executable Created</h2
 
-[ ] Clickable Help button; shortend game log length and put button on bottom right of gui
+- [ ] Clickable Help button; shortend game log length and put button on bottom right of gui
     - [ ] Defines the game of chess and how to play
     - [ ] Defines end game conditions
     - [ ] Explain the time constrains on a player and time given per move
     - [ ] How to restart a new game
     - [ ] How to change themes
     - [ ] How to undo a move
-[ ] Clickable button to enable and disable ability to use en passant
+- [ ] Clickable button to enable and disable ability to use en passant
     - [ ] Located next to Help button
-[ ] Clickable button that has a pop-up that displays the available moves at that given time
+- [ ] Clickable button that has a pop-up that displays the available moves at that given time
     - [ ] Located next to en passant button
-[ ] Each player has their own game clock for time remaining on their turns
+- [ ] Each player has their own game clock for time remaining on their turns
     - [ ] Ability to pause player game timers
     - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
     - [ ] Button that toggles on and off player game timers
         - [ ] Located next to valid moves button
-[ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
-[ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
-
+- [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
+- [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
+---
 <h2 align='center'>:camera: Chess Sets :camera:</h2>
 <div align='center'>
 
