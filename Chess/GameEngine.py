@@ -19,16 +19,26 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
-        self.board = [
-            ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
-            ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-            ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+        # self.board = [
+        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
+        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
     
+        self.board = [
+            ["--", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+            ["white_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["black_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
+            ["--", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+
     '''
     makes a move on the game board
     '''
@@ -66,6 +76,11 @@ class GameState():
                     else: # else king moved to the left
                         self.board[0][0] = "--" # set rook space to open tile
                         self.board[0][move.end_col + 1] = "black_rook" # setting rook back to original tile
+
+        # * transforming a pawn if pawn reached the end of the board
+        if "pawn" in move.starting_piece:
+            if (player_one.current_player and move.end_row == 0) or (player_two.current_player and move.end_row == 7): # if pawn reached end of board
+                self.transform_pawn(move, player_one, player_two)
                         
         # * update player points if a piece has been captured in move
         opponent_color = player_two.color if player_one.current_player else player_one.color
@@ -1048,6 +1063,15 @@ class GameState():
                         king_col = self.black_king.current_position[1]
                         add_move = Moves((king_row, king_col), (king_row, king_col + 2), self.board)
                         moves.append(add_move)
+
+    '''
+    handles transforming a pawn when pawn reached the end of the board
+    '''
+    def transform_pawn(self, move, player_one, player_two): # TODO ability to pick any piece
+        ally_color = player_one.color if player_one.current_player else player_two.color
+        desired_piece = "queen"
+        desired_piece_id = ally_color + "_" + desired_piece
+        self.board[move.end_row][move.end_col] = desired_piece_id
 
     '''
     assists in checking tile status
