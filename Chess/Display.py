@@ -9,7 +9,7 @@ Created By: Josh Johnson
 # python libraries
 import pygame # gui for python game
 from os import path # used to get absolute path for the project
-import threading # ? possible solution for two different player game times running at the same time
+# import threading # ? possible solution for two different player game times running at the same time
 
 # project classes
 import GameEngine
@@ -176,7 +176,7 @@ def load_chess_set(screen):
         screen.blit(row_label, rank_label_rect)
 
     # * load label for undo moves
-    undo_font = pygame.font.SysFont('monospace', 12)
+    undo_font = pygame.font.SysFont('monospace', 12, italic=True)
     undo_label = undo_font.render("Press the 'u' key to undo move", True, font_color)
     undo_label_rect = undo_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), WINDOW_HEIGHT - (GAP / 2)))
     screen.blit(undo_label, undo_label_rect)
