@@ -1117,8 +1117,34 @@ class Moves():
     '''
     returns the chess notation of a potential move
     '''
-    def get_chess_notation(self): # TODO proper chess notation has first letter of piece in front of notation
-        return self.get_rank_file_pair(self.start_row, self.start_col) + " -> " + self.get_rank_file_pair(self.end_row, self.end_col)
+    def get_chess_notation(self):
+        # chess piece abbreviations
+        moving_piece_abbriv = ' '
+        if "king" in self.starting_piece: # if moving a king
+            moving_piece_abbriv = "K"
+        elif "queen" in self.starting_piece: # else if moving a queen
+            moving_piece_abbriv = "Q"
+        elif "bishop" in self.starting_piece: # else if moving a bishop
+            moving_piece_abbriv = "B"
+        elif "knight" in self.starting_piece: # else if moving a knight
+            moving_piece_abbriv = "N"
+        elif "rook" in self.starting_piece: # else if moving a rook
+            moving_piece_abbriv = "R"
+
+        caputring_piece = ' '
+        if self.ending_piece != "--":
+            if "king" in self.ending_piece: # if moving a king
+                caputring_piece = "K"
+            elif "queen" in self.ending_piece: # else if moving a queen
+                caputring_piece = "Q"
+            elif "bishop" in self.ending_piece: # else if moving a bishop
+                caputring_piece = "B"
+            elif "knight" in self.ending_piece: # else if moving a knight
+                caputring_piece = "N"
+            elif "rook" in self.ending_piece: # else if moving a rook
+                caputring_piece = "R"
+
+        return moving_piece_abbriv + self.get_rank_file_pair(self.start_row, self.start_col) + " -> " + caputring_piece + self.get_rank_file_pair(self.end_row, self.end_col)
 
     '''
     returns the chess notation of a tile on the game board
