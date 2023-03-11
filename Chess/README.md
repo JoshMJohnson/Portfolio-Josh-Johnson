@@ -13,7 +13,7 @@
 ---
 <h2 align='center'>Up-Coming Program Additions</h2
 
-<ol>
+<ul>
     <li>Create a button that result in a pop-up when pressed (Help Button); shorten game log length and put buttons on bottom right of gui
         <li>Defines the game of chess and how to play</li>
         <li>Defines end game conditions</li>
@@ -28,7 +28,7 @@
     <li>Each player has their own game clock for time remaining on their turns</li>
     <li>Create a displayed countdown for moves until stalemate on gui when king is only piece left out of ally pieces</li>
     <li>Create a button to enable and disable ability to use en passant</li>
-</ol>
+</ul>
 
 <h2 align='center'>:camera: Chess Sets :camera:</h2>
 <div align='center'>
