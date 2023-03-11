@@ -31,8 +31,8 @@
 - [ ] Clickable button that has a pop-up that displays the available moves at that given time
     - [ ] Located next to en passant button
 - [ ] Each player has their own game clock for time remaining on their turns
-    - [ ] Ability to pause player game timers
     - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
+    - [ ] Ability to pause game timers
     - [ ] Button that toggles on and off player game timers
         - [ ] Located next to valid moves button
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
