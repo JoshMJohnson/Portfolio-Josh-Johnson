@@ -13,10 +13,10 @@
 ---
 <h2 align='center'>Up-Coming Program Additions</h2
 
-* Clickable Help button; shortend game log length and put button on bottom right of gui
-    * Defines the game of chess and how to play
-    * Defines end game conditions
-    * Explain the time constrains on a player and time given per move
+*   Clickable Help button; shortend game log length and put button on bottom right of gui
+    *   Defines the game of chess and how to play
+    *   Defines end game conditions
+    *   Explain the time constrains on a player and time given per move
     * How to restart a new game
     * How to change themes
     * How to undo a move
