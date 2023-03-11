@@ -20,19 +20,13 @@
     * How to restart a new game
     * How to change themes
     * How to undo a move
-
+    
 * Provide 3 premade options before game start for the time allowed for each player
-
 * Add piece type in front of move logged to show proper chess game log notation
-
 * Clickable button that has a pop-up that displays the available moves (valid_moves)
-
 * Pawns transform when reaching opposite row of starting location to desired piece by clicking on an image of available pieces in a pop-up display
-
 * Each player has their own game clock for time remaining on their turns
-
 * Create a displayed countdown for moves until stalemate on gui when king is only piece left out of ally pieces
-
 * Create a button to enable and disable ability to use en passant
 
 <h2 align='center'>:camera: Chess Sets :camera:</h2>
