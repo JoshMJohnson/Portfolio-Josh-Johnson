@@ -16,8 +16,7 @@
 - [ ] not implemented 
 - [x] implemented
 
-
-
+<hr><hr>
 
 - [ ] Clickable Help button; shortend game log length and put button on bottom right of gui
     - [ ] Defines the game of chess and how to play
