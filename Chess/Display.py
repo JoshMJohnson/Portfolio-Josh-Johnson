@@ -175,6 +175,12 @@ def load_chess_set(screen):
         rank_label_rect = row_label.get_rect(center=(GAP / 2, WINDOW_HEIGHT - GAP - (TILE_SIZE * row) - (TILE_SIZE / 2)))
         screen.blit(row_label, rank_label_rect)
 
+    # * load label for undo moves
+    undo_font = pygame.font.SysFont('monospace', 12)
+    undo_label = undo_font.render("Press the 'u' key to undo move", True, font_color)
+    undo_label_rect = undo_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), WINDOW_HEIGHT - (GAP / 2)))
+    screen.blit(undo_label, undo_label_rect)
+    
 '''
 displays the initial player values in the header
 '''
@@ -228,13 +234,13 @@ def run_game(screen, clock):
     global player_one
     global player_two
 
-    game_state = GameEngine.GameState()
-    valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
-    move_made = False
-
     load_chess_set(screen) 
     display_player_values(screen)
     create_theme_buttons(screen)
+
+    game_state = GameEngine.GameState()
+    valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
+    move_made = False
 
     tile_selected = () # keeps track of the last tile clicked by the user
     player_clicks = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
