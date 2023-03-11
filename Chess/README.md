@@ -20,13 +20,14 @@
 
 - [ ] Clickable Help button; shortend game log length and put button on bottom right of gui
     - [ ] Defines the game of chess and how to play
-    - [ ] Defines end game conditions
+    - [ ] Defines end game conditions (checkmate/stalemate/player game clock forfeit)
     - [ ] Explain the time constrains on a player and time given per move
-    - [ ] How to restart a new game
-    - [ ] How to change themes
-    - [ ] How to undo a move
-- [ ] Clickable button to enable and disable ability to use en passant
-    - [ ] Located next to Help button
+    - [ ] How to restart/start a new game
+    - [ ] How to change themes (chess sets)
+    - [ ] How to undo a move (pressing 'u' character)
+- [ ] Enable en passant chess move
+    - [ ] Clickable button to toggle on and off the ability to use en passant
+        - [ ] Located next to Help button
 - [ ] Clickable button that has a pop-up that displays the available moves at that given time
     - [ ] Located next to en passant button
 - [ ] Each player has their own game clock for time remaining on their turns
