@@ -55,4 +55,3 @@ class King:
             self.current_position = (7, 4)
         else: # black player
             self.current_position = (0, 4)
-            

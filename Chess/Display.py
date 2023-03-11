@@ -326,8 +326,10 @@ def run_game(screen, clock):
         if move_made: # if a move was made; get a new list of valid moves for the next move
             valid_moves = game_state.get_valid_moves(player_one, player_two)
 
-            if len(valid_moves) == 0:
-                game_over()
+            if len(valid_moves) == 0: # if checkmate or stalemate
+                check_handling(screen, True)
+            elif game_state.white_king.in_check or game_state.black_king.in_check: # else if check
+                check_handling(screen, False)
             
             update_current_player_symbol(screen)
             move_made = False
@@ -351,13 +353,22 @@ def open_new_window():
 '''
 handle checkmate and stalemate
 '''
-def game_over(): # TODO display checkmate/stalemate for player to see
-    if player_one.current_player and player_one.player_lost: # if player 1 in checkmate
-        print("player 1 in checkmate")
-    elif player_two.current_player and player_two.player_lost: # else if player 2 in checkmate
-        print("player 2 in checkmate")
-    else: # else stalemate
-        print("stalemate")
+def check_handling(screen, is_game_over):
+    status = "Check"
+    check_font = pygame.font.SysFont('monospace', 12)
+
+    if player_one.player_lost or player_two.player_lost: # if player 1 in checkmate
+        status = "Checkmate"
+    elif is_game_over: # else stalemate
+        status = "Stalemate"
+
+    # turn previous value invisible 
+    check_label = check_font.render(str(status), True, heading_background_color, heading_background_color)
+    screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
+
+    # display new value of player score
+    check_label = check_font.render(str(status), True, font_color)
+    screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
 
 '''
 updates the player points
@@ -388,16 +399,11 @@ def update_player_points(screen):
 '''
 updates the player game time left
 '''
-def update_player_game_time(screen): # TODO
+def update_player_game_time(screen): 
     heading_font = pygame.font.SysFont('monospace', 12, italic=True)
 
-    if player_one.current_player: # if whites players move
-        # TODO starts/stops player timer
-        # player_one.continue_timer()
-        # player_two.pause_timer()
-        # player_one.is_player_out_of_time()
-
-        
+    if player_one.current_player: # TODO if whites players move
+        # starts/stops player timer
 
 
         # turns old player time value invisible
@@ -411,15 +417,6 @@ def update_player_game_time(screen): # TODO
         screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
     else: # TODO else black players move
         pass
-
-    
-
-    # # * player two values
-    # # create player value labels
-    # player_time_remaining2_value_label = heading_font.render(str(player_two.player_mins), True, font_color)
-
-    # # display player value labels
-    # screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4))) 
 
 '''
 current player symbol change
@@ -522,7 +519,7 @@ def create_theme_buttons(screen):
 '''
 display game log in panel 
 '''
-def display_game_log(screen): # TODO add piece type in front of move logged to show proper chess game log notation
+def display_game_log(screen):
     # colors over the previous heading with a new blank template
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 

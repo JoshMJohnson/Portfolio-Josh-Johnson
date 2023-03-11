@@ -1057,7 +1057,7 @@ class GameState():
     '''
     handles transforming a pawn when pawn reached the end of the board
     '''
-    def transform_pawn(self, move, player_one, player_two): # TODO ability to pick any piece, not just the queen
+    def transform_pawn(self, move, player_one, player_two): 
         ally_color = player_one.color if player_one.current_player else player_two.color
         desired_piece = "queen"
         desired_piece_id = ally_color + "_" + desired_piece
