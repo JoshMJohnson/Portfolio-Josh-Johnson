@@ -416,7 +416,7 @@ class GameState():
         while temp_row > 0 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col) 
+            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one) 
             
         # moving downward vertically
         possible_pin = () 
@@ -428,7 +428,7 @@ class GameState():
         while temp_row < 7 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one)
 
         # moving left horizontally
         possible_pin = () 
@@ -440,7 +440,7 @@ class GameState():
         while temp_col > 0 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one)
         
         # moving right horizontally
         possible_pin = () 
@@ -452,7 +452,7 @@ class GameState():
         while temp_col < 7 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.vertical_horizontal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one)
                 
         # moving up-right direction
         possible_pin = () 
@@ -464,7 +464,7 @@ class GameState():
         while temp_row > 0 and temp_col < 7 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one, player_two)
 
         # moving up-left direction
         possible_pin = () 
@@ -476,7 +476,7 @@ class GameState():
         while temp_row > 0 and temp_col > 0 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one, player_two)
 
         # moving down-right direction
         possible_pin = () 
@@ -488,7 +488,7 @@ class GameState():
         while temp_row < 7 and temp_col < 7 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one, player_two)
 
         # moving down-left direction
         possible_pin = () 
@@ -500,13 +500,13 @@ class GameState():
         while temp_row < 7 and temp_col > 0 and keep_going: # continue to check until off board or block incountered
             temp_row += row_direction
             temp_col += col_direction
-            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col)
+            keep_going, possible_pin = self.diagonal_check_pin_helper(pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one, player_two)
 
         # * check for knight checks 
         if (ally_king_row - 2 >= 0) and (ally_king_col - 1 >= 0): # if not off board
             if ("knight" in self.board[ally_king_row - 2][ally_king_col - 1]) and (opponent_color in self.board[ally_king_row - 2][ally_king_col - 1]): # * up-up-left location
                 checks.append((ally_king_row - 2, ally_king_col - 1, -2, -1)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -514,7 +514,7 @@ class GameState():
         if (ally_king_row - 2 >= 0) and (ally_king_col + 1 <= 7): # if not off board                
             if ("knight" in self.board[ally_king_row - 2][ally_king_col + 1]) and (opponent_color in self.board[ally_king_row - 2][ally_king_col + 1]): # * up-up-right location 
                 checks.append((ally_king_row - 2, ally_king_col + 1, -2, 1)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -522,7 +522,7 @@ class GameState():
         if (ally_king_row + 2 <= 7) and (ally_king_col - 1 >= 0): # if not off board        
             if ("knight" in self.board[ally_king_row + 2][ally_king_col - 1]) and (opponent_color in self.board[ally_king_row + 2][ally_king_col - 1]): # * down-down-left location 
                 checks.append((ally_king_row + 2, ally_king_col - 1, 2, -1)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -530,7 +530,7 @@ class GameState():
         if (ally_king_row + 2 <= 7) and (ally_king_col + 1 <= 7): # if not off board        
             if ("knight" in self.board[ally_king_row + 2][ally_king_col + 1]) and (opponent_color in self.board[ally_king_row + 2][ally_king_col + 1]): # * down-down-right location 
                 checks.append((ally_king_row + 2, ally_king_col + 1, 2, 1)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -538,7 +538,7 @@ class GameState():
         if (ally_king_row - 1 >= 0) and (ally_king_col - 2 >= 0): # if not off board
             if ("knight" in self.board[ally_king_row - 1][ally_king_col - 2]) and (opponent_color in self.board[ally_king_row - 1][ally_king_col - 2]):  # * up-left-left location 
                 checks.append((ally_king_row - 1, ally_king_col - 2, -1, -2)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -546,7 +546,7 @@ class GameState():
         if (ally_king_row + 1 <= 7) and (ally_king_col - 2 >= 0): # if not off board        
             if ("knight" in self.board[ally_king_row + 1][ally_king_col - 2]) and (opponent_color in self.board[ally_king_row + 1][ally_king_col - 2]): # * down-left-left location 
                 checks.append((ally_king_row + 1, ally_king_col - 2, 1, -2)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -554,7 +554,7 @@ class GameState():
         if (ally_king_row - 1 >= 0) and (ally_king_col + 2 <= 7): #  if not off board        
             if ("knight" in self.board[ally_king_row - 1][ally_king_col + 2]) and (opponent_color in self.board[ally_king_row - 1][ally_king_col + 2]): # * up-right-right location 
                 checks.append((ally_king_row - 1, ally_king_col + 2, -1, 2)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -562,7 +562,7 @@ class GameState():
         if (ally_king_row + 1 <= 7) and (ally_king_col + 2 <= 7): # if not off board        
             if ("knight" in self.board[ally_king_row + 1][ally_king_col + 2]) and (opponent_color in self.board[ally_king_row + 1][ally_king_col + 2]): # * down-right-right location 
                 checks.append((ally_king_row + 1, ally_king_col + 2, 1, 2)) 
-                if ally_color == "white": # if white player is in check
+                if ally_color == player_one.color: # if white player is in check
                     self.white_king.in_check = True
                 else: # else black player is in check
                     self.black_king.in_check = True
@@ -572,7 +572,7 @@ class GameState():
     '''
     checks vertically and horizonally tiles for checks and pins
     '''
-    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): 
+    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one): 
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
@@ -584,7 +584,7 @@ class GameState():
             if piece_type == "rook" or piece_type == "queen": # if a rook or a queen found in tile
                 if possible_pin == () : # if piece at current tile location is in direct line of king
                     checks.append((temp_row, temp_col, row_direction, col_direction))
-                    if ally_color == "white": # if white player is in check
+                    if ally_color == player_one.color: # if white player is in check
                         self.white_king.in_check = True
                     else: # else black player is in check
                         self.black_king.in_check = True
@@ -601,7 +601,7 @@ class GameState():
     '''
     checks diagonal tiles for checks and pins
     '''
-    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col): 
+    def diagonal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one, player_two): 
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
@@ -611,10 +611,10 @@ class GameState():
             piece_type = self.board[temp_row][temp_col].split('_', 1) # get piece specs separated by the '_'
             piece_type = piece_type[1] # gets the name of the piece
             if piece_type == "pawn": # handling case when pawn causes check
-                if opponent_color == "black" and self.white_king.current_position[0] == temp_row + 1 and (self.white_king.current_position[1] == temp_col - 1 or self.white_king.current_position[1] == temp_col + 1): # if current player is the white player
+                if opponent_color == player_two.color and self.white_king.current_position[0] == temp_row + 1 and (self.white_king.current_position[1] == temp_col - 1 or self.white_king.current_position[1] == temp_col + 1): # if current player is the white player
                     checks.append((temp_row, temp_col, row_direction, col_direction))
                     self.white_king.in_check = True
-                elif opponent_color == "white" and self.black_king.current_position[0] == temp_row - 1 and (self.black_king.current_position[1] == temp_col - 1 or self.black_king.current_position[1] == temp_col + 1): # if current player is the black player
+                elif opponent_color == player_one.color and self.black_king.current_position[0] == temp_row - 1 and (self.black_king.current_position[1] == temp_col - 1 or self.black_king.current_position[1] == temp_col + 1): # if current player is the black player
                     checks.append((temp_row, temp_col, row_direction, col_direction))
                     self.black_king.in_check = True
 
@@ -622,7 +622,7 @@ class GameState():
             if piece_type == "bishop" or piece_type == "queen": # if a rook or a queen found in tile
                 if len(possible_pin) == 0: # if piece at current tile location is in direct line of king
                     checks.append((temp_row, temp_col, row_direction, col_direction))
-                    if ally_color == "white": # if white player is in check
+                    if ally_color == player_one.color: # if white player is in check
                         self.white_king.in_check = True
                     else: # else black player is in check
                         self.black_king.in_check = True
