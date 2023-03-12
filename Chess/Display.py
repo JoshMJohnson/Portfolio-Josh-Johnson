@@ -102,8 +102,6 @@ def load_chess_set(screen):
     game_log_background_color = heading_background_color
 
     # * load chess pieces
-    
-
     pieces = ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook", "black_pawn",
                 "white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook", "white_pawn"]
     
@@ -257,7 +255,6 @@ def run_game(screen, clock):
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
                 col = (location[0] - GAP) // TILE_SIZE 
                 row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - GAP)) // TILE_SIZE
-                                
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
                     if tile_selected == (row, col): # if user clicked same tile twice in a row
                         tile_selected == () # deselect
@@ -270,15 +267,12 @@ def run_game(screen, clock):
                     else: # else; 2 different tiles clicked in order
                         tile_selected = (row, col)
                         player_clicks.append(tile_selected)
-                    
                         if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
                             move = GameEngine.Moves(player_clicks[0], player_clicks[1], game_state.board) 
-
                             if move in valid_moves:
                                 game_state.make_move(move, player_one, player_two)
                                 game_log.append(move.get_chess_notation())
                                 move_made = True
-
                                 update_player_points(screen)
                                 display_game_log(screen)
 
@@ -332,7 +326,6 @@ def run_game(screen, clock):
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
             valid_moves = game_state.get_valid_moves(player_one, player_two)
-
             if len(valid_moves) == 0: # if checkmate or stalemate
                 check_handling(screen, True)
             elif game_state.white_king.in_check or game_state.black_king.in_check: # else if check
@@ -442,7 +435,6 @@ creates all graphics of the game
 def draw_game_state(screen, game_state):
     draw_board_tiles(screen) 
     draw_pieces(screen, game_state.board) 
-
     if highlighted_tile: # if a starting tile has been selected
         draw_selected_tile_indicator(screen)
     
@@ -475,9 +467,7 @@ def draw_pieces(screen, board):
     for row in range(DIMENSION):
         for col in range(DIMENSION):
             piece = board[row][col]
-
-            # if not an empty tile; has a piece on the tile 
-            if piece != "--":
+            if piece != "--": # if not an empty tile; has a piece on the tile 
                 screen.blit(PIECE_IMAGES[piece], pygame.Rect((col * TILE_SIZE) + game_board_starting_x_coordinate, (row * TILE_SIZE) + game_board_starting_y_coordinate, TILE_SIZE, TILE_SIZE))
 
 '''
@@ -485,37 +475,28 @@ indicates a highlighted tile
 '''
 def draw_selected_tile_indicator(screen):
     line_thickness = 2 # border thickness of highlighted tile
-
-    # top line
-    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (right_x_loc, top_y_loc), line_thickness)
-
-    # bottom line
-    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, bottom_y_loc), (right_x_loc, bottom_y_loc), line_thickness)
-
-    # left line
-    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (left_x_loc, bottom_y_loc), line_thickness)
-
-    # right line
-    pygame.draw.line(screen, highlighted_tile_color, (right_x_loc, top_y_loc), (right_x_loc, bottom_y_loc), line_thickness)
+    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (right_x_loc, top_y_loc), line_thickness) # top line
+    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, bottom_y_loc), (right_x_loc, bottom_y_loc), line_thickness) # bottom line
+    pygame.draw.line(screen, highlighted_tile_color, (left_x_loc, top_y_loc), (left_x_loc, bottom_y_loc), line_thickness) # left line
+    pygame.draw.line(screen, highlighted_tile_color, (right_x_loc, top_y_loc), (right_x_loc, bottom_y_loc), line_thickness) # right line
 
 '''
 creates 3 buttons for the different themes (chess sets)
 '''
 def create_theme_buttons(screen):
-    # theme one button
+    # * theme one button
     color1 = pygame.Color(105,105,105)
     color2 = pygame.Color(36, 15, 15)  
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
 
-    # theme two button
+    # * theme two button
     color1 = pygame.Color(222,184,135)
     color2 = pygame.Color(210,105,30)  
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
 
-
-    # theme three button 
+    # * theme three button 
     color1 = 'light grey'
     color2 = pygame.Color(36, 15, 15)    
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
