@@ -15,7 +15,7 @@ from os import path # used to get absolute path for the project
 import GameEngine
 import Player
 
-# game board settings - part 1
+# * game board settings - part 1
 BOARD_WIDTH = 400 # game board width
 BOARD_HEIGHT = 400 # game board height
 DIMENSION = 8 # 8x8 board
@@ -24,7 +24,7 @@ MAX_FPS = 15 # for animations
 PIECE_IMAGES = {} # global dictionary of chess piece images
 chess_set = 1 # indicates which chess set to use; default is set 1
 
-# tile selected to move - indicate selected tile
+# * tile selected to move - indicate selected tile
 highlighted_tile_color = '' 
 highlighted_tile = False
 left_x_loc = -1
@@ -32,19 +32,19 @@ right_x_loc = -1
 top_y_loc = -1
 bottom_y_loc = -1
 
-# window settings
+# * window settings
 WINDOW_WIDTH = BOARD_WIDTH + 300
 WINDOW_HEIGHT = BOARD_HEIGHT + 200
 GAP = 25 # spacing the board is from the edge of the window
 
-# game log settings
+# * game log settings
 log_frame_width = WINDOW_WIDTH - BOARD_WIDTH - GAP - (GAP * 2)
 log_frame_height = WINDOW_HEIGHT - (GAP * 2)
 log_frame_starting_x_coordinate = BOARD_WIDTH + GAP + GAP
 log_frame_starting_y_coordinate = GAP
 game_log = []
 
-# heading panel settings
+# * heading panel settings
 heading_width = BOARD_WIDTH
 heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
 heading_starting_x_coordinate = GAP
@@ -52,22 +52,22 @@ heading_starting_y_coordinate = GAP
 font_color = '' 
 heading_background_color = ''
 
-# current player symbol
+# * current player symbol
 active_symbol_size = 5
 symbol_location_adjustment = heading_width / 5
 active1_symbol_xlocation = heading_starting_x_coordinate + symbol_location_adjustment
 active2_symbol_xlocation = heading_starting_x_coordinate + heading_width - symbol_location_adjustment
 active_symbol_ylocation = heading_starting_y_coordinate + 57
 
-# buttons in heading
+# * buttons in heading
 button_width = 8
 button_height = 16
 
-# initialize players
+# * initialize players
 player_one = Player.Player(1)
 player_two = Player.Player(2)
 
-# game board settings - part 2
+# * game board settings - part 2
 game_board_starting_x_coordinate = GAP
 game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
 
@@ -102,11 +102,12 @@ def load_chess_set(screen):
     game_log_background_color = heading_background_color
 
     # * load chess pieces
-    base_path = path.dirname(__file__) # finds absolute path for the project
+    
 
     pieces = ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook", "black_pawn",
                 "white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook", "white_pawn"]
     
+    base_path = path.dirname(__file__) # finds absolute path for the project
     for piece in pieces:
         PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
 
