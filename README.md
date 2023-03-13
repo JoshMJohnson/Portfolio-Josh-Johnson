@@ -87,7 +87,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
 | [Chess](/Chess) | Python | TBD | Implementing additional features as described within the chess project readme.md file |
 
 <sup>_Projects in development are currently being worked on_</sup>
