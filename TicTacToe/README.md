@@ -7,7 +7,7 @@
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
     
-    1.) The driver file is the python file named Main. Run Main.py to open up the GUI (Graphical User Interface)
+    1.) Run the executable file named Tic-Tac-Toe.exe to open the GUI (Graphical User Interface) for the program
 
     2.) Enjoy playing Tic-Tac-Toe
 ---
