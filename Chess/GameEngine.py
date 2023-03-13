@@ -594,7 +594,7 @@ class GameState():
             piece_type = self.board[temp_row][temp_col].split('_', 1) # get piece specs separated by the '_'
             piece_type = piece_type[1] # gets the name of the piece
             if piece_type == "rook" or piece_type == "queen": # if a rook or a queen found in tile
-                if len(possible_pin) == 0: # if piece at current tile location is in direct line of king #!
+                if len(possible_pin) == 0: # if piece at current tile location is in direct line of king
                     checks.append((temp_row, temp_col, row_direction, col_direction))
                     if ally_color == player_one.color: # if white player is in check
                         self.white_king.in_check = True
