@@ -122,10 +122,12 @@ class GameState():
             self.white_king.in_check = False
             player_one.current_player = False
             player_two.current_player = True
+            player_one.player_in_check = False
         else: # else black player
             self.black_king.in_check = False
             player_two.current_player = False
             player_one.current_player = True
+            player_two.player_in_check = False
 
         print("--------------------------")
 
@@ -133,6 +135,9 @@ class GameState():
     undo last move made
     '''
     def undo_move(self, player_one, player_two):
+        player_one.player_in_check = False
+        player_two.player_in_check = False
+
         if len(self.move_log) != 0: # if at least one move has been made
             # * perform action of undo move
             move = self.move_log.pop()
@@ -600,7 +605,6 @@ class GameState():
                         self.white_king.in_check = True
                     else: # else black player is in check
                         self.black_king.in_check = True
-                        print("BRRRRRRRRRRRRRRRROKEN")
 
                     return False, possible_pin
                 else: # if an ally piece is in-between found opponent piece at current tile - pin exists 

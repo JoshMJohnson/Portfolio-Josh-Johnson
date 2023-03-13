@@ -331,7 +331,6 @@ def run_game(screen, clock):
                 check_handling(screen, True)
             elif player_one.player_in_check or player_two.player_in_check: # else if check 
                 check_handling(screen, False)
-                print("cc")
             
             update_current_player_symbol(screen)
             move_made = False
