@@ -326,10 +326,12 @@ def run_game(screen, clock):
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
             valid_moves = game_state.get_valid_moves(player_one, player_two)
+
             if len(valid_moves) == 0: # if checkmate or stalemate
                 check_handling(screen, True)
-            elif game_state.white_king.in_check or game_state.black_king.in_check: # else if check
+            elif player_one.player_in_check or player_two.player_in_check: # else if check 
                 check_handling(screen, False)
+                print("cc")
             
             update_current_player_symbol(screen)
             move_made = False

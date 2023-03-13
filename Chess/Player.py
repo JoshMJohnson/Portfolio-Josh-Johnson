@@ -35,16 +35,11 @@ class Player:
             self.color = 'black'
             self.current_player = False
 
-        self.player_lost = False
-
-        # points remaining for player
-        self.points_remaining = self.starting_points_calculator()
-
-        # points taken from other player
-        self.points_taken = 0
-        
-        # number of moves made
-        self.num_moves_made = 0
+        self.player_lost = False # indicates if player has lost
+        self.points_remaining = self.starting_points_calculator() # points remaining for player
+        self.points_taken = 0 # points taken from other player
+        self.num_moves_made = 0 # number of moves made
+        self.player_in_check = False
 
         # time remaining for player before forfeit due to delay
         self.mins_remaining = 5

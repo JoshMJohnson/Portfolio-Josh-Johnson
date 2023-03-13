@@ -19,15 +19,25 @@ class GameState():
 
         # initialized board so white is on bottom and black pieces are on top
         # "--" indicates an open space
+        # self.board = [
+        #     ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+        #     ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["--", "--", "--", "--", "--", "--", "--", "--"],
+        #     ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
+        #     ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+
         self.board = [
-            ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook"],
+            ["black_rook", "black_knight", "white_rook", "black_queen", "black_king", "black_bishop", "white_rook", "black_rook"],
             ["black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn", "black_pawn"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
-            ["--", "--", "--", "--", "--", "--", "--", "--"],
+            ["--", "--", "--", "--", "white_rook", "--", "--", "--"],
+            ["--", "--", "--", "--", "black_rook", "--", "--", "--"],
             ["--", "--", "--", "--", "--", "--", "--", "--"],
             ["white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn", "white_pawn"],
-            ["white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook"]]
+            ["white_rook", "white_knight", "black_rook", "white_queen", "white_king", "white_bishop", "black_rook", "white_rook"]]
 
     '''
     makes a move on the game board
@@ -225,10 +235,12 @@ class GameState():
             king_row = self.white_king.current_position[0]
             king_col = self.white_king.current_position[1]
             in_check = self.white_king.in_check
+            player_one.player_in_check = in_check
         else: # else if black players turn
             king_row = self.black_king.current_position[0]
             king_col = self.black_king.current_position[1]
             in_check = self.black_king.in_check
+            player_two.player_in_check = in_check
 
         if in_check: # if current player is in check
             print("CHECK")
@@ -572,7 +584,7 @@ class GameState():
     '''
     checks vertically and horizonally tiles for checks and pins
     '''
-    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one): 
+    def vertical_horizontal_check_pin_helper(self, pins, checks, ally_color, opponent_color, possible_pin, row_direction, col_direction, temp_row, temp_col, player_one):
         if ally_color in self.board[temp_row][temp_col]: # if ally piece is located on tile under check
             if possible_pin == (): # if first allied piece - potential pin
                 possible_pin = (temp_row, temp_col, row_direction, col_direction)
@@ -582,12 +594,13 @@ class GameState():
             piece_type = self.board[temp_row][temp_col].split('_', 1) # get piece specs separated by the '_'
             piece_type = piece_type[1] # gets the name of the piece
             if piece_type == "rook" or piece_type == "queen": # if a rook or a queen found in tile
-                if possible_pin == () : # if piece at current tile location is in direct line of king
+                if len(possible_pin) == 0: # if piece at current tile location is in direct line of king #!
                     checks.append((temp_row, temp_col, row_direction, col_direction))
                     if ally_color == player_one.color: # if white player is in check
                         self.white_king.in_check = True
                     else: # else black player is in check
                         self.black_king.in_check = True
+                        print("BRRRRRRRRRRRRRRRROKEN")
 
                     return False, possible_pin
                 else: # if an ally piece is in-between found opponent piece at current tile - pin exists 
