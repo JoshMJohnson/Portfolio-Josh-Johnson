@@ -8,7 +8,8 @@ Created By: Josh Johnson
 
 # python libraries
 import pygame # gui for python game
-from os import path # used to get absolute path for the project
+import os # used to get absolute path for the project
+from sys import exit
 # import threading # ? possible solution for two different player game times running at the same time
 
 # project classes
@@ -105,9 +106,15 @@ def load_chess_set(screen):
     pieces = ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook", "black_pawn",
                 "white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook", "white_pawn"]
     
-    base_path = path.dirname(__file__) # finds absolute path for the project
+    # # ! used for finding files without executable file and when running Display.py directly
+    # base_path = os.path.dirname(__file__) # finds absolute path for the project
+    # for piece in pieces:
+    #     image_path = os.path.join(base_path, "Game_Images", piece_set, piece + ".png")
+    #     PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(image_path), (TILE_SIZE, TILE_SIZE))
+
     for piece in pieces:
-        PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(base_path + "/Game_Images/" + piece_set + "/" + piece + ".png"), (TILE_SIZE, TILE_SIZE))
+        image_path = os.path.join("Game_Images", piece_set, piece + ".png")
+        PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(image_path), (TILE_SIZE, TILE_SIZE))
 
     # * loads set background    
     screen.fill(pygame.Color(background_color))
