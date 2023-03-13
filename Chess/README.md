@@ -7,7 +7,7 @@
 <!-- instruction section -->
 <h2 align='center'>:scroll: Instructions of how to run program :scroll:</h2>
     
-    1.) Run the executable file named Chess. This will bring up the GUI (Graphical User Interface) for the game
+    1.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
 
     2.) Enjoy playing Chess
 ---
