@@ -582,7 +582,14 @@ def display_game_log(screen):
 '''
 creates the help, settings, valid moves, and en passant buttons
 '''
-def create_game_buttons(screen): # TODO adjust for different themes
+def create_game_buttons(screen):
+    if chess_set == 1: # if chess set 1
+        set_folder = "Set1"
+    elif chess_set == 2: # else if chess set 2
+        set_folder = "Set2"
+    else: # else chess set 3
+        set_folder = "Set3"
+
     # * help button
     x_corner_first_button_loc = corner_section_starting_x
     y_corner_button_loc = corner_section_starting_y
@@ -591,11 +598,11 @@ def create_game_buttons(screen): # TODO adjust for different themes
     # symbol on the button
     if not is_script: # used for running Display.py directly from VS
         base_path = os.path.dirname(__file__) # finds absolute path for the project
-        image_path = os.path.join(base_path, "Game_Images", "Icon_Symbols", "help_button.png")
+        image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "help_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # used when running program as a script
-        image_path = os.path.join("Game_Images", "Icon_Symbols", "help_button.png")
+        image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "help_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
         
@@ -605,11 +612,11 @@ def create_game_buttons(screen): # TODO adjust for different themes
     # symbol
     if not is_script: # used for running Display.py directly from VS
         base_path = os.path.dirname(__file__) # finds absolute path for the project
-        image_path = os.path.join(base_path, "Game_Images", "Icon_Symbols", "settings_button.png")
+        image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "settings_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # used when running program as a script
-        image_path = os.path.join("Game_Images", "Icon_Symbols", "settings_button.png")
+        image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "settings_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
@@ -619,11 +626,11 @@ def create_game_buttons(screen): # TODO adjust for different themes
     # symbol
     if not is_script: # used for running Display.py directly from VS
         base_path = os.path.dirname(__file__) # finds absolute path for the project
-        image_path = os.path.join(base_path, "Game_Images", "Icon_Symbols", "valid_moves_button.png")
+        image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # used when running program as a script
-        image_path = os.path.join("Game_Images", "Icon_Symbols", "valid_moves_button.png")
+        image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
@@ -631,25 +638,15 @@ def create_game_buttons(screen): # TODO adjust for different themes
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
     
     # symbol
-    if chess_set == 1: # if chess set 1
-        pawn_set = "Set1"
-    elif chess_set == 2: # else if chess set 2
-        pawn_set = "Set2"
-    else: # else chess set 3
-        pawn_set = "Set3"
-
     if not is_script: # used for running Display.py directly from VS
         base_path = os.path.dirname(__file__) # finds absolute path for the project
-        image_path = os.path.join(base_path, "Game_Images", pawn_set, "black_pawn.png")
+        image_path = os.path.join(base_path, "Game_Images", set_folder, "black_pawn.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # used when running program as a script
-        image_path = os.path.join("Game_Images", pawn_set, "black_pawn.png")
+        image_path = os.path.join("Game_Images", set_folder, "black_pawn.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
-
-
-    
 
 '''
 handles actions when help button is pressed
