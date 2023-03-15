@@ -22,6 +22,8 @@
     2.) Open the folder that was just created called Chess
 
     3.) Run the executable file named Chess.exe
+
+    4.) Have fun playing Chess!
 &nbsp;<a href="https://drive.google.com/file/d/1wSiQ92ElvD-ROAYk44QLolnZ_bJKa0yu/view?usp=drive_web">Play Chess!</a>
 
 ---
