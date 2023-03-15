@@ -39,11 +39,20 @@ WINDOW_HEIGHT = BOARD_HEIGHT + 200
 GAP = 25 # spacing the board is from the edge of the window
 
 # * game log settings
-log_frame_width = WINDOW_WIDTH - BOARD_WIDTH - GAP - (GAP * 2)
-log_frame_height = WINDOW_HEIGHT - (GAP * 2)
-log_frame_starting_x_coordinate = BOARD_WIDTH + GAP + GAP
+log_frame_width = WINDOW_WIDTH - BOARD_WIDTH - (GAP * 3)
+log_frame_height = WINDOW_HEIGHT - (GAP * 3) - 75
+log_frame_starting_x_coordinate = BOARD_WIDTH + (GAP * 2)
 log_frame_starting_y_coordinate = GAP
 game_log = []
+
+# * bottom right button section
+button_spacing_x = 10
+button_section_height = WINDOW_HEIGHT - log_frame_height - (GAP * 3)
+button_section_width = log_frame_width
+corner_button_dimensions = (button_section_width - (button_spacing_x * 3)) / 4
+corner_section_starting_x = log_frame_starting_x_coordinate
+corner_section_starting_y = WINDOW_HEIGHT - GAP - button_section_height
+logo_dimensions = corner_button_dimensions - (corner_button_dimensions * 0.25)
 
 # * heading panel settings
 heading_width = BOARD_WIDTH
@@ -61,8 +70,8 @@ active2_symbol_xlocation = heading_starting_x_coordinate + heading_width - symbo
 active_symbol_ylocation = heading_starting_y_coordinate + 57
 
 # * buttons in heading
-button_width = 8
-button_height = 16
+heading_button_width = 8
+heading_button_height = 16
 
 # * initialize players
 player_one = Player.Player(1)
@@ -71,6 +80,9 @@ player_two = Player.Player(2)
 # * game board settings - part 2
 game_board_starting_x_coordinate = GAP
 game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
+
+# * running program type
+is_script = False
 
 '''
 loads the desired chess set
@@ -106,15 +118,15 @@ def load_chess_set(screen):
     pieces = ["black_rook", "black_knight", "black_bishop", "black_queen", "black_king", "black_bishop", "black_knight", "black_rook", "black_pawn",
                 "white_rook", "white_knight", "white_bishop", "white_queen", "white_king", "white_bishop", "white_knight", "white_rook", "white_pawn"]
     
-    # # ! used for finding files without executable file and when running Display.py directly
-    # base_path = os.path.dirname(__file__) # finds absolute path for the project
-    # for piece in pieces:
-    #     image_path = os.path.join(base_path, "Game_Images", piece_set, piece + ".png")
-    #     PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(image_path), (TILE_SIZE, TILE_SIZE))
-
-    for piece in pieces:
-        image_path = os.path.join("Game_Images", piece_set, piece + ".png")
-        PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(image_path), (TILE_SIZE, TILE_SIZE))
+    if not is_script: # used for running Display.py directly from VS
+        base_path = os.path.dirname(__file__) # finds absolute path for the project
+        for piece in pieces:
+            image_path = os.path.join(base_path, "Game_Images", piece_set, piece + ".png")
+            PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(image_path), (TILE_SIZE, TILE_SIZE))
+    else: # used for running script
+        for piece in pieces:
+            image_path = os.path.join("Game_Images", piece_set, piece + ".png")
+            PIECE_IMAGES[piece] = pygame.transform.scale(pygame.image.load(image_path), (TILE_SIZE, TILE_SIZE))
 
     # * loads set background    
     screen.fill(pygame.Color(background_color))
@@ -183,7 +195,7 @@ def load_chess_set(screen):
 
     # * load label for undo moves
     undo_font = pygame.font.SysFont('monospace', 12, italic=True)
-    undo_label = undo_font.render("Press the 'u' key to undo move", True, font_color)
+    undo_label = undo_font.render("Created by Josh Johnson", True, font_color)
     undo_label_rect = undo_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), WINDOW_HEIGHT - (GAP / 2)))
     screen.blit(undo_label, undo_label_rect)
     
@@ -243,6 +255,7 @@ def run_game(screen, clock):
     load_chess_set(screen) 
     display_player_values(screen)
     create_theme_buttons(screen)
+    create_game_buttons(screen)
 
     game_state = GameEngine.GameState()
     valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
@@ -295,8 +308,8 @@ def run_game(screen, clock):
                             right_x_loc = left_x_loc + TILE_SIZE - 2
                             top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
                             bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
-                elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
-                        and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + button_height)): # else if theme 1 is selected
+                elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + heading_button_height)): # else if theme 1 is selected
                     chess_set = 1
                     game_log = []
                     highlighted_tile = False
@@ -304,8 +317,8 @@ def run_game(screen, clock):
                     player_two = Player.Player(2)
                     pygame.quit() # close current window
                     open_new_window()
-                elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
-                        and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + button_height)): # else if theme 2 is selected
+                elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + heading_button_height)): # else if theme 2 is selected
                     chess_set = 2
                     game_log = []
                     highlighted_tile = False
@@ -313,8 +326,8 @@ def run_game(screen, clock):
                     player_two = Player.Player(2)
                     pygame.quit() # close current window
                     open_new_window()                    
-                elif ((location[0] >= (heading_width / 2) - (button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (button_width / 2) + button_width + GAP) 
-                        and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + button_height)): # else if theme 3 is selected
+                elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
+                        and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + heading_button_height)): # else if theme 3 is selected
                     chess_set = 3
                     game_log = []
                     highlighted_tile = False
@@ -322,6 +335,14 @@ def run_game(screen, clock):
                     player_two = Player.Player(2)
                     pygame.quit() # close current window
                     open_new_window()  
+                # elif : # TODO else if help button pressed
+                #     help_button_active()                    
+                # elif : # TODO else if settings button pressed
+                #     settings_button_active()
+                # elif : # TODO else if valid moves button pressed
+                #     valid_moves_button_active()
+                # elif : # TODO else if en passant button pressed
+                #     en_passant_button_active()
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -495,20 +516,20 @@ def create_theme_buttons(screen):
     # * theme one button
     color1 = pygame.Color(105,105,105)
     color2 = pygame.Color(36, 15, 15)  
-    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
-    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), button_width, button_height))
+    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), heading_button_width, heading_button_height))
+    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), heading_button_width, heading_button_height))
 
     # * theme two button
     color1 = pygame.Color(222,184,135)
     color2 = pygame.Color(210,105,30)  
-    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
-    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), button_width, button_height))
+    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), heading_button_width, heading_button_height))
+    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), heading_button_width, heading_button_height))
 
     # * theme three button 
     color1 = 'light grey'
     color2 = pygame.Color(36, 15, 15)    
-    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
-    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), button_width, button_height))
+    pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), heading_button_width, heading_button_height))
+    pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), heading_button_width, heading_button_height))
 
     pygame.display.update()
 
@@ -538,25 +559,114 @@ def display_game_log(screen):
         log_move_rect = log_move.get_rect(center=(x_location, y_location))
 
         # have logged items fade out if running out of space at the bottom of the frame
-        if y_location <= WINDOW_HEIGHT - (GAP * 8): 
+        if y_location <= WINDOW_HEIGHT - (GAP * 12): 
             screen.blit(log_move, log_move_rect)
-        elif y_location > WINDOW_HEIGHT - (GAP * 8) and y_location <= WINDOW_HEIGHT - (GAP * 7):
+        elif y_location > WINDOW_HEIGHT - (GAP * 12) and y_location <= WINDOW_HEIGHT - (GAP * 11):
             alpha = alpha * 0.85
-        elif y_location > WINDOW_HEIGHT - (GAP * 7) and y_location <= WINDOW_HEIGHT - (GAP * 6):
+        elif y_location > WINDOW_HEIGHT - (GAP * 11) and y_location <= WINDOW_HEIGHT - (GAP * 10):
             alpha = alpha * 0.7
-        elif y_location > WINDOW_HEIGHT - (GAP * 6) and y_location <= WINDOW_HEIGHT - (GAP * 5):
+        elif y_location > WINDOW_HEIGHT - (GAP * 10) and y_location <= WINDOW_HEIGHT - (GAP * 9):
             alpha = alpha * 0.55
-        elif y_location > WINDOW_HEIGHT - (GAP * 5) and y_location <= WINDOW_HEIGHT - (GAP * 4):
+        elif y_location > WINDOW_HEIGHT - (GAP * 9) and y_location <= WINDOW_HEIGHT - (GAP * 8):
             alpha = alpha * 0.4
-        elif y_location > WINDOW_HEIGHT - (GAP * 4) and y_location <= WINDOW_HEIGHT - (GAP * 3):
+        elif y_location > WINDOW_HEIGHT - (GAP * 8) and y_location <= WINDOW_HEIGHT - (GAP * 7):
             alpha = alpha * 0.25
-        elif y_location > WINDOW_HEIGHT - (GAP * 3) and y_location <= WINDOW_HEIGHT - (GAP * 2):
-            alpha = alpha * 0.10
+        elif y_location > WINDOW_HEIGHT - (GAP * 7) and y_location <= WINDOW_HEIGHT - (GAP * 6):
+            alpha = alpha * 0.12
         else:
             break
 
         log_move.set_alpha(alpha)
         screen.blit(log_move, log_move_rect)
+
+'''
+creates the help, settings, valid moves, and en passant buttons
+'''
+def create_game_buttons(screen): # TODO adjust for different themes
+    # * help button
+    x_corner_first_button_loc = corner_section_starting_x
+    y_corner_button_loc = corner_section_starting_y
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(x_corner_first_button_loc, y_corner_button_loc, corner_button_dimensions, corner_button_dimensions)) # background
+    
+    # symbol on the button
+    if not is_script: # used for running Display.py directly from VS
+        base_path = os.path.dirname(__file__) # finds absolute path for the project
+        image_path = os.path.join(base_path, "Game_Images", "Icon_Symbols", "help_button.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+    else: # used when running program as a script
+        image_path = os.path.join("Game_Images", "Icon_Symbols", "help_button.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        
+     # * settings button
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + corner_button_dimensions + button_spacing_x, corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+    
+    # symbol
+    if not is_script: # used for running Display.py directly from VS
+        base_path = os.path.dirname(__file__) # finds absolute path for the project
+        image_path = os.path.join(base_path, "Game_Images", "Icon_Symbols", "settings_button.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+    else: # used when running program as a script
+        image_path = os.path.join("Game_Images", "Icon_Symbols", "settings_button.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+     # * valid moves button
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 2) + (button_spacing_x * 2), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+    
+    # symbol
+    if not is_script: # used for running Display.py directly from VS
+        base_path = os.path.dirname(__file__) # finds absolute path for the project
+        image_path = os.path.join(base_path, "Game_Images", "Icon_Symbols", "valid_moves_button.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+    else: # used when running program as a script
+        image_path = os.path.join("Game_Images", "Icon_Symbols", "valid_moves_button.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+     # * en passant button
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+    
+    # TODO symbol
+    if not is_script: # used for running Display.py directly from VS
+        base_path = os.path.dirname(__file__) # finds absolute path for the project
+        image_path = os.path.join(base_path, "Game_Images", "Set1", "white_pawn.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
+    else: # used when running program as a script
+        image_path = os.path.join("Game_Images", "Set1", "white_pawn.png")
+        help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
+        screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+
+    
+
+'''
+handles actions when help button is pressed
+'''
+def help_button_active(): # TODO
+    pass
+
+'''
+handles actions when settings button is pressed
+'''
+def settings_button_active(): # TODO
+    pass
+
+'''
+handles actions when valid moves button is pressed
+'''
+def valid_moves_button_active(): # TODO
+    pass
+
+'''
+handles actions when en passant button is pressed
+'''
+def en_passant_button_active(): # TODO
+    pass
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
