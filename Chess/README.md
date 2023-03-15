@@ -16,7 +16,7 @@
 &nbsp;**Option 2:** No programming tools installed on running computer
 
     1.) Click on the link provided below. 
-    This link will go to my Google Drive account and will then automatically download and unzip the zip folder called Chess. 
+    This link will go to a Google Drive account and will then automatically download and unzip the zip folder called Chess. 
     This folder will contain all the data that the program needs
 
     2.) Open the folder that was just created called Chess
