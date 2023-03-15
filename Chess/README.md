@@ -8,11 +8,13 @@
 <h2 align='center'>:scroll: Instructions of how to run program :scroll:</h2>
     
 &nbsp;**Option 1:** Programming tools Python and pygame python library installed
+
     1.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
 
     2.) Have fun playing Chess!
 
 &nbsp;**Option 2:** No programming tools installed on running computer
+
     1.) Click on the link provided below. 
     This link will go to my Google Drive account and will then automatically download and unzip the zip folder called Chess. 
     This folder will contain all the data that the program needs
