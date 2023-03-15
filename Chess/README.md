@@ -7,9 +7,19 @@
 <!-- instruction section -->
 <h2 align='center'>:scroll: Instructions of how to run program :scroll:</h2>
     
+    Option 1: Programming tools Python and pygame python library installed
     1.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
 
-    2.) Enjoy playing Chess
+    2.) Have fun playing Chess!
+
+    Option 2: No programming tools installed on running computer
+    1.) Click on this link which will go to my Google Drive account and will then automatically download and unzip the zip folder called Chess. This folder will contain all the data that the program needs: 
+<a href="https://drive.google.com/file/d/1wSiQ92ElvD-ROAYk44QLolnZ_bJKa0yu/view?usp=drive_web">Play Chess!</a>
+
+    2.) Open the folder that was just created called Chess
+
+    3.) Run the executable file named Chess.exe
+
 ---
 <h2 align='center'>:point_up: Program Additions Since Executable Created :point_up:</h2>
 
