@@ -194,10 +194,10 @@ def load_chess_set(screen):
         screen.blit(row_label, rank_label_rect)
 
     # * load label for undo moves
-    undo_font = pygame.font.SysFont('monospace', 12, italic=True)
-    undo_label = undo_font.render("Created by Josh Johnson", True, font_color)
-    undo_label_rect = undo_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), WINDOW_HEIGHT - (GAP / 2)))
-    screen.blit(undo_label, undo_label_rect)
+    author_font = pygame.font.SysFont('monospace', 12, italic=True)
+    author_label = author_font.render("Created by Josh Johnson", True, font_color)
+    author_label_rect = author_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), WINDOW_HEIGHT - GAP))
+    screen.blit(author_label, author_label_rect)
     
 '''
 displays the initial player values in the header
