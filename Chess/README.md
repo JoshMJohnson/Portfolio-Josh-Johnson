@@ -33,8 +33,8 @@
 - [x] Clickable button for game clock settings
     - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
     - [ ] Toggles on and off player game timers
-- [ ] Each player has their own game clock for time remaining on their turns
     - [ ] Ability to pause game timers
+- [ ] Each player has their own game clock for time remaining on their turns
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
 - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
 ---
