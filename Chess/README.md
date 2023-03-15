@@ -18,8 +18,8 @@
     2.) Open the folder that was just created called Chess
 
     3.) Run the executable file named Chess.exe
-
 &nbsp;<a href="https://drive.google.com/file/d/1wSiQ92ElvD-ROAYk44QLolnZ_bJKa0yu/view?usp=drive_web">Play Chess!</a>
+
 ---
 <h2 align='center'>:point_up: Program Additions Since Executable Created :point_up:</h2>
 
