@@ -630,14 +630,21 @@ def create_game_buttons(screen): # TODO adjust for different themes
      # * en passant button
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
     
-    # TODO symbol
+    # symbol
+    if chess_set == 1: # if chess set 1
+        pawn_set = "Set1"
+    elif chess_set == 2: # else if chess set 2
+        pawn_set = "Set2"
+    else: # else chess set 3
+        pawn_set = "Set3"
+
     if not is_script: # used for running Display.py directly from VS
         base_path = os.path.dirname(__file__) # finds absolute path for the project
-        image_path = os.path.join(base_path, "Game_Images", "Set1", "white_pawn.png")
+        image_path = os.path.join(base_path, "Game_Images", pawn_set, "black_pawn.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # used when running program as a script
-        image_path = os.path.join("Game_Images", "Set1", "white_pawn.png")
+        image_path = os.path.join("Game_Images", pawn_set, "black_pawn.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
