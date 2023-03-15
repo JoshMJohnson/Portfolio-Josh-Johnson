@@ -18,23 +18,23 @@
 
 <br>
 
-- [ ] Clickable Help button; shortend game log length and put button on bottom right of gui
+- [x] Clickable Help button display
     - [ ] Defines the game of chess and how to play
     - [ ] Defines end game conditions (checkmate/stalemate/player game clock forfeit)
     - [ ] Explain the time constrains on a player and time given per move
     - [ ] How to restart/start a new game
     - [ ] How to change themes (chess sets)
     - [ ] How to undo a move (pressing 'u' character)
-- [ ] Enable en passant chess move
-    - [ ] Clickable button to toggle on and off the ability to use en passant
-        - [ ] Located next to Help button
-- [ ] Clickable button that has a pop-up that displays the available moves at that given time
-    - [ ] Located next to en passant button
-- [ ] Each player has their own game clock for time remaining on their turns
+- [x] Clickable en passant button display
+    - [ ] Enable en passant chess move
+    - [ ] Inform user if en passant is turned on/off
+- [x] Clickable button for valid moves
+    - [ ] Displays the available moves at that given time
+- [x] Clickable button for game clock settings
     - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
+    - [ ] Toggles on and off player game timers
+- [ ] Each player has their own game clock for time remaining on their turns
     - [ ] Ability to pause game timers
-    - [ ] Button that toggles on and off player game timers
-        - [ ] Located next to valid moves button
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
 - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
 ---
