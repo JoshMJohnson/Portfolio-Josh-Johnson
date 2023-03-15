@@ -612,11 +612,11 @@ def create_game_buttons(screen):
     # symbol
     if not is_script: # used for running Display.py directly from VS
         base_path = os.path.dirname(__file__) # finds absolute path for the project
-        image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "settings_button.png")
+        image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # used when running program as a script
-        image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "settings_button.png")
+        image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
@@ -652,25 +652,25 @@ def create_game_buttons(screen):
 handles actions when help button is pressed
 '''
 def help_button_active(): # TODO
-    pass
+    print("got to help button")
 
 '''
 handles actions when settings button is pressed
 '''
 def settings_button_active(): # TODO
-    pass
+    print("got to settings button")
 
 '''
 handles actions when valid moves button is pressed
 '''
 def valid_moves_button_active(): # TODO
-    pass
+    print("got to valid moves button")
 
 '''
 handles actions when en passant button is pressed
 '''
 def en_passant_button_active(): # TODO
-    pass
+    print("got to en passant button")
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
