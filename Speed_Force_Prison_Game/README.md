@@ -7,7 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-**Requires Java 1.4.0 or newer**
+&nbsp;**Requires Java 1.4.0 or newer**
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
