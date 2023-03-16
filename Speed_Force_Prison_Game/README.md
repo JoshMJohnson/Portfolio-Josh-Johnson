@@ -24,7 +24,7 @@
     3.) Run the executable file named Speed_Force_Prison_Game.exe
 
     4.) Godspeed!
-&nbsp;<a href="https://drive.google.com/file/d/1Wx036bJ-y3XwRefkbZh30_fOGDkvd7Iy/view?usp=drive_web">Play Speed Force Prison Game!</a>
+&nbsp;<a href="https://drive.google.com/file/d/1Wx036bJ-y3XwRefkbZh30_fOGDkvd7Iy/view?usp=drive_web">Play the Speed Force Prison Game!</a>
 
 ---
 <!-- project progression images section -->
