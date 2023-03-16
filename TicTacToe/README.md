@@ -7,7 +7,7 @@
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Option 1:** Programming tools Python and tkinter python library installed
+&nbsp;**Option 1:** Programming tools Python and tkinter python library installed and have downloaded entire portfolio from home page already
 
     1.) Run the executable file named Tic-Tac-Toe.exe to open the GUI (Graphical User Interface) for the program
 

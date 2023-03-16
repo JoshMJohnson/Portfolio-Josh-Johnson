@@ -7,7 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Option 1:** Programming tool Java installed
+&nbsp;**Option 1:** Programming tool Java installed and have downloaded entire portfolio from home page already
 
     1.) Run the executable file named Speed_Force_Prison_Game.exe to start the program
 
