@@ -7,13 +7,15 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Option 1:** Programming tool Java installed and have downloaded entire portfolio from home page already
+**Requires Java 1.4.0 or newer**
+
+&nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
     1.) Run the executable file named Speed_Force_Prison_Game.exe to start the program
 
     2.) Godspeed!
 
-&nbsp;**Option 2:** No programming tools installed on running computer
+&nbsp;**Option 2:** Exclusively download the Speed Force Prison project
 
     1.) Click on the link provided below. 
     This link will go to a Google Drive account and will then automatically download and unzip the zip folder called Speed_Force_Prison_Game. 

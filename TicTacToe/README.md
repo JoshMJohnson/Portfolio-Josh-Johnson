@@ -7,13 +7,13 @@
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Option 1:** Programming tools Python and tkinter python library installed and have downloaded entire portfolio from home page already
+&nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
     1.) Run the executable file named Tic-Tac-Toe.exe to open the GUI (Graphical User Interface) for the program
 
     2.) Have fun playing Tic-Tac-Toe!
 
-&nbsp;**Option 2:** No programming tools installed on running computer
+&nbsp;**Option 2:** Exclusively download the Tic-Tac-Toe project
 
     1.) Click on the link provided below. 
     This link will go to a Google Drive account and will then automatically download and unzip the zip folder called TicTacToe. 
