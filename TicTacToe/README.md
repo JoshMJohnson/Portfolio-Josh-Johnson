@@ -19,7 +19,7 @@
     This link will go to a Google Drive account and will then automatically download and unzip the zip folder called TicTacToe. 
     This folder will contain all the data that the program needs
 
-    2.) Open the folder that was just created called Tic-Tac-Toe
+    2.) Open the folder that was just created called TicTacToe
 
     3.) Run the executable file named Tic-Tac-Toe.exe
 
