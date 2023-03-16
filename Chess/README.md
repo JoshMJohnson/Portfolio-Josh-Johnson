@@ -43,7 +43,7 @@
     - [ ] How to undo a move (pressing 'u' character)
 - [x] Clickable en passant button display
     - [ ] Enable en passant chess move
-    - [ ] Inform user if en passant is turned on/off
+    - [ ] Turn background color of button to indicate enabled
 - [x] Clickable button for valid moves
     - [ ] Displays the available moves at that given time
 - [x] Clickable button for game clock settings
