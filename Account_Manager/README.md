@@ -23,7 +23,7 @@
     
     5.) Operate at that address the same as one would at a website on the browser
 
-&nbsp;<a href="https://drive.google.com/file/d/1LJKyoxDI2yp5zJiM5TJs2351OIEuObrT/view?usp=drive_web">Download Project Folder</a>
+&nbsp;<a href="https://drive.google.com/file/d/1LJKyoxDI2yp5zJiM5TJs2351OIEuObrT/view?usp=drive_web">Download Account Manager Project</a>
 
 ---
 <!-- project images section -->
