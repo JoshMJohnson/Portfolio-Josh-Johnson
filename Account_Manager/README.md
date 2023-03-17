@@ -7,13 +7,21 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-    1.) Open command line and traverse to the Account_Manager folder
+    1.) Click link below to download project folder exclusively
 
-    2.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
+    or
 
-    3.) Open web browser and go to localhost:4000 (port 4000 is chosen within the app.js file and is possible to change port address if desired)
+    1.) Download project folder inclusively with all portfolio content from home page
+
+    2.) Open command line and traverse to the Account_Manager folder
+
+    3.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
+
+    4.) Open web browser and go to localhost:4000 (port 4000 is chosen within the app.js file and is possible to change port address if desired)
     
-    4.) Operate at that address the same as one would at a website on the browser
+    5.) Operate at that address the same as one would at a website on the browser
+
+<a href="https://drive.google.com/file/d/1LJKyoxDI2yp5zJiM5TJs2351OIEuObrT/view?usp=drive_web">Download Project Folder</a>
 ---
 <!-- project images section -->
 <h2 align="center">:camera: Project Images :camera:</h2>
