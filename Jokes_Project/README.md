@@ -7,7 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-    1a.) Click link below to download project folder exclusively
+    1a.) Click link below to download project folder exclusively from Google Drive
 
     or
 
