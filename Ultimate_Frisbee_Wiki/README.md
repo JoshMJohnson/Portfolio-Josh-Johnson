@@ -7,9 +7,17 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-    1.) Open the HTML file named ultimate_frisbee.html
+    1a.) Click link below to download project folder exclusively from Google Drive
+
+    or
+
+    1b.) Download project folder inclusively with all portfolio content from home page
+
+    2.) Open the HTML file named ultimate_frisbee.html
     
-    2.) Program will open with your default browser
+    3.) Program will open with your default browser
+<a href="https://drive.google.com/file/d/1CYNFLRJeZxOOBC47a4tyrkF_iSUUDISn/view?usp=drive_web">Download Ultimate Frisbee Wiki Project</a>
+
 ---
 <!-- project images section -->
 <h2 align="center">:camera: Project Images :camera:</h2>
