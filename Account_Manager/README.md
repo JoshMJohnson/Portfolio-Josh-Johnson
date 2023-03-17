@@ -21,7 +21,8 @@
     
     5.) Operate at that address the same as one would at a website on the browser
 
-<a href="https://drive.google.com/file/d/1LJKyoxDI2yp5zJiM5TJs2351OIEuObrT/view?usp=drive_web">Download Project Folder</a>
+&nbsp;<a href="https://drive.google.com/file/d/1LJKyoxDI2yp5zJiM5TJs2351OIEuObrT/view?usp=drive_web">Download Project Folder</a>
+
 ---
 <!-- project images section -->
 <h2 align="center">:camera: Project Images :camera:</h2>
