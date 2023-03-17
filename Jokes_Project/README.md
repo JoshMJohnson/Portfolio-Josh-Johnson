@@ -13,7 +13,7 @@
 
     1b.) Download project folder inclusively with all portfolio content from home page
 
-    2.) Open command line and traverse to the Jokes_Project folder
+    2.) Open command line and traverse to the Jokes_Project folder that was downloaded
 
     3.) Run node js by using the command 'node app.js' within the Jokes_Project folder in the terminal
 
