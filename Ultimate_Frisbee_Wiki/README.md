@@ -18,7 +18,7 @@
     3.) Open the HTML file named ultimate_frisbee.html
     
     4.) Program will open with your default browser
-<a href="https://drive.google.com/file/d/1CYNFLRJeZxOOBC47a4tyrkF_iSUUDISn/view?usp=drive_web">Download Ultimate Frisbee Wiki Project</a>
+<a href="https://drive.google.com/file/d/1CYNFLRJeZxOOBC47a4tyrkF_iSUUDISn/view?usp=drive_web">Download Ultimate Frisbee Wiki</a>
 
 ---
 <!-- project images section -->
