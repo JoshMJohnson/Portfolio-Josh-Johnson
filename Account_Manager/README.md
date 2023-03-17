@@ -13,7 +13,7 @@
 
     1b.) Download project folder inclusively with all portfolio content from home page
 
-    2.) Open command line and traverse to the Account_Manager folder
+    2.) Open command line and traverse to the Account_Manager folder that was downloaded
 
     3.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
 
