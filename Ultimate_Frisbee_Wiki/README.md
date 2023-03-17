@@ -13,7 +13,7 @@
 
     1b.) Download project folder inclusively with all portfolio content from home page
 
-    2.) Traverse to and open folder called Ultimate_Frisbee_Wiki that was just installed
+    2.) Traverse to and open folder called Ultimate_Frisbee_Wiki that was downloaded
 
     3.) Open the HTML file named ultimate_frisbee.html
     
