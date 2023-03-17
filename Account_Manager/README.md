@@ -7,6 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
+&nbsp;**Requires NodeJS**
     1a.) Click link below to download project folder exclusively from Google Drive
 
     or
