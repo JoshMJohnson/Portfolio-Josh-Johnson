@@ -7,11 +7,11 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-    1.) Click link below to download project folder exclusively
+    1a.) Click link below to download project folder exclusively
 
     or
 
-    1.) Download project folder inclusively with all portfolio content from home page
+    1b.) Download project folder inclusively with all portfolio content from home page
 
     2.) Open command line and traverse to the Account_Manager folder
 
