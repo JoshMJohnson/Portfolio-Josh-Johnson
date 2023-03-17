@@ -13,9 +13,11 @@
 
     1b.) Download project folder inclusively with all portfolio content from home page
 
-    2.) Open the HTML file named ultimate_frisbee.html
+    2.) Traverse to and open folder called Ultimate_Frisbee_Wiki that was just installed
+
+    3.) Open the HTML file named ultimate_frisbee.html
     
-    3.) Program will open with your default browser
+    4.) Program will open with your default browser
 <a href="https://drive.google.com/file/d/1CYNFLRJeZxOOBC47a4tyrkF_iSUUDISn/view?usp=drive_web">Download Ultimate Frisbee Wiki Project</a>
 
 ---
