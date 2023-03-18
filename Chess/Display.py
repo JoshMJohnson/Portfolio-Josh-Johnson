@@ -17,40 +17,8 @@ from sys import exit
 import GameEngine
 import Player
 
-# * running program type
+# * running program source
 is_script = False
-
-'''
-pop-up class: handles the button actions when clicked
-'''
-class Popup():
-    '''
-    handles actions when help button is pressed
-    '''
-    def help_button_active(self): # TODO
-        print("got to help button")
-        help_button_active = True
-
-    '''
-    handles actions when settings button is pressed
-    '''
-    def stopwatch_button_active(self): # TODO
-        print("got to settings button")
-        stopwatch_button_active = True
-
-    '''
-    handles actions when valid moves button is pressed
-    '''
-    def valid_moves_button_active(self): # TODO
-        print("got to valid moves button")
-        valid_moves_button_active = True
-
-    '''
-    handles actions when en passant button is pressed
-    '''
-    def en_passant_button_active(self): # TODO
-        print("got to en passant button")
-        en_passant_button_active = True
 
 # * game board settings - part 1
 BOARD_WIDTH = 400 # game board width
@@ -124,6 +92,38 @@ player_two = Player.Player(2)
 # * game board settings - part 2
 game_board_starting_x_coordinate = GAP
 game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
+
+'''
+pop-up class: handles the button actions when clicked
+'''
+class Popup():
+    '''
+    handles actions when help button is pressed
+    '''
+    def help_button_active(self): # TODO
+        print("got to help button")
+        help_button_active = True
+
+    '''
+    handles actions when settings button is pressed
+    '''
+    def stopwatch_button_active(self): # TODO
+        print("got to settings button")
+        stopwatch_button_active = True
+
+    '''
+    handles actions when valid moves button is pressed
+    '''
+    def valid_moves_button_active(self): # TODO
+        print("got to valid moves button")
+        valid_moves_button_active = True
+
+    '''
+    handles actions when en passant button is pressed
+    '''
+    def en_passant_button_active(self): # TODO
+        print("got to en passant button")
+        en_passant_button_active = True
 
 '''
 loads the desired chess set
