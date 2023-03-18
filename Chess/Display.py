@@ -26,7 +26,6 @@ pop-up class: handles the button actions when clicked
 class Popup():
     def __init__(self): 
         print("got to popup class")
-        # contiue_button = gui.Button("Cool Cool Cool") 
 
     '''
     handles actions when help button is pressed
@@ -35,31 +34,6 @@ class Popup():
         print("got to help button")
         help_button_active = True
 
-        # title = gui.Label("Help")
-        # main = gui.Table(width=100, heading_height=100)
-        # label_test = gui.Label("here is text!!")
-
-        # ok_button = gui.Button("Cool Cool Cool")
-        # ok_button.connect(gui.CLICK, None)
-
-        # Next row is created in table
-        # main.tr()
-    
-        # # Label is added in the TD Container of the row
-        # main.td(label_test)
-    
-        # # Next row
-        # main.tr()
-    
-        # # Next row
-        # main.tr()
-    
-        # # Adding the button in the TD container
-        # main.td()
-
-        # # Initializing the Constructor
-        # gui.Dialog.__init__(title, main)
-
     '''
     handles actions when settings button is pressed
     '''
@@ -67,15 +41,12 @@ class Popup():
         print("got to settings button")
         stopwatch_button_active = True
 
-
-
     '''
     handles actions when valid moves button is pressed
     '''
     def valid_moves_button_active(self): # TODO
         print("got to valid moves button")
         valid_moves_button_active = True
-
 
     '''
     handles actions when en passant button is pressed
