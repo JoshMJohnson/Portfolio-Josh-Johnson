@@ -24,9 +24,6 @@ is_script = False
 pop-up class: handles the button actions when clicked
 '''
 class Popup():
-    def __init__(self): 
-        print("got to popup class")
-
     '''
     handles actions when help button is pressed
     '''
