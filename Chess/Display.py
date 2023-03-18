@@ -8,6 +8,7 @@ Created By: Josh Johnson
 
 # python libraries
 import pygame # gui for python game
+from pgu import gui
 import os # used to get absolute path for the project
 from sys import exit
 # import threading # ? possible solution for two different player game times running at the same time
@@ -56,6 +57,12 @@ logo_dimensions = corner_button_dimensions - (corner_button_dimensions * 0.25)
 x_corner_first_button_loc = corner_section_starting_x
 y_corner_button_loc = corner_section_starting_y
 
+# * button active settings
+help_button_active = False
+stopwatch_button_active = False
+valid_moves_button_active = False
+en_passant_button_active = False
+
 # * heading panel settings
 heading_width = BOARD_WIDTH
 heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
@@ -85,6 +92,70 @@ game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
 
 # * running program type
 is_script = False
+
+'''
+pop-up class: handles the button actions when clicked
+'''
+class Popup():
+    def __init__(self): 
+        print("got to popup class")
+        # contiue_button = gui.Button("Cool Cool Cool") 
+
+    '''
+    handles actions when help button is pressed
+    '''
+    def help_button_active(self): # TODO
+        print("got to help button")
+        help_button_active = True
+
+        # title = gui.Label("Help")
+        # main = gui.Table(width=100, heading_height=100)
+        # label_test = gui.Label("here is text!!")
+
+        # ok_button = gui.Button("Cool Cool Cool")
+        # ok_button.connect(gui.CLICK, None)
+
+        # Next row is created in table
+        # main.tr()
+    
+        # # Label is added in the TD Container of the row
+        # main.td(label_test)
+    
+        # # Next row
+        # main.tr()
+    
+        # # Next row
+        # main.tr()
+    
+        # # Adding the button in the TD container
+        # main.td()
+
+        # # Initializing the Constructor
+        # gui.Dialog.__init__(title, main)
+
+    '''
+    handles actions when settings button is pressed
+    '''
+    def stopwatch_button_active(self): # TODO
+        print("got to settings button")
+        stopwatch_button_active = True
+
+
+
+    '''
+    handles actions when valid moves button is pressed
+    '''
+    def valid_moves_button_active(self): # TODO
+        print("got to valid moves button")
+        valid_moves_button_active = True
+
+
+    '''
+    handles actions when en passant button is pressed
+    '''
+    def en_passant_button_active(self): # TODO
+        print("got to en passant button")
+        en_passant_button_active = True
 
 '''
 loads the desired chess set
@@ -259,6 +330,7 @@ def run_game(screen, clock):
     create_theme_buttons(screen)
     create_game_buttons(screen)
 
+    popup = Popup()
     game_state = GameEngine.GameState()
     valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
     move_made = False
@@ -339,16 +411,17 @@ def run_game(screen, clock):
                     open_new_window()  
                 elif ((location[0] >= x_corner_first_button_loc) and (location[0] <= x_corner_first_button_loc + corner_button_dimensions)
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if help button pressed
-                    help_button_active()                    
+                    popup.help_button_active()  
+                    # e.connect(gui.CLICK, popup.open, None)                  
                 elif ((location[0] >= x_corner_first_button_loc + corner_button_dimensions + button_spacing_x) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 2) + button_spacing_x)
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if settings button pressed
-                    stopwatch_button_active()
+                    popup.stopwatch_button_active()
                 elif ((location[0] >= x_corner_first_button_loc + (corner_button_dimensions * 2) + (button_spacing_x * 2)) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 3) + (button_spacing_x * 2))
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if valid moves button pressed
-                    valid_moves_button_active()
+                    popup.valid_moves_button_active()
                 elif ((location[0] >= x_corner_first_button_loc + (corner_button_dimensions * 3) + (button_spacing_x * 3)) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 4) + (button_spacing_x * 3))
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if en passant button pressed
-                    en_passant_button_active()
+                    popup.en_passant_button_active()
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -652,30 +725,67 @@ def create_game_buttons(screen):
         en_passant_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
         screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
-'''
-handles actions when help button is pressed
-'''
-def help_button_active(): # TODO
-    print("got to help button")
-
-'''
-handles actions when settings button is pressed
-'''
-def stopwatch_button_active(): # TODO
-    print("got to settings button")
-
-'''
-handles actions when valid moves button is pressed
-'''
-def valid_moves_button_active(): # TODO
-    print("got to valid moves button")
-
-'''
-handles actions when en passant button is pressed
-'''
-def en_passant_button_active(): # TODO
-    print("got to en passant button")
-
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
     main()
+
+# class Popup():
+#     def __init__(self):
+#         print("HIIIIIIIIIIIIII")
+#         contiue_button = gui.Button("Cool Cool Cool")
+
+#     '''
+#     handles actions when help button is pressed
+#     '''
+#     def help_button_active(): # TODO
+#         print("got to help button")
+#         help_button_active = True
+
+#         title = gui.Label("Help")
+#         main = gui.Table(width=100, heading_height=100)
+#         label_test = gui.Label("here is text!!")
+
+#         ok_button = gui.Button("Cool Cool Cool")
+#         ok_button.connect(gui.CLICK, None)
+
+#         # Next row is created in table
+#         main.tr()
+    
+#         # Label is added in the TD Container of the row
+#         main.td(label_test)
+    
+#         # Next row
+#         main.tr()
+    
+#         # Next row
+#         main.tr()
+    
+#         # Adding the button in the TD container
+#         main.td(ok_button)
+
+#         # Initializing the Constructor
+#         gui.Dialog.__init__(title, main)
+
+#     '''
+#     handles actions when settings button is pressed
+#     '''
+#     def stopwatch_button_active(): # TODO
+#         print("got to settings button")
+#         stopwatch_button_active = True
+
+
+
+#     '''
+#     handles actions when valid moves button is pressed
+#     '''
+#     def valid_moves_button_active(): # TODO
+#         print("got to valid moves button")
+#         valid_moves_button_active = True
+
+
+#     '''
+#     handles actions when en passant button is pressed
+#     '''
+#     def en_passant_button_active(): # TODO
+#         print("got to en passant button")
+#         en_passant_button_active = True
