@@ -696,6 +696,79 @@ content display for the help button
 '''    
 def help_menu_display(screen): # TODO
     print("displaying help menu")
+    help_title_font = pygame.font.SysFont('monospace', 20, bold=True)
+    help_subtitle_font = pygame.font.SysFont('monospace', 12, italic=True)
+    help_content_font = pygame.font.SysFont('monospace', 10)
+
+    # * load help menu title
+    help_title_label = help_title_font.render("Help Menu", True, font_color)
+    help_title_label_rect = help_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
+    screen.blit(help_title_label, help_title_label_rect)
+
+    # * load help menu content
+    section_spacing_y = log_frame_height / 8
+    section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
+
+    # section 1 - subtitle
+    label_text = "Check"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_starting_y))
+
+    # TODO section 1 - content
+
+    # section 2 - subtitle
+    label_text = "Checkmate"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y + section_starting_y))
+
+    # TODO section 2 - content     
+    # label_text = "Occurs when a player is in check"
+    # help_menu_label = help_content_font.render(label_text, True, font_color)
+    # screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, log_frame_starting_y_coordinate + (GAP * 4) + (GAP / 2)))
+
+    # label_text = "and has no available moves."
+    # help_menu_label = help_content_font.render(label_text, True, font_color)
+    # screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, log_frame_starting_y_coordinate + (GAP * 5)))
+    
+    # label_text = "game is over"
+    # help_menu_label = help_content_font.render(label_text, True, font_color)
+    # screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, log_frame_starting_y_coordinate + (GAP * 5) + (GAP / 2)))
+    
+    # section 3 - subtitle
+    label_text = "Stalemate"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 2 + section_starting_y))
+
+    # TODO section 3 - content
+
+    # section 4 - subtitle
+    label_text = "Game Clock"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 3 + section_starting_y))
+
+    # TODO section 4 - content
+
+    # section 5 - subtitle
+    label_text = "Restart"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 4 + section_starting_y))
+
+    # TODO section 5 - content
+
+    # section 6 - subtitle
+    label_text = "Theme Change"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 5 + section_starting_y))
+
+    # TODO section 6 - content
+
+    # section 7 - subtitle
+    label_text = "Undo Moves"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 6 + section_starting_y))
+
+    # TODO section 7 - content
+
 
 '''
 handles actions when settings button is pressed
