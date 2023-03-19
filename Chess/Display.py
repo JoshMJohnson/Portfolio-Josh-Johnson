@@ -65,6 +65,7 @@ y_corner_button_loc = corner_section_starting_y
 help_button_active = False
 stopwatch_button_active = False
 valid_moves_button_active = False
+en_passant_button_active = False
 
 # * heading panel settings
 heading_width = BOARD_WIDTH
@@ -621,7 +622,7 @@ def create_game_buttons(screen):
         help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
         
-     # * stopwatch button
+    # * stopwatch button
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + corner_button_dimensions + button_spacing_x, corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
     
     # symbol
@@ -635,7 +636,7 @@ def create_game_buttons(screen):
         stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
-     # * valid moves button
+    # * valid moves button
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 2) + (button_spacing_x * 2), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
     
     # symbol
@@ -649,7 +650,7 @@ def create_game_buttons(screen):
         valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
         screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
 
-     # * en passant button
+    # * en passant button
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
     
     # symbol
@@ -676,16 +677,8 @@ def help_button_toggle(screen):
     if is_game_log_displayed: # if game log is being displayed; switch to help display
         is_game_log_displayed = False
         help_button_active = True
-        
-        # * clear game log panel
-        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-        # TODO button actions
-
-
-
-
-
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+        help_menu_display(screen)
     else: # else game log is not being displayed - a button is active
         if help_button_active: # if the help button is active; display game log
             help_button_active = False
@@ -694,13 +687,15 @@ def help_button_toggle(screen):
         else: # else if the stopwatch button or valid moves button was active
             stopwatch_button_active = False
             valid_moves_button_active = False
-            help_button_active = True
+            help_button_active = True            
+            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+            help_menu_display(screen)
 
-            # * clear game log panel
-            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-            # TODO button actions
-        
+'''
+content display for the help button
+'''    
+def help_menu_display(screen): # TODO
+    print("displaying help menu")
 
 '''
 handles actions when settings button is pressed
@@ -714,17 +709,9 @@ def stopwatch_button_toggle(screen):
     
     if is_game_log_displayed: # if game log is being displayed; switch to help display
         is_game_log_displayed = False
-        stopwatch_button_active = True
-        
-        # * clear game log panel
-        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-        # TODO button actions
-
-
-
-
-
+        stopwatch_button_active = True        
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+        stopwatch_menu_display(screen)
     else: # else game log is not being displayed - a button is active
         if stopwatch_button_active: # if the help button is active; display game log
             stopwatch_button_active = False
@@ -734,11 +721,14 @@ def stopwatch_button_toggle(screen):
             help_button_active = False
             valid_moves_button_active = False
             stopwatch_button_active = True
+            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+            stopwatch_menu_display(screen)
 
-            # * clear game log panel
-            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-            # TODO button actions
+'''
+content display for the help button
+'''    
+def stopwatch_menu_display(screen): # TODO
+    print("displaying stopwatch menu")
 
 '''
 handles actions when valid moves button is pressed
@@ -753,16 +743,8 @@ def valid_moves_button_toggle(screen):
     if is_game_log_displayed: # if game log is being displayed; switch to help display
         is_game_log_displayed = False
         valid_moves_button_active = True
-        
-        # * clear game log panel
-        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-        # TODO button actions
-
-
-
-
-
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+        valid_moves_menu_display(screen)
     else: # else game log is not being displayed - a button is active
         if valid_moves_button_active: # if the help button is active; display game log
             valid_moves_button_active = False
@@ -772,17 +754,29 @@ def valid_moves_button_toggle(screen):
             stopwatch_button_active = False
             help_button_active = False
             valid_moves_button_active = True
+            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+            valid_moves_menu_display(screen)
 
-            # * clear game log panel
-            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-            # TODO button actions
+'''
+content display for the help button
+'''    
+def valid_moves_menu_display(screen): # TODO
+    print("displaying valid moves menu")            
 
 '''
 handles actions when en passant button is pressed
 '''
 def en_passant_button_active(screen): # TODO change background of button when active
     print("got to en passant button")
+    global en_passant_button_active
+
+    if en_passant_button_active: # if disable en passant chess rule
+        en_passant_button_active = False
+    else: # if enable en passant chess rule
+        en_passant_button_active = True
+
+    
+
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
