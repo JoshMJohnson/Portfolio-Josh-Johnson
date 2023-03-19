@@ -400,21 +400,22 @@ def open_new_window():
 handle checkmate and stalemate
 '''
 def check_handling(screen, is_game_over):
-    status = "Check"
-    check_font = pygame.font.SysFont('monospace', 12)
+    if is_game_log_displayed:
+        status = "Check"
+        check_font = pygame.font.SysFont('monospace', 12)
 
-    if player_one.player_lost or player_two.player_lost: # if player 1 in checkmate
-        status = "Checkmate"
-    elif is_game_over: # else stalemate
-        status = "Stalemate"
+        if player_one.player_lost or player_two.player_lost: # if player 1 in checkmate
+            status = "Checkmate"
+        elif is_game_over: # else stalemate
+            status = "Stalemate"
 
-    # turn previous value invisible 
-    check_label = check_font.render(str(status), True, heading_background_color, heading_background_color)
-    screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
+        # turn previous value invisible 
+        check_label = check_font.render(str(status), True, heading_background_color, heading_background_color)
+        screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
 
-    # display new value of player score
-    check_label = check_font.render(str(status), True, font_color)
-    screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
+        # display new value of player score
+        check_label = check_font.render(str(status), True, font_color)
+        screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
 
 '''
 updates the player points
@@ -721,18 +722,18 @@ def help_menu_display(screen): # TODO
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y + section_starting_y))
 
-    # TODO section 2 - content     
-    # label_text = "Occurs when a player is in check"
-    # help_menu_label = help_content_font.render(label_text, True, font_color)
-    # screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, log_frame_starting_y_coordinate + (GAP * 4) + (GAP / 2)))
+    # section 2 - content     
+    label_text = "Occurs when a player is in check"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) + section_starting_y))
 
-    # label_text = "and has no available moves."
-    # help_menu_label = help_content_font.render(label_text, True, font_color)
-    # screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, log_frame_starting_y_coordinate + (GAP * 5)))
+    label_text = "and has no available moves."
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) * 2 + section_starting_y))
     
-    # label_text = "game is over"
-    # help_menu_label = help_content_font.render(label_text, True, font_color)
-    # screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, log_frame_starting_y_coordinate + (GAP * 5) + (GAP / 2)))
+    label_text = "game is over - Player Won"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) * 3 + section_starting_y))
     
     # section 3 - subtitle
     label_text = "Stalemate"
@@ -740,6 +741,17 @@ def help_menu_display(screen): # TODO
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 2 + section_starting_y))
 
     # TODO section 3 - content
+    label_text = "Occurs when a player is not in"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) + section_starting_y))
+
+    label_text = "check and has no available moves."
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 2 + section_starting_y))
+    
+    label_text = "game is over - Tie"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 3 + section_starting_y))
 
     # section 4 - subtitle
     label_text = "Game Clock"
