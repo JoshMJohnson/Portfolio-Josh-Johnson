@@ -713,11 +713,11 @@ def stopwatch_button_toggle(screen):
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
         stopwatch_menu_display(screen)
     else: # else game log is not being displayed - a button is active
-        if stopwatch_button_active: # if the help button is active; display game log
+        if stopwatch_button_active: # if the stopwatch button is active; display game log
             stopwatch_button_active = False
             is_game_log_displayed = True
             display_game_log(screen)
-        else: # else if the stopwatch button or valid moves button was active
+        else: # else if the help button or valid moves button was active
             help_button_active = False
             valid_moves_button_active = False
             stopwatch_button_active = True
@@ -746,11 +746,11 @@ def valid_moves_button_toggle(screen):
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
         valid_moves_menu_display(screen)
     else: # else game log is not being displayed - a button is active
-        if valid_moves_button_active: # if the help button is active; display game log
+        if valid_moves_button_active: # if the valid moves button is active; display game log
             valid_moves_button_active = False
             is_game_log_displayed = True
             display_game_log(screen)
-        else: # else if the stopwatch button or valid moves button was active
+        else: # else if the stopwatch button or help button was active
             stopwatch_button_active = False
             help_button_active = False
             valid_moves_button_active = True
