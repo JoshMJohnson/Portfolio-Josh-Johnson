@@ -725,7 +725,7 @@ def stopwatch_button_toggle(screen):
             stopwatch_menu_display(screen)
 
 '''
-content display for the help button
+content display for the stopwatch button
 '''    
 def stopwatch_menu_display(screen): # TODO
     print("displaying stopwatch menu")
@@ -758,7 +758,7 @@ def valid_moves_button_toggle(screen):
             valid_moves_menu_display(screen)
 
 '''
-content display for the help button
+content display for the valid moves button
 '''    
 def valid_moves_menu_display(screen): # TODO
     print("displaying valid moves menu")            
