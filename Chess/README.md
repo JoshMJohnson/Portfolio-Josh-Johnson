@@ -35,10 +35,8 @@
 <br>
 
 - [x] Clickable Help button display
-    - [ ] Defines the game of chess and how to play
-    - [ ] Defines end game conditions (checkmate/stalemate/player game clock forfeit)
-    - [ ] Explain the time constrains on a player and time given per move
-    - [ ] How to restart/start a new game
+    - [x] Defines major game terms (check/checkmate/stalemate)
+    - [x] How to restart/start a new game
     - [ ] How to change themes (chess sets)
     - [ ] How to undo a move (pressing 'u' character)
 - [x] Clickable en passant button display
@@ -47,6 +45,7 @@
 - [x] Clickable button for valid moves
     - [ ] Displays the available moves at that given time
 - [x] Clickable button for game clock settings
+    - [ ] Explain the time constrains on a player and time given per move
     - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
     - [ ] Toggles on and off player game timers
     - [ ] Ability to pause game timers
