@@ -65,7 +65,7 @@ y_corner_button_loc = corner_section_starting_y
 help_button_active = False
 stopwatch_button_active = False
 valid_moves_button_active = False
-en_passant_button_active = False
+is_en_passant_button_active = False
 
 # * heading panel settings
 heading_width = BOARD_WIDTH
@@ -359,7 +359,7 @@ def run_game(screen, clock):
                     valid_moves_button_toggle(screen)
                 elif ((location[0] >= x_corner_first_button_loc + (corner_button_dimensions * 3) + (button_spacing_x * 3)) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 4) + (button_spacing_x * 3))
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if en passant button pressed
-                    en_passant_button_active(screen)
+                    en_passant_button_toggle(screen)
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -695,11 +695,11 @@ def help_button_toggle(screen):
 '''
 content display for the help button
 '''    
-def help_menu_display(screen): # TODO
+def help_menu_display(screen):
     print("displaying help menu")
-    help_title_font = pygame.font.SysFont('monospace', 20, bold=True)
-    help_subtitle_font = pygame.font.SysFont('monospace', 12, italic=True)
-    help_content_font = pygame.font.SysFont('monospace', 10)
+    help_title_font = pygame.font.SysFont('sans', 20, bold=True)
+    help_subtitle_font = pygame.font.SysFont('monospace', 13, bold=True)
+    help_content_font = pygame.font.SysFont('monospace', 11)
 
     # * load help menu title
     help_title_label = help_title_font.render("Help Menu", True, font_color)
@@ -707,7 +707,7 @@ def help_menu_display(screen): # TODO
     screen.blit(help_title_label, help_title_label_rect)
 
     # * load help menu content
-    section_spacing_y = log_frame_height / 8
+    section_spacing_y = log_frame_height / 7
     section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
 
     # section 1 - subtitle
@@ -716,6 +716,13 @@ def help_menu_display(screen): # TODO
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_starting_y))
 
     # TODO section 1 - content
+    label_text = "When a king is attacked,"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) + section_starting_y))
+
+    label_text = "it is called \'check\'"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) * 2 + section_starting_y))
 
     # section 2 - subtitle
     label_text = "Checkmate"
@@ -723,11 +730,11 @@ def help_menu_display(screen): # TODO
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y + section_starting_y))
 
     # section 2 - content     
-    label_text = "Occurs when a player is in check"
+    label_text = "player is in check and"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) + section_starting_y))
 
-    label_text = "and has no available moves."
+    label_text = "has no available moves."
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) * 2 + section_starting_y))
     
@@ -741,11 +748,11 @@ def help_menu_display(screen): # TODO
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 2 + section_starting_y))
 
     # TODO section 3 - content
-    label_text = "Occurs when a player is not in"
+    label_text = "player is in check and"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) + section_starting_y))
 
-    label_text = "check and has no available moves."
+    label_text = "has no available moves."
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 2 + section_starting_y))
     
@@ -754,32 +761,25 @@ def help_menu_display(screen): # TODO
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 3 + section_starting_y))
 
     # section 4 - subtitle
-    label_text = "Game Clock"
+    label_text = "Restart"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 3 + section_starting_y))
 
     # TODO section 4 - content
 
     # section 5 - subtitle
-    label_text = "Restart"
+    label_text = "Theme Change"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 4 + section_starting_y))
 
     # TODO section 5 - content
 
     # section 6 - subtitle
-    label_text = "Theme Change"
+    label_text = "Undo Moves"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 5 + section_starting_y))
 
     # TODO section 6 - content
-
-    # section 7 - subtitle
-    label_text = "Undo Moves"
-    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
-    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 6 + section_starting_y))
-
-    # TODO section 7 - content
 
 
 '''
@@ -814,6 +814,16 @@ content display for the stopwatch button
 '''    
 def stopwatch_menu_display(screen): # TODO
     print("displaying stopwatch menu")
+    stopwatch_title_font = pygame.font.SysFont('sans', 20, bold=True)
+    stopwatch_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
+    stopwatch_content_font = pygame.font.SysFont('monospace', 10)
+
+    # * load help menu title
+    stopwatch_title_label = stopwatch_title_font.render("Stopwatch Menu", True, font_color)
+    stopwatch_title_label_rect = stopwatch_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
+    screen.blit(stopwatch_title_label, stopwatch_title_label_rect)
+
+
 
 '''
 handles actions when valid moves button is pressed
@@ -846,19 +856,27 @@ def valid_moves_button_toggle(screen):
 content display for the valid moves button
 '''    
 def valid_moves_menu_display(screen): # TODO
-    print("displaying valid moves menu")            
+    print("displaying valid moves menu")     
+    valid_moves_title_font = pygame.font.SysFont('sans', 20, bold=True)
+    valid_moves_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
+    valid_moves_content_font = pygame.font.SysFont('monospace', 10)
+
+    # * load help menu title
+    valid_moves_title_label = valid_moves_title_font.render("Valid Moves", True, font_color)
+    valid_moves_title_label_rect = valid_moves_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
+    screen.blit(valid_moves_title_label, valid_moves_title_label_rect)       
 
 '''
 handles actions when en passant button is pressed
 '''
-def en_passant_button_active(screen): # TODO change background of button when active
+def en_passant_button_toggle(screen): # TODO change background of button when active
     print("got to en passant button")
-    global en_passant_button_active
+    global is_en_passant_button_active
 
-    if en_passant_button_active: # if disable en passant chess rule
-        en_passant_button_active = False
+    if is_en_passant_button_active: # if disable en passant chess rule
+        is_en_passant_button_active = False
     else: # if enable en passant chess rule
-        en_passant_button_active = True
+        is_en_passant_button_active = True
 
     
 
