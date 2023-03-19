@@ -720,7 +720,7 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) + section_starting_y))
 
-    label_text = "it is called \'check\'"
+    label_text = "it is called \'Check\'"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) * 2 + section_starting_y))
 
@@ -730,7 +730,7 @@ def help_menu_display(screen):
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y + section_starting_y))
 
     # section 2 - content     
-    label_text = "player is in check and"
+    label_text = "Player king in Check,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) + section_starting_y))
 
@@ -747,8 +747,8 @@ def help_menu_display(screen):
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 2 + section_starting_y))
 
-    # TODO section 3 - content
-    label_text = "player is in check and"
+    # section 3 - content
+    label_text = "Player king in Check,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) + section_starting_y))
 
@@ -761,18 +761,25 @@ def help_menu_display(screen):
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 3 + section_starting_y))
 
     # section 4 - subtitle
-    label_text = "Restart"
+    label_text = "Theme Change"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 3 + section_starting_y))
 
     # TODO section 4 - content
 
     # section 5 - subtitle
-    label_text = "Theme Change"
+    label_text = "Restart"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 4 + section_starting_y))
 
-    # TODO section 5 - content
+    # section 5 - content
+    label_text = "Select a theme."
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 4  + (section_spacing_y / 4) + section_starting_y))
+
+    label_text = "Game will reset"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 4  + (section_spacing_y / 4) * 2 + section_starting_y))
 
     # section 6 - subtitle
     label_text = "Undo Moves"
