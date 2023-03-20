@@ -417,9 +417,7 @@ def open_new_window():
 handle checkmate and stalemate
 '''
 def check_handling(screen):
-    print("1")
     if is_game_log_displayed:
-        print("2")
         status = ""
         check_font = pygame.font.SysFont('monospace', 12)
 
@@ -428,9 +426,7 @@ def check_handling(screen):
         elif display_stalemate: # else if stalemate
             status = "Stalemate"
         elif display_check: # else if check
-            print("3")
             status = "Check"
-        print("4")
 
         # turn previous value invisible 
         check_label = check_font.render(str(status), True, heading_background_color, heading_background_color)
@@ -696,7 +692,6 @@ def create_game_buttons(screen):
 handles actions when help button is pressed
 '''
 def help_button_toggle(screen):
-    print("got to help button")
     global is_game_log_displayed
     global help_button_active
     global stopwatch_button_active
@@ -723,7 +718,6 @@ def help_button_toggle(screen):
 content display for the help button
 '''    
 def help_menu_display(screen):
-    print("displaying help menu")
     help_title_font = pygame.font.SysFont('sans', 20, bold=True)
     help_subtitle_font = pygame.font.SysFont('monospace', 13, bold=True)
     help_content_font = pygame.font.SysFont('monospace', 11)
@@ -833,7 +827,6 @@ def help_menu_display(screen):
 handles actions when settings button is pressed
 '''
 def stopwatch_button_toggle(screen):
-    print("got to settings button")
     global is_game_log_displayed
     global help_button_active
     global stopwatch_button_active
@@ -860,7 +853,6 @@ def stopwatch_button_toggle(screen):
 content display for the stopwatch button
 '''    
 def stopwatch_menu_display(screen): # TODO
-    print("displaying stopwatch menu")
     stopwatch_title_font = pygame.font.SysFont('sans', 20, bold=True)
     stopwatch_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
     stopwatch_content_font = pygame.font.SysFont('monospace', 10)
@@ -876,7 +868,6 @@ def stopwatch_menu_display(screen): # TODO
 handles actions when valid moves button is pressed
 '''
 def valid_moves_button_toggle(screen):
-    print("got to valid moves button")
     global is_game_log_displayed
     global help_button_active
     global stopwatch_button_active
@@ -903,7 +894,6 @@ def valid_moves_button_toggle(screen):
 content display for the valid moves button
 '''    
 def valid_moves_menu_display(screen): # TODO
-    print("displaying valid moves menu")     
     valid_moves_title_font = pygame.font.SysFont('sans', 20, bold=True)
     valid_moves_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
     valid_moves_content_font = pygame.font.SysFont('monospace', 10)
@@ -917,7 +907,6 @@ def valid_moves_menu_display(screen): # TODO
 handles actions when en passant button is pressed
 '''
 def en_passant_button_toggle(screen): # TODO change background of button when active
-    print("got to en passant button")
     global is_en_passant_button_active
 
     if is_en_passant_button_active: # if disable en passant chess rule
