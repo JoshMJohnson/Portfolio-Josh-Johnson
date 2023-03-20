@@ -751,12 +751,12 @@ def help_menu_display(screen):
     section_spacing_y = log_frame_height / 7
     section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
 
-    # section 1 - subtitle
+    # section 1 - subtitle; check
     label_text = "Check"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_starting_y))
 
-    # section 1 - content
+    # section 1 - content; check
     label_text = "When a king is attacked,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) + section_starting_y))
@@ -765,12 +765,12 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) * 2 + section_starting_y))
 
-    # section 2 - subtitle
+    # section 2 - subtitle; checkmate
     label_text = "Checkmate"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y + section_starting_y))
 
-    # section 2 - content     
+    # section 2 - content; checkmate   
     label_text = "Player king in Check,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) + section_starting_y))
@@ -783,12 +783,12 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) * 3 + section_starting_y))
     
-    # section 3 - subtitle
+    # section 3 - subtitle; stalemate
     label_text = "Stalemate"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 2 + section_starting_y))
 
-    # section 3 - content
+    # section 3 - content; stalemate
     label_text = "Player king in Check,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) + section_starting_y))
@@ -801,12 +801,12 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 3 + section_starting_y))
 
-    # section 4 - subtitle
+    # section 4 - subtitle; theme change
     label_text = "Theme Change"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 3 + section_starting_y))
 
-    # section 4 - content
+    # section 4 - content; theme change
     label_text = "Buttons located between"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) + section_starting_y))
@@ -819,12 +819,12 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) * 3 + section_starting_y))
 
-    # section 5 - subtitle
+    # section 5 - subtitle; restart
     label_text = "Restart"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 4 + section_starting_y))
 
-    # section 5 - content
+    # section 5 - content; restart
     label_text = "Select a theme."
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 4  + (section_spacing_y / 4) + section_starting_y))
@@ -833,12 +833,12 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 4  + (section_spacing_y / 4) * 2 + section_starting_y))
 
-    # section 6 - subtitle
+    # section 6 - subtitle; undo moves
     label_text = "Undo Moves"
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 5 + section_starting_y))
 
-    # section 6 - content
+    # section 6 - content; undo moves
     label_text = "Press the \'u\' character"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 5  + (section_spacing_y / 4) + section_starting_y))
