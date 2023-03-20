@@ -789,7 +789,7 @@ def help_menu_display(screen):
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 2 + section_starting_y))
 
     # section 3 - content; stalemate
-    label_text = "Player king in Check,"
+    label_text = "Player king not in Check,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) + section_starting_y))
 
