@@ -791,7 +791,7 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) + section_starting_y))
 
-    label_text = "player stats."
+    label_text = "player stats in heading."
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) * 2 + section_starting_y))
 
