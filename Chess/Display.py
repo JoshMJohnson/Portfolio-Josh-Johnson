@@ -406,6 +406,18 @@ def run_game(screen, clock):
 opens a new window
 '''
 def open_new_window():
+    # * reset button status
+    global help_button_active
+    global stopwatch_button_active
+    global valid_moves_button_active
+    global is_en_passant_button_active
+    global is_game_log_displayed
+    help_button_active = False
+    stopwatch_button_active = False
+    valid_moves_button_active = False
+    is_en_passant_button_active = False
+    is_game_log_displayed = True
+
     # * open new window with updated theme settings
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
