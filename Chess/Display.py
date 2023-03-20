@@ -819,9 +819,13 @@ def help_menu_display(screen):
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 5 + section_starting_y))
 
     # section 6 - content
-    label_text = "Press \'u\' character"
+    label_text = "Press the \'u\' character"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 5  + (section_spacing_y / 4) + section_starting_y))
+
+    label_text = "on the keyboard"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 5  + (section_spacing_y / 4) * 2 + section_starting_y))
 
 '''
 handles actions when settings button is pressed
