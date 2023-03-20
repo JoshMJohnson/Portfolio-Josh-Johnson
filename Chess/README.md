@@ -39,16 +39,19 @@
     - [x] How to restart/start a new game
     - [x] How to change themes (chess sets)
     - [x] How to undo a move (pressing 'u' character)
+    - [ ] Change background color of button to indicate enabled
 - [x] Clickable en passant button display
     - [ ] Enable en passant chess move
     - [ ] Change background color of button to indicate enabled
 - [x] Clickable button for valid moves
     - [ ] Displays the available moves at that given time
+    - [ ] Change background color of button to indicate enabled
 - [x] Clickable button for game clock settings
     - [ ] Explain the time constrains on a player and time given per move
     - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
     - [ ] Toggles on and off player game timers
     - [ ] Ability to pause game timers
+    - [ ] Change background color of button to indicate enabled
 - [ ] Each player has their own game clock for time remaining on their turns
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
 - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
