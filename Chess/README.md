@@ -56,7 +56,7 @@
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
 - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
 ---
-<h2 align='center'>:camera: Chess Sets :camera:</h2>
+<h2 align='center'>:camera: Project Images :camera:</h2>
 <div align='center'>
 
 **Game Log**<br>
