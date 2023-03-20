@@ -62,7 +62,7 @@
 **Game Log**<br>
 <img width="400" height="400" alt="Game Log" src="Project_Images/Game_Log.png">
 
-**Help menu**<br>
+**Help Menu**<br>
 <img width="400" height="400" alt="Help Menu" src="Project_Images/Help_Menu.png">
 </div>
 
