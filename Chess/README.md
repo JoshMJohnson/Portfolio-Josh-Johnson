@@ -56,6 +56,14 @@
 <h2 align='center'>:camera: Chess Sets :camera:</h2>
 <div align='center'>
 
+**Game Log**<br>
+<img width="400" height="400" alt="Game Log" src="Project_Images/Game_log.png">
+
+**Help menu**<br>
+<img width="400" height="400" alt="Help Menu" src="Project_Images/Help_Menu.png">
+
+
+
 **Theme 1**<br>
 <img width="400" height="400" alt="Database Data" src="Project_Images/Theme_One.png">
 
