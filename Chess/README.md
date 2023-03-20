@@ -61,17 +61,6 @@
 
 **Help menu**<br>
 <img width="400" height="400" alt="Help Menu" src="Project_Images/Help_Menu.png">
-
-
-
-**Theme 1**<br>
-<img width="400" height="400" alt="Database Data" src="Project_Images/Theme_One.png">
-
-**Theme 2**<br>
-<img width="400" height="400" alt="Database Data" src="Project_Images/Theme_Two.png">
-
-**Theme 3**<br>
-<img width="400" height="400" alt="Database Data" src="Project_Images/Theme_Three.png">
 </div>
 
 <!-- footer section -->
