@@ -49,6 +49,9 @@ log_frame_starting_x_coordinate = BOARD_WIDTH + (GAP * 2)
 log_frame_starting_y_coordinate = GAP
 game_log = []
 is_game_log_displayed = True
+display_check = False
+display_checkmate = False
+display_stalemate = False
 
 # * bottom right button section
 button_spacing_x = 10
@@ -365,18 +368,32 @@ def run_game(screen, clock):
                     if len(game_log) != 0:
                         game_state.undo_move(player_one, player_two)
                         update_player_points(screen)
-                        game_log.pop()
-                        display_game_log(screen)
+                        game_log.pop()                        
                         move_made = True
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
+            global display_checkmate
+            global display_stalemate
+            global display_check
+            display_checkmate = False
+            display_stalemate = False
+            display_check = False
+            
             valid_moves = game_state.get_valid_moves(player_one, player_two)
 
             if len(valid_moves) == 0: # if checkmate or stalemate
-                check_handling(screen, True)
+                if player_one.player_lost or player_two.player_lost: # if checkmate
+                    display_checkmate = True
+                else: # else stalemate
+                    display_stalemate = True
             elif player_one.player_in_check or player_two.player_in_check: # else if check 
-                check_handling(screen, False)
-            
+                display_check = True
+            else: # no check/checkmate/stalemate
+                display_checkmate = False
+                display_stalemate = False
+                display_check = False
+
+            display_game_log(screen)            
             update_current_player_symbol(screen)
             move_made = False
 
@@ -399,15 +416,21 @@ def open_new_window():
 '''
 handle checkmate and stalemate
 '''
-def check_handling(screen, is_game_over):
+def check_handling(screen):
+    print("1")
     if is_game_log_displayed:
-        status = "Check"
+        print("2")
+        status = ""
         check_font = pygame.font.SysFont('monospace', 12)
 
-        if player_one.player_lost or player_two.player_lost: # if player 1 in checkmate
+        if display_checkmate: # if player 1 in checkmate
             status = "Checkmate"
-        elif is_game_over: # else stalemate
+        elif display_stalemate: # else if stalemate
             status = "Stalemate"
+        elif display_check: # else if check
+            print("3")
+            status = "Check"
+        print("4")
 
         # turn previous value invisible 
         check_label = check_font.render(str(status), True, heading_background_color, heading_background_color)
@@ -556,9 +579,13 @@ display game log in panel
 '''
 def display_game_log(screen):
     if is_game_log_displayed:
-        # colors over the previous heading with a new blank template
+        # * colors over the previous heading with a new blank template
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
+        # * displays check when applicable
+        check_handling(screen) # ! reacts a turn too late 
+
+        # * displays game log
         # places most recent moves in the begining of the list
         game_log_rev_order = game_log.copy()
         game_log_rev_order.reverse()
@@ -715,7 +742,7 @@ def help_menu_display(screen):
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_starting_y))
 
-    # TODO section 1 - content
+    # section 1 - content
     label_text = "When a king is attacked,"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, (section_spacing_y / 4) + section_starting_y))
@@ -738,7 +765,7 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) * 2 + section_starting_y))
     
-    label_text = "game is over - Player Won"
+    label_text = "Game is over - Player Won"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y + (section_spacing_y / 4) * 3 + section_starting_y))
     
@@ -756,7 +783,7 @@ def help_menu_display(screen):
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 2 + section_starting_y))
     
-    label_text = "game is over - Tie"
+    label_text = "Game is over - Tie"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 2  + (section_spacing_y / 4) * 3 + section_starting_y))
 
@@ -765,7 +792,18 @@ def help_menu_display(screen):
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 3 + section_starting_y))
 
-    # TODO section 4 - content
+    # section 4 - content
+    label_text = "Buttons located between"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) + section_starting_y))
+
+    label_text = "player stats."
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) * 2 + section_starting_y))
+
+    label_text = "3 themes: stacked vertically"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 3  + (section_spacing_y / 4) * 3 + section_starting_y))
 
     # section 5 - subtitle
     label_text = "Restart"
@@ -786,8 +824,10 @@ def help_menu_display(screen):
     help_menu_label = help_subtitle_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 5 + section_starting_y))
 
-    # TODO section 6 - content
-
+    # section 6 - content
+    label_text = "Press \'u\' character"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 5  + (section_spacing_y / 4) + section_starting_y))
 
 '''
 handles actions when settings button is pressed

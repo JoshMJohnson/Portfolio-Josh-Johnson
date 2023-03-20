@@ -37,8 +37,8 @@
 - [x] Clickable Help button display
     - [x] Defines major game terms (check/checkmate/stalemate)
     - [x] How to restart/start a new game
-    - [ ] How to change themes (chess sets)
-    - [ ] How to undo a move (pressing 'u' character)
+    - [x] How to change themes (chess sets)
+    - [x] How to undo a move (pressing 'u' character)
 - [x] Clickable en passant button display
     - [ ] Enable en passant chess move
     - [ ] Change background color of button to indicate enabled
