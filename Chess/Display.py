@@ -418,6 +418,14 @@ def open_new_window():
     is_en_passant_button_active = False
     is_game_log_displayed = True
 
+    # * reset game status
+    global display_check
+    global display_checkmate
+    global display_stalemate
+    display_check = False
+    display_checkmate = False
+    display_stalemate = False
+
     # * open new window with updated theme settings
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
