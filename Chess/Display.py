@@ -396,6 +396,9 @@ def run_game(screen, clock):
                 display_stalemate = False
                 display_check = False
 
+            if valid_moves_button_active: # if valid moves button is active
+                valid_moves_menu_display(screen)
+
             display_game_log(screen)            
             update_current_player_symbol(screen)
             move_made = False
@@ -905,7 +908,6 @@ def valid_moves_button_toggle(screen):
     if is_game_log_displayed: # if game log is being displayed; switch to valid moves display
         is_game_log_displayed = False
         valid_moves_button_active = True
-        pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
         valid_moves_menu_display(screen)
     else: # else game log is not being displayed - a button is active
         if valid_moves_button_active: # if the valid moves button is active; display game log
@@ -916,13 +918,14 @@ def valid_moves_button_toggle(screen):
             stopwatch_button_active = False
             help_button_active = False
             valid_moves_button_active = True
-            pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
             valid_moves_menu_display(screen)
 
 '''
 content display for the valid moves button
 '''    
-def valid_moves_menu_display(screen): # TODO change on move updates (move/undo)
+def valid_moves_menu_display(screen):
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
+
     # * font settings
     valid_moves_title_font = pygame.font.SysFont('sans', 20, bold=True)
     valid_moves_content_font = pygame.font.SysFont('monospace', 11)
@@ -973,7 +976,7 @@ def valid_moves_menu_display(screen): # TODO change on move updates (move/undo)
                 right_column_full = True
         else: # if both columns are full and moves still need to be added
             # TODO if no more space but more valid moves - add a small label on the corner saying there are more valid moves 
-            
+
             
             break
 
