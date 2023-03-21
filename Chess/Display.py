@@ -59,6 +59,7 @@ corner_section_starting_y = WINDOW_HEIGHT - GAP - button_section_height
 logo_dimensions = corner_button_dimensions - (corner_button_dimensions * 0.25)
 x_corner_first_button_loc = corner_section_starting_x
 y_corner_button_loc = corner_section_starting_y
+active_button_color = ''
 
 
 # * heading panel settings
@@ -109,6 +110,7 @@ def load_chess_set(screen):
     global highlighted_tile_color
     global piece_set
     global background_color
+    global active_button_color
 
     # * chess theme settings
     if chess_set == 1: # chess set 1
@@ -116,19 +118,22 @@ def load_chess_set(screen):
         background_color = 'light grey'
         heading_background_color = 'white'
         font_color = 'black'
-        highlighted_tile_color = pygame.Color(105,105,105)
+        highlighted_tile_color = pygame.Color(119,136,153)
+        active_button_color = pygame.Color(119,136,153)
     elif chess_set == 2: # chess set 2
         piece_set = "Set2"
         background_color = pygame.Color(222,184,135)
         heading_background_color = pygame.Color(255,228,196)
         font_color = pygame.Color(139,69,19)
         highlighted_tile_color = 'black'
+        active_button_color = pygame.Color(205,133,63)
     else: # chess set 3
         piece_set = "Set3"
         background_color = pygame.Color(51,51,51)
         heading_background_color = 'black'
         font_color = 'white'
         highlighted_tile_color = pygame.Color(0, 191, 255)
+        active_button_color = 'white'
 
     game_log_background_color = heading_background_color
 
@@ -649,6 +654,52 @@ def display_game_log(screen):
             log_move.set_alpha(alpha)
             screen.blit(log_move, log_move_rect)
 
+        # set all buttons to not active
+        if chess_set == 1: # if chess set 1
+            set_folder = "Set1"
+        elif chess_set == 2: # else if chess set 2
+            set_folder = "Set2"
+        else: # else chess set 3
+            set_folder = "Set3"
+
+        # * set help button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(x_corner_first_button_loc, y_corner_button_loc, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set stopwatch button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + corner_button_dimensions + button_spacing_x, corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set valid moves button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 2) + (button_spacing_x * 2), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+       
+
+
 '''
 creates the help, settings, valid moves, and en passant buttons
 '''
@@ -742,6 +793,50 @@ def help_button_toggle(screen):
             pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
             help_menu_display(screen)
 
+    if help_button_active: # if help button is active
+        if chess_set == 1: # if chess set 1
+            set_folder = "Set1"
+        elif chess_set == 2: # else if chess set 2
+            set_folder = "Set2"
+        else: # else chess set 3
+            set_folder = "Set3"
+
+        # * set help button to active
+        pygame.draw.rect(screen, active_button_color, pygame.Rect(x_corner_first_button_loc, y_corner_button_loc, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set stopwatch button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + corner_button_dimensions + button_spacing_x, corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set valid moves button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 2) + (button_spacing_x * 2), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+       
 '''
 content display for the help button
 '''    
@@ -881,6 +976,50 @@ def stopwatch_button_toggle(screen):
             pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
             stopwatch_menu_display(screen)
 
+    if stopwatch_button_active: # if stopwatch button is active
+        if chess_set == 1: # if chess set 1
+            set_folder = "Set1"
+        elif chess_set == 2: # else if chess set 2
+            set_folder = "Set2"
+        else: # else chess set 3
+            set_folder = "Set3"
+
+        # * set help button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(x_corner_first_button_loc, y_corner_button_loc, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set stopwatch button to active
+        pygame.draw.rect(screen, active_button_color, pygame.Rect(corner_section_starting_x + corner_button_dimensions + button_spacing_x, corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set valid moves button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 2) + (button_spacing_x * 2), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+       
 '''
 content display for the stopwatch button
 '''    
@@ -893,7 +1032,6 @@ def stopwatch_menu_display(screen): # TODO
     stopwatch_title_label = stopwatch_title_font.render("Stopwatch Menu", True, font_color)
     stopwatch_title_label_rect = stopwatch_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
     screen.blit(stopwatch_title_label, stopwatch_title_label_rect)
-
 
 
 '''
@@ -920,6 +1058,50 @@ def valid_moves_button_toggle(screen):
             valid_moves_button_active = True
             valid_moves_menu_display(screen)
 
+    if valid_moves_button_active: # if valid_moves_button_active button is active
+        if chess_set == 1: # if chess set 1
+            set_folder = "Set1"
+        elif chess_set == 2: # else if chess set 2
+            set_folder = "Set2"
+        else: # else chess set 3
+            set_folder = "Set3"
+
+        # * set help button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(x_corner_first_button_loc, y_corner_button_loc, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "help_button.png")
+            help_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(help_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set stopwatch button to not active
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + corner_button_dimensions + button_spacing_x, corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "stopwatch_button.png")
+            stopwatch_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(stopwatch_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + corner_button_dimensions + button_spacing_x, y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
+        # * set valid moves button to active
+        pygame.draw.rect(screen, active_button_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 2) + (button_spacing_x * 2), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "valid_moves_button.png")
+            valid_moves_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions, logo_dimensions))
+            screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
+       
 '''
 content display for the valid moves button
 '''    
