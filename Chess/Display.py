@@ -948,10 +948,15 @@ def valid_moves_menu_display(screen):
     pygame.draw.line(screen, font_color, (log_frame_starting_x_coordinate + (log_frame_width / 2), section_starting_y), (log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + log_frame_height - 20), 3) # column separator line
 
     for move in range(len(valid_moves)): # loop through entire list of valid moves 
+        current_move = valid_moves[move].get_chess_notation()
+
+        if "K" in current_move: # if king; adjust king notation to have 'K' display on starting tile rather than ending tile
+            current_move = current_move.replace("K", " ")
+            current_move = current_move.replace(" ", "K", 1)
+
         if not left_column_full: # if left column has space for valid move display to be added
             y_location = section_starting_y + (move * section_spacing_y)
-            current_move = valid_moves[move].get_chess_notation()
-
+            
             # display current move in the list
             display_move = valid_moves_content_font.render(current_move, True, font_color)
             display_move_rect = display_move.get_rect(center=(left_column_x, y_location))
@@ -961,7 +966,6 @@ def valid_moves_menu_display(screen):
                 left_column_full = True
         else: # else if right column has space
             y_location = section_starting_y + ((move - moves_per_column) * section_spacing_y)
-            current_move = valid_moves[move].get_chess_notation()
 
             # display current move in the list
             display_move = valid_moves_content_font.render(current_move, True, font_color)

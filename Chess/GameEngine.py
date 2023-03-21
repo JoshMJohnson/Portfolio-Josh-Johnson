@@ -304,13 +304,7 @@ class GameState():
                 for pin in pins: # loop through the list of all pinned pieces 
                     valid_moves = [move for move in valid_moves if not self.restrict_pins(move, pin)]
 
-                self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two) # gets valid king moves
-
-                #! testing
-                print("num valid moves: " + str(len(valid_moves)))
-                for v in valid_moves:
-                    print("valid moves: " + str(v.starting_tile) + ", " + str(v.ending_tile))
-                #! testing        
+                self.get_king_moves(king_row, king_col, valid_moves, player_one, player_two) # gets valid king moves      
                 
                 if len(valid_moves) == 0: # if player is in checkmate
                     if player_one.current_player: # if white players turn
@@ -342,12 +336,6 @@ class GameState():
             else: # else black players turn
                 if self.black_king.has_moved == False: # if the king has not moved yet
                     self.castling(moves, player_one, player_two)
-
-        #! testing
-        print("num valid moves: " + str(len(moves)))
-        for v in moves:
-            print("valid moves: " + str(v.starting_tile) + ", " + str(v.ending_tile))
-        #! testing 
 
         return moves
     
@@ -1082,20 +1070,20 @@ class Moves():
         elif "rook" in self.starting_piece: # else if moving a rook
             moving_piece_abbriv = "R"
 
-        caputring_piece = ' '
+        capturing_piece = ' '
         if self.ending_piece != "--":
             if "king" in self.ending_piece: # if moving a king
-                caputring_piece = "K"
+                capturing_piece = "K"
             elif "queen" in self.ending_piece: # else if moving a queen
-                caputring_piece = "Q"
+                capturing_piece = "Q"
             elif "bishop" in self.ending_piece: # else if moving a bishop
-                caputring_piece = "B"
+                capturing_piece = "B"
             elif "knight" in self.ending_piece: # else if moving a knight
-                caputring_piece = "N"
+                capturing_piece = "N"
             elif "rook" in self.ending_piece: # else if moving a rook
-                caputring_piece = "R"
+                capturing_piece = "R"
 
-        return moving_piece_abbriv + self.get_rank_file_pair(self.start_row, self.start_col) + " -> " + caputring_piece + self.get_rank_file_pair(self.end_row, self.end_col)
+        return moving_piece_abbriv + self.get_rank_file_pair(self.start_row, self.start_col) + " -> " + capturing_piece + self.get_rank_file_pair(self.end_row, self.end_col)
 
     '''
     returns the chess notation of a tile on the game board
