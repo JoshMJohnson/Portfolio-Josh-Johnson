@@ -1163,7 +1163,7 @@ def valid_moves_menu_display(screen):
 '''
 handles actions when en passant button is pressed
 '''
-def en_passant_button_toggle(screen): # TODO change background of button when active
+def en_passant_button_toggle(screen): # TODO enable/disable ability to use en passant
     global is_en_passant_button_active
 
     if chess_set == 1: # if chess set 1
@@ -1199,10 +1199,6 @@ def en_passant_button_toggle(screen): # TODO change background of button when ac
             image_path = os.path.join("Game_Images", set_folder, "black_pawn.png")
             en_passant_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
             screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
-
-
-    
-
 
 # convension for calling the main function; useful for running as a script
 if __name__ == "__main__":
