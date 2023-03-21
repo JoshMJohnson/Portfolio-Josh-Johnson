@@ -1166,10 +1166,40 @@ handles actions when en passant button is pressed
 def en_passant_button_toggle(screen): # TODO change background of button when active
     global is_en_passant_button_active
 
+    if chess_set == 1: # if chess set 1
+        set_folder = "Set1"
+    elif chess_set == 2: # else if chess set 2
+        set_folder = "Set2"
+    else: # else chess set 3
+        set_folder = "Set3"
+
     if is_en_passant_button_active: # if disable en passant chess rule
         is_en_passant_button_active = False
+
+        pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "black_pawn.png")
+            en_passant_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
+            screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "black_pawn.png")
+            en_passant_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
+            screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # if enable en passant chess rule
         is_en_passant_button_active = True
+
+        pygame.draw.rect(screen, active_button_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "black_pawn.png")
+            en_passant_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
+            screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "black_pawn.png")
+            en_passant_button = pygame.transform.scale(pygame.image.load(image_path), (logo_dimensions + 10, logo_dimensions + 10))
+            screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
+
 
     
 
