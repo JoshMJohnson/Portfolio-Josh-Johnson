@@ -44,7 +44,7 @@
     - [ ] Enable en passant chess move
     - [ ] Change background color of button to indicate enabled
 - [x] Clickable button for valid moves
-    - [ ] Displays the available moves at that given time
+    - [x] Displays the available moves at that given time
     - [ ] Change background color of button to indicate enabled
 - [x] Clickable button for game clock settings
     - [ ] Each player has their own game clock for time remaining on their turns
