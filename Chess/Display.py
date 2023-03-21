@@ -929,7 +929,7 @@ def valid_moves_menu_display(screen):
     # * font settings
     valid_moves_title_font = pygame.font.SysFont('sans', 20, bold=True)
     valid_moves_content_font = pygame.font.SysFont('monospace', 11)
-    more_valid_moves_font = pygame.font.SysFont('monospace', 10, italic=True)
+    more_valid_moves_font = pygame.font.SysFont('monospace', 10)
 
     # * load valid moves menu title
     valid_moves_title_label = valid_moves_title_font.render("Valid Moves", True, font_color)
@@ -938,16 +938,15 @@ def valid_moves_menu_display(screen):
 
     # * load valid moves content onto the frame
     section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
-    moves_per_column = 20
+    moves_per_column = 25
     section_spacing_y = (log_frame_height - (GAP * 2)) / moves_per_column
 
     # create two columns
     left_column_full = False
-    right_column_full = False
     left_column_x = log_frame_starting_x_coordinate + (log_frame_width / 4)
     right_column_x = log_frame_starting_x_coordinate + (log_frame_width / 4) * 3
 
-    pygame.draw.line(screen, font_color, (log_frame_starting_x_coordinate + (log_frame_width / 2), section_starting_y), (log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + log_frame_height - GAP), 3) # column separator line
+    pygame.draw.line(screen, font_color, (log_frame_starting_x_coordinate + (log_frame_width / 2), section_starting_y), (log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + log_frame_height - 15), 3) # column separator line
 
     print("display len valid_moves: " + str(len(valid_moves)))
 
@@ -963,7 +962,7 @@ def valid_moves_menu_display(screen):
 
             if move == moves_per_column - 1: # if left column is full
                 left_column_full = True
-        elif not right_column_full: # else if right column has space
+        else: # else if right column has space
             y_location = section_starting_y + ((move - moves_per_column) * section_spacing_y)
             current_move = valid_moves[move].get_chess_notation()
 
@@ -973,12 +972,10 @@ def valid_moves_menu_display(screen):
             screen.blit(display_move, display_move_rect) # display label of move onto the gui
 
             if move == (moves_per_column * 2) - 1: # if right column is full
-                right_column_full = True
-        else: # if both columns are full and moves still need to be added
-            # TODO if no more space but more valid moves - add a small label on the corner saying there are more valid moves 
-
-            
-            break
+                # * display that there are move available moves but out of space to show them ('...' added to end of last move displayed)
+                display_additional = more_valid_moves_font.render("...", True, font_color)
+                screen.blit(display_additional, (right_column_x + 35, y_location - 5))
+                break
 
 '''
 handles actions when en passant button is pressed
