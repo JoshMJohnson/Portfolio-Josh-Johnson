@@ -48,10 +48,6 @@ log_frame_height = WINDOW_HEIGHT - (GAP * 3) - 75
 log_frame_starting_x_coordinate = BOARD_WIDTH + (GAP * 2)
 log_frame_starting_y_coordinate = GAP
 game_log = []
-is_game_log_displayed = True
-display_check = False
-display_checkmate = False
-display_stalemate = False
 
 # * bottom right button section
 button_spacing_x = 10
@@ -64,11 +60,6 @@ logo_dimensions = corner_button_dimensions - (corner_button_dimensions * 0.25)
 x_corner_first_button_loc = corner_section_starting_x
 y_corner_button_loc = corner_section_starting_y
 
-# * corner button status
-help_button_active = False
-stopwatch_button_active = False
-valid_moves_button_active = False
-is_en_passant_button_active = False
 
 # * heading panel settings
 heading_width = BOARD_WIDTH
@@ -96,6 +87,17 @@ player_two = Player.Player(2)
 # * game board settings - part 2
 game_board_starting_x_coordinate = GAP
 game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
+
+# * game state 
+help_button_active = False
+stopwatch_button_active = False
+valid_moves_button_active = False
+is_en_passant_button_active = False
+is_game_log_displayed = True
+display_check = False
+display_checkmate = False
+display_stalemate = False
+valid_moves = []
 
 
 '''
@@ -267,6 +269,7 @@ def run_game(screen, clock):
     global bottom_y_loc
     global player_one
     global player_two
+    global valid_moves
 
     load_chess_set(screen) 
     display_player_values(screen)
@@ -422,9 +425,11 @@ def open_new_window():
     global display_check
     global display_checkmate
     global display_stalemate
+    global valid_moves
     display_check = False
     display_checkmate = False
     display_stalemate = False
+    valid_moves = []
 
     # * open new window with updated theme settings
     pygame.init()
@@ -599,7 +604,7 @@ def display_game_log(screen):
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
 
         # * displays check when applicable
-        check_handling(screen) # ! reacts a turn too late 
+        check_handling(screen)
 
         # * displays game log
         # places most recent moves in the begining of the list
@@ -856,7 +861,7 @@ def stopwatch_button_toggle(screen):
     global stopwatch_button_active
     global valid_moves_button_active
     
-    if is_game_log_displayed: # if game log is being displayed; switch to help display
+    if is_game_log_displayed: # if game log is being displayed; switch to stopwatch display
         is_game_log_displayed = False
         stopwatch_button_active = True        
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
@@ -881,7 +886,7 @@ def stopwatch_menu_display(screen): # TODO
     stopwatch_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
     stopwatch_content_font = pygame.font.SysFont('monospace', 10)
 
-    # * load help menu title
+    # * load stopwatch menu title
     stopwatch_title_label = stopwatch_title_font.render("Stopwatch Menu", True, font_color)
     stopwatch_title_label_rect = stopwatch_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
     screen.blit(stopwatch_title_label, stopwatch_title_label_rect)
@@ -897,7 +902,7 @@ def valid_moves_button_toggle(screen):
     global stopwatch_button_active
     global valid_moves_button_active
     
-    if is_game_log_displayed: # if game log is being displayed; switch to help display
+    if is_game_log_displayed: # if game log is being displayed; switch to valid moves display
         is_game_log_displayed = False
         valid_moves_button_active = True
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
@@ -917,15 +922,60 @@ def valid_moves_button_toggle(screen):
 '''
 content display for the valid moves button
 '''    
-def valid_moves_menu_display(screen): # TODO
+def valid_moves_menu_display(screen): # TODO change on move updates (move/undo)
+    # * font settings
     valid_moves_title_font = pygame.font.SysFont('sans', 20, bold=True)
-    valid_moves_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
-    valid_moves_content_font = pygame.font.SysFont('monospace', 10)
+    valid_moves_content_font = pygame.font.SysFont('monospace', 11)
+    more_valid_moves_font = pygame.font.SysFont('monospace', 10, italic=True)
 
-    # * load help menu title
+    # * load valid moves menu title
     valid_moves_title_label = valid_moves_title_font.render("Valid Moves", True, font_color)
     valid_moves_title_label_rect = valid_moves_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
-    screen.blit(valid_moves_title_label, valid_moves_title_label_rect)       
+    screen.blit(valid_moves_title_label, valid_moves_title_label_rect)      
+
+    # * load valid moves content onto the frame
+    section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
+    moves_per_column = 20
+    section_spacing_y = (log_frame_height - (GAP * 2)) / moves_per_column
+
+    # create two columns
+    left_column_full = False
+    right_column_full = False
+    left_column_x = log_frame_starting_x_coordinate + (log_frame_width / 4)
+    right_column_x = log_frame_starting_x_coordinate + (log_frame_width / 4) * 3
+
+    pygame.draw.line(screen, font_color, (log_frame_starting_x_coordinate + (log_frame_width / 2), section_starting_y), (log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + log_frame_height - GAP), 3) # column separator line
+
+    print("display len valid_moves: " + str(len(valid_moves)))
+
+    for move in range(len(valid_moves)): # loop through entire list of valid moves 
+        if not left_column_full: # if left column has space for valid move display to be added
+            y_location = section_starting_y + (move * section_spacing_y)
+            current_move = valid_moves[move].get_chess_notation()
+
+            # display current move in the list
+            display_move = valid_moves_content_font.render(current_move, True, font_color)
+            display_move_rect = display_move.get_rect(center=(left_column_x, y_location))
+            screen.blit(display_move, display_move_rect) # display label of move onto the gui
+
+            if move == moves_per_column - 1: # if left column is full
+                left_column_full = True
+        elif not right_column_full: # else if right column has space
+            y_location = section_starting_y + ((move - moves_per_column) * section_spacing_y)
+            current_move = valid_moves[move].get_chess_notation()
+
+            # display current move in the list
+            display_move = valid_moves_content_font.render(current_move, True, font_color)
+            display_move_rect = display_move.get_rect(center=(right_column_x, y_location))
+            screen.blit(display_move, display_move_rect) # display label of move onto the gui
+
+            if move == (moves_per_column * 2) - 1: # if right column is full
+                right_column_full = True
+        else: # if both columns are full and moves still need to be added
+            # TODO if no more space but more valid moves - add a small label on the corner saying there are more valid moves 
+            
+            
+            break
 
 '''
 handles actions when en passant button is pressed
