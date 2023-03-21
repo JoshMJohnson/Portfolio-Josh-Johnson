@@ -119,8 +119,6 @@ class GameState():
             player_one.current_player = True
             player_two.player_in_check = False
 
-        print("--------------------------")
-
     '''
     undo last move made
     '''
@@ -215,8 +213,6 @@ class GameState():
                 player_two.current_player = False
                 player_one.current_player = True    
                 player_two.player_lost = False         
-            
-            print("--------------------------")     
 
     '''
     identifies all potential moves while considering checks
@@ -238,7 +234,6 @@ class GameState():
             player_two.player_in_check = in_check
 
         if in_check: # if current player is in check
-            print("CHECK")
             if len(self.check_locations) == 1: # if only one piece is causing check 
                 # gather data about the piece that is causing the check on the player
                 pins = self.pin_locations
@@ -321,7 +316,6 @@ class GameState():
                     else: # else if black players turn
                         player_two.player_lost = True
         else: # if current player is not in check
-            print("NO CHECK")
             pins = self.pin_locations
             moves = self.get_all_possible_moves(player_one, player_two) 
 
