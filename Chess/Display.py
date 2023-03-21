@@ -928,8 +928,7 @@ def valid_moves_menu_display(screen):
 
     # * font settings
     valid_moves_title_font = pygame.font.SysFont('sans', 20, bold=True)
-    valid_moves_content_font = pygame.font.SysFont('monospace', 11)
-    more_valid_moves_font = pygame.font.SysFont('monospace', 10)
+    valid_moves_content_font = pygame.font.SysFont('monospace', 12)
 
     # * load valid moves menu title
     valid_moves_title_label = valid_moves_title_font.render("Valid Moves", True, font_color)
@@ -938,7 +937,7 @@ def valid_moves_menu_display(screen):
 
     # * load valid moves content onto the frame
     section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
-    moves_per_column = 25
+    moves_per_column = 20
     section_spacing_y = (log_frame_height - (GAP * 2)) / moves_per_column
 
     # create two columns
@@ -946,9 +945,7 @@ def valid_moves_menu_display(screen):
     left_column_x = log_frame_starting_x_coordinate + (log_frame_width / 4)
     right_column_x = log_frame_starting_x_coordinate + (log_frame_width / 4) * 3
 
-    pygame.draw.line(screen, font_color, (log_frame_starting_x_coordinate + (log_frame_width / 2), section_starting_y), (log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + log_frame_height - 15), 3) # column separator line
-
-    print("display len valid_moves: " + str(len(valid_moves)))
+    pygame.draw.line(screen, font_color, (log_frame_starting_x_coordinate + (log_frame_width / 2), section_starting_y), (log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + log_frame_height - 20), 3) # column separator line
 
     for move in range(len(valid_moves)): # loop through entire list of valid moves 
         if not left_column_full: # if left column has space for valid move display to be added
@@ -973,8 +970,8 @@ def valid_moves_menu_display(screen):
 
             if move == (moves_per_column * 2) - 1: # if right column is full
                 # * display that there are move available moves but out of space to show them ('...' added to end of last move displayed)
-                display_additional = more_valid_moves_font.render("...", True, font_color)
-                screen.blit(display_additional, (right_column_x + 35, y_location - 5))
+                display_additional = valid_moves_content_font.render("...", True, font_color)
+                screen.blit(display_additional, (right_column_x + 35, y_location - 6))
                 break
 
 '''
