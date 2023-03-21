@@ -851,7 +851,7 @@ def help_menu_display(screen):
     screen.blit(help_title_label, help_title_label_rect)
 
     # * load help menu content
-    section_spacing_y = log_frame_height / 7
+    section_spacing_y = log_frame_height / 8
     section_starting_y = log_frame_starting_y_coordinate + (GAP * 2)
 
     # section 1 - subtitle; check
@@ -949,6 +949,20 @@ def help_menu_display(screen):
     label_text = "on the keyboard"
     help_menu_label = help_content_font.render(label_text, True, font_color)
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 5  + (section_spacing_y / 4) * 2 + section_starting_y))
+
+    # section 7 - subtitle; en passant moves
+    label_text = "En Passant"
+    help_menu_label = help_subtitle_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + 5, section_spacing_y * 6 + section_starting_y))
+
+    # section 7 - content; en passant moves
+    label_text = "Enable/Disable with button"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 6  + (section_spacing_y / 4) + section_starting_y))
+
+    label_text = "below and furthest right"
+    help_menu_label = help_content_font.render(label_text, True, font_color)
+    screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 6  + (section_spacing_y / 4) * 2 + section_starting_y))
 
 '''
 handles actions when settings button is pressed
