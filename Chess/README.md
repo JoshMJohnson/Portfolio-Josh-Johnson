@@ -64,6 +64,9 @@
 
 **Help Menu**<br>
 <img width="400" height="400" alt="Help Menu" src="Project_Images/Help_Menu.png">
+
+**Valid Menu**<br>
+<img width="400" height="400" alt="Valid Menu" src="Project_Images/Valid_Moves.png">
 </div>
 
 <!-- footer section -->
