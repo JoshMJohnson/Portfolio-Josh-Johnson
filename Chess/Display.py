@@ -282,7 +282,7 @@ def run_game(screen, clock):
     create_game_buttons(screen)
 
     game_state = GameEngine.GameState()
-    valid_moves = game_state.get_valid_moves(player_one, player_two) # gets all valid moves a player could make
+    valid_moves = game_state.get_valid_moves(player_one, player_two, is_en_passant_button_active) # gets all valid moves a player could make
     move_made = False
 
     tile_selected = () # keeps track of the last tile clicked by the user
@@ -314,7 +314,7 @@ def run_game(screen, clock):
                         if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
                             move = GameEngine.Moves(player_clicks[0], player_clicks[1], game_state.board) 
                             if move in valid_moves:
-                                game_state.make_move(move, player_one, player_two)
+                                game_state.make_move(move, player_one, player_two, is_en_passant_button_active)
                                 game_log.append(move.get_chess_notation())
                                 move_made = True
                                 update_player_points(screen)
@@ -387,7 +387,7 @@ def run_game(screen, clock):
             display_stalemate = False
             display_check = False
             
-            valid_moves = game_state.get_valid_moves(player_one, player_two)
+            valid_moves = game_state.get_valid_moves(player_one, player_two, is_en_passant_button_active)
 
             if len(valid_moves) == 0: # if checkmate or stalemate
                 if player_one.player_lost or player_two.player_lost: # if checkmate
@@ -1177,7 +1177,7 @@ def valid_moves_menu_display(screen):
 '''
 handles actions when en passant button is pressed
 '''
-def en_passant_button_toggle(screen): # TODO enable/disable ability to use en passant
+def en_passant_button_toggle(screen):
     global is_en_passant_button_active
 
     if chess_set == 1: # if chess set 1
@@ -1189,8 +1189,8 @@ def en_passant_button_toggle(screen): # TODO enable/disable ability to use en pa
 
     if is_en_passant_button_active: # if disable en passant chess rule
         is_en_passant_button_active = False
-
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        
         if not is_script: # used for running Display.py directly from VS
             base_path = os.path.dirname(__file__) # finds absolute path for the project
             image_path = os.path.join(base_path, "Game_Images", set_folder, "black_pawn.png")
@@ -1202,8 +1202,8 @@ def en_passant_button_toggle(screen): # TODO enable/disable ability to use en pa
             screen.blit(en_passant_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2) + (corner_button_dimensions * 3) + (button_spacing_x * 3), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions - 10) / 2), corner_button_dimensions, corner_button_dimensions)) 
     else: # if enable en passant chess rule
         is_en_passant_button_active = True
-
         pygame.draw.rect(screen, active_button_color, pygame.Rect(corner_section_starting_x + (corner_button_dimensions * 3) + (button_spacing_x * 3), corner_section_starting_y, corner_button_dimensions, corner_button_dimensions)) # background
+        
         if not is_script: # used for running Display.py directly from VS
             base_path = os.path.dirname(__file__) # finds absolute path for the project
             image_path = os.path.join(base_path, "Game_Images", set_folder, "black_pawn.png")

@@ -32,10 +32,27 @@ class GameState():
     '''
     makes a move on the game board
     '''
-    def make_move(self, move, player_one, player_two):
+    def make_move(self, move, player_one, player_two, is_en_passant_button_active):
         # * perform move
         self.board[move.start_row][move.start_col] = "--"
         self.board[move.end_row][move.end_col] = move.starting_piece
+
+        # * en passant
+        if is_en_passant_button_active: # if en passant is active
+            if "pawn" in move.starting_piece and "--" in move.ending_piece: # if en passant move
+                if move.end_col - move.start_col != 0: # if pawn is moving diagonally
+                    if player_one.current_player: # if current player is white
+                        self.board[move.end_row + 1][move.end_col] = "--" # also remove captured pawn
+
+                        # adjust score by pawn value
+                        pawn = Chess_Pieces.Pawn()
+                        player_one.points_taken += pawn.point_value
+                    else: # current player is black
+                        self.board[move.end_row - 1][move.end_col] = "--" # also remove captured pawn
+                        
+                        # adjust score by pawn value
+                        pawn = Chess_Pieces.Pawn()
+                        player_two.points_taken += pawn.point_value
 
         # * handles rook part of castling and king move effects
         if "king" in move.starting_piece: # if the king was moved
@@ -122,7 +139,7 @@ class GameState():
     '''
     undo last move made
     '''
-    def undo_move(self, player_one, player_two):
+    def undo_move(self, player_one, player_two): 
         player_one.player_in_check = False
         player_two.player_in_check = False
 
@@ -131,6 +148,30 @@ class GameState():
             move = self.move_log.pop()
             self.board[move.start_row][move.start_col] = move.starting_piece
             self.board[move.end_row][move.end_col] = move.ending_piece
+
+            # * en passant
+            if "pawn" in move.starting_piece: # if last move was a pawn moving
+                if move.end_col != move.start_col and "--" in move.ending_piece: # if pawn moved diagnally into an open tile
+                    if player_two.current_player: # if previous player was white
+                        # place opponent pawn back on the board
+                        if move.end_col - move.start_col == -1: # captured left
+                            self.board[move.start_row][move.start_col - 1] = "black_pawn"
+                        else: # captured right
+                            self.board[move.start_row][move.start_col + 1] = "black_pawn"
+
+                        # refund the point from capturing a pawn
+                        pawn = Chess_Pieces.Pawn()
+                        player_one.points_taken -= pawn.point_value
+                    else: # previous player was black
+                        # place opponent pawn back on the board
+                        if move.end_col - move.start_col == -1: # captured left
+                            self.board[move.start_row][move.start_col - 1] = "white_pawn"
+                        else: # captured right
+                            self.board[move.start_row][move.start_col + 1] = "white_pawn"
+
+                        # refund the point from capturing a pawn
+                        pawn = Chess_Pieces.Pawn()
+                        player_two.points_taken -= pawn.point_value
         
             # * update kings position and status
             if "king" in move.starting_piece: # if the king was moved last turn 
@@ -217,8 +258,8 @@ class GameState():
     '''
     identifies all potential moves while considering checks
     '''
-    def get_valid_moves(self, player_one, player_two): 
-        self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) 
+    def get_valid_moves(self, player_one, player_two, is_en_passant_button_active):
+        self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two, is_en_passant_button_active) 
         moves = []
 
         # gets current players king position and status
@@ -246,7 +287,7 @@ class GameState():
                 piece_causing_check = self.board[check_row][check_col] # name of the piece that is causing a check
                 tile_causing_check = (check_row, check_col) # tile ID of the piece causing a check
 
-                moves = self.get_all_possible_moves(player_one, player_two) 
+                moves = self.get_all_possible_moves(player_one, player_two, is_en_passant_button_active) 
                 valid_moves = []
 
                 if "knight" in piece_causing_check: # * if the knight piece is causing check
@@ -317,7 +358,7 @@ class GameState():
                         player_two.player_lost = True
         else: # if current player is not in check
             pins = self.pin_locations
-            moves = self.get_all_possible_moves(player_one, player_two) 
+            moves = self.get_all_possible_moves(player_one, player_two, is_en_passant_button_active) 
 
             # restrict movement of pinned pieces
             for pin in pins: # loop through the list of all pinned pieces 
@@ -379,7 +420,7 @@ class GameState():
     '''
     retrieves the current player kings pin pieces and check pieces
     '''
-    def pins_checks(self, player_one, player_two): 
+    def pins_checks(self, player_one, player_two, is_en_passant_button_active): # TODO en passant
         if player_one.current_player: # if white players turn
             ally_color = player_one.color
             opponent_color = player_two.color
@@ -628,13 +669,13 @@ class GameState():
     '''
     identifies all potential moves without considering checks
     '''
-    def get_all_possible_moves(self, player_one, player_two):
+    def get_all_possible_moves(self, player_one, player_two, is_en_passant_button_active):
         possible_moves = []
         for row in range(len(self.board)): # goes through the game board row tiles
             for col in range(len(self.board[row])): # goes through the game board column tiles
                 if (player_one.color in self.board[row][col] and player_one.current_player) or (player_two.color in self.board[row][col] and player_two.current_player): # if a tile has a chess piece on it belonging to the current player
                     if "pawn" in self.board[row][col]: # pawn moves
-                        self.get_pawn_moves(row, col, possible_moves, player_one, player_two)
+                        self.get_pawn_moves(row, col, possible_moves, player_one, player_two, is_en_passant_button_active)
                     elif "rook" in self.board[row][col]: # rook moves
                         self.get_rook_moves(row, col, possible_moves, player_one, player_two)
                     elif "knight" in self.board[row][col]: # knight moves
@@ -651,7 +692,7 @@ class GameState():
     '''
     get all pawn moves for the pawn located at a specified tile passing through as a parameter and add moves to the list of possible moves
     '''
-    def get_pawn_moves(self, row, col, possible_moves, player_one, player_two):
+    def get_pawn_moves(self, row, col, possible_moves, player_one, player_two, is_en_passant_button_active): 
         if player_one.current_player: # if it is whites turn
             # * moving forward
             if self.board[row - 1][col] == "--": # if tile in-front of pawn is open
@@ -660,12 +701,28 @@ class GameState():
                     possible_moves.append(Moves((row, col), (row - 2, col), self.board))
 
             # * capturing pieces
-            if col - 1 >= 0: # protects pawn from moving off the game board to the left
+            if col - 1 >= 0: # protects pawn from moving off the game board to the left 
                 if player_two.color in self.board[row - 1][col - 1]: # if opponent piece can be captured up and to the left of pawn
                     possible_moves.append(Moves((row, col), (row - 1, col - 1), self.board))
-            if col + 1 <= 7: # protects pawn from moving off the game board to the right
+                elif is_en_passant_button_active: # if en passant is active
+                    if player_two.color in self.board[row][col - 1] and "pawn" in self.board[row][col - 1]: # if opponent piece is the left tile touching current pawn AND opponent piece is a pawn
+                        temp_log = self.move_log.copy()
+                        last_move = temp_log.pop()
+                        last_move_starting_row = last_move.start_row
+                        last_move_ending_row = last_move.end_row    
+                        if last_move_ending_row - last_move_starting_row == 2: # if opponent pawn to the left moved 2 spaces their previous turn
+                            possible_moves.append(Moves((row, col), (row - 1, col - 1), self.board)) # add en passant move to possible moves
+            if col + 1 <= 7: # protects pawn from moving off the game board to the right 
                 if player_two.color in self.board[row - 1][col + 1]: # if opponent piece can be captured up and to the right of pawn
-                    possible_moves.append(Moves((row, col), (row - 1, col + 1), self.board))        
+                    possible_moves.append(Moves((row, col), (row - 1, col + 1), self.board))   
+                elif is_en_passant_button_active: # if en passant is active 
+                    if player_two.color in self.board[row][col + 1] and "pawn" in self.board[row][col + 1]: # if opponent piece is the right tile touching current pawn AND opponent piece is a pawn
+                        temp_log = self.move_log.copy()
+                        last_move = temp_log.pop()
+                        last_move_starting_row = last_move.start_row
+                        last_move_ending_row = last_move.end_row    
+                        if last_move_ending_row - last_move_starting_row == 2: # if opponent pawn to the right moved 2 spaces their previous turn
+                            possible_moves.append(Moves((row, col), (row - 1, col + 1), self.board)) # add en passant move to possible moves
         elif player_two: # else blacks turn
             # * moving forward
             if self.board[row + 1][col] == "--": # if tile in-front of pawn is open
@@ -674,12 +731,28 @@ class GameState():
                     possible_moves.append(Moves((row, col), (row + 2, col), self.board))
 
             # * capturing pieces
-            if col - 1 >= 0: # protects pawn from moving off the game board to the left
+            if col - 1 >= 0: # protects pawn from moving off the game board to the left 
                 if player_one.color in self.board[row + 1][col - 1]: # if opponent piece can be captured up and to the left of pawn
                     possible_moves.append(Moves((row, col), (row + 1, col - 1), self.board))
+                elif is_en_passant_button_active: # if en passant is active 
+                    if player_one.color in self.board[row][col - 1] and "pawn" in self.board[row][col - 1]: # if opponent piece is the left tile touching current pawn AND opponent piece is a pawn
+                        temp_log = self.move_log.copy()
+                        last_move = temp_log.pop()
+                        last_move_starting_row = last_move.start_row
+                        last_move_ending_row = last_move.end_row    
+                        if last_move_starting_row - last_move_ending_row == 2: # if opponent pawn to the left moved 2 spaces their previous turn
+                            possible_moves.append(Moves((row, col), (row + 1, col - 1), self.board)) # add en passant move to possible moves
             if col + 1 <= 7: # protects pawn from moving off the game board to the right
                 if player_one.color in self.board[row + 1][col + 1]: # if opponent piece can be captured up and to the right of pawn
                     possible_moves.append(Moves((row, col), (row + 1, col + 1), self.board)) 
+                elif is_en_passant_button_active: # if en passant is active 
+                    if player_one.color in self.board[row][col + 1] and "pawn" in self.board[row][col + 1]: # if opponent piece is the right tile touching current pawn AND opponent piece is a pawn
+                        temp_log = self.move_log.copy()
+                        last_move = temp_log.pop()
+                        last_move_starting_row = last_move.start_row
+                        last_move_ending_row = last_move.end_row    
+                        if last_move_starting_row - last_move_ending_row == 2: # if opponent pawn to the right moved 2 spaces their previous turn
+                            possible_moves.append(Moves((row, col), (row + 1, col + 1), self.board)) # add en passant move to possible moves
 
     '''
     get all rook moves for the rook located at a specified tile passing through as a parameter and add moves to the list of possible moves
@@ -885,7 +958,7 @@ class GameState():
                 self.board[king_row][king_col] = "--"
                 self.board[temp_row][temp_col] = "black_king"
 
-            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two, False)
 
             if ally_color == player_one.color: # if current player is white
                 if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move
