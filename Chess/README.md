@@ -38,7 +38,7 @@
 - [x] Clickable button for game clock settings
     - [ ] Each player has their own game clock for time remaining on their turns
     - [x] Explain the time constrains on a player and time given per move
-    - [ ] Provide 3 premade options and 1 custom text box before game start for the time allowed for each player
+    - [x] Provide premade options for game timers
     - [ ] Ability to pause game timers; default = paused
     - [x] Change background color of button to indicate enabled
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
