@@ -1043,7 +1043,7 @@ def stopwatch_menu_display(screen): # TODO
     stopwatch_content_font = pygame.font.SysFont('monospace', 10)
 
     # * load stopwatch menu title
-    stopwatch_title_label = stopwatch_title_font.render("Stopwatch Menu", True, font_color)
+    stopwatch_title_label = stopwatch_title_font.render("Game Clock Settings", True, font_color)
     stopwatch_title_label_rect = stopwatch_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
     screen.blit(stopwatch_title_label, stopwatch_title_label_rect)
 
