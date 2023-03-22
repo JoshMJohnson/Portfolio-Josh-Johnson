@@ -34,18 +34,6 @@
 
 <br>
 
-- [x] Clickable Help button display
-    - [x] Defines major game terms (check/checkmate/stalemate)
-    - [x] How to restart/start a new game
-    - [x] How to change themes (chess sets)
-    - [x] How to undo a move (pressing 'u' character)
-    - [x] Change background color of button to indicate enabled
-- [x] Clickable en passant button display
-    - [x] Enable en passant chess move
-    - [x] Change background color of button to indicate enabled
-- [x] Clickable button for valid moves
-    - [x] Displays the available moves at that given time
-    - [x] Change background color of button to indicate enabled
 - [x] Clickable button for game clock settings
     - [ ] Each player has their own game clock for time remaining on their turns
     - [ ] Explain the time constrains on a player and time given per move
