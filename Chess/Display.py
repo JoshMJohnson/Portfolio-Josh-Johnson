@@ -1049,27 +1049,27 @@ def game_clock_menu_display(screen):
 
     # * load game clock about section
     game_clock_subtitle_label = game_clock_content_font.render("The purpose of a game clock", True, font_color)
-    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 2)))
-    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
-
-    game_clock_subtitle_label = game_clock_content_font.render("is to keep track of", True, font_color)
     game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 2) + (GAP / 2)))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
-    game_clock_subtitle_label = game_clock_content_font.render("the total time each player", True, font_color)
-    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 3)))
+    game_clock_subtitle_label = game_clock_content_font.render("is to keep track of", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 2) + GAP))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
-    game_clock_subtitle_label = game_clock_content_font.render("takes for their own moves,", True, font_color)
+    game_clock_subtitle_label = game_clock_content_font.render("the total time each player", True, font_color)
     game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 3) + (GAP / 2)))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
+    game_clock_subtitle_label = game_clock_content_font.render("takes for their own moves,", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 3) + GAP))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
     game_clock_subtitle_label = game_clock_content_font.render("and ensure that neither", True, font_color)
-    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 4)))
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 4) + (GAP / 2)))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
     game_clock_subtitle_label = game_clock_content_font.render("player overly delays the game", True, font_color)
-    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 4) + (GAP / 2)))
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 4) + GAP))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
     # * load game clock format
@@ -1079,22 +1079,22 @@ def game_clock_menu_display(screen):
 
     # content
     game_clock_subtitle_label = game_clock_content_font.render("\u2022 First number is starting", True, font_color)
-    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7)))
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7) - (GAP / 5) * 2 + (GAP / 2)))
 
     game_clock_subtitle_label = game_clock_content_font.render("time for both players", True, font_color)
-    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7) + (GAP / 2) - (GAP / 5) * 2 + (GAP / 2)))
 
     game_clock_subtitle_label = game_clock_content_font.render("\u2022 Second number is bonus time", True, font_color)
-    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 8)))
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 8) - (GAP / 5) + (GAP / 2)))
 
     game_clock_subtitle_label = game_clock_content_font.render("in seconds after each move", True, font_color)
-    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 8) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 8) + (GAP / 2) - (GAP / 5) + (GAP / 2)))
 
     game_clock_subtitle_label = game_clock_content_font.render("\u2022 When game clock reaches 0,", True, font_color)
-    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 9)))
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 9) + (GAP / 2)))
 
     game_clock_subtitle_label = game_clock_content_font.render("that player loses the game", True, font_color)
-    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 9) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 9) + (GAP / 2) + (GAP / 2)))
 
     # * set time
     # subtitle
