@@ -91,7 +91,7 @@ game_board_starting_y_coordinate = WINDOW_HEIGHT - BOARD_HEIGHT - GAP
 
 # * game state 
 help_button_active = False
-stopwatch_button_active = False
+game_clock_button_active = False
 valid_moves_button_active = False
 is_en_passant_button_active = False
 is_game_log_displayed = True
@@ -364,7 +364,7 @@ def run_game(screen, clock):
                     help_button_toggle(screen)
                 elif ((location[0] >= x_corner_first_button_loc + corner_button_dimensions + button_spacing_x) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 2) + button_spacing_x)
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if settings button pressed
-                    stopwatch_button_toggle(screen)
+                    game_clock_button_toggle(screen)
                 elif ((location[0] >= x_corner_first_button_loc + (corner_button_dimensions * 2) + (button_spacing_x * 2)) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 3) + (button_spacing_x * 2))
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if valid moves button pressed
                     valid_moves_button_toggle(screen)
@@ -419,12 +419,12 @@ opens a new window
 def open_new_window():
     # * reset button status
     global help_button_active
-    global stopwatch_button_active
+    global game_clock_button_active
     global valid_moves_button_active
     global is_en_passant_button_active
     global is_game_log_displayed
     help_button_active = False
-    stopwatch_button_active = False
+    game_clock_button_active = False
     valid_moves_button_active = False
     is_en_passant_button_active = False
     is_game_log_displayed = True
@@ -773,7 +773,7 @@ handles actions when help button is pressed
 def help_button_toggle(screen):
     global is_game_log_displayed
     global help_button_active
-    global stopwatch_button_active
+    global game_clock_button_active
     global valid_moves_button_active
     
     if is_game_log_displayed: # if game log is being displayed; switch to help display
@@ -787,7 +787,7 @@ def help_button_toggle(screen):
             is_game_log_displayed = True
             display_game_log(screen)
         else: # else if the stopwatch button or valid moves button was active
-            stopwatch_button_active = False
+            game_clock_button_active = False
             valid_moves_button_active = False
             help_button_active = True            
             pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
@@ -965,32 +965,32 @@ def help_menu_display(screen):
     screen.blit(help_menu_label, (log_frame_starting_x_coordinate + GAP, section_spacing_y * 6  + (section_spacing_y / 4) * 2 + section_starting_y))
 
 '''
-handles actions when settings button is pressed
+handles actions when game clock button is pressed
 '''
-def stopwatch_button_toggle(screen):
+def game_clock_button_toggle(screen):
     global is_game_log_displayed
     global help_button_active
-    global stopwatch_button_active
+    global game_clock_button_active
     global valid_moves_button_active
     
     if is_game_log_displayed: # if game log is being displayed; switch to stopwatch display
         is_game_log_displayed = False
-        stopwatch_button_active = True        
+        game_clock_button_active = True        
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
-        stopwatch_menu_display(screen)
+        game_clock_menu_display(screen)
     else: # else game log is not being displayed - a button is active
-        if stopwatch_button_active: # if the stopwatch button is active; display game log
-            stopwatch_button_active = False
+        if game_clock_button_active: # if the stopwatch button is active; display game log
+            game_clock_button_active = False
             is_game_log_displayed = True
             display_game_log(screen)
         else: # else if the help button or valid moves button was active
             help_button_active = False
             valid_moves_button_active = False
-            stopwatch_button_active = True
+            game_clock_button_active = True
             pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height)) # clear game log panel
-            stopwatch_menu_display(screen)
+            game_clock_menu_display(screen)
 
-    if stopwatch_button_active: # if stopwatch button is active
+    if game_clock_button_active: # if stopwatch button is active
         if chess_set == 1: # if chess set 1
             set_folder = "Set1"
         elif chess_set == 2: # else if chess set 2
@@ -1035,17 +1035,108 @@ def stopwatch_button_toggle(screen):
             screen.blit(valid_moves_button, pygame.Rect(x_corner_first_button_loc + ((corner_button_dimensions - logo_dimensions) / 2) + (corner_button_dimensions * 2) + (button_spacing_x * 2), y_corner_button_loc + ((corner_button_dimensions - logo_dimensions) / 2), corner_button_dimensions, corner_button_dimensions)) 
        
 '''
-content display for the stopwatch button
+content display for the game clock button
 '''    
-def stopwatch_menu_display(screen): # TODO
-    stopwatch_title_font = pygame.font.SysFont('sans', 20, bold=True)
-    stopwatch_subtitle_font = pygame.font.SysFont('monospace', 12, bold=True)
-    stopwatch_content_font = pygame.font.SysFont('monospace', 10)
+def game_clock_menu_display(screen):
+    game_clock_title_font = pygame.font.SysFont('sans', 20, bold=True)
+    game_clock_subtitle_font = pygame.font.SysFont('monospace', 13, bold=True)
+    game_clock_content_font = pygame.font.SysFont('monospace', 11)
 
-    # * load stopwatch menu title
-    stopwatch_title_label = stopwatch_title_font.render("Game Clock Settings", True, font_color)
-    stopwatch_title_label_rect = stopwatch_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
-    screen.blit(stopwatch_title_label, stopwatch_title_label_rect)
+    # * load game clock menu title
+    game_clock_title_label = game_clock_title_font.render("Game Clock Settings", True, font_color)
+    game_clock_title_label_rect = game_clock_title_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + GAP))
+    screen.blit(game_clock_title_label, game_clock_title_label_rect)
+
+    # * load game clock about section
+    game_clock_subtitle_label = game_clock_content_font.render("The purpose of a game clock", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("is to keep track of", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 2) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("the total time each player", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 3)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("takes for their own moves,", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 3) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("and ensure that neither", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 4)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("player overly delays the game", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 4) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    # * load game clock format
+    # subtitle
+    game_clock_subtitle_label = game_clock_subtitle_font.render("Format", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 6)))
+
+    # content
+    game_clock_subtitle_label = game_clock_content_font.render("\u2022 First number is starting", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7)))
+
+    game_clock_subtitle_label = game_clock_content_font.render("time for both players", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7) + (GAP / 2)))
+
+    game_clock_subtitle_label = game_clock_content_font.render("\u2022 Second number is bonus time", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 8)))
+
+    game_clock_subtitle_label = game_clock_content_font.render("in seconds after each move", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 8) + (GAP / 2)))
+
+    game_clock_subtitle_label = game_clock_content_font.render("\u2022 When game clock reaches 0,", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 9)))
+
+    game_clock_subtitle_label = game_clock_content_font.render("that player loses the game", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 9) + (GAP / 2)))
+
+    # * set time
+    # subtitle
+    game_clock_subtitle_label = game_clock_subtitle_font.render("Set Time", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 11)))
+
+    # content
+    x_spacing = log_frame_width / 4
+
+    game_clock_subtitle_label = game_clock_content_font.render("30|30", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + x_spacing, log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("30|0", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (x_spacing * 2), log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("20|30", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (x_spacing * 3), log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("20|0", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + x_spacing, log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("10|30", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (x_spacing * 2), log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    game_clock_subtitle_label = game_clock_content_font.render("5|15", True, font_color)
+    game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (x_spacing * 3), log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 2)))
+    screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
+
+    # TODO * start/pause timers
+    # subtitle
+    game_clock_subtitle_label = game_clock_subtitle_font.render("Start/Pause Timers", True, font_color)
+    screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 14) + (GAP / 2)))
+
+    # content
+    
+
+
 
 
 '''
@@ -1054,7 +1145,7 @@ handles actions when valid moves button is pressed
 def valid_moves_button_toggle(screen):
     global is_game_log_displayed
     global help_button_active
-    global stopwatch_button_active
+    global game_clock_button_active
     global valid_moves_button_active
     
     if is_game_log_displayed: # if game log is being displayed; switch to valid moves display
@@ -1067,7 +1158,7 @@ def valid_moves_button_toggle(screen):
             is_game_log_displayed = True
             display_game_log(screen)
         else: # else if the stopwatch button or help button was active
-            stopwatch_button_active = False
+            game_clock_button_active = False
             help_button_active = False
             valid_moves_button_active = True
             valid_moves_menu_display(screen)
