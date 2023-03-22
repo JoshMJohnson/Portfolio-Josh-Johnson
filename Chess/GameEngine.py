@@ -259,7 +259,7 @@ class GameState():
     identifies all potential moves while considering checks
     '''
     def get_valid_moves(self, player_one, player_two, is_en_passant_button_active):
-        self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two, is_en_passant_button_active) 
+        self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two) 
         moves = []
 
         # gets current players king position and status
@@ -420,7 +420,7 @@ class GameState():
     '''
     retrieves the current player kings pin pieces and check pieces
     '''
-    def pins_checks(self, player_one, player_two, is_en_passant_button_active): # TODO en passant
+    def pins_checks(self, player_one, player_two): 
         if player_one.current_player: # if white players turn
             ally_color = player_one.color
             opponent_color = player_two.color
@@ -958,7 +958,7 @@ class GameState():
                 self.board[king_row][king_col] = "--"
                 self.board[temp_row][temp_col] = "black_king"
 
-            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two, False)
+            self.pin_locations, self.check_locations = self.pins_checks(player_one, player_two)
 
             if ally_color == player_one.color: # if current player is white
                 if len(self.check_locations) == 0: # if this move doesnt put own king in check; is legal move
