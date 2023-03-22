@@ -34,7 +34,7 @@
 
 <br>
 
-- [ ] Display which player won the game in checkmate and show tie when stalemate
+- [x] Display which player won the game in checkmate and show tie when stalemate
 - [x] Clickable button for game clock settings
     - [ ] Each player has their own game clock for time remaining on their turns
     - [x] Explain the time constrains on a player and time given per move
