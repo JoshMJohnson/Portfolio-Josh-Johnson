@@ -584,7 +584,7 @@ creates 3 buttons for the different themes (chess sets)
 '''
 def create_theme_buttons(screen):
     # * theme one button
-    color1 = pygame.Color(105,105,105)
+    color1 = 'light grey'
     color2 = pygame.Color(36, 15, 15)  
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), heading_button_width, heading_button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 2), heading_button_width, heading_button_height))
@@ -596,7 +596,7 @@ def create_theme_buttons(screen):
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3), heading_button_width, heading_button_height))
 
     # * theme three button 
-    color1 = 'light grey'
+    color1 = pygame.Color(105,105,105)
     color2 = pygame.Color(36, 15, 15)    
     pygame.draw.rect(screen, color1, pygame.Rect((heading_width / 2) - (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), heading_button_width, heading_button_height))
     pygame.draw.rect(screen, color2, pygame.Rect((heading_width / 2) + (heading_button_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4), heading_button_width, heading_button_height))
