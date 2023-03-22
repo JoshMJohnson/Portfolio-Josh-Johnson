@@ -54,7 +54,8 @@
     - [ ] Ability to pause game timers
     - [x] Change background color of button to indicate enabled
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
-- [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
+- [ ] Create a stalemate rule for when a king is the only remaining piece
+    - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
 ---
 <h2 align='center'>:camera: Project Images :camera:</h2>
 <div align='center'>
