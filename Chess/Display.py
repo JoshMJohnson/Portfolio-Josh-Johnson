@@ -548,7 +548,7 @@ def draw_board_tiles(screen):
         tile_color1 = pygame.Color(255,228,196)
         tile_color2 = pygame.Color(210,105,30)
     else: # chess set 3
-        tile_color1 = 'white'
+        tile_color1 = pygame.Color(128, 128, 128)
         tile_color2 = 'black'
 
     tile_colors = [pygame.Color(tile_color1), pygame.Color(tile_color2)]
@@ -1134,7 +1134,7 @@ def game_clock_menu_display(screen):
     screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 14) + (GAP / 2)))
 
     # content
-    
+
 
 
 
