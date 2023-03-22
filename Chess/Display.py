@@ -406,6 +406,7 @@ def run_game(screen, clock):
 
             display_game_log(screen)            
             update_current_player_symbol(screen)
+            check_handling(screen)
             move_made = False
 
         draw_game_state(screen, game_state) 
@@ -450,24 +451,30 @@ def open_new_window():
 handle checkmate and stalemate
 '''
 def check_handling(screen):
-    if is_game_log_displayed:
-        status = ""
-        check_font = pygame.font.SysFont('monospace', 12)
+    # * font settings
+    game_over_display_font = pygame.font.SysFont('monospace', 12, bold=True)
 
-        if display_checkmate: # if player 1 in checkmate
-            status = "Checkmate"
-        elif display_stalemate: # else if stalemate
-            status = "Stalemate"
-        elif display_check: # else if check
-            status = "Check"
+    # * game over label below heading
+    # remove checkmate/stalemate display between header and game board
+    pygame.draw.rect(screen, background_color, pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate + heading_height, heading_width, GAP)) # clear winner display
+    game_over_content = ""
+    if display_checkmate: # if player 1 in checkmate
+        if player_one.player_lost: # if player one in checkmate; player two wins
+            game_over_content = "White is in Checkmate! Black Wins!"
+        else: # else player two in checkmate; player one wins
+            game_over_content = "Black is in Checkmate! White Wins!"
+    elif display_stalemate: # else if stalemate
+        game_over_content = "Stalemate! The game is a tie!"
+    elif display_check: # else if check
+        if player_one.current_player: # if player one in checkmate; player two wins
+            game_over_content = "White is in Check!"
+        else: # else player two in checkmate; player one wins
+            game_over_content = "Black is in Check!"
 
-        # turn previous value invisible 
-        check_label = check_font.render(str(status), True, heading_background_color, heading_background_color)
-        screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
-
-        # display new value of player score
-        check_label = check_font.render(str(status), True, font_color)
-        screen.blit(check_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + 5))
+    if display_checkmate or display_stalemate or display_check:
+        game_over_display = game_over_display_font.render(game_over_content, True, font_color)
+        game_over_display_rect = game_over_display.get_rect(center=(heading_starting_x_coordinate + (heading_width / 2), game_board_starting_y_coordinate - (GAP / 2)))
+        screen.blit(game_over_display, game_over_display_rect)
 
 '''
 updates the player points
@@ -610,9 +617,6 @@ def display_game_log(screen):
     if is_game_log_displayed:
         # * colors over the previous heading with a new blank template
         pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate, log_frame_width, log_frame_height))
-
-        # * displays check when applicable
-        check_handling(screen)
 
         # * displays game log
         # places most recent moves in the begining of the list
