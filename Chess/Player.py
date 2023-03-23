@@ -67,7 +67,7 @@ class Player:
     '''
     changes the game clock settings; will reset timer 
     '''
-    def change_timer(self, starting_mins, add_secs): # TODO
+    def change_timer(self, starting_mins, add_secs):
         print("change timer function in player class: " + str(starting_mins) + ", " + str(add_secs))
         self.mins_remaining = starting_mins
         self.seconds_gained_from_move = add_secs
@@ -79,7 +79,7 @@ class Player:
     continues the player timer
     '''
     def continue_timer():
-        time.sleep(1)
+        pass
 
     '''
     pauses the player timer
