@@ -61,7 +61,6 @@ x_corner_first_button_loc = corner_section_starting_x
 y_corner_button_loc = corner_section_starting_y
 active_button_color = ''
 
-
 # * heading panel settings
 heading_width = BOARD_WIDTH
 heading_height = WINDOW_HEIGHT - BOARD_HEIGHT - (GAP * 3)
@@ -99,7 +98,7 @@ display_check = False
 display_checkmate = False
 display_stalemate = False
 valid_moves = []
-
+timer_running = False
 
 '''
 loads the desired chess set
@@ -275,6 +274,7 @@ def run_game(screen, clock):
     global player_one
     global player_two
     global valid_moves
+    global timer_running
 
     load_chess_set(screen) 
     display_player_values(screen)
@@ -371,6 +371,14 @@ def run_game(screen, clock):
                 elif ((location[0] >= x_corner_first_button_loc + (corner_button_dimensions * 3) + (button_spacing_x * 3)) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 4) + (button_spacing_x * 3))
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if en passant button pressed
                     en_passant_button_toggle(screen)
+                elif game_clock_button_active and ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 3)) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 3) * 2)
+                        and (location[1] >= log_frame_starting_y_coordinate + (GAP * 15) + (GAP / 2)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 17) + (GAP / 2))): # if game clock button active AND presses pause/play button
+                    if timer_running: # if pause button is displayed
+                        timer_running = False
+                    else: # else play button is displayed
+                        timer_running = True
+
+                    pause_play_clicked(screen)
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -435,11 +443,13 @@ def open_new_window():
     global display_checkmate
     global display_stalemate
     global valid_moves
+    global timer_running
     display_check = False
     display_checkmate = False
     display_stalemate = False
     valid_moves = []
-
+    timer_running = False
+    
     # * open new window with updated theme settings
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -1132,15 +1142,51 @@ def game_clock_menu_display(screen):
     game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (x_spacing * 3), log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 2)))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
-    # TODO * start/pause timers
+    
+
     # subtitle
     game_clock_subtitle_label = game_clock_subtitle_font.render("Start/Pause Timers", True, font_color)
     screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 14) + (GAP / 2)))
+    pause_play_clicked(screen)
 
-    # content
+'''
+updates pause/play button when clicked
+'''
+def pause_play_clicked(screen):
+    pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate + (GAP * 15), log_frame_width, GAP * 3)) # clear previous play/help button
 
-
-
+    # * start/pause timers
+    if chess_set == 1: # if chess set 1
+        set_folder = "Set1"
+    elif chess_set == 2: # else if chess set 2
+        set_folder = "Set2"
+    else: # else chess set 3
+        set_folder = "Set3"
+    
+    if timer_running: # if timer is running; display pause button
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "pause.png")
+            pause_play_button = pygame.transform.scale(pygame.image.load(image_path), (corner_button_dimensions, corner_button_dimensions))
+            pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
+            screen.blit(pause_play_button, pause_play_button_rect) 
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "pause.png")
+            pause_play_button = pygame.transform.scale(pygame.image.load(image_path), (corner_button_dimensions, corner_button_dimensions))
+            pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
+            screen.blit(pause_play_button, pause_play_button_rect)
+    else: # else timer is paused; display play button
+        if not is_script: # used for running Display.py directly from VS
+            base_path = os.path.dirname(__file__) # finds absolute path for the project
+            image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "play.png")
+            pause_play_button = pygame.transform.scale(pygame.image.load(image_path), (corner_button_dimensions, corner_button_dimensions))
+            pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
+            screen.blit(pause_play_button, pause_play_button_rect)
+        else: # used when running program as a script
+            image_path = os.path.join("Game_Images", set_folder, "Icon_Symbols", "play.png")
+            pause_play_button = pygame.transform.scale(pygame.image.load(image_path), (corner_button_dimensions, corner_button_dimensions))
+            pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
+            screen.blit(pause_play_button, pause_play_button_rect)
 
 
 '''
