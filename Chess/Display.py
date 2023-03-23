@@ -371,14 +371,39 @@ def run_game(screen, clock):
                 elif ((location[0] >= x_corner_first_button_loc + (corner_button_dimensions * 3) + (button_spacing_x * 3)) and (location[0] <= x_corner_first_button_loc + (corner_button_dimensions * 4) + (button_spacing_x * 3))
                         and (location[1] >= y_corner_button_loc) and (location[1] <= y_corner_button_loc + corner_button_dimensions)): # else if en passant button pressed
                     en_passant_button_toggle(screen)
-                elif game_clock_button_active and ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 3)) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 3) * 2)
-                        and (location[1] >= log_frame_starting_y_coordinate + (GAP * 15) + (GAP / 2)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 17) + (GAP / 2))): # if game clock button active AND presses pause/play button
-                    if timer_running: # if pause button is displayed
-                        timer_running = False
-                    else: # else play button is displayed
-                        timer_running = True
+                elif game_clock_button_active: # if game clock button active
+                    if ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 3)) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 3) * 2)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 15) + (GAP / 2)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 17) + (GAP / 2))): # if presses pause/play button
+                        if timer_running: # if pause button is displayed
+                            timer_running = False
+                        else: # else play button is displayed
+                            timer_running = True
 
-                    pause_play_clicked(screen)
+                        pause_play_clicked(screen)
+                    elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top left game clock option
+                        player_one.change_timer(30,30)
+                        player_two.change_timer(30,30)
+                    elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 3.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 4.6)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top middle game clock option
+                        player_one.change_timer(30,0)
+                        player_two.change_timer(30,0)
+                    elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 5.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 6.6)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top right game clock option
+                        player_one.change_timer(20,30)
+                        player_two.change_timer(20,30)
+                    elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom left game clock option
+                        player_one.change_timer(20,0)
+                        player_two.change_timer(20,0)
+                    elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 3.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 4.6)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom middle game clock option
+                        player_one.change_timer(10,30)
+                        player_two.change_timer(10,30)
+                    elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 5.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 6.6)
+                            and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom right game clock option
+                        player_one.change_timer(5,15)
+                        player_two.change_timer(5,15)
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -532,6 +557,8 @@ def update_player_game_time(screen):
         player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
         screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
     else: # TODO else black players move
+
+
         pass
 
 '''
@@ -1095,7 +1122,7 @@ def game_clock_menu_display(screen):
     game_clock_subtitle_label = game_clock_content_font.render("\u2022 First number is starting", True, font_color)
     screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7) - (GAP / 5) * 2 + (GAP / 2)))
 
-    game_clock_subtitle_label = game_clock_content_font.render("time for both players", True, font_color)
+    game_clock_subtitle_label = game_clock_content_font.render("minutes for both players", True, font_color)
     screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 15, log_frame_starting_y_coordinate + (GAP * 7) + (GAP / 2) - (GAP / 5) * 2 + (GAP / 2)))
 
     game_clock_subtitle_label = game_clock_content_font.render("\u2022 Second number is bonus time", True, font_color)
@@ -1141,8 +1168,6 @@ def game_clock_menu_display(screen):
     game_clock_subtitle_label = game_clock_content_font.render("5|15", True, font_color)
     game_clock_title_label_rect = game_clock_subtitle_label.get_rect(center=(log_frame_starting_x_coordinate + (x_spacing * 3), log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 2)))
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
-
-    
 
     # subtitle
     game_clock_subtitle_label = game_clock_subtitle_font.render("Start/Pause Timers", True, font_color)

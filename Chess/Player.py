@@ -36,13 +36,13 @@ class Player:
             self.current_player = False
 
         self.player_lost = False # indicates if player has lost
-        self.points_remaining = self.starting_points_calculator() # points remaining for player
         self.points_taken = 0 # points taken from other player
         self.num_moves_made = 0 # number of moves made
         self.player_in_check = False
+        self.seconds_gained_from_move = 30 # seconds gained by player after a move
 
         # time remaining for player before forfeit due to delay
-        self.mins_remaining = 5
+        self.mins_remaining = 20
         self.secs_remaining = 0
         mins, secs = divmod(self.mins_remaining * 60, 60)
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
@@ -62,6 +62,18 @@ class Player:
                     + (knight.starting_amount * knight.point_value) 
                     + (rook.starting_amount * rook.point_value) 
                     + (queen.starting_amount * queen.point_value))
+
+
+    '''
+    changes the game clock settings; will reset timer 
+    '''
+    def change_timer(self, starting_mins, add_secs): # TODO
+        print("change timer function in player class: " + str(starting_mins) + ", " + str(add_secs))
+        self.mins_remaining = starting_mins
+        self.seconds_gained_from_move = add_secs
+        
+        mins, secs = divmod(self.mins_remaining * 60, 60)
+        self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
 
     '''
     continues the player timer
