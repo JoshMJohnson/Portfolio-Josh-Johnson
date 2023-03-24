@@ -43,7 +43,7 @@ class Player:
         # * timer settings
         # default game clock settings
         self.mins_remaining = 20 # mins remaining for the player
-        self.seconds_gained_from_move = 30 # seconds gained by player after a move
+        self.seconds_gained_from_move = 0 # seconds gained by player after a move
         mins, secs = divmod(self.mins_remaining * 60, 60)
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
 
