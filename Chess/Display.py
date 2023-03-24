@@ -384,26 +384,32 @@ def run_game(screen, clock):
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top left game clock option
                         player_one.change_timer(30,30)
                         player_two.change_timer(30,30)
+                        reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 3.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 4.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top middle game clock option
                         player_one.change_timer(30,0)
                         player_two.change_timer(30,0)
+                        reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 5.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 6.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top right game clock option
                         player_one.change_timer(20,30)
                         player_two.change_timer(20,30)
+                        reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom left game clock option
                         player_one.change_timer(20,0)
                         player_two.change_timer(20,0)
+                        reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 3.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 4.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom middle game clock option
                         player_one.change_timer(10,30)
                         player_two.change_timer(10,30)
+                        reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 5.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 6.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom right game clock option
                         player_one.change_timer(5,15)
                         player_two.change_timer(5,15)
+                        reset_timer_display(screen)
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
@@ -537,6 +543,33 @@ def update_player_points(screen):
     player_points_taken2_value_label = heading_font.render(str(player_two.points_taken), True, font_color)
     screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 3)))
         
+
+'''
+resets the display for the timer when a new timer setting is chosen
+'''
+def reset_timer_display(screen):
+    heading_font = pygame.font.SysFont('monospace', 12, italic=True)
+
+    # * player 1; white player
+    # turns old player time value invisible
+    player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+    player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
+    screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+
+    # writes new player time
+    player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
+    player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
+    screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
+
+    # * player 2; black player
+    # turns old player time value invisible
+    player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+    screen.blit(player_points_taken1_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))
+
+    # writes new player time
+    player_time_remaining1_value_label = heading_font.render(str(player_two.time_remaining), True, font_color)
+    screen.blit(player_time_remaining1_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))  
+
 '''
 updates the player game time left
 '''
