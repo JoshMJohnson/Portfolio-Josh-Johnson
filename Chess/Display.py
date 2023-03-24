@@ -83,8 +83,6 @@ heading_button_height = 16
 # * initialize players
 player_one = Player.Player(1)
 player_two = Player.Player(2)
-player_one_game_clock = threading.Thread(target = player_one.game_clock_running_management)
-player_two_game_clock = threading.Thread(target = player_two.game_clock_running_management)
 
 # * game board settings - part 2
 game_board_starting_x_coordinate = GAP
@@ -100,7 +98,7 @@ display_check = False
 display_checkmate = False
 display_stalemate = False
 valid_moves = []
-timer_running = False # ! when timer_running = true; it wont close program - infinite loop somewhere but still closes gui
+timer_running = False
 
 '''
 loads the desired chess set
@@ -265,7 +263,7 @@ def main():
 '''
 loads the game with the chess set theme and runs the game
 '''
-def run_game(screen, clock):
+def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
     global chess_set
     global game_log
     global highlighted_tile
@@ -299,9 +297,8 @@ def run_game(screen, clock):
     while running:
         for e in pygame.event.get(): # handles triggered events by user
             if e.type == pygame.QUIT: # quit application 
-                # TODO close game clock threads
-                player_one.close_window()
-                player_two.close_window()
+                # TODO terminate game clock threads
+
 
 
                 running = False
@@ -360,6 +357,9 @@ def run_game(screen, clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
+                    # TODO terminate game clock threads
+
+
                     pygame.quit() # close current window
                     open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
@@ -369,6 +369,9 @@ def run_game(screen, clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
+                    # TODO terminate game clock threads
+
+
                     pygame.quit() # close current window
                     open_new_window()                    
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
@@ -378,6 +381,9 @@ def run_game(screen, clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
+                    # TODO terminate game clock threads
+
+                    
                     pygame.quit() # close current window
                     open_new_window()  
                 elif ((location[0] >= x_corner_first_button_loc) and (location[0] <= x_corner_first_button_loc + corner_button_dimensions)
@@ -505,21 +511,17 @@ def open_new_window():
     display_stalemate = False
     valid_moves = []
     timer_running = False
-
-    # * game clock threads
-    # TODO close previous game clock threads
-
-
-    # declare window as open
-    player_one.open_window()
-    player_two.open_window()
+    
+    # * create game clock threads
+    player_one_game_clock = threading.Thread(target = player_one.game_clock_running_management)
+    player_two_game_clock = threading.Thread(target = player_two.game_clock_running_management)
 
     # * open new window with updated theme settings
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     clock = pygame.time.Clock()
     pygame.display.set_caption("Lets Play Chess!")
-    run_game(screen, clock)    
+    run_game(screen, clock, player_one_game_clock, player_two_game_clock)    
 
 '''
 handle checkmate and stalemate
