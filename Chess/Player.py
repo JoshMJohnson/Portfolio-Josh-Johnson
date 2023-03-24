@@ -37,13 +37,20 @@ class Player:
 
         self.player_in_check = False # indicates if player is in check
         self.player_lost = False # indicates if player has lost
+        self.player_out_of_time = False # indicates if player ran out of time on the game clock
         self.points_taken = 0 # points taken from other player
         
+        # * timer settings
         # default game clock settings
         self.mins_remaining = 20 # mins remaining for the player
         self.seconds_gained_from_move = 30 # seconds gained by player after a move
         mins, secs = divmod(self.mins_remaining * 60, 60)
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
+
+        self.timer_running = False
+        self.total_seconds_remaining = 60 * self.mins_remaining
+
+        self.is_window_closed = False
         
     '''
     calculates the total amount of points a player has at the start of the game
@@ -67,24 +74,54 @@ class Player:
     def change_timer(self, starting_mins, add_secs):
         self.mins_remaining = starting_mins
         self.seconds_gained_from_move = add_secs
-        
         mins, secs = divmod(self.mins_remaining * 60, 60)
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
 
-    '''
-    continues the player timer
-    '''
-    def continue_timer():
-        pass
+        self.total_seconds_remaining = 60 * self.mins_remaining
 
     '''
-    pauses the player timer
+    manages the game clock timers for each player
     '''
-    def pause_timer(self):
-        pass
+    def game_clock_running_management(self):
+        while not self.is_window_closed: # run continuously
+            time.sleep(0.5) # prevent over processing
+            while self.current_player and self.timer_running: # if current player and timer unpaused
+                if self.total_seconds_remaining > 0: # if player is not out of time
+                    self.total_seconds_remaining -= 1
+
+                    mins, secs = divmod(self.total_seconds_remaining, 60)
+                    self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
+                    time.sleep(1)
+                else: # player is out of time
+                    self.player_out_of_time = True
+                    self.player_lost = True
 
     '''
-    checks if player ran out of time on the clock
+    adds the bonus seconds to a player game clock
     '''
-    def is_player_out_of_time(self):
-        pass
+    def add_bonus_seconds(self):
+        self.total_seconds_remaining += self.seconds_gained_from_move
+
+        mins, secs = divmod(self.total_seconds_remaining, 60)
+        self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
+
+    '''
+    enables/disables game clocks
+    '''
+    def toggle_timer(self):
+        if self.timer_running:
+            self.timer_running = False
+        else:
+            self.timer_running = True
+
+    '''
+    if window was closed; changing theme or closing
+    '''
+    def close_window(self):
+        self.is_window_closed = True
+
+    '''
+    if window was opened; changing theme
+    '''
+    def open_window(self):
+        self.is_window_closed = False

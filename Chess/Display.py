@@ -9,8 +9,8 @@ Created By: Josh Johnson
 # python libraries
 import pygame # gui for python game
 import os # used to get absolute path for the project
-from sys import exit
-# import threading # ? possible solution for two different player game times running at the same time
+from sys import exit # closing the gui
+import threading # game clock management
 
 # project classes
 import GameEngine
@@ -83,6 +83,8 @@ heading_button_height = 16
 # * initialize players
 player_one = Player.Player(1)
 player_two = Player.Player(2)
+player_one_game_clock = threading.Thread(target = player_one.game_clock_running_management)
+player_two_game_clock = threading.Thread(target = player_two.game_clock_running_management)
 
 # * game board settings - part 2
 game_board_starting_x_coordinate = GAP
@@ -98,7 +100,7 @@ display_check = False
 display_checkmate = False
 display_stalemate = False
 valid_moves = []
-timer_running = False
+timer_running = False # ! when timer_running = true; it wont close program - infinite loop somewhere but still closes gui
 
 '''
 loads the desired chess set
@@ -289,11 +291,21 @@ def run_game(screen, clock):
     player_clicks = [] # keeps track of a plyaer clicks; two tuples: [(x1,y1), (x2,y2)]
     running = True
 
+    # start game clock threads
+    player_one_game_clock.start()
+    player_two_game_clock.start()
+
     # * actions to perform for an active game
     while running:
         for e in pygame.event.get(): # handles triggered events by user
-            if e.type == pygame.QUIT: # quit application
+            if e.type == pygame.QUIT: # quit application 
+                # TODO close game clock threads
+                player_one.close_window()
+                player_two.close_window()
+
+
                 running = False
+                pygame.quit()
                 exit()
             elif e.type == pygame.MOUSEBUTTONDOWN: # else if mouse has clicked and is holding the button down
                 location = pygame.mouse.get_pos() # (x, y) location of the mouse; x value at index 0; y value at index 1                
@@ -314,6 +326,15 @@ def run_game(screen, clock):
                         if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
                             move = GameEngine.Moves(player_clicks[0], player_clicks[1], game_state.board) 
                             if move in valid_moves:
+                                # adding bonus time from a move
+                                if timer_running: # if the game clocks are running
+                                    if player_one.current_player: # if player 1 just made a move
+                                        player_one.add_bonus_seconds()
+                                        update_player_game_time(screen)
+                                    else: # player 2 just made a move
+                                        player_two.add_bonus_seconds()
+                                        update_player_game_time(screen)
+
                                 game_state.make_move(move, player_one, player_two, is_en_passant_button_active)
                                 game_log.append(move.get_chess_notation())
                                 move_made = True
@@ -376,8 +397,12 @@ def run_game(screen, clock):
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 15) + (GAP / 2)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 17) + (GAP / 2))): # if presses pause/play button
                         if timer_running: # if pause button is displayed
                             timer_running = False
+                            player_one.toggle_timer()
+                            player_two.toggle_timer()
                         else: # else play button is displayed
                             timer_running = True
+                            player_one.toggle_timer()
+                            player_two.toggle_timer()
 
                         pause_play_clicked(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
@@ -415,7 +440,7 @@ def run_game(screen, clock):
                     if len(game_log) != 0:
                         game_state.undo_move(player_one, player_two)
                         update_player_points(screen)
-                        game_log.pop()                        
+                        game_log.pop()  
                         move_made = True
 
         if move_made: # if a move was made; get a new list of valid moves for the next move
@@ -480,7 +505,15 @@ def open_new_window():
     display_stalemate = False
     valid_moves = []
     timer_running = False
-    
+
+    # * game clock threads
+    # TODO close previous game clock threads
+
+
+    # declare window as open
+    player_one.open_window()
+    player_two.open_window()
+
     # * open new window with updated theme settings
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
@@ -573,26 +606,28 @@ def reset_timer_display(screen):
 '''
 updates the player game time left
 '''
-def update_player_game_time(screen): 
+def update_player_game_time(screen):     
     heading_font = pygame.font.SysFont('monospace', 12, italic=True)
+    
+    if timer_running: # if the timer is running
+        if player_one.current_player: # if whites players move
+            # turns old player time value invisible
+            player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+            player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
+            screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
 
-    if player_one.current_player: # TODO if whites players move
-        # starts/stops player timer
+            # writes new player time
+            player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
+            player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
+            screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
+        else: # else black players move
+            # turns old player time value invisible
+            player_points_taken2_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+            screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))
 
-
-        # turns old player time value invisible
-        player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
-        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
-        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
-
-        # writes new player time
-        player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
-        player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
-        screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
-    else: # TODO else black players move
-
-
-        pass
+            # writes new player time
+            player_time_remaining2_value_label = heading_font.render(str(player_two.time_remaining), True, font_color)
+            screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))  
 
 '''
 current player symbol change
@@ -1245,7 +1280,6 @@ def pause_play_clicked(screen):
             pause_play_button = pygame.transform.scale(pygame.image.load(image_path), (corner_button_dimensions, corner_button_dimensions))
             pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
             screen.blit(pause_play_button, pause_play_button_rect)
-
 
 '''
 handles actions when valid moves button is pressed
