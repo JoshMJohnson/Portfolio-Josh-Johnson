@@ -94,7 +94,6 @@ class Player:
                     time.sleep(1)
                 else: # player is out of time
                     self.player_out_of_time = True
-                    self.player_lost = True
 
     '''
     adds the bonus seconds to the players game clock

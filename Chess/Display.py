@@ -294,7 +294,7 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
     player_two_game_clock.start()
 
     # * actions to perform for an active game
-    while running:
+    while running: # TODO display player lost when time reaches 0 on gui and when timer is enabled
         for e in pygame.event.get(): # handles triggered events by user
             if e.type == pygame.QUIT: # quit application 
                 # TODO terminate game clock threads
@@ -1245,7 +1245,7 @@ def game_clock_menu_display(screen):
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
     # subtitle
-    game_clock_subtitle_label = game_clock_subtitle_font.render("Start/Pause Timers", True, font_color)
+    game_clock_subtitle_label = game_clock_subtitle_font.render("Enable/Disable Timers", True, font_color)
     screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 14) + (GAP / 2)))
     pause_play_clicked(screen)
 
@@ -1255,7 +1255,7 @@ updates pause/play button when clicked
 def pause_play_clicked(screen):
     pygame.draw.rect(screen, heading_background_color, pygame.Rect(log_frame_starting_x_coordinate, log_frame_starting_y_coordinate + (GAP * 15), log_frame_width, GAP * 3)) # clear previous play/help button
 
-    # * start/pause timers
+    # * enable/disable timers
     if chess_set == 1: # if chess set 1
         set_folder = "Set1"
     elif chess_set == 2: # else if chess set 2
