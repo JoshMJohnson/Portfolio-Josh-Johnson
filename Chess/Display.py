@@ -327,10 +327,10 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                                 if timer_running: # if the game clocks are running
                                     if player_one.current_player: # if player 1 just made a move
                                         player_one.add_bonus_seconds()
-                                        update_player_game_time(screen)
                                     else: # player 2 just made a move
                                         player_two.add_bonus_seconds()
-                                        update_player_game_time(screen)
+
+                                    update_player_game_time(screen)
 
                                 game_state.make_move(move, player_one, player_two, is_en_passant_button_active)
                                 game_log.append(move.get_chess_notation())
@@ -442,9 +442,15 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
+                        # take away bonus seconds on undo move
+                        if player_one.current_player: # if current player was player one when undo was hit; take away bonus time from player two 
+                            player_two.remove_bonus_seconds()
+                        else: # else current player was player one when undo was hit; take away bonus time from player two 
+                            player_one.remove_bonus_seconds()
+
                         game_state.undo_move(player_one, player_two)
-                        update_player_points(screen)
                         game_log.pop()  
+                        update_player_points(screen)
                         move_made = True
 
         if move_made: # if a move was made; get a new list of valid moves for the next move

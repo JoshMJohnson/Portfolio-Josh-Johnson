@@ -97,10 +97,19 @@ class Player:
                     self.player_lost = True
 
     '''
-    adds the bonus seconds to a player game clock
+    adds the bonus seconds to the players game clock
     '''
     def add_bonus_seconds(self):
         self.total_seconds_remaining += self.seconds_gained_from_move
+
+        mins, secs = divmod(self.total_seconds_remaining, 60)
+        self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
+
+    '''
+    remove the bonus seconds to the players game clock
+    '''
+    def remove_bonus_seconds(self):
+        self.total_seconds_remaining -= self.seconds_gained_from_move
 
         mins, secs = divmod(self.total_seconds_remaining, 60)
         self.time_remaining = '{:01d}:{:02d}'.format(mins, secs)
