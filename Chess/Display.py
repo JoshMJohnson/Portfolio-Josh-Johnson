@@ -99,6 +99,7 @@ display_checkmate = False
 display_stalemate = False
 valid_moves = []
 timer_running = False
+time_restricted = False
 
 '''
 loads the desired chess set
@@ -275,6 +276,7 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
     global player_two
     global valid_moves
     global timer_running
+    global time_restricted
 
     load_chess_set(screen) 
     display_player_values(screen)
@@ -294,7 +296,7 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
     player_two_game_clock.start()
 
     # * actions to perform for an active game
-    while running: # TODO display player lost when time reaches 0 on gui and when timer is enabled
+    while running:
         for e in pygame.event.get(): # handles triggered events by user
             if e.type == pygame.QUIT: # quit application 
                 # TODO terminate game clock threads
@@ -309,47 +311,48 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                 col = (location[0] - GAP) // TILE_SIZE 
                 row = (location[1] - (WINDOW_HEIGHT - BOARD_HEIGHT - GAP)) // TILE_SIZE
                 if col >= 0 and col <= 7 and row >= 0 and row <= 7: # if clicking on the chess board
-                    if tile_selected == (row, col): # if user clicked same tile twice in a row
-                        tile_selected == () # deselect
-                        player_clicks == [] # clear player clicks
+                    if not time_restricted or not timer_running: # if player hasn't lost due to time running out or if timer is disabled
+                        if tile_selected == (row, col): # if user clicked same tile twice in a row
+                            tile_selected == () # deselect
+                            player_clicks == [] # clear player clicks
 
-                        if highlighted_tile:
-                            highlighted_tile = False
-                        else:
-                            highlighted_tile = True
-                    else: # else; 2 different tiles clicked in order
-                        tile_selected = (row, col)
-                        player_clicks.append(tile_selected)
-                        if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
-                            move = GameEngine.Moves(player_clicks[0], player_clicks[1], game_state.board) 
-                            if move in valid_moves:
-                                # adding bonus time from a move
-                                if timer_running: # if the game clocks are running
-                                    if player_one.current_player: # if player 1 just made a move
-                                        player_one.add_bonus_seconds()
-                                    else: # player 2 just made a move
-                                        player_two.add_bonus_seconds()
+                            if highlighted_tile:
+                                highlighted_tile = False
+                            else:
+                                highlighted_tile = True
+                        else: # else; 2 different tiles clicked in order
+                            tile_selected = (row, col)
+                            player_clicks.append(tile_selected)
+                            if len(player_clicks) == 2: # if second tile was clicked that was different than the first 
+                                move = GameEngine.Moves(player_clicks[0], player_clicks[1], game_state.board) 
+                                if move in valid_moves:
+                                    # adding bonus time from a move
+                                    if timer_running: # if the game clocks are running
+                                        if player_one.current_player: # if player 1 just made a move
+                                            player_one.add_bonus_seconds()
+                                        else: # player 2 just made a move
+                                            player_two.add_bonus_seconds()
 
-                                    update_player_game_time(screen)
+                                        update_player_game_time(screen)
 
-                                game_state.make_move(move, player_one, player_two, is_en_passant_button_active)
-                                game_log.append(move.get_chess_notation())
-                                move_made = True
-                                update_player_points(screen)
-                                display_game_log(screen)
+                                    game_state.make_move(move, player_one, player_two, is_en_passant_button_active)
+                                    game_log.append(move.get_chess_notation())
+                                    move_made = True
+                                    update_player_points(screen)
+                                    display_game_log(screen)
 
-                            # resets user input clicks
-                            highlighted_tile = False
-                            tile_selected = () 
-                            player_clicks = []          
-                        else: # if a tile has been selected indicating a starting location for a possible move
-                            highlighted_tile = True
+                                # resets user input clicks
+                                highlighted_tile = False
+                                tile_selected = () 
+                                player_clicks = []          
+                            else: # if a tile has been selected indicating a starting location for a possible move
+                                highlighted_tile = True
 
-                            # tile location data
-                            left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
-                            right_x_loc = left_x_loc + TILE_SIZE - 2
-                            top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
-                            bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
+                                # tile location data
+                                left_x_loc = (col * TILE_SIZE) + game_board_starting_x_coordinate
+                                right_x_loc = left_x_loc + TILE_SIZE - 2
+                                top_y_loc = (row * TILE_SIZE) + game_board_starting_y_coordinate
+                                bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + heading_button_height)): # else if theme 1 is selected
                     chess_set = 1
@@ -357,6 +360,8 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
+                    player_one.player_out_of_time = False
+                    player_two.player_out_of_time = False
                     # TODO terminate game clock threads
 
 
@@ -369,6 +374,8 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
+                    player_one.player_out_of_time = False
+                    player_two.player_out_of_time = False
                     # TODO terminate game clock threads
 
 
@@ -381,6 +388,8 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     highlighted_tile = False
                     player_one = Player.Player(1)
                     player_two = Player.Player(2)
+                    player_one.player_out_of_time = False
+                    player_two.player_out_of_time = False
                     # TODO terminate game clock threads
 
                     
@@ -411,31 +420,49 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                         pause_play_clicked(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top left game clock option
+                        time_restricted = False
+                        player_one.player_out_of_time = False
+                        player_two.player_out_of_time = False
                         player_one.change_timer(30,30)
                         player_two.change_timer(30,30)
                         reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 3.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 4.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top middle game clock option
+                        time_restricted = False
+                        player_one.player_out_of_time = False
+                        player_two.player_out_of_time = False
                         player_one.change_timer(30,0)
                         player_two.change_timer(30,0)
                         reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 5.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 6.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top right game clock option
+                        time_restricted = False
+                        player_one.player_out_of_time = False
+                        player_two.player_out_of_time = False
                         player_one.change_timer(20,30)
                         player_two.change_timer(20,30)
                         reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom left game clock option
+                        time_restricted = False
+                        player_one.player_out_of_time = False
+                        player_two.player_out_of_time = False
                         player_one.change_timer(20,0)
                         player_two.change_timer(20,0)
                         reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 3.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 4.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom middle game clock option
+                        time_restricted = False
+                        player_one.player_out_of_time = False
+                        player_two.player_out_of_time = False
                         player_one.change_timer(10,30)
                         player_two.change_timer(10,30)
                         reset_timer_display(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 5.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 6.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 13) + (GAP / 4) * 3)): # else if bottom right game clock option
+                        time_restricted = False
+                        player_one.player_out_of_time = False
+                        player_two.player_out_of_time = False
                         player_one.change_timer(5,15)
                         player_two.change_timer(5,15)
                         reset_timer_display(screen)
@@ -481,9 +508,14 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
 
             display_game_log(screen)            
             update_current_player_symbol(screen)
-            check_handling(screen)
             move_made = False
 
+        if (player_one.player_out_of_time or player_two.player_out_of_time) and timer_running: # if player lost due to game clock running out
+            time_restricted = True
+        else: # else if no restriction of the game clock; player have time or game clock is disabled
+            time_restricted = False
+
+        check_handling(screen, player_one, player_two)
         draw_game_state(screen, game_state) 
         update_player_game_time(screen)
         clock.tick(MAX_FPS)
@@ -511,11 +543,13 @@ def open_new_window():
     global display_stalemate
     global valid_moves
     global timer_running
+    global time_restricted
     display_check = False
     display_checkmate = False
     display_stalemate = False
     valid_moves = []
     timer_running = False
+    time_restricted = False
     
     # * create game clock threads
     player_one_game_clock = threading.Thread(target = player_one.game_clock_running_management)
@@ -531,7 +565,7 @@ def open_new_window():
 '''
 handle checkmate and stalemate
 '''
-def check_handling(screen):
+def check_handling(screen, player_one, player_two):
     # * font settings
     game_over_display_font = pygame.font.SysFont('monospace', 12, bold=True)
 
@@ -541,18 +575,20 @@ def check_handling(screen):
     game_over_content = ""
     if display_checkmate: # if player 1 in checkmate
         if player_one.player_lost: # if player one in checkmate; player two wins
-            game_over_content = "White is in Checkmate! Black Wins!"
+            game_over_content = "Checkmate! Black Wins!"
         else: # else player two in checkmate; player one wins
-            game_over_content = "Black is in Checkmate! White Wins!"
+            game_over_content = "Checkmate! White Wins!"
     elif display_stalemate: # else if stalemate
         game_over_content = "Stalemate! The game is a tie!"
     elif display_check: # else if check
-        if player_one.current_player: # if player one in checkmate; player two wins
-            game_over_content = "White is in Check!"
-        else: # else player two in checkmate; player one wins
-            game_over_content = "Black is in Check!"
+        game_over_content = "Check!"
+    elif time_restricted: # if a player ran out of time on the game clock
+        if player_one.player_out_of_time: # if player one ran out of time
+            game_over_content = "White is out of time! Black wins!"
+        elif player_two.player_out_of_time: # player two ran out of time
+            game_over_content = "Black is out of time! White wins!"
 
-    if display_checkmate or display_stalemate or display_check:
+    if display_checkmate or display_stalemate or display_check or time_restricted:
         game_over_display = game_over_display_font.render(game_over_content, True, font_color)
         game_over_display_rect = game_over_display.get_rect(center=(heading_starting_x_coordinate + (heading_width / 2), game_board_starting_y_coordinate - (GAP / 2)))
         screen.blit(game_over_display, game_over_display_rect)
