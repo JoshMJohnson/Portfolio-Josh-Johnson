@@ -442,11 +442,12 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
             elif e.type == pygame.KEYDOWN: # if a key is pressed on the keyboard
                 if e.key == pygame.K_u: # undo move and update game log
                     if len(game_log) != 0:
-                        # take away bonus seconds on undo move
-                        if player_one.current_player: # if current player was player one when undo was hit; take away bonus time from player two 
-                            player_two.remove_bonus_seconds()
-                        else: # else current player was player one when undo was hit; take away bonus time from player two 
-                            player_one.remove_bonus_seconds()
+                        if timer_running:
+                            # take away bonus seconds on undo move
+                            if player_one.current_player: # if current player was player one when undo was hit; take away bonus time from player two 
+                                player_two.remove_bonus_seconds()
+                            else: # else current player was player one when undo was hit; take away bonus time from player two 
+                                player_one.remove_bonus_seconds()
 
                         game_state.undo_move(player_one, player_two)
                         game_log.pop()  
