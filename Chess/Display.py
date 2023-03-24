@@ -403,13 +403,11 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 15) + (GAP / 2)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 17) + (GAP / 2))): # if presses pause/play button
                         if timer_running: # if pause button is displayed
                             timer_running = False
-                            player_one.toggle_timer()
-                            player_two.toggle_timer()
                         else: # else play button is displayed
                             timer_running = True
-                            player_one.toggle_timer()
-                            player_two.toggle_timer()
-
+                            
+                        player_one.toggle_timer()
+                        player_two.toggle_timer()
                         pause_play_clicked(screen)
                     elif ((location[0] >= log_frame_starting_x_coordinate + (log_frame_width / 8) * 1.3) and (location[0] <= log_frame_starting_x_coordinate + (log_frame_width / 8) * 2.6)
                             and (location[1] >= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 8)) and (location[1] <= log_frame_starting_y_coordinate + (GAP * 12) + (GAP / 4) * 3)): # else if top left game clock option
