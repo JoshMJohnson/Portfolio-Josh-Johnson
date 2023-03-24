@@ -41,7 +41,7 @@
     - [x] Provide premade options for game timers
     - [x] Ability to pause game timers; default = paused
     - [x] Change background color of button to indicate enabled
-    - [ ] Ability to add 30 seconds to the game clock button
+    - [ ] Ability keep playing if player ran out of time by pausing the timer
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
 - [ ] Create a stalemate rule for when a king is the only remaining piece
     - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
