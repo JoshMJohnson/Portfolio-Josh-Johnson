@@ -600,19 +600,24 @@ def check_handling(screen, player_one, player_two):
     # remove checkmate/stalemate display between header and game board
     pygame.draw.rect(screen, background_color, pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate + heading_height, heading_width, GAP)) # clear winner display
     game_over_content = ""
-    if display_checkmate: # if player 1 in checkmate # ! on checkmate and stalemate game clock gets messed up on undo
-        timer_running = False
-        update_player_game_time(screen)
-        pause_play_clicked(screen)
+    if display_checkmate: # if player 1 in checkmate
         if player_one.player_lost: # if player one in checkmate; player two wins
             game_over_content = "Checkmate! Black Wins!"
         else: # else player two in checkmate; player one wins
             game_over_content = "Checkmate! White Wins!"
-    elif display_stalemate: # else if stalemate # ! on checkmate and stalemate game clock gets messed up on undo
-        timer_running = False
+
         update_player_game_time(screen)
         pause_play_clicked(screen)
+        player_one.timer_running = False
+        player_two.timer_running = False
+        timer_running = False
+    elif display_stalemate: # else if stalemate 
         game_over_content = "Stalemate! The game is a tie!"
+        update_player_game_time(screen)
+        pause_play_clicked(screen)
+        player_one.timer_running = False
+        player_two.timer_running = False
+        timer_running = False        
     elif display_check: # else if check
         game_over_content = "Check!"
     elif time_restricted: # if a player ran out of time on the game clock
@@ -686,24 +691,25 @@ def update_player_game_time(screen):
     heading_font = pygame.font.SysFont('monospace', 12, italic=True)
     
     if timer_running: # if the timer is running
-        if player_one.current_player: # if whites players move
-            # turns old player time value invisible
-            player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
-            player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
-            screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
+        # * player one
+        # turns old player time value invisible
+        player_points_taken1_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+        player_points_taken1_value_label_rect = player_points_taken1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))
+        screen.blit(player_points_taken1_value_label, player_points_taken1_value_label_rect)
 
-            # writes new player time
-            player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
-            player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
-            screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
-        else: # else black players move
-            # turns old player time value invisible
-            player_points_taken2_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
-            screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))
+        # writes new player time
+        player_time_remaining1_value_label = heading_font.render(str(player_one.time_remaining), True, font_color)
+        player_time_remaining1_value_label_rect = player_time_remaining1_value_label.get_rect(topright=(heading_starting_x_coordinate + (heading_width / 2) - GAP, heading_starting_y_coordinate + (GAP * 4)))   
+        screen.blit(player_time_remaining1_value_label, player_time_remaining1_value_label_rect)  
 
-            # writes new player time
-            player_time_remaining2_value_label = heading_font.render(str(player_two.time_remaining), True, font_color)
-            screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))  
+        # * player two
+        # turns old player time value invisible
+        player_points_taken2_value_label = heading_font.render('99:99', True, heading_background_color, heading_background_color)
+        screen.blit(player_points_taken2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))
+
+        # writes new player time
+        player_time_remaining2_value_label = heading_font.render(str(player_two.time_remaining), True, font_color)
+        screen.blit(player_time_remaining2_value_label, (heading_starting_x_coordinate + (heading_width / 2) + GAP, heading_starting_y_coordinate + (GAP * 4)))  
 
 '''
 current player symbol change
@@ -1333,6 +1339,9 @@ def pause_play_clicked(screen):
         set_folder = "Set3"
     
     if timer_running and game_clock_button_active: # if timer is running; display pause button
+        player_one.timer_running = True
+        player_two.timer_running = True
+        
         if not is_script: # used for running Display.py directly from VS
             base_path = os.path.dirname(__file__) # finds absolute path for the project
             image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "pause.png")
@@ -1345,6 +1354,9 @@ def pause_play_clicked(screen):
             pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
             screen.blit(pause_play_button, pause_play_button_rect)
     elif not timer_running and game_clock_button_active: # else timer is paused; display play button
+        player_one.timer_running = False
+        player_two.timer_running = False
+
         if not is_script: # used for running Display.py directly from VS
             base_path = os.path.dirname(__file__) # finds absolute path for the project
             image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "play.png")
