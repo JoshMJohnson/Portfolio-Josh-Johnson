@@ -24,7 +24,7 @@
     3.) Run the executable file named Chess.exe
 
     4.) Have fun playing Chess!
-&nbsp;<a href="https://drive.google.com/file/d/1wSiQ92ElvD-ROAYk44QLolnZ_bJKa0yu/view?usp=drive_web">Play Chess!</a>
+&nbsp;<a href="https://drive.google.com/file/d/1GEfjbaUWaAk0ZjE2bBpca2Z0QWyn6WnW/view?usp=drive_web">Play Chess!</a>
 
 ---
 <h2 align='center'>:point_up: Program Additions Since Executable Created :point_up:</h2>
@@ -34,14 +34,6 @@
 
 <br>
 
-- [x] Display which player won the game in checkmate and show tie when stalemate
-- [x] Clickable button for game clock settings
-    - [x] Each player has their own game clock for time remaining on their turns
-    - [x] Explain the time constrains on a player and time given per move
-    - [x] Provide premade options for game timers
-    - [x] Ability to pause game timers; default = paused
-    - [x] Change background color of button to indicate enabled
-    - [x] Ability keep playing if player ran out of time by pausing the timer
 - [ ] Pawns transform to desired piece by clicking on an image of available pieces in a pop-up display instead of always being a queen
 - [ ] Create a stalemate rule for when a king is the only remaining piece
     - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
