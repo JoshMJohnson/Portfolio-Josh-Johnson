@@ -27,16 +27,6 @@
 &nbsp;<a href="https://drive.google.com/file/d/1GEfjbaUWaAk0ZjE2bBpca2Z0QWyn6WnW/view?usp=drive_web">Play Chess!</a>
 
 ---
-<h2 align='center'>:point_up: Program Additions Since Executable Created :point_up:</h2>
-
-- [ ] not implemented 
-- [x] implemented
-
-<br>
-
-- [ ] Create a stalemate rule for when a king is the only remaining piece
-    - [ ] Create a displayed countdown for moves until stalemate on gui when king is only piece left; all ally pieces have been caputured
----
 <h2 align='center'>:camera: Project Images :camera:</h2>
 <div align='center'>
 
