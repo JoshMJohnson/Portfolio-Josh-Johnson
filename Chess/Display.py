@@ -590,7 +590,7 @@ def open_new_window():
 '''
 handle checkmate and stalemate
 '''
-def check_handling(screen, player_one, player_two): # ! if checkmate then timers turn to disabled
+def check_handling(screen, player_one, player_two):
     global timer_running
 
     # * font settings
@@ -600,7 +600,7 @@ def check_handling(screen, player_one, player_two): # ! if checkmate then timers
     # remove checkmate/stalemate display between header and game board
     pygame.draw.rect(screen, background_color, pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate + heading_height, heading_width, GAP)) # clear winner display
     game_over_content = ""
-    if display_checkmate: # if player 1 in checkmate
+    if display_checkmate: # if player 1 in checkmate # ! on checkmate and stalemate game clock gets messed up on undo
         timer_running = False
         update_player_game_time(screen)
         pause_play_clicked(screen)
@@ -608,7 +608,7 @@ def check_handling(screen, player_one, player_two): # ! if checkmate then timers
             game_over_content = "Checkmate! Black Wins!"
         else: # else player two in checkmate; player one wins
             game_over_content = "Checkmate! White Wins!"
-    elif display_stalemate: # else if stalemate
+    elif display_stalemate: # else if stalemate # ! on checkmate and stalemate game clock gets messed up on undo
         timer_running = False
         update_player_game_time(screen)
         pause_play_clicked(screen)
