@@ -376,7 +376,6 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     player_one.player_out_of_time = False
                     player_two.player_out_of_time = False
                     
-
                     pygame.quit() # close current window
                     open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
@@ -591,7 +590,9 @@ def open_new_window():
 '''
 handle checkmate and stalemate
 '''
-def check_handling(screen, player_one, player_two):
+def check_handling(screen, player_one, player_two): # ! if checkmate then timers turn to disabled
+    global timer_running
+
     # * font settings
     game_over_display_font = pygame.font.SysFont('monospace', 12, bold=True)
 
@@ -600,11 +601,17 @@ def check_handling(screen, player_one, player_two):
     pygame.draw.rect(screen, background_color, pygame.Rect(heading_starting_x_coordinate, heading_starting_y_coordinate + heading_height, heading_width, GAP)) # clear winner display
     game_over_content = ""
     if display_checkmate: # if player 1 in checkmate
+        timer_running = False
+        update_player_game_time(screen)
+        pause_play_clicked(screen)
         if player_one.player_lost: # if player one in checkmate; player two wins
             game_over_content = "Checkmate! Black Wins!"
         else: # else player two in checkmate; player one wins
             game_over_content = "Checkmate! White Wins!"
     elif display_stalemate: # else if stalemate
+        timer_running = False
+        update_player_game_time(screen)
+        pause_play_clicked(screen)
         game_over_content = "Stalemate! The game is a tie!"
     elif display_check: # else if check
         game_over_content = "Check!"
@@ -1307,7 +1314,7 @@ def game_clock_menu_display(screen):
     screen.blit(game_clock_subtitle_label, game_clock_title_label_rect)
 
     # subtitle
-    game_clock_subtitle_label = game_clock_subtitle_font.render("Enable/Disable Timers", True, font_color)
+    game_clock_subtitle_label = game_clock_subtitle_font.render("Enable/Disable Clocks", True, font_color)
     screen.blit(game_clock_subtitle_label, (log_frame_starting_x_coordinate + 5, log_frame_starting_y_coordinate + (GAP * 14) + (GAP / 2)))
     pause_play_clicked(screen)
 
