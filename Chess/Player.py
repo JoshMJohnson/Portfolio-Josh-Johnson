@@ -83,7 +83,7 @@ class Player:
     manages the game clock timers for each player
     '''
     def game_clock_running_management(self):
-        while True: # run continuously
+        while not self.is_window_closed: # run continuously
             time.sleep(0.5) # prevent over processing
             while self.current_player and self.timer_running: # if current player and timer unpaused
                 if self.total_seconds_remaining > 0: # if player is not out of time

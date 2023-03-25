@@ -298,10 +298,14 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
     # * actions to perform for an active game
     while running:
         for e in pygame.event.get(): # handles triggered events by user
-            if e.type == pygame.QUIT: # quit application 
-                # TODO terminate game clock threads
-
-
+            if e.type == pygame.QUIT: # quit application
+                # terminate game clock threads
+                player_one.is_window_closed = True
+                player_two.is_window_closed = True
+                player_one.timer_running = False
+                player_two.timer_running = False
+                player_one_game_clock.join() 
+                player_two_game_clock.join()
 
                 running = False
                 pygame.quit()
@@ -355,6 +359,15 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                                 bottom_y_loc = top_y_loc + TILE_SIZE - 2                                       
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 2)) and (location[1] <= heading_starting_y_coordinate + (GAP * 2) + heading_button_height)): # else if theme 1 is selected
+                    # terminate game clock threads
+                    player_one.is_window_closed = True
+                    player_two.is_window_closed = True
+                    player_one.timer_running = False
+                    player_two.timer_running = False
+                    player_one_game_clock.join() 
+                    player_two_game_clock.join()
+                    
+                    # reset player settings to default
                     chess_set = 1
                     game_log = []
                     highlighted_tile = False
@@ -362,13 +375,21 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     player_two = Player.Player(2)
                     player_one.player_out_of_time = False
                     player_two.player_out_of_time = False
-                    # TODO terminate game clock threads
-
+                    
 
                     pygame.quit() # close current window
                     open_new_window()
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 3)) and (location[1] <= heading_starting_y_coordinate + (GAP * 3) + heading_button_height)): # else if theme 2 is selected
+                    # terminate game clock threads
+                    player_one.is_window_closed = True
+                    player_two.is_window_closed = True
+                    player_one.timer_running = False
+                    player_two.timer_running = False
+                    player_one_game_clock.join() 
+                    player_two_game_clock.join()
+
+                    # reset player settings to default
                     chess_set = 2
                     game_log = []
                     highlighted_tile = False
@@ -376,13 +397,20 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     player_two = Player.Player(2)
                     player_one.player_out_of_time = False
                     player_two.player_out_of_time = False
-                    # TODO terminate game clock threads
-
 
                     pygame.quit() # close current window
                     open_new_window()                    
                 elif ((location[0] >= (heading_width / 2) - (heading_button_width / 2) + GAP) and (location[0] <= (heading_width / 2) + (heading_button_width / 2) + heading_button_width + GAP) 
                         and (location[1] >= heading_starting_y_coordinate + (GAP * 4)) and (location[1] <= heading_starting_y_coordinate + (GAP * 4) + heading_button_height)): # else if theme 3 is selected
+                    # terminate game clock threads
+                    player_one.is_window_closed = True
+                    player_two.is_window_closed = True
+                    player_one.timer_running = False
+                    player_two.timer_running = False
+                    player_one_game_clock.join() 
+                    player_two_game_clock.join()
+
+                    # reset player settings to default
                     chess_set = 3
                     game_log = []
                     highlighted_tile = False
@@ -390,9 +418,7 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                     player_two = Player.Player(2)
                     player_one.player_out_of_time = False
                     player_two.player_out_of_time = False
-                    # TODO terminate game clock threads
-
-                    
+                                    
                     pygame.quit() # close current window
                     open_new_window()  
                 elif ((location[0] >= x_corner_first_button_loc) and (location[0] <= x_corner_first_button_loc + corner_button_dimensions)
