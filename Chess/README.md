@@ -47,8 +47,11 @@
 **Help Menu**<br>
 <img width="400" height="400" alt="Help Menu" src="Project_Images/Help_Menu.png">
 
-**Valid Menu**<br>
-<img width="400" height="400" alt="Valid Menu" src="Project_Images/Valid_Moves.png">
+**Valid Moves**<br>
+<img width="400" height="400" alt="Valid Moves" src="Project_Images/Valid_Moves.png">
+
+**Game Clock**<br>
+<img width="400" height="400" alt="Game Clock" src="Project_Images/Game_Clock.png">
 </div>
 
 <!-- footer section -->
