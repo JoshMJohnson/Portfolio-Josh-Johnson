@@ -528,6 +528,20 @@ def run_game(screen, clock, player_one_game_clock, player_two_game_clock):
                 display_stalemate = False
                 display_check = False
 
+            # if only kings left; stalemate
+            nonking_piece_found = False
+            for row in range(DIMENSION):
+                if display_stalemate or nonking_piece_found: # if already declared as stalemate
+                    break
+
+                for col in range(DIMENSION):
+                    if game_state.board[row][col] != "--" and "king" not in game_state.board[row][col]: # if something found on board besides the king
+                        nonking_piece_found = True
+                        break
+
+                    if row == DIMENSION - 1 and col == DIMENSION - 1: # if searched entire board and no other pieces other than kings were found; stalemate
+                        display_stalemate = True
+
             if valid_moves_button_active: # if valid moves button is active
                 valid_moves_menu_display(screen)
 
