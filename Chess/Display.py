@@ -1332,7 +1332,7 @@ def pause_play_clicked(screen):
     else: # else chess set 3
         set_folder = "Set3"
     
-    if timer_running: # if timer is running; display pause button
+    if timer_running and game_clock_button_active: # if timer is running; display pause button
         if not is_script: # used for running Display.py directly from VS
             base_path = os.path.dirname(__file__) # finds absolute path for the project
             image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "pause.png")
@@ -1344,7 +1344,7 @@ def pause_play_clicked(screen):
             pause_play_button = pygame.transform.scale(pygame.image.load(image_path), (corner_button_dimensions, corner_button_dimensions))
             pause_play_button_rect = pause_play_button.get_rect(center=(log_frame_starting_x_coordinate + (log_frame_width / 2), log_frame_starting_y_coordinate + (GAP * 16) + (GAP / 2)))
             screen.blit(pause_play_button, pause_play_button_rect)
-    else: # else timer is paused; display play button
+    elif not timer_running and game_clock_button_active: # else timer is paused; display play button
         if not is_script: # used for running Display.py directly from VS
             base_path = os.path.dirname(__file__) # finds absolute path for the project
             image_path = os.path.join(base_path, "Game_Images", set_folder, "Icon_Symbols", "play.png")
