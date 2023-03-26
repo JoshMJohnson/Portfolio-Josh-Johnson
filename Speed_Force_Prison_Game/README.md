@@ -11,9 +11,17 @@
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
-    1.) Run the executable file named Speed_Force_Prison_Game.exe to start the program
+    1.) On portfolio homepage, open the dropdown box called '<> Code'
 
-    2.) Godspeed!
+    2.) Within the dropdown box, click on Download ZIP
+
+    3.) Under downloads, unzip the folder downloaded
+
+    4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'Speed_Force_Prison_Game'
+
+    5.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
+
+    6.) Godspeed!
 
 &nbsp;**Option 2:** Exclusively download the Speed Force Prison project
 

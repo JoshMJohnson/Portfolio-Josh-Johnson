@@ -9,9 +9,17 @@
     
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
-    1.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
+    1.) On portfolio homepage, open the dropdown box called '<> Code'
 
-    2.) Have fun playing Chess!
+    2.) Within the dropdown box, click on Download ZIP
+
+    3.) Under downloads, unzip the folder downloaded
+
+    4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'Chess'
+
+    5.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
+
+    6.) Have fun playing Chess!
 
 &nbsp;**Option 2:** Exclusively download the Chess project
 
