@@ -23,15 +23,21 @@
 
 &nbsp;**Option 2:** Exclusively download the Tic-Tac-Toe project
 
-    1.) Click on the link provided below. 
-    This link will go to a Google Drive account and will then automatically download and unzip the zip folder called TicTacToe. 
-    This folder will contain all the data that the program needs
+    1.) Click on the link provided below
 
-    2.) Open the folder that was just created called TicTacToe
+    2.) Click 'Download' once the link has loaded up Google Drive
 
-    3.) Run the executable file named Tic-Tac-Toe.exe
+    3.) Run the application called 'TicTacToe' that was just downloaded
 
-    4.) Have fun playing Tic-Tac-Toe!
+    4.) Click on 'Install' when prompted
+
+    5.) Once completed, click on 'Close'
+
+    6.) Open the folder that was just created called TicTacToe
+
+    7.) Run the executable file named Tic-Tac-Toe.exe
+
+    8.) Have fun playing Tic-Tac-Toe!
 &nbsp;<a href="https://drive.google.com/file/d/1nb5TkntuTgk74Dntvu3WaWGPJ3-PL8i4/view?usp=drive_web">Play Tic-Tac-Toe!</a>
 
 ---

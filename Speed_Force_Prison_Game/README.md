@@ -25,15 +25,21 @@
 
 &nbsp;**Option 2:** Exclusively download the Speed Force Prison project
 
-    1.) Click on the link provided below. 
-    This link will go to a Google Drive account and will then automatically download and unzip the zip folder called Speed_Force_Prison_Game. 
-    This folder will contain all the data that the program needs
+    1.) Click on the link provided below
 
-    2.) Open the folder that was just created called Speed_Force_Prison_Game
+    2.) Click 'Download' once the link has loaded up Google Drive
 
-    3.) Run the executable file named Speed_Force_Prison_Game.exe
+    3.) Run the application called 'Speed_Force_Prison_Game' that was just downloaded
 
-    4.) Godspeed!
+    4.) Click on 'Install' when prompted
+
+    5.) Once completed, click on 'Close'
+
+    6.) Open the folder that was just created called Speed_Force_Prison_Game
+
+    7.) Run the executable file named Speed_Force_Prison_Game.exe
+
+    8.) Godspeed!
 &nbsp;<a href="https://drive.google.com/file/d/1Wx036bJ-y3XwRefkbZh30_fOGDkvd7Iy/view?usp=drive_web">Play the Speed Force Prison Game!</a>
 
 ---
