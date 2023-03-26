@@ -88,7 +88,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
-| TBD | TBD | TBD | TBD |
+| Workout Phone App | TBD | TBD | TBD |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
