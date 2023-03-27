@@ -23,7 +23,7 @@
 
     1.) Click on the link provided below
 
-    2.) Download Account_Manager.zip that was pulled up on Google Drive after clicking link
+    2.) Download Jokes_Project.zip that was pulled up on Google Drive after clicking link
 
     3.) Open the zip file that was just downloaded
 
