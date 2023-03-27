@@ -33,6 +33,8 @@
 
 &nbsp;<a href="https://drive.google.com/file/d/1j7yMjDVD1lZuNrEZI-7gKghA7E9bHbnL/view?usp=drive_web">Download Chess!</a>
 
+<hr>
+
 &nbsp;**Running The Program**
 
 &nbsp;*Currently works only on Windows OS - macOS version coming soon*
