@@ -9,38 +9,39 @@
 <!-- instruction section -->
 <h2 align='center'>:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Currently works only on Windows OS &ndash; macOS version coming soon**
-    
+&nbsp;**Downloading The Project Folder**
+
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
     1.) On portfolio homepage, open the dropdown box called '<> Code'
 
     2.) Within the dropdown box, click on Download ZIP
 
-    3.) Under downloads, unzip the folder downloaded by clicking 'Extract all'
+    3.) Open the zip file that was just downloaded
 
-    4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'Chess'
-
-    5.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
-
-    6.) Have fun playing Chess!
+    4.) Unzip the file downloaded by clicking 'Extract all'
 
 &nbsp;**Option 2:** Exclusively download the Chess project
 
     1.) Click on the link provided below
 
-    2.) Download Chess.zip that was pulled up on Google Drive after clicking link
+    2.) Download Account_Manager.zip that was pulled up on Google Drive after clicking link
 
     3.) Open the zip file that was just downloaded
 
-    4.) Unzip the folder that was downloaded by clicking 'Extract all'
+    4.) Unzip the file downloaded by clicking 'Extract all'
 
-    5.) Open folder called Chess that was just unzipped
+&nbsp;<a href="https://drive.google.com/file/d/1j7yMjDVD1lZuNrEZI-7gKghA7E9bHbnL/view?usp=drive_web">Download Chess!</a>
 
-    6.) Run the executable file named Chess.exe
+&nbsp;**Running The Program**
 
-    7.) Have fun playing Chess!
-&nbsp;<a href="https://drive.google.com/file/d/1j7yMjDVD1lZuNrEZI-7gKghA7E9bHbnL/view?usp=drive_web">Play Chess!</a>
+&nbsp;*Currently works only on Windows OS - macOS version coming soon*
+
+    1.) Open the folder called Chess
+
+    2.) Run the executable file named 'Chess.exe'
+
+    3.) Have fun playing Chess!
 
 ---
 <h2 align='center'>:camera: Project Images :camera:</h2>

@@ -15,9 +15,9 @@
 
     2.) Within the dropdown box, click on Download ZIP
 
-    3.) Under downloads, unzip the folder downloaded by clicking 'Extract all'
+    3.) Open the zip file that was just downloaded
 
-    4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'Account_Manager'
+    4.) Unzip the file downloaded by clicking 'Extract all'
 
 &nbsp;**Option 2:** Exclusively download the Chess project
 
@@ -27,9 +27,7 @@
 
     3.) Open the zip file that was just downloaded
 
-    4.) Unzip the folder that was downloaded by clicking 'Extract all'
-
-    5.) Open folder called Account_Manager that was just unzipped
+    4.) Unzip the file downloaded by clicking 'Extract all'
 
 &nbsp;<a href="https://drive.google.com/file/d/1OuLaSrKU5NHVH5S5YiewJQU9sD52HNYz/view?usp=drive_web">Download Account Manager Project</a>
 

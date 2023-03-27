@@ -7,9 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Currently works only on Windows OS &ndash; macOS version coming soon**
-
-&nbsp;**Requires Java 1.4.0 or newer**
+&nbsp;**Downloading The Project Folder**
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
@@ -17,30 +15,33 @@
 
     2.) Within the dropdown box, click on Download ZIP
 
-    3.) Under downloads, unzip the folder downloaded by clicking 'Extract all'
+    3.) Open the zip file that was just downloaded
 
-    4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'Speed_Force_Prison_Game'
+    4.) Unzip the file downloaded by clicking 'Extract all'
 
-    5.) Run the executable file named Chess.exe to open the GUI (Graphical User Interface) for the program
-
-    6.) Godspeed!
-
-&nbsp;**Option 2:** Exclusively download the Speed Force Prison project
+&nbsp;**Option 2:** Exclusively download the Chess project
 
     1.) Click on the link provided below
 
-    2.) Download Speed_Force_Prison_Game.zip that was pulled up on Google Drive after clicking link
+    2.) Download Account_Manager.zip that was pulled up on Google Drive after clicking link
 
     3.) Open the zip file that was just downloaded
 
-    4.) Unzip the folder that was downloaded by clicking 'Extract all'
+    4.) Unzip the file downloaded by clicking 'Extract all'
 
-    5.) Open folder called Speed_Force_Prison_Game that was just unzipped
+&nbsp;<a href="https://drive.google.com/file/d/1kbQCYmxRo_8PfmQfiekZmTRSlHn4O1ns/view?usp=drive_web">Download The Speed Force Prison Game!</a>
 
-    6.) Run the executable file named Speed_Force_Prison_Game.exe
+&nbsp;**Running The Program**
 
-    7.) Godspeed!
-&nbsp;<a href="https://drive.google.com/file/d/1kbQCYmxRo_8PfmQfiekZmTRSlHn4O1ns/view?usp=drive_web">Play the Speed Force Prison Game!</a>
+&nbsp;*Currently works only on Windows OS - macOS version coming soon*
+
+&nbsp;**Requires Java 1.4.0 or newer**
+
+    1.) Open the folder called Speed_Force_Prison_Game
+
+    2.) Run the executable file named 'Speed_Force_Prison_Game.exe'
+
+    3.) Godspeed!
 
 ---
 <!-- project progression images section -->
