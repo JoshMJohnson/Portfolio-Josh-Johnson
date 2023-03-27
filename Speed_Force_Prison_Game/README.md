@@ -7,7 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Downloading The Project Folder**
+<h3>Downloading The Project Folder</h3>
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
@@ -31,7 +31,7 @@
 
 &nbsp;<a href="https://drive.google.com/file/d/1kbQCYmxRo_8PfmQfiekZmTRSlHn4O1ns/view?usp=drive_web">Download The Speed Force Prison Game!</a>
 
-&nbsp;**Running The Program**
+<h3>Running The Program</h3>
 
 &nbsp;*Currently works only on Windows OS - macOS version coming soon*
 

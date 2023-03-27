@@ -7,7 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Downloading The Project Folder**
+<h3>Downloading The Project Folder</h3>
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
@@ -31,7 +31,7 @@
 
 <a href="https://drive.google.com/file/d/1_4UapGtmXYTD7kTH-wyz8KZM83A4IrM4/view?usp=drive_web">Download Jokes Project</a>
 
-&nbsp;**Running The Program**
+</h3>Running The Program</h3>
 
 &nbsp;*Requires NodeJS*
 

@@ -7,7 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Downloading The Project Folder**
+<h3>Downloading The Project Folder</h3>
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
@@ -31,7 +31,7 @@
 
 <a href="https://drive.google.com/file/d/16hXSLftC0Glup5kM5gTEMibvyPDj5bYr/view?usp=drive_web">Download Ultimate Frisbee Wiki</a>
 
-&nbsp;**Running The Program**
+<h3>Running The Program</h3>
 
     1.) Open the folder called Ultimate_Frisbee_Wiki that was downloaded
 
