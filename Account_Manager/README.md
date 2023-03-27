@@ -7,23 +7,43 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
-&nbsp;**Requires NodeJS**
+&nbsp;**Downloading The Project Folder**
 
-    1a.) Click link below to download project folder exclusively from Google Drive
+&nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
-    or
+    1.) On portfolio homepage, open the dropdown box called '<> Code'
 
-    1b.) Download project folder inclusively with all portfolio content from home page
+    2.) Within the dropdown box, click on Download ZIP
 
-    2.) Open command line and traverse to the Account_Manager folder that was downloaded
+    3.) Under downloads, unzip the folder downloaded by clicking 'Extract all'
 
-    3.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
+    4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'Account_Manager'
 
-    4.) Open web browser and go to localhost:4000 (port 4000 is chosen within the app.js file and is possible to change port address if desired)
-    
-    5.) Operate at that address the same as one would at a website on the browser
+&nbsp;**Option 2:** Exclusively download the Chess project
+
+    1.) Click on the link provided below
+
+    2.) Download Account_Manager.zip that was pulled up on Google Drive after clicking link
+
+    3.) Open the zip file that was just downloaded
+
+    4.) Unzip the folder that was downloaded by clicking 'Extract all'
+
+    5.) Open folder called Account_Manager that was just unzipped
 
 &nbsp;<a href="https://drive.google.com/file/d/1OuLaSrKU5NHVH5S5YiewJQU9sD52HNYz/view?usp=drive_web">Download Account Manager Project</a>
+
+&nbsp;**Running The Program**
+
+&nbsp;**Requires NodeJS**
+
+    1.) Open command line and traverse to the Account_Manager folder that was downloaded
+
+    2.) Run node js by using the command 'node app.js' within the Account_Manager folder in the terminal
+
+    3.) Open web browser and go to localhost:4000 (port 4000 is chosen within the app.js file and is possible to change port address if desired)
+    
+    4.) Operate at that address the same as one would at a website on the browser
 
 ---
 <!-- project images section -->
