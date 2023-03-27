@@ -7,6 +7,8 @@
 <!-- instruction section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
+&nbsp;**Currently works only on Windows OS &ndash; macOS version coming soon**
+
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
     1.) On portfolio homepage, open the dropdown box called '<> Code'
@@ -25,19 +27,17 @@
 
     1.) Click on the link provided below
 
-    2.) Click 'Download' once the link has loaded up Google Drive
+    2.) Download TicTacToe.zip that was pulled up on Google Drive after clicking link
 
-    3.) Run the application called 'TicTacToe' that was just downloaded
+    3.) Open the zip file that was just downloaded
 
-    4.) Click on 'Install' when prompted
+    4.) Unzip the folder that was downloaded by clicking 'Extract all'
 
-    5.) Once completed, click on 'Close'
+    5.) Open folder called TicTacToe that was just unzipped
 
-    6.) Open the folder that was just created called TicTacToe
+    6.) Run the executable file named Tic-Tac-Toe.exe
 
-    7.) Run the executable file named Tic-Tac-Toe.exe
-
-    8.) Have fun playing Tic-Tac-Toe!
+    7.) Have fun playing Tic-Tac-Toe!
 &nbsp;<a href="https://drive.google.com/file/d/13BHfu7moCNxJz-mioZKluF6qIVDdM476/view?usp=drive_web">Play Tic-Tac-Toe!</a>
 
 ---

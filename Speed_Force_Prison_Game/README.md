@@ -7,6 +7,7 @@
 <!-- instructions section -->
 <h2 align="center">:scroll: Instructions of how to run program :scroll:</h2>
 
+&nbsp;**Currently works only on Windows OS &ndash; macOS version coming soon**
 &nbsp;**Requires Java 1.4.0 or newer**
 
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
@@ -27,19 +28,17 @@
 
     1.) Click on the link provided below
 
-    2.) Click 'Download' once the link has loaded up Google Drive
+    2.) Download Speed_Force_Prison_Game.zip that was pulled up on Google Drive after clicking link
 
-    3.) Run the application called 'Speed_Force_Prison_Game' that was just downloaded
+    3.) Open the zip file that was just downloaded
 
-    4.) Click on 'Install' when prompted
+    4.) Unzip the folder that was downloaded by clicking 'Extract all'
 
-    5.) Once completed, click on 'Close'
+    5.) Open folder called Speed_Force_Prison_Game that was just unzipped
 
-    6.) Open the folder that was just created called Speed_Force_Prison_Game
+    6.) Run the executable file named Speed_Force_Prison_Game.exe
 
-    7.) Run the executable file named Speed_Force_Prison_Game.exe
-
-    8.) Godspeed!
+    7.) Godspeed!
 &nbsp;<a href="https://drive.google.com/file/d/1kbQCYmxRo_8PfmQfiekZmTRSlHn4O1ns/view?usp=drive_web">Play the Speed Force Prison Game!</a>
 
 ---

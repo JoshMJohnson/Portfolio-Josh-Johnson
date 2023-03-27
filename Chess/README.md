@@ -8,6 +8,8 @@
 ---
 <!-- instruction section -->
 <h2 align='center'>:scroll: Instructions of how to run program :scroll:</h2>
+
+&nbsp;**Currently works only on Windows OS &ndash; macOS version coming soon**
     
 &nbsp;**Option 1:** Inclusively download this project along with entire portfolio from home page
 
@@ -27,19 +29,17 @@
 
     1.) Click on the link provided below
 
-    2.) Click 'Download' once the link has loaded up Google Drive
+    2.) Download Chess.zip that was pulled up on Google Drive after clicking link
 
-    3.) Run the application called 'Chess' that was just downloaded
+    3.) Open the zip file that was just downloaded
 
-    4.) Click on 'Install' when prompted
+    4.) Unzip the folder that was downloaded by clicking 'Extract all'
 
-    5.) Once completed, click on 'Close'
+    5.) Open folder called Chess that was just unzipped
 
-    6.) Open the folder that was just created called Chess
+    6.) Run the executable file named Chess.exe
 
-    7.) Run the executable file named Chess.exe
-
-    8.) Have fun playing Chess!
+    7.) Have fun playing Chess!
 &nbsp;<a href="https://drive.google.com/file/d/1j7yMjDVD1lZuNrEZI-7gKghA7E9bHbnL/view?usp=drive_web">Play Chess!</a>
 
 ---
