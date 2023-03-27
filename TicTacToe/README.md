@@ -15,7 +15,7 @@
 
     2.) Within the dropdown box, click on Download ZIP
 
-    3.) Under downloads, unzip the folder downloaded
+    3.) Under downloads, unzip the folder downloaded by clicking 'Extract all'
 
     4.) Traverse through unzipped folder that was downloaded and open the folder of the project called 'TicTacToe'
 
