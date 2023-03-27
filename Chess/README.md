@@ -40,7 +40,7 @@
     7.) Run the executable file named Chess.exe
 
     8.) Have fun playing Chess!
-&nbsp;<a href="https://drive.google.com/file/d/1GEfjbaUWaAk0ZjE2bBpca2Z0QWyn6WnW/view?usp=drive_web">Play Chess!</a>
+&nbsp;<a href="https://drive.google.com/file/d/1j7yMjDVD1lZuNrEZI-7gKghA7E9bHbnL/view?usp=drive_web">Play Chess!</a>
 
 ---
 <h2 align='center'>:camera: Project Images :camera:</h2>

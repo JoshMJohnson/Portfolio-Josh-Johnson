@@ -38,7 +38,7 @@
     7.) Run the executable file named Tic-Tac-Toe.exe
 
     8.) Have fun playing Tic-Tac-Toe!
-&nbsp;<a href="https://drive.google.com/file/d/1nb5TkntuTgk74Dntvu3WaWGPJ3-PL8i4/view?usp=drive_web">Play Tic-Tac-Toe!</a>
+&nbsp;<a href="https://drive.google.com/file/d/13BHfu7moCNxJz-mioZKluF6qIVDdM476/view?usp=drive_web">Play Tic-Tac-Toe!</a>
 
 ---
 <h2 align="center">:camera: Project Images :camera:</h2>
