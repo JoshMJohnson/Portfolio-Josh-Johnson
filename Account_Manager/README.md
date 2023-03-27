@@ -35,7 +35,7 @@
 
 &nbsp;**Running The Program**
 
-&nbsp;__Requires NodeJS__
+&nbsp;*Requires NodeJS*
 
     1.) Open command line and traverse to the Account_Manager folder that was downloaded
 
