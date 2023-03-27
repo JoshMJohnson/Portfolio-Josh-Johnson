@@ -5,7 +5,6 @@
     accessing the list of available moves the current player can make.
 </p>
 
----
 <!-- instruction section -->
 <h2 align='center'>:scroll: Instructions of how to run program :scroll:</h2>
 
@@ -45,7 +44,6 @@
 
     3.) Have fun playing Chess!
 
----
 <h2 align='center'>:camera: Project Images :camera:</h2>
 <div align='center'>
 
