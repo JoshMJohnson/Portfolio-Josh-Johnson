@@ -88,7 +88,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
-| Workout Phone App | C# | .NET MAUI | Personalized workout app |
+| Workout Android App | C# | .NET MAUI | Personalized workout app |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
