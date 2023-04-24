@@ -88,7 +88,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
-| Workout Android App | C# | .NET MAUI | Personalized workout app |
+| Stock Tracker App | C# | .NET MAUI | App used to provide notifications big stock price changes within a watchlist created by the user. Available cross platform. |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
