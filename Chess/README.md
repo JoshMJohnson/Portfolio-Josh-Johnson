@@ -44,6 +44,8 @@
     3.) Have fun playing Chess!
 
 ---
+
+<!-- project images section-->
 <h2 align='center'>:camera: Project Images :camera:</h2>
 <div align='center'>
 
