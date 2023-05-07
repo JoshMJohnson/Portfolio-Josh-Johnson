@@ -49,11 +49,11 @@ Jump To:<br>
 
 </div>
 
+<h4 align='center'>Tablet</h4>
+
 <div align='center'>
     <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
 </div>
-
-<h4 align='center'>Tablet</h4>
 
 <div align='center'>
 
@@ -67,14 +67,14 @@ Jump To:<br>
 
 </div>
 
-<div align='center'>
-    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
-</div>
-
 ---
 
 <!-- windows -->
 <h3 align='center'>Windows OS</h3>
+
+<div align='center'>
+    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
+</div>
 
 <div align='center'>
 
@@ -88,7 +88,3 @@ Jump To:<br>
 </div>
 
 <br>
-
-<div align='center'>
-    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
-</div>
