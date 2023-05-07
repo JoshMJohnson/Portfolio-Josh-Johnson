@@ -23,10 +23,14 @@
 <!-- project images -->
 <h2 align='center'>:camera: Project Images :camera:</h2>
 
+<div align='center'>
+
 Jump To:<br>
 [Android - Pixel Phone](#pixel-phone)<br>
 [Android - Tablet](#tablet)<br>
 [Windows](#windows-os)<br>
+
+</div>
 
 <!-- android -->
 <h3 align='center'>Android OS</h3>
