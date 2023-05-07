@@ -28,35 +28,39 @@
 
 <h4 align='center'>Pixel Phone</h4>
 
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/splash_screen.png">
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/home_light.png">
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/home_dark.png">
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/empty_watchlist_light.png">
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/empty_watchlist_dark.png">
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/settings_light.png">
-<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/settings_dark.png">
+<div>
+
+<img width="270px" height="585px" alt="Pixel splash screen light" src="Project_Images/Android/Phone/splash_screen.png">
+<img width="270px" height="585px" alt="Pixel home light mode" src="Project_Images/Android/Phone/home_light.png">
+<img width="270px" height="585px" alt="Pixel home dark mode" src="Project_Images/Android/Phone/home_dark.png">
+<img width="270px" height="585px" alt="Pixel empty watchlist light mode" src="Project_Images/Android/Phone/empty_watchlist_light.png">
+<img width="270px" height="585px" alt="Pixel empty watchlist dark mode" src="Project_Images/Android/Phone/empty_watchlist_dark.png">
+<img width="270px" height="585px" alt="Pixel settings light mode" src="Project_Images/Android/Phone/settings_light.png">
+<img width="270px" height="585px" alt="Pixel settings dark mode" src="Project_Images/Android/Phone/settings_dark.png">
+
+</div>
 
 <h4 align='center'>Tablet</h4>
 
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/splash_screen.png">
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/home_light.png">
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/home_dark.png">
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/empty_watchlist_light.png">
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/empty_watchlist_dark.png">
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/settings_light.png">
-<img width="512px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/settings_dark.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/splash_screen.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/home_light.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/home_dark.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/empty_watchlist_light.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/empty_watchlist_dark.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/settings_light.png">
+<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/settings_dark.png">
 
 ---
 
 <!-- windows -->
 <h3 align='center'>Windows OS</h3>
 
-<img width="300px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Windows/home_light.png">
-<img width="300px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Windows/home_dark.png">
-<img width="300px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Windows/empty_watchlist_light.png">
-<img width="300px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Windows/empty_watchlist_dark.png">
-<img width="300px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Windows/settings_light.png">
-<img width="300px" height="300px" alt="Pixel Home Screen Light" src="Project_Images/Windows/settings_dark.png">
+<img width="300px" height="300px" alt="" src="Project_Images/Windows/home_light.png">
+<img width="300px" height="300px" alt="" src="Project_Images/Windows/home_dark.png">
+<img width="300px" height="300px" alt="" src="Project_Images/Windows/empty_watchlist_light.png">
+<img width="300px" height="300px" alt="" src="Project_Images/Windows/empty_watchlist_dark.png">
+<img width="300px" height="300px" alt="" src="Project_Images/Windows/settings_light.png">
+<img width="300px" height="300px" alt="" src="Project_Images/Windows/settings_dark.png">
 
 <br>
 
