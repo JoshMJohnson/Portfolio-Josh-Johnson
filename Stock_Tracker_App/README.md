@@ -23,6 +23,11 @@
 <!-- project images -->
 <h2 align='center'>:camera: Project Images :camera:</h2>
 
+Jump To:<br>
+[Android - Pixel Phone](#pixel-phone)<br>
+[Android - Tablet](#tablet)<br>
+[Windows](#windows-os)<br>
+
 <!-- android -->
 <h3 align='center'>Android OS</h3>
 
@@ -40,6 +45,10 @@
 
 </div>
 
+<div align='center'>
+    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
+</div>
+
 <h4 align='center'>Tablet</h4>
 
 <div align='center'>
@@ -52,6 +61,10 @@
 <img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Android/Tablet/settings_light.png">
 <img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Android/Tablet/settings_dark.png">
 
+</div>
+
+<div align='center'>
+    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
 </div>
 
 ---
