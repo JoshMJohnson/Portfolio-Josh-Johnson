@@ -26,55 +26,37 @@
 <!-- android -->
 <h3 align='center'>Android OS</h3>
 
-<div>
-<div>&emsp;&emsp;&emsp;&emsp;&ensp;Light Mode</div>
-<div align='right'>Dark Mode&emsp;&emsp;&emsp;&emsp;&ensp;</div>
-</div>
+<h4 align='center'>Pixel Phone</h4>
 
-<br>
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/splash_screen.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/home_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/home_dark.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/empty_watchlist_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/empty_watchlist_dark.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/settings_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Phone/settings_dark.png">
 
-<div>
-<img width="233px" height="350px" alt="Home Screen Light" src="Project_Images/Android/home_light.png">
-<img width="233px" height="350px" align='right' alt="Home Screen Dark" src="Project_Images/Android/home_dark.png">
-</div>
+<h4 align='center'>Tablet</h4>
 
-<div>
-<img width="233px" height="350px" alt="Settings Screen Light" src="Project_Images/Android/settings_light.png">
-<img width="233px" height="350px" align='right' alt="Settings Screen Dark" src="Project_Images/Android/settings_dark.png">
-</div>
-
-<br>
-
-<div align='center'>
-    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
-</div>
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/splash_screen.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/home_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/home_dark.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/empty_watchlist_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/empty_watchlist_dark.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/settings_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Android/Tablet/settings_dark.png">
 
 ---
 
 <!-- windows -->
 <h3 align='center'>Windows OS</h3>
 
-<div>
-<div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;Light Mode</div>
-<div align='right'>Dark Mode&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&ensp;</div>
-</div>
-
-<br>
-
-<div>
-<img width="300px" height="300px" alt="Home Screen Light" src="Project_Images/Windows/home_light.png">
-<img width="300px" height="300px" align='right' alt="Home Screen Dark" src="Project_Images/Windows/home_dark.png">
-</div>
-
-<div>
-<img width="300px" height="300px" alt="Settings Screen Light" src="Project_Images/Windows/settings_light.png">
-<img width="300px" height="300px" align='right' alt="Settings Screen Dark" src="Project_Images/Windows/settings_dark.png">
-</div>
-
-<div>
-<img width="300px" height="300px" alt="Watchlist Screen Light" src="Project_Images/Windows/watchlist_light.png">
-<img width="300px" height="300px" align='right' alt="Watchlist Screen Dark" src="Project_Images/Windows/watchlist_dark.png">
-</div>
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Windows/home_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Windows/home_dark.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Windows/empty_watchlist_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Windows/empty_watchlist_dark.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Windows/settings_light.png">
+<img width="270px" height="585px" alt="Pixel Home Screen Light" src="Project_Images/Windows/settings_dark.png">
 
 <br>
 
