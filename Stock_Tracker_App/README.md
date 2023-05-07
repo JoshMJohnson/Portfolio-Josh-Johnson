@@ -28,7 +28,7 @@
 
 <h4 align='center'>Pixel Phone</h4>
 
-<div>
+<div align='center'>
 
 <img width="270px" height="585px" alt="Pixel splash screen light" src="Project_Images/Android/Phone/splash_screen.png">
 <img width="270px" height="585px" alt="Pixel home light mode" src="Project_Images/Android/Phone/home_light.png">
@@ -42,13 +42,13 @@
 
 <h4 align='center'>Tablet</h4>
 
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/splash_screen.png">
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/home_light.png">
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/home_dark.png">
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/empty_watchlist_light.png">
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/empty_watchlist_dark.png">
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/settings_light.png">
-<img width="512px" height="300px" alt="" src="Project_Images/Android/Tablet/settings_dark.png">
+<img width="512px" height="300px" alt="Tablet splash screen" src="Project_Images/Android/Tablet/splash_screen.png">
+<img width="512px" height="300px" alt="Tablet home light mode" src="Project_Images/Android/Tablet/home_light.png">
+<img width="512px" height="300px" alt="Tablet home dark mode" src="Project_Images/Android/Tablet/home_dark.png">
+<img width="512px" height="300px" alt="Tablet empty watchlist light mode" src="Project_Images/Android/Tablet/empty_watchlist_light.png">
+<img width="512px" height="300px" alt="Tablet empty watchlist dark mode" src="Project_Images/Android/Tablet/empty_watchlist_dark.png">
+<img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Android/Tablet/settings_light.png">
+<img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Android/Tablet/settings_dark.png">
 
 ---
 
