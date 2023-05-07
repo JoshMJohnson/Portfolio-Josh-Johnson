@@ -27,8 +27,6 @@
 
 <img width="200px" height="200px" alt="App icon" src="Project_Images/stock_app_update_icon.png">
 
-<br>
-
 Jump To:<br>
 [Android - Pixel Phone](#pixel-phone)<br>
 [Android - Tablet](#tablet)<br>
