@@ -87,7 +87,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | [Stock Tracker App](/Stock_Tracker_App) | C# | <ul><li>.NET MAUI</li><li>Local Puch Notifications</li><li>Local Storage<ul><li>Database</li><li>Preferences</li></ul></li><li>Routing</li></ul> | App used to provide notifications on big stock price changes within a watchlist created by the user. Available cross platform |
 
 <sup>_Projects in development are currently being worked on_</sup>
