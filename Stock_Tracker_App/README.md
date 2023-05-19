@@ -47,6 +47,8 @@ Jump To:<br>
 <img width="270px" height="585px" alt="Pixel home dark mode" src="Project_Images/Phone/home_dark.png">
 <img width="270px" height="585px" alt="Pixel empty watchlist light mode" src="Project_Images/Phone/empty_watchlist_light.png">
 <img width="270px" height="585px" alt="Pixel empty watchlist dark mode" src="Project_Images/Phone/empty_watchlist_dark.png">
+<img width="270px" height="585px" alt="Pixel empty watchlist light mode" src="Project_Images/Phone/watchlist_light.png">
+<img width="270px" height="585px" alt="Pixel empty watchlist dark mode" src="Project_Images/Phone/watchlist_dark.png">
 <img width="270px" height="585px" alt="Pixel settings light mode" src="Project_Images/Phone/settings_light.png">
 <img width="270px" height="585px" alt="Pixel settings dark mode" src="Project_Images/Phone/settings_dark.png">
 
