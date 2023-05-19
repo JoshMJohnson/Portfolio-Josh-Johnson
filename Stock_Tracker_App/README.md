@@ -69,3 +69,7 @@ Jump To:<br>
 <img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Tablet/settings_dark.png">
 
 </div>
+
+<div align='center'>
+    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
+</div>
