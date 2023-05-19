@@ -1,6 +1,6 @@
 <h1 align='center'>:chart_with_upwards_trend: Stock Tracker! :chart_with_upwards_trend:</h1>
 <p align='center'>
-    App used to provide notifications on big stock price changes within a watchlist created by the user. Available cross platform
+    Android application used to provide local push notifications on big stock price changes within a watchlist created by the user.
 </p>
 
 ---
@@ -10,12 +10,12 @@
 
 <div align='center'>
 
-***Available on Android, Windows, macOS and IOS***
+***Available on Android***
 
 </div>
 
 <p align='center'>
-    Coming soon
+    Due to API GET Request restrictions, this app is for personal use and will not be available on the Google Play store, or available for download.
 </p>
 
 ---
