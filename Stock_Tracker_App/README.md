@@ -31,8 +31,7 @@
 
 Jump To:<br>
 [Android - Pixel Phone](#pixel-phone)<br>
-[Android - Tablet](#tablet)<br>
-[Windows](#windows-os)<br>
+[Android - Tablet](#tablet)
 
 </div>
 
@@ -70,25 +69,3 @@ Jump To:<br>
 <img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Android/Tablet/settings_dark.png">
 
 </div>
-
----
-
-<!-- windows -->
-<h3 align='center'>Windows OS</h3>
-
-<div align='center'>
-    <p>:arrow_up: <a href="#chart_with_upwards_trend-stock-tracker-chart_with_upwards_trend">Back to top</a> :arrow_up:</p>
-</div>
-
-<div align='center'>
-
-<img width="300px" height="300px" alt="Windows home light mode" src="Project_Images/Windows/home_light.png">
-<img width="300px" height="300px" alt="Windows home dark mode" src="Project_Images/Windows/home_dark.png">
-<img width="300px" height="300px" alt="Windows empty watchlist light mode" src="Project_Images/Windows/empty_watchlist_light.png">
-<img width="300px" height="300px" alt="Windows empty watchlist dark mode" src="Project_Images/Windows/empty_watchlist_dark.png">
-<img width="300px" height="300px" alt="Windows settings light mode" src="Project_Images/Windows/settings_light.png">
-<img width="300px" height="300px" alt="Windows settings dark mode" src="Project_Images/Windows/settings_dark.png">
-
-</div>
-
-<br>
