@@ -88,7 +88,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| ["Stock Tracker" Android App](/Stock_Tracker_App) | C# | <ul><li>.NET MAUI Framework</li><li>Local Push Notifications</li><li>Foreground Service</li><li>Local Storage<ul><li>Database</li><li>Preferences</li></ul></li><li>Routing</li><li>Timers</li><li>Twelve Data API</li><li>Buttons<ul><li>Radio</li><li>Slider</li><li>Picker</li><li>Time Picker</li></ul></li></ul> | App used to provide notifications on big stock price changes within a watchlist created by the user. Available on Android |
+| ["Stock Tracker" Android App](/Stock_Tracker_App) | C# | <ul><li>.NET MAUI Framework</li><li>Local Push Notifications</li><li>Foreground Service</li><li>Local Storage<ul><li>Database</li><li>Preferences</li></ul></li><li>Routing</li><li>Timers</li><li>Twelve Data API</li><li>Buttons<ul><li>Radio</li><li>Slider</li><li>Picker</li><li>Time Picker</li></ul></li></ul> | Android application that connects to the stock market and creates local push notifications. Notifications include a list of stocks that have changed by a certain percentage for that day. Percentage threshold, notification times, and watchlist stocks are picked by the user. |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
