@@ -10,8 +10,6 @@
 
 <div align='center'>
 
-***Available on Android***
-
 </div>
 
 <p align='center'>
