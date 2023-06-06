@@ -1,6 +1,6 @@
 <h1 align='center'>:chart_with_upwards_trend: Stock Tracker! :chart_with_upwards_trend:</h1>
 <p align='center'>
-    Android application used to provide local push notifications on big stock price changes within a watchlist created by the user.
+    Android application that connects to the stock market and creates local push notifications. Notifications include a list of stocks that have changed by a certain percentage for that day. Percentage threshold, notification times, and watchlist stocks are picked by the user.
 </p>
 
 ---
@@ -15,7 +15,7 @@
 </div>
 
 <p align='center'>
-    Due to API GET Request restrictions, this app is for personal use and will not be available on the Google Play store, or available for download.
+    Due to API GET Request restrictions from Twelve Data API, this app is for personal, and close friends&sol;family use and will not be available on the Google Play store, or available for download.
 </p>
 
 ---
