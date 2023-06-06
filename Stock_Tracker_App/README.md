@@ -15,7 +15,7 @@
 </div>
 
 <p align='center'>
-    Due to API GET Request restrictions from Twelve Data API, this app is for personal, and close friends&sol;family use and will not be available on the Google Play store, or available for download.
+    Due to API GET Request restrictions from Twelve Data API, this app is for close friends&sol;family and personal use and will not be available on the Google Play store, or available for download.
 </p>
 
 ---
