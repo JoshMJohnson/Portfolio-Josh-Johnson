@@ -23,7 +23,11 @@
 
 <div align='center'>
 
+***App Icon***
 <img width="200px" height="200px" alt="App icon" src="Project_Images/stock_app_icon.png">
+
+***Notification***
+<img width="200px" height="300px" alt="App icon" src="Project_Images/stock_tracker_notifications.png">
 
 <br>
 
