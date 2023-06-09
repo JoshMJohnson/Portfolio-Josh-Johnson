@@ -29,8 +29,6 @@
 ***Notification***<br>
 <img width="270px" height="585px" alt="App icon" src="Project_Images/stock_tracker_notifications.jpg">
 
-<br>
-
 Jump To:<br>
 [Android - Pixel Phone](#pixel-phone)<br>
 [Android - Tablet](#tablet)
