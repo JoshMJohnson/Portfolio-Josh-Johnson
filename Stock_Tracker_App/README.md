@@ -27,7 +27,7 @@
 <img width="200px" height="200px" alt="App icon" src="Project_Images/stock_app_icon.png">
 
 ***Notification***<br>
-<img width="200px" height="300px" alt="App icon" src="Project_Images/stock_tracker_notifications.png">
+<img width="200px" height="300px" alt="App icon" src="Project_Images/stock_tracker_notifications.jpg">
 
 <br>
 
