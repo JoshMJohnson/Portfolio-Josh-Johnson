@@ -23,10 +23,10 @@
 
 <div align='center'>
 
-***App Icon***
+***App Icon***<br>
 <img width="200px" height="200px" alt="App icon" src="Project_Images/stock_app_icon.png">
 
-***Notification***
+***Notification***<br>
 <img width="200px" height="300px" alt="App icon" src="Project_Images/stock_tracker_notifications.png">
 
 <br>
