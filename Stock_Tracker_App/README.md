@@ -67,6 +67,8 @@ Jump To:<br>
 <img width="512px" height="300px" alt="Tablet home dark mode" src="Project_Images/Tablet/home_dark.png">
 <img width="512px" height="300px" alt="Tablet empty watchlist light mode" src="Project_Images/Tablet/empty_watchlist_light.png">
 <img width="512px" height="300px" alt="Tablet empty watchlist dark mode" src="Project_Images/Tablet/empty_watchlist_dark.png">
+<img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Tablet/watchlist_light.png">
+<img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Tablet/watchlist_dark.png">
 <img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Tablet/settings_light.png">
 <img width="512px" height="300px" alt="Tablet settings light mode" src="Project_Images/Tablet/settings_dark.png">
 
