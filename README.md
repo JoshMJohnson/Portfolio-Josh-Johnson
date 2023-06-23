@@ -89,7 +89,7 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| "Workout Log" Android App | C# | <ul><li>.NET MAUI</li><li>Linear Graphs</li><li>Local Storage<ul><li>File System</li><li>Preferences</li><li>Database</li></ul></li><li>Navigation<ul><li>Tab</li><li>Flyout</li></ul></li></ul> | TBD |
+| "Workout Log" Android App | C# | <ul><li>.NET MAUI</li><li>Linear Graphs</li><li>Local Storage<ul><li>File System</li><li>Preferences</li><li>Database</li></ul></li><li>Navigation<ul><li>Tab</li><li>Flyout</li></ul></li></ul> | Keeps track of information related to working out such as body weight, personal records (PRs), goals, body progression, and a calendar |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
