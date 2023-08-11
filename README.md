@@ -90,7 +90,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| "Fitness Log" Android App | C# | <ul><li>.NET MAUI</li><li>Dotted Graphs</li><li>Local Storage<ul><li>File System</li><li>Preferences</li><li>Database</li></ul></li><li>Navigation<ul><li>Tab</li><li>Flyout</li></ul></li></ul> | Keeps track of information related to working out such as body weight, personal records, goals, body progression, and a calendar |
+| "Fitness Log" Android App | C# | <ul><li>.NET MAUI</li><li>Google AdMob</li><li>Dotted Graph</li><li>Local Storage<ul><li>File System</li><li>Preferences</li><li>Database</li></ul></li><li>Navigation<ul><li>Tab</li><li>Flyout</li></ul></li></ul> | Keeps track of information related to working out such as body weight, personal records, goals, body progression, and a calendar |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
