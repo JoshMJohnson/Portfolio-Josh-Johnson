@@ -90,7 +90,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
 | TBD | TBD | TBD | TBD |
 
 <sup>_Projects in development are currently being worked on_</sup>
