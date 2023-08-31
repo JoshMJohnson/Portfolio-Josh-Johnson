@@ -1,6 +1,6 @@
 <h1 align="center">:video_game: Speed Force Prison Game :video_game:</h1>
 <p align="center">
-    3&ndash;Dimensional game where the user moves around a closed map with the goal of collecting enough &ldquo;Blur&sol;s&rdquo; before time runs out.
+    3&ndash;Dimensional game where the user moves around a closed map with the goal of collecting enough &ldquo;Blur&apos;s&rdquo; before time runs out.
 </p>
 
 ---
