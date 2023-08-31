@@ -1,7 +1,7 @@
 <h1 align='center'>:chess_pawn: Chess :chess_pawn:</h1>
 <p align='center'>
     Custom made chess app that can be played on 3 different chess sets (themes). This chess app also contains additional features 
-    such as the ability to enable and disable game clocks as well as the en passant rule, keeping player scores, and 
+    such as the ability to enable and disable game clocks, as well as the en passant rule, keeping player scores, and 
     accessing the list of available moves the current player can make.
 </p>
 
