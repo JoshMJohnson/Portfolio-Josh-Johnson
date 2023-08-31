@@ -48,7 +48,7 @@
 <h2 align="center">:chart_with_upwards_trend: Game Progression :chart_with_upwards_trend:</h2>
 <div align="center">
 
-[Final State](#white_check_mark-final-state-white_check_mark)<br>
+[Jump to Final State](#white_check_mark-final-state-white_check_mark)<br>
 
 <img width="500" height="350" alt="Progression One" src="game_progression/1.png">
 
