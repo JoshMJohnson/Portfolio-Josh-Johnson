@@ -96,15 +96,15 @@
 <h2 align="center">:white_check_mark: Final State :white_check_mark:</h2>
 
 <div align="center">
-<img width="500" height="350" alt="Final State One" src="game_progression/14.png">
+<img width="500" height="350" alt="Final State One" src="game_progression/Final_State/14.png">
 
-<img width="500" height="350" alt="Final State Two" src="game_progression/16.png">
+<img width="500" height="350" alt="Final State Two" src="game_progression/Final_State/16.png">
 
-<img width="500" height="350" alt="Final State Three" src="game_progression/15.png">
+<img width="500" height="350" alt="Final State Three" src="game_progression/Final_State/15.png">
 
-<img width="500" height="350" alt="Final State Four" src="game_progression/10.png">
+<img width="500" height="350" alt="Final State Four" src="game_progression/Final_State/10.png">
 
-<img width="500" height="350" alt="Final State Five" src="game_progression/11.png">
+<img width="500" height="350" alt="Final State Five" src="game_progression/Final_State/11.png">
 </div><br>
 
 <!-- footer section -->
