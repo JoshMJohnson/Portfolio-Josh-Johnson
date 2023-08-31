@@ -1,6 +1,6 @@
 <h1 align="center">:video_game: Speed Force Prison Game :video_game:</h1>
 <p align="center">
-    This program is a 3&ndash;Dimensional game written in Java that uses Java&apos;s graphical interface for rendering effects.
+    3&ndash;Dimensional game where the user moves around a closed map with the goal of collecting enough 'Blur's" before time runs out.
 </p>
 
 ---
