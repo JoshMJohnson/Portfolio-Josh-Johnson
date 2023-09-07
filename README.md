@@ -90,7 +90,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
+| :------------------------: | :------------------------ | :------------------------: | :------------------------------------: |
 | Fake Twitter | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | React | A duplicate of Twitter. Shows Home page of twiiter that has no tweets with ability to tweet and like such tweets |
 
 <sup>_Projects in development are currently being worked on_</sup>
