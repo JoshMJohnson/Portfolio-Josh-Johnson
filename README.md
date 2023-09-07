@@ -91,7 +91,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------: | :------------------------------------: |
-| Fake Twitter | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | React | A duplicate of Twitter. Shows the Home page of twitter that has no tweets with ability to create, like, and delete tweets. |
+| Fake Twitter | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul> | React | Shows the Home page of twitter with ability to create, like, and delete tweets. |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
