@@ -91,7 +91,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------: | :------------------------------------: |
-| Fake Twitter | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JSX</li></ul> | React | Shows the Home page of twitter with ability to create, like, and delete tweets. |
+| Todo Application | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JSX</li></ul> | <ul><li>React JS</li><li>React Native</li></ul> | Simple todo list application |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
