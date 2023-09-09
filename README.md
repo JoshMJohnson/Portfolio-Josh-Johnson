@@ -91,8 +91,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| Todo Web Application | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JSX</li></ul> | <ul><li>React JS</li></ul> | Simple todo list web application |
-| Todo Android Application | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JSX</li></ul> | <ul><li>React Native</li></ul> | Simple todo list Android application |
+| Todo Web Application | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>JSX</li></ul> | <ul><li>React JS</li><li>React Native</li></ul> | Simple todo list application. Contains React JS for web version and React Native for mobile version. |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
