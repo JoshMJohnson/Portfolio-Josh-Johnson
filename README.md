@@ -91,7 +91,7 @@ Contact me at joshjohns21@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :------------------------ | :------------------------------------: |
-| Todo Application | <ul><li>CSS</li><li>JSX</li></ul> | <ul><li>React JS Library</li><li>React Native Library</li><li>Node JS</li></ul> | Simple todo list application. Contains React JS for web version and React Native for mobile version. |
+| Todo Application | JSX | <ul><li>React Native Framework</li><li>Node JS</li><li>Expo</li></ul> | 'To-Do' mobile application built using React Native |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
