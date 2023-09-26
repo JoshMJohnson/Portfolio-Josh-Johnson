@@ -4,7 +4,7 @@
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
-Contact me at joshjohns21@gmail.com<br><br>
+Contact me at joshjohns21dev@gmail.com<br><br>
 
 [Completed Projects :thumbsup:](#thumbsup-completed-projects-thumbsup)<br>
 [Alogrithms & Basic Concepts :writing_hand:](#writing_hand-algorithms--basic-concepts-writing_hand)<br>
