@@ -91,7 +91,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| 'List Maker' Mobile Application | JSX | <ul><li>React Native Framework</li><li>Expo</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul><li>Global StyleSheet</li><li>React Navigation</li><li>React Share</li><li>React Native Element Dropdown</li><li>React Native Community Voice</li></ul> | 'List Maker' mobile application built using React Native |
+| 'List Maker' Mobile Application | JSX | <ul><li>React Native Framework</li><li>Expo</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul><li>Global StyleSheet</li><li>React Navigation</li><li>React Native Share</li><li>React Native Element Dropdown</li><li>React Native Community Voice</li></ul> | 'List Maker' mobile application built using React Native |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
