@@ -7,9 +7,9 @@ All code has been written and reviewed by Josh Johnson.<br><br>
 Contact me at joshjohns21dev@gmail.com<br><br>
 
 [Completed Projects](#thumbsup-completed-projects-thumbsup):thumbsup:<br>
-[Alogrithms & Basic Concepts :writing_hand:](#writing_hand-algorithms--basic-concepts-writing_hand)<br>
-[Test Files :open_file_folder:](#open_file_folder-test-files-open_file_folder)<br>
-[Projects In Development :point_up:](#point_up-projects-in-development-point_up)<br>
+[Alogrithms & Basic Concepts](#writing_hand-algorithms--basic-concepts-writing_hand):writing_hand:<br>
+[Test Files](#open_file_folder-test-files-open_file_folder):open_file_folder:<br>
+[Projects In Development](#point_up-projects-in-development-point_up):point_up:<br>
 
 ---
 </section>
