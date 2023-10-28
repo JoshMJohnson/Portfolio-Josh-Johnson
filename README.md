@@ -91,7 +91,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| 'List Maker' Android Application | JSX | <ul><li>React Native Framework</li><li>Expo</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul><li>Global StyleSheet</li><li>Navigation</li><li>Share</li><li>Element Dropdown</li><li>Voice</li></ul> | A simple list maker for building grocery lists, holding weekend plans, to-do items, and such. Built using React Native Expo Framework. |
+| 'List Maker' Android Application | JSX | <ul><li>React Native Framework</li><li>Expo</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul><li>Global StyleSheet</li><li>Navigation</li><li>Share</li><li>Element Dropdown</li><li>Voice</li></ul> | A simple list maker for building grocery lists, holding weekend plans, to-do items, and more. Built using React Native Expo Framework. |
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
