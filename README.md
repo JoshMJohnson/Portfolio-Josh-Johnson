@@ -91,7 +91,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 </p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | Flappy Bird | C# | <ul><li>Unity Game Engine</li><li>.NET Framework</li></ul> | A remake of the classic mobile game Flappy Bird |
 
 <sup>_Projects in development are currently being worked on_</sup>
