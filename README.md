@@ -19,9 +19,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <section id="featured-projects">
 <h2 align="center">:star2: Featured Projects :star2:</h2>
 
-<div>
+<span>
 <img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="125" height="125">
-</div>
+</span>
 
 <h3 align="center">List Maker &lpar;Android&rpar;</h3>
 <div align="center">
