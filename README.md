@@ -24,7 +24,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     <p>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a></p>
 </div>
 
-<p>Record tasks quickly and efficiently without the need of paper & pens from anywhere! Android application built using the React Native Expo Framework.</p>
+<p>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere! Android application built using the React Native Expo Framework.</p>
 
 <ul>
     <li>JSX</li>
