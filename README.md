@@ -37,9 +37,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <div align='center'>
 
-<img src="/Portfolio_Assets/YouTube_Logo.jpg" alt="YouTube Logo" width="10%" height="10%">
+<img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="10%" height="10%">
 <strong>YouTube Trailer</strong>
-<img src="/Portfolio_Assets/YouTube_Logo.jpg" alt="YouTube Logo" width="10%" height="10%">
+<img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="10%" height="10%">
 
 [<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)
 </div>
