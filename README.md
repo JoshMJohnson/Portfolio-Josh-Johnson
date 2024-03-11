@@ -35,10 +35,10 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <br>
 
-<div align='center'>
+<div align='center' valign='center'>
 
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="5%" height="5%">
-<strong valign='center'>YouTube Trailer</strong>
+<strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="5%" height="5%">
 
 [<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)
