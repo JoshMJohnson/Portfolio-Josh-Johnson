@@ -9,7 +9,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 </div>
 
-<img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="40%" align='right'>
+<img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="30%" height="30%" align='right'>
 
 :star: [Featured Project](#star-featured-project-star) :star:<br>
 :thumbsup: [Completed Projects](#thumbsup-completed-projects-thumbsup) :thumbsup:<br>
