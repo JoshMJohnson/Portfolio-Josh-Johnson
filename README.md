@@ -26,7 +26,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <br>
 
-<sub>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere! Android application built using the React Native Expo Framework.</sub>
+<small>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere! Android application built using the React Native Expo Framework.</small>
 
 <ul>
     <li>JSX</li>
