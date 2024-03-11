@@ -17,9 +17,6 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <!-- featured projects section -->
 <section id="featured-projects">
-<p align="center">
-    <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
-</p>
 <h2 align="center">:star2: Featured Projects :star2:</h2>
 
 </section>
@@ -27,6 +24,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <!-- completed projects section -->
 <section id="completed-projects">
 <h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
+<p align="center">
+    <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
+</p>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
