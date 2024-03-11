@@ -20,6 +20,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <h2 align="center">:star2: Featured Projects :star2:</h2>
 
 <h3>List Maker &lpar;Android&rpar;</h3>
+
 <div align="center">
     <p>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a></p>
 </div>
