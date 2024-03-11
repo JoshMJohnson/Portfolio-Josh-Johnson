@@ -11,7 +11,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="40%" height="40%" align='right'>
 
-:star: [Featured Projects](#star-featured-projects-star) :star:<br>
+:star: [Featured Project](#star-featured-project-star) :star:<br>
 :thumbsup: [Completed Projects](#thumbsup-completed-projects-thumbsup) :thumbsup:<br>
 :writing_hand: [Alogrithms & Basic Concepts](#writing_hand-algorithms--basic-concepts-writing_hand) :writing_hand:<br>
 :point_up: [Projects In Development](#point_up-projects-in-development-point_up) :point_up:<br>
@@ -20,7 +20,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 </section>
 
 <!-- featured projects section -->
-<section id="featured-projects">
+<section id="featured-project">
 <h2 align="center">:star: Featured Project :star:</h2>
 
 <img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="left">
