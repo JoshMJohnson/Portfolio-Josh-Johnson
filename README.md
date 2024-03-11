@@ -5,11 +5,13 @@
 
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
-Contact me at joshjohns21dev@gmail.com<br><br>
+Contact me at joshjohns21dev@gmail.com<br>
 
 </div>
 
 <img src="/Portfolio_Assets/portfolio_welcome.gif" alt="Portfolio Welcome Sign" width="30%" height="30%" align='right'>
+
+<br>
 
 :star: [Featured Project](#star-featured-project-star) :star:<br>
 :thumbsup: [Completed Projects](#thumbsup-completed-projects-thumbsup) :thumbsup:<br>
