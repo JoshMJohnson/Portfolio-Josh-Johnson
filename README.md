@@ -4,7 +4,6 @@
 <div align='center'>
 
 Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
-Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
 Contact me at joshjohns21dev@gmail.com<br><br>
 
@@ -15,7 +14,6 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 :star: [Featured Projects](#star-featured-projects-star) :star:<br>
 :thumbsup: [Completed Projects](#thumbsup-completed-projects-thumbsup) :thumbsup:<br>
 :writing_hand: [Alogrithms & Basic Concepts](#writing_hand-algorithms--basic-concepts-writing_hand) :writing_hand:<br>
-:open_file_folder: [Test Files](#open_file_folder-test-files-open_file_folder) :open_file_folder:<br>
 :point_up: [Projects In Development](#point_up-projects-in-development-point_up) :point_up:<br>
 
 ---
@@ -110,33 +108,6 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 | [Sort Array](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
 | [Hello World](/Python/HelloWorld.py) | Python | <p align="center">Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
-
-</div>
-
----
-</section>
-
-<!-- test files -->
-<section id="test-files">
-<h2 align="center">:open_file_folder: Test Files :open_file_folder:</h2>
-<p align="center">
-    <img src="/Portfolio_Assets/file_system.gif" alt="File System Expanding" width="500" height="250">
-</p>
-
-<div align='center'>
-
-| File | File Type | Content |
-| :-----------: | :-----------: | :-----------: |
-| [basic&lowbar;text](/Test_Files/basic_text.txt) | txt | 5 lines with each line stating its relative location in the file |
-| [blank](/Test_Files/blank.txt) | txt | file with no content |
-| [decreasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/decreasing_count_of_integers.txt) | txt | starting at 40 &mdash; counts down to 0 &mdash; inclusive &mdash; by integer value of negative 1 |
-| [increasing&lowbar;count&lowbar;of&lowbar;integers](/Test_Files/increasing_count_of_integers.txt) | txt | starting at 0 &mdash; counts up to 40 &mdash; inclusive &mdash; by integer value of plus 1 |
-| [moby&lowbar;dick](/Test_Files/moby_dick.txt) | txt | the entire book of moby dick |
-| [poem](/Test_Files/poem.txt) | txt | 21 line &mdash; 4 paragraph poem |
-| [random&lowbar;floats&lowbar;no&lowbar;duplicates](/Test_Files/random_floats_no_duplicates.txt) | txt | random mix of double values and integer values containing no duplicate values |
-| [random&lowbar;floats&lowbar;with&lowbar;duplicates](/Test_Files/random_floats_with_duplicates.txt) | txt | random mix of double values and integer values containing a few duplicate values |
-| [random&lowbar;integers&lowbar;no&lowbar;duplicates](/Test_Files/random_integers_no_duplicates.txt) | txt | random integer values containing no duplicate values |
-| [random&lowbar;integers&lowbar;with&lowbar;duplicates](/Test_Files/random_integers_with_duplicates.txt) | txt | random integer values containing a few duplicate values |
 
 </div>
 
