@@ -35,13 +35,13 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 </div>
 
 <small>
-<p>Languages</p>
+<strong>Languages</strong>
 <ul>
     <li>JSX</li>
     <li>SQLite</li>
 </ul>
 
-<p>Concepts Demonstrated</p>
+<strong>Concepts Demonstrated</strong>
 <ul>
     <li>React Native Framework</li>
     <li>Expo</li>
