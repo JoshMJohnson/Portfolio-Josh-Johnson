@@ -21,7 +21,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
 </p>
 <h2 align="center">:star2: Featured Projects :star2:</h2>
----
+
 </section>
 
 <!-- completed projects section -->
