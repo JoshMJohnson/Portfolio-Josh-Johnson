@@ -19,6 +19,41 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <section id="featured-projects">
 <h2 align="center">:star2: Featured Projects :star2:</h2>
 
+<h3>List Maker &lpar;Android&rpar;</h3>
+<div align="center">
+    <p>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a></p>
+</div>
+
+<p>Record tasks quickly and efficiently without the need of paper & pens from anywhere! Android application built using the React Native Expo Framework.</p>
+
+<ul>
+    <li>JSX</li>
+    <li>SQLite</li>
+</ul>
+
+<ul>
+    <li>React Native Framework</li>
+    <li>Expo</li>
+    <li>Global StyleSheet</li>
+    <li>Navigation</li>
+    <li>Share</li>
+    <li>Element Dropdown</li>
+    <li>Theme Responsive</li>
+    <li>Local Storage
+        <ul>
+            <li>Database (SQLite)</li>
+            <li>Async Storage</li>
+        </ul>
+    </li>
+    <li>Local Notifications
+        <ul>
+            <li>Foreground Service</li>
+            <li>Scheduled Notifications</li>
+            <li>Notification Channels</li>
+        </ul>
+    </li>
+</ul>
+
 </section>
 
 <!-- completed projects section -->
@@ -30,7 +65,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
-| [List Maker - Android Application](https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share) | <ul><li>JSX</li><li>SQLite</li></ul> | <ul><li>React Native Framework</li><li>Expo</li><li>Global StyleSheet</li><li>Navigation</li><li>Share</li><li>Element Dropdown</li><li>Theme Responsive</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul><li>Local Notifications<ul><li>Foreground Service</li><li>Scheduled Notifications</li><li>Notification Channels</li></ul></li></ul> | Record tasks quickly and efficiently without the need of paper & pens from anywhere! Built using the React Native Expo Framework. |
+| [List Maker - Android Application](https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share) |  |  |  |
 | [Simple Fitness Log - Android Application](https://play.google.com/store/apps/details?id=com.companyname.fitness_log&pcampaignid=web_share) | <p align='center'>C#</p> | <ul><li>.NET MAUI Framework</li><li>Google AdMob</li><li>Google Play Store</li><li>Dotted Graph</li><li>Local Storage<ul><li>File System</li><li>Preferences</li><li>Database (SQLite)</li></ul></li><li>Navigation<ul><li>Tab</li><li>Flyout</li></ul></li><li>Theme Changes (light/dark mode)</li></ul> | A simple fitness log that records an individuals fitness achievements, goals, and basic recordings. Built using Microsoft .NET MAUI framework. |
 | [Stock Tracker - Android Application](/Stock_Tracker_App) | <p align='center'>C#</p> | <ul><li>.NET MAUI Framework</li><li>Local Push Notifications</li><li>Foreground Service</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Preferences</li></ul></li><li>Routing</li><li>Timers</li><li>Twelve Data API</li><li>Buttons<ul><li>Radio</li><li>Slider</li><li>Picker</li><li>Time Picker</li></ul></li><li>Theme Changes (light/dark mode)</li></ul> | Android application that connects to the stock market and creates local push notifications. Notifications include a list of stocks that have changed by a certain percentage for that day. Percentage threshold, notification times, and watchlist stocks are picked by the user. Built using Microsoft .NET MAUI framework. |
 | [Chess](/Chess) | <p align='center'>Python</p> | <ul><li>Alpha Blending</li><li>Hash Tables</li><li>Instances</li><li>Mouse Coordinates</li><li>User Input</li><li>2-Dimensional Arrays</li><li>Image Processing</li><li>Scripting</li><li>Python Libraries<ul><li>pygame</li><li>os</li><li>sys</li><li>threading</li><li>time</li></ul></li></ul> | Loads up a chess board and allows the game of chess to be played |
