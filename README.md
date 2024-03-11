@@ -24,7 +24,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a></i>
 </div>
 
-<img src="/Portfolio_Assets/react_native_logo.png" alt="React Native Logo" width="200" height="200">
+<img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="200" height="200">
 
 <br>
 
