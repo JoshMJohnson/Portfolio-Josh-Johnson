@@ -46,8 +46,8 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     <li>React Native Framework</li>
     <li>Expo</li>
     <li>Global StyleSheet</li>
-    <li>Navigation</li>
-    <li>Share</li>
+    <li>React Navigation Stack</li>
+    <li>React Native Share</li>
     <li>Element Dropdown</li>
     <li>Theme Responsive</li>
     <li>Local Storage
