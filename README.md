@@ -6,6 +6,7 @@ Test files are also included within this repo.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
 Contact me at joshjohns21dev@gmail.com<br><br>
 
+:star2: [Featured Projects](#star2-featured-projects-star2) :star2:<br>
 :thumbsup: [Completed Projects](#thumbsup-completed-projects-thumbsup) :thumbsup:<br>
 :writing_hand: [Alogrithms & Basic Concepts](#writing_hand-algorithms--basic-concepts-writing_hand) :writing_hand:<br>
 :open_file_folder: [Test Files](#open_file_folder-test-files-open_file_folder) :open_file_folder:<br>
@@ -14,12 +15,18 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 ---
 </section>
 
-<!-- completed projects section -->
-<section id="completed-projects">
-<h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
+<!-- featured projects section -->
+<section id="featured-projects">
 <p align="center">
     <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
 </p>
+<h2 align="center">:star2: Featured Projects :star2:</h2>
+---
+</section>
+
+<!-- completed projects section -->
+<section id="completed-projects">
+<h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
