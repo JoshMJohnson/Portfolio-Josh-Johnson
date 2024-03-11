@@ -61,6 +61,8 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     <img src="/Portfolio_Assets/my_hero_academia.gif" alt="Izuku Midoriya Admiring Projects" width="500" height="250">
 </p>
 
+<div align='center'>
+
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------ | :----------------------- | :------------------------------------: |
 | [Simple Fitness Log - Android Application](https://play.google.com/store/apps/details?id=com.companyname.fitness_log&pcampaignid=web_share) | <p align='center'>C#</p> | <ul><li>.NET MAUI Framework</li><li>Google AdMob</li><li>Google Play Store</li><li>Dotted Graph</li><li>Local Storage<ul><li>File System</li><li>Preferences</li><li>Database (SQLite)</li></ul></li><li>Navigation<ul><li>Tab</li><li>Flyout</li></ul></li><li>Theme Changes (light/dark mode)</li></ul> | A simple fitness log that records an individuals fitness achievements, goals, and basic recordings. Built using Microsoft .NET MAUI framework. |
@@ -71,6 +73,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 | [Account Manager](/Account_Manager) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQLite</li></ul> | <ul><li>Animation</li><li>Tables</li><li>JavaScript Promises</li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Password</li><li>Text</li><li>Date</li><li>Email</li><li>Tel</li><li>Radio</li><li>Image</li></ul></li></ul></li><li>Node JS</li><li>DOM Elements</li><li>Server Side vs. Client Side</li></li><li>Database Management<ul><li>Create Tables</li><li>Retrieving Data</li><li>Inserting Data</li><li>Updating Data</li><li>Removing Data</li></ul></li><li>Image Usage</li><li>Links<ul><li>Relative</li></ul><li>Custom Error Messages</li><li>User Permissions&sol;Restrictions</li></ul> | Allows a user to create&sol;delete accounts and be able to login&sol;logout of such accounts with special privileges based on user permissions |
 | [Jokes Project](/Jokes_Project) | <ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>SQLite</li></ul> | <ul><li>Node JS</li><li>Database Management<ul><li>Create Tables</li><li>Retrieving Data</li><li>Inserting Data</li></ul></li><li>DOM Elements</li><li>Buttons</li><li>Links<ul><li>Relative</li></ul></li><li>Form Usage<ul><li>Requirements</li><li>Hidden Content</li><li>User Input<ul><li>Radio</li><li>Text</li><li>Checkbox</li><li>Textarea</li><li>Dropdown Box</li></ul></li></ul></li><li>Client Side vs. Server Side</li></ul> | Keeps a database of jokes that users can add jokes to and&frasl;or retrieve jokes from |
 | [Ultimate Frisbee Wiki](/Ultimate_Frisbee_Wiki) | <ul><li>HTML</li><li>CSS</li></ul> | <ul><li>Links<ul><li>Anchor</li><li>Absolute</li></ul></li><li>Image Usage</li><li>Quotes</li><li>Lists<ul><li>Sorted</li><li>Unsorted</li></ul></li></ul> | Customized ultimate frisbee Wiki page |
+
+</div>
+
 ---
 </section>
 
@@ -80,6 +85,8 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <p align="center">
     <img src="/Portfolio_Assets/in_order_tree_traversal.gif" alt="In Order Tree Traversal" width="500" height="250">
 </p>
+
+<div align='center'>
 
 | Algorithm&sol;Concept | Language | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
@@ -97,6 +104,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 | [Sort Array](/Python/SortArray.py) | Python | <ul><li>Sorting Algorithms<ul><li>Selection</li><li>Insertion</li><li>Quick</li><li>Bubble</li><li>Merge</li></ul></li><li>File Usage<ul><li>Reading from files</li></ul></li><li>Arrays</li><li>Random Integer Generation</li></ul> | Organizes lists of integers in ascending order using different sorting algorithms with lists gathered using different methods |
 | [Read&sol;Write File](/Python/ReadWriteFile.py) | Python | <ul><li>File Usage<ul><li>Reading from files</li><li>Writing to files</li></ul></li></ul> | Demonstrates basic file operations |
 | [Hello World](/Python/HelloWorld.py) | Python | <p align="center">Using the console</p>  | Classic &lsquo;hello world&rsquo; program |
+
+</div>
+
 ---
 </section>
 
@@ -106,6 +116,8 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <p align="center">
     <img src="/Portfolio_Assets/file_system.gif" alt="File System Expanding" width="500" height="250">
 </p>
+
+<div align='center'>
 
 | File | File Type | Content |
 | :-----------: | :-----------: | :-----------: |
@@ -119,6 +131,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 | [random&lowbar;floats&lowbar;with&lowbar;duplicates](/Test_Files/random_floats_with_duplicates.txt) | txt | random mix of double values and integer values containing a few duplicate values |
 | [random&lowbar;integers&lowbar;no&lowbar;duplicates](/Test_Files/random_integers_no_duplicates.txt) | txt | random integer values containing no duplicate values |
 | [random&lowbar;integers&lowbar;with&lowbar;duplicates](/Test_Files/random_integers_with_duplicates.txt) | txt | random integer values containing a few duplicate values |
+
+</div>
+
 ---
 </section>
 
@@ -129,9 +144,13 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     <img src="/Portfolio_Assets/mr_incredible_coding.gif" alt="Mr Incredible Working Tirelessly" width="500" height="250">
 </p>
 
+<div align='center'>
+
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
 | Flappy Bird | C# | <ul><li>Unity Game Engine</li><li>.NET Framework</li></ul> | A remake of the classic mobile game Flappy Bird |
+
+</div>
 
 <sup>_Projects in development are currently being worked on_</sup>
 </section>
