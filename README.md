@@ -22,7 +22,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 <img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="left">
 <img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="right">
 
-<h3 align="center">List Maker &lpar;Android&rpar;</h3>
+<h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 <div align="center">
     <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a></i>
 </div>
