@@ -152,7 +152,12 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 </div>
 
+<div align='center'>
+
 <sup>_Projects in development are currently being worked on_</sup>
+
+</div>
+
 </section>
 
 <!-- footer section -->
