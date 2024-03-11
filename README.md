@@ -36,7 +36,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <br>
 
-[![Watch the video](./Portfolio_Assets/feature_graphic.png)](./Portfolio_Assets/Play_Store_Featured.mp4)
+<!-- [![Watch the video](./Portfolio_Assets/feature_graphic.png)](./Portfolio_Assets/Play_Store_Featured.mp4) -->
+
+[<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)
 
 <br>
 
