@@ -38,7 +38,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <div align='center'>YouTube Trailer</div>
 
-[<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)
+<div align='center'>[<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)</div>
 
 <br>
 
