@@ -44,11 +44,13 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 [<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)
 </div>
 
+<div align='center'>
 
 | Language&lpar;s&rpar; | Concepts Demonstrated |
 | :------------------------ | :------------------------ | 
 | <ul><li>JSX</li><li>SQLite</li></ul> | <ul><li>React Native Framework</li><li>Expo</li><li>Global StyleSheet</li><li>React Navigation Stack</li><li>React Native Share</li><li>Element Dropdown</li><li>Theme Responsive</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul></li><li>Local Notifications<ul><li>Foreground Service</li><li>Scheduled Notifications</li><li>Notification Channels</li></ul></li></ul> |
 
+</div>
 
 </section>
 
