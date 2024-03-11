@@ -3,7 +3,6 @@
 
 <div align='center'>
 
-Personal portfolio for Josh Johnson containing projects and demonstrating concepts.<br><br>
 All code has been written and reviewed by Josh Johnson.<br><br>
 Contact me at joshjohns21dev@gmail.com<br>
 
