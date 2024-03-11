@@ -46,16 +46,11 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <small>
 
-<div align='rignt'>
-
 <strong>Languages</strong>
 <ul>
     <li>JSX</li>
     <li>SQLite</li>
 </ul>
-
-</div>
-<div align='left'>
 
 <strong>Concepts Demonstrated</strong>
 <ul>
@@ -81,8 +76,6 @@ Contact me at joshjohns21dev@gmail.com<br><br>
     </li>
 </ul>
 </small>
-
-</div>
 
 </section>
 
