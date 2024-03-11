@@ -17,7 +17,7 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <!-- featured projects section -->
 <section id="featured-projects">
-<h2 align="center">:star: Featured Projects :star:</h2>
+<h2 align="center">:star: Featured Project :star:</h2>
 
 <img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="left">
 <img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="right">
@@ -36,7 +36,9 @@ Contact me at joshjohns21dev@gmail.com<br><br>
 
 <br>
 
-<div align='center'>YouTube Trailer
+<div align='center'>
+
+<strong>YouTube Trailer</strong>
 
 <br>
 
