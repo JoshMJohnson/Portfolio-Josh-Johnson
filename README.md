@@ -3,7 +3,7 @@
 
 <div align='center'>
 
-All code has been written and reviewed by Josh Johnson.<br><br>
+All code has been written and reviewed by Josh Johnson.<br>
 Contact me at joshjohns21dev@gmail.com<br>
 
 </div>
