@@ -46,7 +46,7 @@ Contact me at joshjohns21dev@gmail.com<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/list_maker_feature_graphic_v2.png" width="50%">](https://youtu.be/SrxXVudakG8?si=BhHJMryBNbSGk_9K)
+[<img src="./Portfolio_Assets/list_maker_feature_graphic_v2.png" width="50%">](https://youtu.be/XHenpeGaOaU)
 </div>
 
 <div align='center'>
