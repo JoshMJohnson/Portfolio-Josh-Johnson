@@ -126,7 +126,7 @@ Contact me at joshjohns21dev@gmail.com<br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| Flappy Bird | C# | <ul><li>Unity Game Engine</li><li>.NET Framework</li></ul> | A remake of the classic mobile game Flappy Bird |
+| Stock Alert | Dart | <ul><li>Firebase Cloud Storage</li><li></li></ul> | Provides stock alerts of major day price changes for stocks on a watchlist |
 
 </div>
 
