@@ -126,7 +126,7 @@ Contact me at joshjohns21dev@gmail.com<br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| Stock Alert | Dart | <ul><li>Flutter Framework</li><li>Firebase Cloud Storage</li><li>Foreground Service</li></ul> | Provides stock alerts of major day price changes for stocks on a watchlist |
+| Stock Alert | Dart | <ul><li>Flutter Framework</li><li>Firebase Cloud Storage</li><li>Foreground Service</li><li>Twelve Data API</li></ul> | Provides stock alerts of major day price changes for stocks on a watchlist |
 
 </div>
 
