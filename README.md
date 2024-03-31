@@ -53,7 +53,7 @@ Contact me at joshjohns21dev@gmail.com<br>
 
 | Language&lpar;s&rpar; | Concepts Demonstrated |
 | :------------------------ | :------------------------ | 
-| <ul><li>JSX</li><li>SQLite</li></ul> | <ul><li>React Native Framework</li><li>Expo</li><li>Global StyleSheet</li><li>React Navigation Stack</li><li>React Native Share</li><li>Element Dropdown</li><li>Theme Responsive</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul></li><li>Local Notifications<ul><li>Foreground Service</li><li>Scheduled Notifications</li><li>Notification Channels</li></ul></li></ul> |
+| <ul><li>JSX</li><li>SQLite</li></ul> | <ul><li>React Native Framework</li><li>Expo</li><li>Global StyleSheet</li><li>React Stack Navigation</li><li>React Native Share</li><li>Element Dropdown</li><li>Theme Responsive</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul></li><li>Local Notifications<ul><li>Foreground Service</li><li>Scheduled Notifications</li><li>Notification Channels</li></ul></li></ul> |
 
 </div>
 
