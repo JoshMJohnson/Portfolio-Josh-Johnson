@@ -40,7 +40,9 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <br>
 
-<i>Email me for a Free Download promo code!</i>
+<div align="center">
+    <i>Email me for a Free Download promo code!</i>
+</div>
 
 <br>
 
