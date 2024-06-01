@@ -126,7 +126,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| Stock Alert | Dart | <ul><li>Flutter Framework</li><li>Firebase Cloud Storage</li><li>Foreground Service</li><li>Scheduled Local Notifications</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> | Provides stock alerts of major day price changes for stocks on a watchlist |
+| [Stock Alert](https://github.com/JoshMJohnson/Stock_Alert) | Dart | <ul><li>Flutter Framework</li><li>Firebase Cloud Storage</li><li>Foreground Service</li><li>Scheduled Local Notifications</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> | Provides stock alerts of major day price changes for stocks on a watchlist |
 
 </div>
 
