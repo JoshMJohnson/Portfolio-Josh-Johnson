@@ -29,19 +29,14 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 <div align="center">
-    <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a></i>
+    <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a><br>
+    Email me for a Free Download promo code!</i>
 </div>
 
 <br>
 
 <div align="center">
     <small>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!<br>Android application developed using the React Native Expo framework.</small>
-</div>
-
-<br>
-
-<div align="center">
-    <i>Email me for a Free Download promo code!</i>
 </div>
 
 <br>
