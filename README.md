@@ -29,7 +29,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 <div align="center">
-    <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store</a><br>
+    <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
 </div>
 
