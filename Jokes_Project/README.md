@@ -29,7 +29,7 @@
 
     4.) Unzip the file downloaded by clicking 'Extract all'
 
-<a href="https://drive.google.com/file/d/1_4UapGtmXYTD7kTH-wyz8KZM83A4IrM4/view?usp=drive_web">Download Jokes Project</a>
+<a href="https://drive.google.com/file/d/1E5q7GEJPPornMaWCBw0ywXQQPsnOsoUt/view?usp=drive_link">Download Jokes Project</a>
 
 <h3>Running The Program</h3>
 

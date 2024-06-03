@@ -29,7 +29,7 @@
 
     4.) Unzip the file downloaded by clicking 'Extract all'
 
-&nbsp;<a href="https://drive.google.com/file/d/1kbQCYmxRo_8PfmQfiekZmTRSlHn4O1ns/view?usp=drive_web">Download The Speed Force Prison Game!</a>
+&nbsp;<a href="https://drive.google.com/file/d/1Y5Yko50CJIZyD1sdGpXNHnYp8YYM6PS2/view?usp=drive_link">Download The Speed Force Prison Game!</a>
 
 <h3>Running The Program</h3>
 

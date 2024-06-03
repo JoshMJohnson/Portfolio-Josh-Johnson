@@ -29,7 +29,7 @@
 
     4.) Unzip the file downloaded by clicking 'Extract all'
 
-<a href="https://drive.google.com/file/d/16hXSLftC0Glup5kM5gTEMibvyPDj5bYr/view?usp=drive_web">Download Ultimate Frisbee Wiki</a>
+<a href="https://drive.google.com/file/d/1ovL1PgADupheLDCHSAfpOrpMnyGDM0_V/view?usp=drive_link">Download Ultimate Frisbee Wiki</a>
 
 <h3>Running The Program</h3>
 

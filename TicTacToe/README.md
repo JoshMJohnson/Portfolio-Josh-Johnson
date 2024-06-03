@@ -29,7 +29,7 @@
 
     4.) Unzip the file downloaded by clicking 'Extract all'
 
-&nbsp;<a href="https://drive.google.com/file/d/13BHfu7moCNxJz-mioZKluF6qIVDdM476/view?usp=drive_web">Download Tic-Tac-Toe!</a>
+&nbsp;<a href="https://drive.google.com/file/d/1CVZ4yPeWwz88InlvmyA5er6Uf9FkRBXM/view?usp=drive_link">Download Tic-Tac-Toe!</a>
 
 <h3>Running The Program</h3>
 
