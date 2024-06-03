@@ -31,7 +31,7 @@
 
     4.) Unzip the file downloaded by clicking 'Extract all'
 
-&nbsp;<a href="https://drive.google.com/file/d/1j7yMjDVD1lZuNrEZI-7gKghA7E9bHbnL/view?usp=drive_web">Download Chess!</a>
+&nbsp;<a href="https://drive.google.com/file/d/1jicVuqr0zn0RNdkIG8phDaXnk9UH5Ii_/view?usp=drive_link">Download Chess!</a>
 
 <h3>Running The Program</h3>
 
