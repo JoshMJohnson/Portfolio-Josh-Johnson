@@ -37,7 +37,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <div align="center">
 
-<img src="/Portfolio_Assets/list_maker_100_downloads.png" alt="100+ download count for List Maker" width="250px" height="125px">
+<img src="/Portfolio_Assets/list_maker_100_downloads.png" alt="100+ download count for List Maker" width="200px" height="125px">
 
 </div>
 
