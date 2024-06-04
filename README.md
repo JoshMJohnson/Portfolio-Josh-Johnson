@@ -35,6 +35,10 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <br>
 
+<img src="/Portfolio_Assets/100_downloads_LM.png" alt="React Native Logo" width="25%" height="15%" align="center">
+
+<br>
+
 <div align="center">
     <small>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!<br>Android application developed using the React Native Expo framework.</small>
 </div>
