@@ -37,7 +37,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <div align="center">
 
-<img src="/Portfolio_Assets/100_downloads_LM.png" alt="React Native Logo" width="25%" height="25%">
+<img src="/Portfolio_Assets/100_downloads_LM.png" alt="React Native Logo" width="250px" height="200px>
 
 </div>
 
