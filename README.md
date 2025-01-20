@@ -83,8 +83,6 @@ All code has been written and reviewed by Josh Johnson.<br>
     <i>December 3rd, 2024 - January 15th, 2025</i>
 </div>
 
-<br>
-
 <hr>
 
 <div align="center">
