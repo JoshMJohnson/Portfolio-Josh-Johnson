@@ -84,7 +84,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <br>
 
 <div align="center">
-    <small>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!<br>Android application developed using the React Native Expo framework.</small>
+    <small>An introduction to the Unreal game engine in the form of a boot camp. Image comes from a screenshot of a demo that I made after completing the fellowship.</small>
 </div>
 
 <br>
