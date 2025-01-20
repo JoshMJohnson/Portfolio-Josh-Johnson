@@ -76,18 +76,10 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/Unreal_Engine_logo.png" alt="Unreal Logo" width="25%" height="15%" align="left">
 <img src="/Portfolio_Assets/Unreal_Engine_logo.png" alt="Unreal Logo" width="25%" height="15%" align="right">
 
-<h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
+<h3 align="center">Unreal Fellowship: Games</h3>
 <div align="center">
     <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
-</div>
-
-<br>
-
-<div align="center">
-
-<img src="/Portfolio_Assets/list_maker_100_downloads.png" alt="100+ download count for List Maker" width="200px" height="100px">
-
 </div>
 
 <br>
