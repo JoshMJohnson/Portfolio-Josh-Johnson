@@ -77,6 +77,9 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/Unreal_Engine_logo.png" alt="Unreal Logo" width="25%" height="15%" align="right">
 
 <h3 align="center">Unreal Fellowship: Games</h3>
+
+<br>
+
 <div align="center">
     <i>Boot camp hosted by Epic Games</i><br>
     <i>December 3rd, 2024 - January 15th, 2025</i>
@@ -85,8 +88,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <br>
 
 <hr>
-
-<br>
 
 <div align="center">
     <small>An introduction to the Unreal game engine in the form of a boot camp. Image comes from a screenshot of a demo that I made after completing the fellowship.</small>
