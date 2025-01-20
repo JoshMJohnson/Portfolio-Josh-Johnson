@@ -84,6 +84,10 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <br>
 
+<hr>
+
+<br>
+
 <div align="center">
     <small>An introduction to the Unreal game engine in the form of a boot camp. Image comes from a screenshot of a demo that I made after completing the fellowship.</small>
 </div>
