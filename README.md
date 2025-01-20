@@ -78,7 +78,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <h3 align="center">Unreal Fellowship: Games</h3>
 <div align="center">
-    <i>Boot camp hosted by Epic Games</i>
+    <i>Boot camp hosted by Epic Games</i><br>
+    <i>December 3rd, 2024 - January 15th, 2025</i>
 </div>
 
 <br>
