@@ -78,8 +78,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <h3 align="center">Unreal Fellowship: Games</h3>
 <div align="center">
-    <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store!</a><br>
-    Email me for a Free Download promo code!</i>
+    <i>Boot camp hosted by Epic Games</i>
 </div>
 
 <br>
@@ -91,10 +90,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <br>
 
 <div align='center'>
-
-<img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
-<strong>YouTube Trailer</strong>
-<img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
 [<img src="./Portfolio_Assets/Unreal_Excitement3.png" width="90%">](https://youtu.be/XHenpeGaOaU)
 </div>
