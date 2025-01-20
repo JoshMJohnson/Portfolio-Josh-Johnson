@@ -73,8 +73,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 <section id="highlighted-content">
 <h2 align="center">:flashlight: Highlighted Content :flashlight:</h2>
 
-<img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="left">
-<img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="right">
+<img src="/Portfolio_Assets/Unreal_Engine_logo.png" alt="Unreal Logo" width="25%" height="15%" align="left">
+<img src="/Portfolio_Assets/Unreal_Engine_logo.png" alt="Unreal Logo" width="25%" height="15%" align="right">
 
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 <div align="center">
@@ -104,7 +104,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/Unreal_Excitement3.png" width="75%">](https://youtu.be/XHenpeGaOaU)
+[<img src="./Portfolio_Assets/Unreal_Excitement3.png" width="90%">](https://youtu.be/XHenpeGaOaU)
 </div>
 
 </section>
