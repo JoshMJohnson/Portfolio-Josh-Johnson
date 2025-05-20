@@ -166,7 +166,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| Alarm Hub | Dart | <ul><li>Flutter Framework</li><li>Foreground Service</li><li>Scheduled Alarms</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> | |
+| Alarm Hub | Dart | <ul><li>Flutter Framework</li><li>Foreground Service</li><li>Scheduled Alarms</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> | Alarm clock app that can be used to wake you up, or to alert you at a certain time |
 
 </div>
 
