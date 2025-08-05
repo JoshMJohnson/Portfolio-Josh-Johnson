@@ -56,7 +56,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/list_maker_feature_graphic_v2.png" width="50%">](https://youtu.be/dqWbDTCgx-w?si=LbKm_MnFfUuBWN88)
+[<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
 <div align='center'>
