@@ -94,6 +94,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 </section>
 
+<hr>
+
 <!-- highlighted content section -->
 <section id="highlighted-content">
 <h2 align="center">:flashlight: Highlighted Content :flashlight:</h2>
