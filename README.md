@@ -30,6 +30,8 @@ All code has been written and reviewed by Josh Johnson.<br>
     Email me for a Free Download promo code!</i>
 </div>
 
+<hr>
+
 <img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="25%" height="15%" align="left">
 <img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="25%" height="15%" align="right">
 
