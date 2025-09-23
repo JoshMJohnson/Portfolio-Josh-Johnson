@@ -12,7 +12,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <br>
 
-:star: [Featured Project](#star-featured-project-star) :star:<br>
+:department_store: [Published Software](#department_store-published-software-department_store) :department_store:<br>
 :flashlight: [Highlighted Content](#flashlight-highlighted-content-flashlight) :flashlight:<br>
 :thumbsup: [Completed Projects](#thumbsup-completed-projects-thumbsup) :thumbsup:<br>
 :writing_hand: [Alogrithms & Basic Concepts](#writing_hand-algorithms--basic-concepts-writing_hand) :writing_hand:<br>
@@ -21,31 +21,21 @@ All code has been written and reviewed by Josh Johnson.<br>
 ---
 </section>
 
-<!-- featured projects section -->
-<section id="featured-project">
-<h2 align="center">:star: Featured Project :star:</h2>
+<!-- published software section -->
+<section id="published-software">
+<h2 align="center">:department_store: Published Software :department_store:</h2>
 
-<img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="left">
-<img src="/Portfolio_Assets/react_native_logo.gif" alt="React Native Logo" width="25%" height="15%" align="right">
-
-<h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 <div align="center">
     <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
 </div>
 
-<br>
-
-<div align="center">
-
-<img src="/Portfolio_Assets/list_maker_100_downloads.png" alt="100+ download count for List Maker" width="200px" height="100px">
-
-</div>
+<h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 
 <br>
 
 <div align="center">
-    <small>Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!<br>Android application developed using the React Native Expo framework.</small>
+    <small>✓ Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!<br>Android application developed using the React Native Expo framework.</small>
 </div>
 
 <br>
@@ -64,6 +54,36 @@ All code has been written and reviewed by Josh Johnson.<br>
 | Language&lpar;s&rpar; | Concepts Demonstrated |
 | :------------------------ | :------------------------ | 
 | <ul><li>JSX</li><li>SQLite</li></ul> | <ul><li>React Native Framework</li><li>Expo</li><li>Global StyleSheet</li><li>React Stack Navigation</li><li>React Native Share</li><li>Element Dropdown</li><li>Theme Responsive</li><li>Local Storage<ul><li>Database (SQLite)</li><li>Async Storage</li></ul></li><li>Local Notifications<ul><li>Foreground Service</li><li>Scheduled Notifications</li><li>Notification Channels</li></ul></li></ul> |
+
+</div>
+
+<hr>
+
+
+<h3 align="center">Alarm Hub<br>&lpar;Android&rpar;</h3>
+
+<br>
+
+<div align="center">
+    <small>⏰ Your simple, basic, and reliable alarm clock on Android</small>
+</div>
+
+<br>
+
+<div align='center'>
+
+<img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
+<strong>YouTube Trailer</strong>
+<img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
+
+[<img src="./Portfolio_Assets/featured_photo_youtube.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
+</div>
+
+<div align='center'>
+
+| Language&lpar;s&rpar; | Concepts Demonstrated |
+| :------------------------ | :------------------------ | 
+| Alarm Hub | Dart | <ul><li>Flutter Framework</li><li>Foreground Service</li><li>Scheduled Alarms</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> | Alarm clock app that can be used to wake you up, or to alert you at a certain time |
 
 </div>
 
@@ -166,7 +186,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
 | :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
-| Alarm Hub | Dart | <ul><li>Flutter Framework</li><li>Foreground Service</li><li>Scheduled Alarms</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> | Alarm clock app that can be used to wake you up, or to alert you at a certain time |
+| TBD | TBD | TBD | TBD |
 
 </div>
 
