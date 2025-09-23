@@ -41,8 +41,6 @@ All code has been written and reviewed by Josh Johnson.<br>
     <small>✓ Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!</small>
 </div>
 
-<br>
-
 <div align='center'>
 
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
@@ -70,8 +68,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <div align="center">
     <small>⏰ Your simple, basic, and reliable alarm clock on Android</small>
 </div>
-
-<br>
 
 <div align='center'>
 
