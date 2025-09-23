@@ -62,8 +62,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <hr>
 
-<img src="/Portfolio_Assets/react_native_logo.gif" alt="Alarm Hub Logo" width="25%" height="15%" align="left">
-<img src="/Portfolio_Assets/react_native_logo.gif" alt="Alarm Hub Logo" width="25%" height="15%" align="right">
+<img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="25%" height="15%" align="left">
+<img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="25%" height="15%" align="right">
 
 <h3 align="center">Alarm Hub<br>&lpar;Android&rpar;</h3>
 
