@@ -48,7 +48,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
-
 [<img src="./Portfolio_Assets/feature_graphic_list_maker.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
@@ -78,7 +77,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
-
 [<img src="./Portfolio_Assets/feature_graphic_alarm_hub.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
 </div>
 
