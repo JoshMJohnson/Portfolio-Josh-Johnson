@@ -30,12 +30,15 @@ All code has been written and reviewed by Josh Johnson.<br>
     Email me for a Free Download promo code!</i>
 </div>
 
+<img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="25%" height="15%" align="left">
+<img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="25%" height="15%" align="right">
+
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 
 <br>
 
 <div align="center">
-    <small>✓ Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!<br>Android application developed using the React Native Expo framework.</small>
+    <small>✓ Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!</small>
 </div>
 
 <br>
@@ -46,7 +49,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/feature_graphic.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
+[<img src="./Portfolio_Assets/feature_graphic_list_maker.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
 <div align='center'>
@@ -59,6 +62,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <hr>
 
+<img src="/Portfolio_Assets/react_native_logo.gif" alt="Alarm Hub Logo" width="25%" height="15%" align="left">
+<img src="/Portfolio_Assets/react_native_logo.gif" alt="Alarm Hub Logo" width="25%" height="15%" align="right">
 
 <h3 align="center">Alarm Hub<br>&lpar;Android&rpar;</h3>
 
@@ -76,7 +81,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/featured_photo_youtube.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
+[<img src="./Portfolio_Assets/feature_graphic_alarm_hub.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
 </div>
 
 <div align='center'>
