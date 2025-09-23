@@ -32,8 +32,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <hr>
 
-<img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="25%" height="15%" align="left">
-<img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="25%" height="15%" align="right">
+<img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="20%" height="12%" align="left">
+<img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="20%" height="12%" align="right">
 
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 
@@ -48,6 +48,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
+
 [<img src="./Portfolio_Assets/feature_graphic_list_maker.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
@@ -61,8 +62,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <hr>
 
-<img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="25%" height="15%" align="left">
-<img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="25%" height="15%" align="right">
+<img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="20%" height="12%" align="left">
+<img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="20%" height="12%" align="right">
 
 <h3 align="center">Alarm Hub<br>&lpar;Android&rpar;</h3>
 
@@ -77,6 +78,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
+
 [<img src="./Portfolio_Assets/feature_graphic_alarm_hub.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
 </div>
 
