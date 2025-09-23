@@ -125,6 +125,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 </section>
 
+<hr>
+
 <!-- completed projects section -->
 <section id="completed-projects">
 <h2 align="center">:thumbsup: Completed Projects :thumbsup:</h2>
@@ -192,7 +194,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <div align='center'>
 
 | Project | Language&lpar;s&rpar; | Concepts Demonstrated | Description |
-| :------------------------: | :------------------------: | :------------------------ | :------------------------------------: |
+| :------------------------: | :------------------------: | :------------------------: | :------------------------------------: |
 | TBD | TBD | TBD | TBD |
 
 </div>
