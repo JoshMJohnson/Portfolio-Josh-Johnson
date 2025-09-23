@@ -37,8 +37,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 
-<br>
-
 <div align="center">
     <small>✓ Record tasks quickly and efficiently without the need of paper &amp; pens from anywhere!</small>
 </div>
@@ -68,8 +66,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="25%" height="15%" align="right">
 
 <h3 align="center">Alarm Hub<br>&lpar;Android&rpar;</h3>
-
-<br>
 
 <div align="center">
     <small>⏰ Your simple, basic, and reliable alarm clock on Android</small>
