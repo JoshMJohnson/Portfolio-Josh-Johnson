@@ -82,7 +82,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 | Language&lpar;s&rpar; | Concepts Demonstrated |
 | :------------------------ | :------------------------ | 
-| Alarm Hub | <ul><li>Flutter Framework</li><li>Foreground Service</li><li>Scheduled Alarms</li><li>Twelve Data API</li><li>Stack Navigation</li></ul> |
+| Alarm Hub | <ul><li>Flutter Framework</li><li>Foreground Service</li><li>Scheduled Alarms<ul><li>1-Time</li><li>Repeating</li></ul></li><li>Twelve Data API</li><li>Stack Navigation</li></ul> |
 
 </div>
 
