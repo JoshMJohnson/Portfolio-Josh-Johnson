@@ -26,7 +26,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <h2 align="center">:department_store: Published Software :department_store:</h2>
 
 <div align="center">
-    <i>Available on the <a href="https://play.google.com/store/apps/details?id=com.joshjohnsonhub.listmaker&pcampaignid=web_share">Google Play Store!</a><br>
+    <i>Available on the <a href="https://play.google.com/store/apps/dev?id=7288035991595825017">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
 </div>
 
