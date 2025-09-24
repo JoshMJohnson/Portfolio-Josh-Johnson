@@ -82,7 +82,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 | Language&lpar;s&rpar; | Concepts Demonstrated |
 | :------------------------ | :------------------------ | 
-| Alarm Hub | <ul><li>Flutter Framework</li><li>Notifications<ul><li>Foreground Service</li></ul></li><li>Scheduled Alarms<ul><li>1-Time</li><li>Repeating</li></ul></li><li>Storage<ul><li>Local (Shared Preferences)</li><li>Database (SQLite)</li></ul><li>Audio</li><li>Multi-Themes</li></li><li>Stack Navigation</li></ul> |
+| Alarm Hub | <ul><li>Flutter Framework</li><li>Notifications<ul><li>Foreground Service</li><li>Overlay Alarms</li></ul></li><li>Scheduled Alarms<ul><li>1-Time</li><li>Repeating</li></ul></li><li>Storage<ul><li>Local (Shared Preferences)</li><li>Database (SQLite)</li></ul><li>Audio</li><li>Multi-Themes</li></li><li>Stack Navigation</li></ul> |
 
 </div>
 
