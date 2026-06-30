@@ -28,9 +28,9 @@ All code has been written and reviewed by Josh Johnson.<br>
 <div align="center">
     <i>Available on the <a href="https://play.google.com/store/apps/dev?id=7288035991595825017">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
-</div>
 
-<img src="./Portfolio_Assets/developer_page_header.jpg" width="90%">
+    <img src="./Portfolio_Assets/developer_page_header.jpg" width="90%">
+</div>
 
 <hr>
 
