@@ -30,6 +30,8 @@ All code has been written and reviewed by Josh Johnson.<br>
     Email me for a Free Download promo code!</i>
 </div>
 
+<img src="./Portfolio_Assets/developer_page_header.jpg" width="90%">
+
 <hr>
 
 <img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="20%" height="12%" align="left">
@@ -47,7 +49,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/feature_graphic_list_maker.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
+[<img src="./Portfolio_Assets/feature_graphic_list_maker.jpg" width="50%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
 <div align='center'>
@@ -75,7 +77,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/feature_graphic_alarm_hub.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
+[<img src="./Portfolio_Assets/feature_graphic_alarm_hub.jpg" width="50%">](https://youtu.be/B8QdJpr24Ts)
 </div>
 
 <div align='center'>
@@ -114,7 +116,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 
 <div align='center'>
 
-[<img src="./Portfolio_Assets/Unreal_Excitement3.png" width="90%">](https://youtu.be/XHenpeGaOaU)
+<img src="./Portfolio_Assets/Unreal_Excitement3.png" width="90%">
 </div>
 
 </section>
