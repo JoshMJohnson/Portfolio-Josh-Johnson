@@ -29,7 +29,7 @@ All code has been written and reviewed by Josh Johnson.<br>
     <i>Available on the <a href="https://play.google.com/store/apps/dev?id=7288035991595825017">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
 
-<br><br>
+<br>
 
 <img src="./Portfolio_Assets/developer_page_header.jpg" width="90%">
 
@@ -52,7 +52,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-<br><br>
+<br>
 
 [<img src="./Portfolio_Assets/List_Maker_Featured.png" width="90%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
