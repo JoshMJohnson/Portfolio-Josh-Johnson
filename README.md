@@ -29,7 +29,7 @@ All code has been written and reviewed by Josh Johnson.<br>
     <i>Available on the <a href="https://play.google.com/store/apps/dev?id=7288035991595825017">Google Play Store!</a><br>
     Email me for a Free Download promo code!</i>
 
-<img src="./Portfolio_Assets/developer_page_headerr.jpg" width="90%">
+<img src="./Portfolio_Assets/developer_page_header.jpg" width="90%">
 
 </div>
 
@@ -50,7 +50,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/feature_graphic_list_maker.jpg" width="50%">](https://youtu.be/5cZ8tYVaUUU)
+[<img src="./Portfolio_Assets/List_Maker_Featured.png" width="50%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
 <div align='center'>
@@ -78,7 +78,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/feature_graphic_alarm_hub.jpg" width="50%">](https://youtu.be/B8QdJpr24Ts)
+[<img src="./Portfolio_Assets/Alarm_Hub_Featured.png" width="50%">](https://youtu.be/B8QdJpr24Ts)
 </div>
 
 <div align='center'>
