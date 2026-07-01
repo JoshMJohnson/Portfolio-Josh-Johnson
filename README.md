@@ -40,6 +40,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="20%" height="12%" align="left">
 <img src="/Portfolio_Assets/official_icon_list_maker.png" alt="List Maker Logo" width="20%" height="12%" align="right">
 
+<br>
+
 <h3 align="center">List Maker<br>&lpar;Android&rpar;</h3>
 
 <div align="center">
@@ -51,8 +53,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
-
-<br>
 
 [<img src="./Portfolio_Assets/List_Maker_Featured.png" width="90%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
@@ -70,6 +70,8 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="20%" height="12%" align="left">
 <img src="/Portfolio_Assets/official_icon_alarm_hub.png" alt="Alarm Hub Logo" width="20%" height="12%" align="right">
 
+<br>
+
 <h3 align="center">Alarm Hub<br>&lpar;Android&rpar;</h3>
 
 <div align="center">
@@ -81,8 +83,6 @@ All code has been written and reviewed by Josh Johnson.<br>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
-
-<br>
 
 [<img src="./Portfolio_Assets/Alarm_Hub_Featured.png" width="90%">](https://youtu.be/B8QdJpr24Ts)
 </div>
