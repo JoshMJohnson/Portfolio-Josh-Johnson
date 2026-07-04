@@ -25,7 +25,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <section id="published-software">
 <h2 align="center">:department_store: Published Software :department_store:</h2>
 
-<img src="/Portfolio_Assets/official_icon_jjhub.png" alt="Josh Johnson Hub Logo" width="20%" height="12%">
+<img src="/Portfolio_Assets/official_icon_jjhub.png" alt="Josh Johnson Hub Logo" width="20%" height="12%" align="center">
 
 <div align="center">
     <i>Available on the <a href="https://play.google.com/store/apps/dev?id=7288035991595825017">Google Play Store!</a><br>
