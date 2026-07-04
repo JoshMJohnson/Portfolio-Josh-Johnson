@@ -54,7 +54,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/List_Maker_Featured.png" width="90%">](https://youtu.be/5cZ8tYVaUUU)
+[<img src="./Portfolio_Assets/List_Maker_Featured.jpg" width="90%">](https://youtu.be/5cZ8tYVaUUU)
 </div>
 
 <div align='center'>
@@ -84,7 +84,7 @@ All code has been written and reviewed by Josh Johnson.<br>
 <strong>YouTube Trailer</strong>
 <img src="/Portfolio_Assets/YouTube_Logo.png" alt="YouTube Logo" width="18" height="12">
 
-[<img src="./Portfolio_Assets/Alarm_Hub_Featured.png" width="90%">](https://youtu.be/B8QdJpr24Ts)
+[<img src="./Portfolio_Assets/Alarm_Hub_Featured.jpg" width="90%">](https://youtu.be/B8QdJpr24Ts)
 </div>
 
 <div align='center'>
